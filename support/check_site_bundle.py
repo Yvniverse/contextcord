@@ -20,7 +20,11 @@ def main() -> int:
     ns = ap.parse_args()
     root = ns.root.resolve()
     errors = []
-    required = [root / "index.html", root / "docs/index.html", root / "site_content_manifest.json"]
+    required = [
+        root / "index.html", root / "docs/index.html", root / "site_content_manifest.json",
+        root / "legal/LICENSE.txt", root / "legal/THIRD_PARTY_NOTICES.md",
+        root / "legal/ACKNOWLEDGEMENTS.md",
+    ]
     for p in required:
         if not p.is_file():
             errors.append(f"missing:{p.relative_to(root) if p.exists() else p.name}")

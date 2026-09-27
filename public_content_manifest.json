@@ -352,9 +352,9 @@
       "sha256": "0c2e976af960593d03afd7629a29f0d46b6c0de4e0dc382a2c1d162cdd77d9ee"
     },
     {
-      "bytes": 520,
+      "bytes": 513,
       "path": "MANIFEST.in",
-      "sha256": "eff5b3e36ba6c132d91c36ff8f4919933030055a3ab76fdde1a95dcc81f11ef5"
+      "sha256": "06e86b48706a6d65189271c17c37b4485b5bd6e2b7ad8f44efc0a7a153bea42d"
     },
     {
       "bytes": 1598,
@@ -365,11 +365,6 @@
       "bytes": 1593,
       "path": "migrations/materialbrain/MIGRATION.md",
       "sha256": "763b8c46139ce3d1d559fd645a39726f6edda5454d14b73d5a7f52d5ac77aa1c"
-    },
-    {
-      "bytes": 52,
-      "path": "NOTICE",
-      "sha256": "1039e5a0f4ceb86ff959d10b92c1d919b55cddf4fab1fbe13f201256750a67f1"
     },
     {
       "bytes": 31,
@@ -512,14 +507,14 @@
       "sha256": "a3428a05b31c787d58c96c417bb6f0596a775fbe442f80b90097bb064d6fc96d"
     },
     {
-      "bytes": 7286,
+      "bytes": 7187,
       "path": "README.md",
-      "sha256": "02c6074068af323e54540baad29169b816531340893ea44c6bc9b934468cdc9d"
+      "sha256": "72e66247c56853d40fe57e879f28bb0a22e96d8869a7aebb7330e0e337a2ccc8"
     },
     {
-      "bytes": 6901,
+      "bytes": 6834,
       "path": "README_CN.md",
-      "sha256": "3751f39e62fae3d94c92b1fd4f1ac18eb4e28d4fc80a0a67a16b3a65e9e1cc6d"
+      "sha256": "64fa9cc579634b8b257735f63f8fa757cfc59e2a5caa85ed98228a52fafd3523"
     },
     {
       "bytes": 7871,
@@ -672,9 +667,9 @@
       "sha256": "5b637de306d17b6256fd5773c497bab3b4815f81117cd4d4b912472f5bc9c207"
     },
     {
-      "bytes": 4060,
+      "bytes": 4423,
       "path": "scripts/build_site_bundle.py",
-      "sha256": "af4b620b7e4b889d5addfcf91688cad914d2a3ab9be3b58051dbc5645ebd122c"
+      "sha256": "92c03c235ef48c4945cafd54cae570fb3f8c721eec0b43787bfd1fe553b87f32"
     },
     {
       "bytes": 1169,
@@ -692,9 +687,9 @@
       "sha256": "a980044ca6d02f5664bd5918fedf9968dad9f4fb007e1df6f3cdf6e15f63650b"
     },
     {
-      "bytes": 2475,
+      "bytes": 2266,
       "path": "scripts/contextcord_wheel_smoke.py",
-      "sha256": "193eeadfdd1ea588d326829fef76e963ff6702a737837e864e495ba1aee8a61d"
+      "sha256": "354f9a4e031f8050c82bfa7e0844dfdf5ccb0c43a56eafe7528062124d9f1c27"
     },
     {
       "bytes": 1606,
@@ -1217,14 +1212,14 @@
       "sha256": "79b821bdd320c8de4007b7fd05ea721760b90f8d6a5c5d63ed462c03668f14f6"
     },
     {
-      "bytes": 2723,
+      "bytes": 2714,
       "path": "support/check_public_candidate.py",
-      "sha256": "b9a3fa5bbd73a8647457465dafa1e582e5117d3ab2f8bbfc898fc00a68160fdc"
+      "sha256": "9cabc181e7886e898c3989ee441d14c420dbf06245acfa76d93b20bbce490c21"
     },
     {
-      "bytes": 4349,
+      "bytes": 4319,
       "path": "support/check_public_repo.py",
-      "sha256": "fcb1d0edce321b39ad519f9fa76a856d1b52cbeb39a6d599c139c2210004fa65"
+      "sha256": "5130bf6d6cf21fb8984fdbae42fa6b09a8f163c4e7ebfdea4d5a3197fffcbef1"
     },
     {
       "bytes": 5066,
@@ -1232,9 +1227,9 @@
       "sha256": "9924bcf1d0bcf88c754522ec5df64362e0cc7fe7bbe3a6add35377e557a8dea5"
     },
     {
-      "bytes": 2684,
+      "bytes": 2818,
       "path": "support/check_site_bundle.py",
-      "sha256": "cf9471e5128e58a271eda48daa70a56b1054d549e2536213e62ddf94dd896792"
+      "sha256": "5f99f59223606403a7852a268681cfcdca3b5c0ab693c5fb1165faa7c262e1d6"
     },
     {
       "bytes": 647,
@@ -1437,9 +1432,9 @@
       "sha256": "f7b875d6e336bf56227fd18358ba1d4c04e30ee3c309a9a64dc2a89847136444"
     },
     {
-      "bytes": 1187,
+      "bytes": 1156,
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "6fba782ef180f96ce391d9246f2dd5ea0a4175daf7038e239ed331171e357b0a"
+      "sha256": "0205cafce52ea24322c31727ec39cd35a7e631460f52d51503263a36a129b8be"
     },
     {
       "bytes": 57550,

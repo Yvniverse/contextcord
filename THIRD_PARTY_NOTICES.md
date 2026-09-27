@@ -16,4 +16,4 @@ Runtime and development dependencies declared by ContextCord remain under the li
 
 ## Inherited source
 
-Before the first Apache-2.0 public release, the provenance gate must identify any inherited source that ContextCord cannot relicense directly. Required prior copyright/license notices must be preserved here or under `LICENSES/` with an explicit scope.
+Any inherited source that carries a prior copyright or license notice must retain that notice for the scope where it applies. The first Public Alpha does not attempt to replace those obligations with a different license.

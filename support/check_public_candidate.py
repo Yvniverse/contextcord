@@ -9,7 +9,7 @@ FORBIDDEN_PATH_SNIPPETS=(
     'benchmarks/context_sufficiency_test_trials.jsonl','benchmarks/live_benchmark_v3_trials.jsonl',
     'docs/RELEASE_READINESS.md',
 )
-CURRENT_TEXT_FILES=('README.md','README_CN.md','NOTICE','pyproject.toml','CITATION.cff')
+CURRENT_TEXT_FILES=('README.md','README_CN.md','pyproject.toml','CITATION.cff')
 
 
 def main()->int:

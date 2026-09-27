@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 REQUIRED = [
-    "README.md", "README_CN.md", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md",
+    "README.md", "README_CN.md", "LICENSE", "THIRD_PARTY_NOTICES.md",
     "ACKNOWLEDGEMENTS.md", "SECURITY.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md",
     "CITATION.cff", "pyproject.toml", "web/index.html", "web/docs/index.html",
     "docs/QUICKSTART.md", "docs/QUICKSTART_CN.md", "docs/INTEGRATIONS.md",
@@ -47,14 +47,14 @@ def main(argv: list[str] | None = None) -> int:
     for rel in sorted(staged_paths):
         if any(bad in rel for bad in FORBIDDEN_ACTIVE_PATHS):
             errors.append(f"forbidden active path: {rel}")
-    for rel in ("README.md", "README_CN.md", "NOTICE", "web/index.html", "web/docs/index.html"):
+    for rel in ("README.md", "README_CN.md", "web/index.html", "web/docs/index.html"):
         path = root / rel
         if not path.is_file():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         if "ROUTER_V2" in text:
             errors.append(f"active Router v2 reference: {rel}")
-        if rel in {"README.md", "README_CN.md", "NOTICE", "web/index.html", "web/docs/index.html"} and re.search(r"Agent[-_ ]?Nexus|Project[-_ ]?Harness|ProjectTrust", text, re.I):
+        if rel in {"README.md", "README_CN.md", "web/index.html", "web/docs/index.html"} and re.search(r"Agent[-_ ]?Nexus|Project[-_ ]?Harness|ProjectTrust", text, re.I):
             errors.append(f"legacy brand in current surface: {rel}")
     for rel in ("docs/HOST_ADAPTER_MATRIX.json", "docs/HOST_TIER_MATRIX.md", "support/host_tiers.json"):
         path = root / rel

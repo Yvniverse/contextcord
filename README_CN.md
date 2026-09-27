@@ -125,4 +125,4 @@ ContextCord 处于 **Public Alpha**。Continuity、Evidence、Capability 与 MCP
 
 ## 许可证与致谢
 
-本仓库继续使用 [MIT License](LICENSE)。Apache-2.0 迁移在 Git history provenance 与 relicensing 权利独立核验前保持阻塞；本版本不宣称已经完成公开重许可。第三方归属见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。架构文档使用 [Archify](https://github.com/tt-a1i/archify)；可选 Model Intelligence 可以把 [CodexRadar / DRadar](https://deng.codexradar.com/) 的公开观测数据作为带归属的 advisory source。详见 [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md)。
+ContextCord 0.6.2a1 Public Alpha 使用 [MIT License](LICENSE) 发布。第三方依赖与生成资产仍遵循各自许可与归属要求，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md)。架构文档使用 [Archify](https://github.com/tt-a1i/archify)；可选 Model Intelligence 可以把 [CodexRadar / DRadar](https://deng.codexradar.com/) 的公开观测数据作为带归属的 advisory source。

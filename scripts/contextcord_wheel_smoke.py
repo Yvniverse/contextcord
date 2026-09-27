@@ -25,12 +25,9 @@ def main(argv: list[str] | None = None) -> int:
             "contextcord/schemas/host-evidence-registry.schema.json",
         }
         required_license = next((name for name in names if name.endswith(".dist-info/licenses/LICENSE")), None)
-        required_notice = next((name for name in names if name.endswith(".dist-info/licenses/NOTICE")), None)
         missing = sorted(required - names)
         if required_license is None:
             missing.append("dist-info/licenses/LICENSE")
-        if required_notice is None:
-            missing.append("dist-info/licenses/NOTICE")
         if missing:
             print(json.dumps({"status": "FAIL", "missing": missing}, ensure_ascii=False))
             return 1
@@ -51,7 +48,7 @@ def main(argv: list[str] | None = None) -> int:
         "returncode": probe.returncode,
         "stdout": probe.stdout.strip(),
         "stderr": probe.stderr.strip(),
-        "required_license_notice": True,
+        "required_license": True,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["status"] == "PASS" else 1
