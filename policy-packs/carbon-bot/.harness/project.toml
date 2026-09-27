@@ -1,0 +1,30 @@
+[project]
+name = "Carbon-Bot"
+
+[identity]
+mode = "exact_commit"
+
+[knowledge]
+entrypoints = [
+  "AGENTS.md",
+  "PROJECT_RULES.md",
+  "docs/agent/PROJECT_MEMORY.md",
+  "docs/agent/ENVIRONMENT_AUTHORITY.md",
+  "docs/agent/KNOWN_ISSUES.md"
+]
+
+[policy]
+entrypoints = [
+  "AGENTS.md",
+  "PROJECT_RULES.md",
+  "docs/agent/ENVIRONMENT_AUTHORITY.md",
+  "docs/agent/KNOWN_ISSUES.md"
+]
+
+[memory]
+require_same_commit_as_truth = false
+sealed_on_verify = true
+
+[dogfood]
+ledger_path = ".harness/dual-run/adjudications.json"
+required_task_classes = ["code-only", "data-readonly", "staging", "release"]

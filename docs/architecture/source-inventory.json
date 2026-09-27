@@ -1,0 +1,4296 @@
+{
+  "groups": {
+    "Adaptive Router": [
+      "calibration",
+      "execution_routes",
+      "router"
+    ],
+    "Capability Registry": [
+      "capabilities",
+      "config",
+      "profiles"
+    ],
+    "Context Engine": [
+      "bm25"
+    ],
+    "Continuity Core": [
+      "context",
+      "handoff",
+      "memory",
+      "store"
+    ],
+    "Decision Fabric": [
+      "decision",
+      "decision_fabric",
+      "jev_dotenv",
+      "jev_provider"
+    ],
+    "Evidence & Runtime": [
+      "closeout",
+      "dualrun",
+      "extensions",
+      "gitops",
+      "migration",
+      "policy",
+      "process",
+      "release_identity",
+      "replay",
+      "runner",
+      "runtime",
+      "util",
+      "version",
+      "workflow",
+      "workflow_checks"
+    ],
+    "MCP / Host Gateway": [
+      "__init__",
+      "__main__",
+      "adapter_lab",
+      "adapters",
+      "cli",
+      "entrypoint",
+      "host_configs",
+      "host_registry",
+      "hostbridge",
+      "mcp",
+      "service"
+    ],
+    "Model Intelligence": [
+      "model_intelligence",
+      "providers"
+    ],
+    "Trust & Freshness": [
+      "build_identity",
+      "contracts",
+      "evidence",
+      "fingerprint",
+      "identity",
+      "portable",
+      "qualification",
+      "receipt",
+      "truth"
+    ]
+  },
+  "logical_groups": [
+    "Continuity Core",
+    "Context Engine",
+    "Trust & Freshness",
+    "Decision Fabric",
+    "Adaptive Router",
+    "Model Intelligence",
+    "Capability Registry",
+    "MCP / Host Gateway",
+    "Evidence & Runtime"
+  ],
+  "module_count": 52,
+  "modules": [
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "version"
+      ],
+      "module": "__init__",
+      "path": "src/contextcord/__init__.py",
+      "sha256": "e2a9180672969587e25bdab83d28a7aaea1abdd9fe299af323a291b9cd284832",
+      "symbols": []
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "entrypoint"
+      ],
+      "module": "__main__",
+      "path": "src/contextcord/__main__.py",
+      "sha256": "8742c1b766812edb07174a724d676ffeff58b71b3c192d35102a3e652e962946",
+      "symbols": []
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "util"
+      ],
+      "module": "adapter_lab",
+      "path": "src/contextcord/adapter_lab.py",
+      "sha256": "f5325c1e02ef470a68fb4fc4614838522064dcd60cb9203eb33a48b1df031ac2",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 34,
+          "kind": "FunctionDef",
+          "line": 33,
+          "name": "_repo_root"
+        },
+        {
+          "description": "",
+          "end_line": 38,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "_schema_path"
+        },
+        {
+          "description": "",
+          "end_line": 43,
+          "kind": "FunctionDef",
+          "line": 41,
+          "name": "_redact"
+        },
+        {
+          "description": "",
+          "end_line": 60,
+          "kind": "FunctionDef",
+          "line": 46,
+          "name": "_secret_paths"
+        },
+        {
+          "description": "",
+          "end_line": 67,
+          "kind": "FunctionDef",
+          "line": 63,
+          "name": "load_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 84,
+          "kind": "FunctionDef",
+          "line": 70,
+          "name": "validate_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 99,
+          "kind": "FunctionDef",
+          "line": 87,
+          "name": "discover_manifests"
+        },
+        {
+          "description": "",
+          "end_line": 127,
+          "kind": "FunctionDef",
+          "line": 102,
+          "name": "init_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 135,
+          "kind": "FunctionDef",
+          "line": 130,
+          "name": "_command"
+        },
+        {
+          "description": "",
+          "end_line": 143,
+          "kind": "FunctionDef",
+          "line": 138,
+          "name": "_safe_environment"
+        },
+        {
+          "description": "",
+          "end_line": 157,
+          "kind": "FunctionDef",
+          "line": 146,
+          "name": "_run_probe"
+        },
+        {
+          "description": "",
+          "end_line": 177,
+          "kind": "FunctionDef",
+          "line": 160,
+          "name": "probe_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 197,
+          "kind": "FunctionDef",
+          "line": 180,
+          "name": "render_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 221,
+          "kind": "FunctionDef",
+          "line": 200,
+          "name": "certify_manifest"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [],
+      "module": "adapters",
+      "path": "src/contextcord/adapters.py",
+      "sha256": "000e0de39c91baa5357af8b48498a91f8697b57622a2d1f0608e73b7a2f4230a",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 242,
+          "kind": "FunctionDef",
+          "line": 237,
+          "name": "capabilities"
+        },
+        {
+          "description": "",
+          "end_line": 251,
+          "kind": "FunctionDef",
+          "line": 245,
+          "name": "check_requirements"
+        },
+        {
+          "description": "",
+          "end_line": 340,
+          "kind": "FunctionDef",
+          "line": 254,
+          "name": "render"
+        }
+      ]
+    },
+    {
+      "group": "Context Engine",
+      "local_imports": [],
+      "module": "bm25",
+      "path": "src/contextcord/bm25.py",
+      "sha256": "7af1d32def0e70d5bf39823bf37501a0ce41fdba5523fab8f9ddef6416eded76",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 23,
+          "kind": "FunctionDef",
+          "line": 22,
+          "name": "_tokens"
+        },
+        {
+          "description": "",
+          "end_line": 30,
+          "kind": "FunctionDef",
+          "line": 26,
+          "name": "_candidate_id"
+        },
+        {
+          "description": "",
+          "end_line": 37,
+          "kind": "FunctionDef",
+          "line": 33,
+          "name": "_candidate_text"
+        },
+        {
+          "description": "Return a stable hash of the exact pool supplied to the selector.",
+          "end_line": 49,
+          "kind": "FunctionDef",
+          "line": 40,
+          "name": "candidate_pool_sha256"
+        },
+        {
+          "description": "",
+          "end_line": 76,
+          "kind": "ClassDef",
+          "line": 53,
+          "name": "BM25Selection"
+        },
+        {
+          "description": "",
+          "end_line": 63,
+          "kind": "FunctionDef",
+          "line": 62,
+          "name": "BM25Selection.selected_memory_ids"
+        },
+        {
+          "description": "",
+          "end_line": 76,
+          "kind": "FunctionDef",
+          "line": 65,
+          "name": "BM25Selection.as_dict"
+        },
+        {
+          "description": "Deterministic Okapi BM25 selector with stable tie breaking.",
+          "end_line": 161,
+          "kind": "ClassDef",
+          "line": 79,
+          "name": "BM25Selector"
+        },
+        {
+          "description": "",
+          "end_line": 86,
+          "kind": "FunctionDef",
+          "line": 82,
+          "name": "BM25Selector.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 161,
+          "kind": "FunctionDef",
+          "line": 88,
+          "name": "BM25Selector.select"
+        },
+        {
+          "description": "Convenience API for adapters and benchmark runners.",
+          "end_line": 166,
+          "kind": "FunctionDef",
+          "line": 164,
+          "name": "select_bm25"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "__version__",
+        "util"
+      ],
+      "module": "build_identity",
+      "path": "src/contextcord/build_identity.py",
+      "sha256": "76ee347458171fccf056377e255f63b2c3679eac343420ebffe47c6c59840779",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 13,
+          "kind": "FunctionDef",
+          "line": 7,
+          "name": "build_identity"
+        }
+      ]
+    },
+    {
+      "group": "Adaptive Router",
+      "local_imports": [
+        "contracts",
+        "router"
+      ],
+      "module": "calibration",
+      "path": "src/contextcord/calibration.py",
+      "sha256": "8b91b3519c7899829abc6981a97cb5b5f4281fbaa79d85e082e3e1a7e4d8ee16",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 34,
+          "kind": "FunctionDef",
+          "line": 27,
+          "name": "_eligible"
+        },
+        {
+          "description": "Run one bounded task in a disposable fixture; never run against product source.",
+          "end_line": 86,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "_run_codex_task"
+        },
+        {
+          "description": "Run the fixed three-role calibration with hard caps and one escalation.",
+          "end_line": 173,
+          "kind": "FunctionDef",
+          "line": 89,
+          "name": "run_adaptive_calibration"
+        }
+      ]
+    },
+    {
+      "group": "Capability Registry",
+      "local_imports": [
+        "providers"
+      ],
+      "module": "capabilities",
+      "path": "src/contextcord/capabilities.py",
+      "sha256": "18c8e95f710dbb73af73c52def308749dba3811253e62af94fe92b1292b6b88a",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 30,
+          "kind": "ClassDef",
+          "line": 21,
+          "name": "CapabilitySpec"
+        },
+        {
+          "description": "",
+          "end_line": 55,
+          "kind": "FunctionDef",
+          "line": 33,
+          "name": "_spec"
+        },
+        {
+          "description": "A user-intent/configuration error with a stable machine-readable code.",
+          "end_line": 208,
+          "kind": "ClassDef",
+          "line": 202,
+          "name": "CapabilityConfigError"
+        },
+        {
+          "description": "",
+          "end_line": 208,
+          "kind": "FunctionDef",
+          "line": 205,
+          "name": "CapabilityConfigError.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 216,
+          "kind": "FunctionDef",
+          "line": 211,
+          "name": "_values"
+        },
+        {
+          "description": "",
+          "end_line": 220,
+          "kind": "FunctionDef",
+          "line": 219,
+          "name": "_ordered"
+        },
+        {
+          "description": "",
+          "end_line": 240,
+          "kind": "FunctionDef",
+          "line": 223,
+          "name": "_closure"
+        },
+        {
+          "description": "Resolve profile, explicit enable/disable and hard dependency closure.",
+          "end_line": 278,
+          "kind": "FunctionDef",
+          "line": 243,
+          "name": "resolve_features"
+        },
+        {
+          "description": "",
+          "end_line": 282,
+          "kind": "FunctionDef",
+          "line": 281,
+          "name": "enabled"
+        },
+        {
+          "description": "Return module responsibility and health derived from ``SPECS`` + status.\n\nThe optional status payload lets repository-aware callers reuse the exact\nsecret-safe provider inspection they already performed.  A lightweight\nstatus is derived for library callers, without network access or provider\nimports, so this remains a projection rather than a second registry.",
+          "end_line": 351,
+          "kind": "FunctionDef",
+          "line": 285,
+          "name": "product_module_projection"
+        },
+        {
+          "description": "",
+          "end_line": 358,
+          "kind": "FunctionDef",
+          "line": 354,
+          "name": "spec"
+        },
+        {
+          "description": "",
+          "end_line": 375,
+          "kind": "FunctionDef",
+          "line": 361,
+          "name": "_installed"
+        },
+        {
+          "description": "Return the four-layer capability status without performing provider I/O.",
+          "end_line": 428,
+          "kind": "FunctionDef",
+          "line": 378,
+          "name": "status"
+        },
+        {
+          "description": "Atomically replace only the existing ``[features]`` TOML table.\n\nPython's standard library intentionally has no TOML writer.  Replacing a\nsmall, bounded table preserves all unrelated project/provider settings and\navoids introducing a second configuration file or dependency.",
+          "end_line": 478,
+          "kind": "FunctionDef",
+          "line": 431,
+          "name": "atomic_write_features"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "adapter_lab",
+        "adapters",
+        "build_identity",
+        "calibration",
+        "capabilities",
+        "closeout",
+        "config",
+        "context",
+        "decision_fabric",
+        "dualrun",
+        "evidence",
+        "execution_routes",
+        "fingerprint",
+        "gitops",
+        "handoff",
+        "host_configs",
+        "hostbridge",
+        "identity",
+        "jev_provider",
+        "mcp",
+        "memory",
+        "migration",
+        "model_intelligence",
+        "portable",
+        "profiles",
+        "providers",
+        "qualification",
+        "receipt",
+        "release_identity",
+        "replay",
+        "router",
+        "runner",
+        "runtime",
+        "store",
+        "truth",
+        "util",
+        "workflow",
+        "workflow_checks"
+      ],
+      "module": "cli",
+      "path": "src/contextcord/cli.py",
+      "sha256": "050550b6f105d544e17519ddb5216542b343dd7b3460d782dd71803c9c63a54f",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 65,
+          "kind": "FunctionDef",
+          "line": 64,
+          "name": "_repo"
+        },
+        {
+          "description": "",
+          "end_line": 69,
+          "kind": "FunctionDef",
+          "line": 68,
+          "name": "_json"
+        },
+        {
+          "description": "",
+          "end_line": 74,
+          "kind": "FunctionDef",
+          "line": 72,
+          "name": "_feature_resolution"
+        },
+        {
+          "description": "Return false with a structured response when a command is disabled.\n\nProjects without a ``[features]`` table intentionally use the\n``legacy_current`` compatibility surface.  This fallback also keeps direct\nprogrammatic calls to older handlers working for uninitialized fixtures.",
+          "end_line": 96,
+          "kind": "FunctionDef",
+          "line": 77,
+          "name": "_require_capability"
+        },
+        {
+          "description": "",
+          "end_line": 104,
+          "kind": "FunctionDef",
+          "line": 99,
+          "name": "_project_provider_config"
+        },
+        {
+          "description": "",
+          "end_line": 108,
+          "kind": "FunctionDef",
+          "line": 107,
+          "name": "_features_file"
+        },
+        {
+          "description": "",
+          "end_line": 140,
+          "kind": "FunctionDef",
+          "line": 111,
+          "name": "_feature_mutation"
+        },
+        {
+          "description": "",
+          "end_line": 164,
+          "kind": "FunctionDef",
+          "line": 143,
+          "name": "cmd_feature"
+        },
+        {
+          "description": "",
+          "end_line": 218,
+          "kind": "FunctionDef",
+          "line": 167,
+          "name": "cmd_provider"
+        },
+        {
+          "description": "",
+          "end_line": 229,
+          "kind": "FunctionDef",
+          "line": 221,
+          "name": "_codexradar_cache_status"
+        },
+        {
+          "description": "",
+          "end_line": 262,
+          "kind": "FunctionDef",
+          "line": 232,
+          "name": "cmd_model_intelligence"
+        },
+        {
+          "description": "",
+          "end_line": 304,
+          "kind": "FunctionDef",
+          "line": 265,
+          "name": "cmd_router_outcomes"
+        },
+        {
+          "description": "",
+          "end_line": 317,
+          "kind": "FunctionDef",
+          "line": 307,
+          "name": "_find_unresolved"
+        },
+        {
+          "description": "",
+          "end_line": 325,
+          "kind": "FunctionDef",
+          "line": 320,
+          "name": "cmd_init"
+        },
+        {
+          "description": "",
+          "end_line": 358,
+          "kind": "FunctionDef",
+          "line": 328,
+          "name": "doctor_value"
+        },
+        {
+          "description": "",
+          "end_line": 362,
+          "kind": "FunctionDef",
+          "line": 361,
+          "name": "cmd_doctor"
+        },
+        {
+          "description": "",
+          "end_line": 373,
+          "kind": "FunctionDef",
+          "line": 365,
+          "name": "_task_or_create"
+        },
+        {
+          "description": "",
+          "end_line": 390,
+          "kind": "FunctionDef",
+          "line": 376,
+          "name": "cmd_start"
+        },
+        {
+          "description": "",
+          "end_line": 403,
+          "kind": "FunctionDef",
+          "line": 393,
+          "name": "cmd_context"
+        },
+        {
+          "description": "",
+          "end_line": 409,
+          "kind": "FunctionDef",
+          "line": 406,
+          "name": "_session_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 443,
+          "kind": "FunctionDef",
+          "line": 412,
+          "name": "cmd_state"
+        },
+        {
+          "description": "",
+          "end_line": 451,
+          "kind": "FunctionDef",
+          "line": 446,
+          "name": "cmd_authorize"
+        },
+        {
+          "description": "",
+          "end_line": 461,
+          "kind": "FunctionDef",
+          "line": 454,
+          "name": "_resolve_session"
+        },
+        {
+          "description": "",
+          "end_line": 471,
+          "kind": "FunctionDef",
+          "line": 464,
+          "name": "cmd_checkpoint"
+        },
+        {
+          "description": "",
+          "end_line": 481,
+          "kind": "FunctionDef",
+          "line": 474,
+          "name": "cmd_run"
+        },
+        {
+          "description": "",
+          "end_line": 489,
+          "kind": "FunctionDef",
+          "line": 484,
+          "name": "_db_evidence"
+        },
+        {
+          "description": "",
+          "end_line": 506,
+          "kind": "FunctionDef",
+          "line": 492,
+          "name": "cmd_evidence"
+        },
+        {
+          "description": "",
+          "end_line": 514,
+          "kind": "FunctionDef",
+          "line": 509,
+          "name": "_summary"
+        },
+        {
+          "description": "",
+          "end_line": 520,
+          "kind": "FunctionDef",
+          "line": 517,
+          "name": "_latest_by_name"
+        },
+        {
+          "description": "",
+          "end_line": 604,
+          "kind": "FunctionDef",
+          "line": 523,
+          "name": "cmd_finish"
+        },
+        {
+          "description": "",
+          "end_line": 655,
+          "kind": "FunctionDef",
+          "line": 607,
+          "name": "cmd_verify"
+        },
+        {
+          "description": "",
+          "end_line": 663,
+          "kind": "FunctionDef",
+          "line": 658,
+          "name": "_hook_payload"
+        },
+        {
+          "description": "",
+          "end_line": 668,
+          "kind": "FunctionDef",
+          "line": 666,
+          "name": "_host_session_id"
+        },
+        {
+          "description": "",
+          "end_line": 686,
+          "kind": "FunctionDef",
+          "line": 671,
+          "name": "cmd_hook_start"
+        },
+        {
+          "description": "",
+          "end_line": 709,
+          "kind": "FunctionDef",
+          "line": 689,
+          "name": "cmd_hook_stop"
+        },
+        {
+          "description": "",
+          "end_line": 729,
+          "kind": "FunctionDef",
+          "line": 712,
+          "name": "cmd_host_event"
+        },
+        {
+          "description": "",
+          "end_line": 737,
+          "kind": "FunctionDef",
+          "line": 732,
+          "name": "cmd_drift"
+        },
+        {
+          "description": "",
+          "end_line": 750,
+          "kind": "FunctionDef",
+          "line": 740,
+          "name": "cmd_lease"
+        },
+        {
+          "description": "",
+          "end_line": 760,
+          "kind": "FunctionDef",
+          "line": 753,
+          "name": "cmd_events"
+        },
+        {
+          "description": "",
+          "end_line": 777,
+          "kind": "FunctionDef",
+          "line": 763,
+          "name": "cmd_qualification"
+        },
+        {
+          "description": "",
+          "end_line": 787,
+          "kind": "FunctionDef",
+          "line": 780,
+          "name": "cmd_dual_run"
+        },
+        {
+          "description": "",
+          "end_line": 797,
+          "kind": "FunctionDef",
+          "line": 790,
+          "name": "cmd_receipt"
+        },
+        {
+          "description": "",
+          "end_line": 801,
+          "kind": "FunctionDef",
+          "line": 800,
+          "name": "cmd_identity"
+        },
+        {
+          "description": "",
+          "end_line": 808,
+          "kind": "FunctionDef",
+          "line": 804,
+          "name": "cmd_release_identity"
+        },
+        {
+          "description": "",
+          "end_line": 820,
+          "kind": "FunctionDef",
+          "line": 811,
+          "name": "cmd_bundle"
+        },
+        {
+          "description": "",
+          "end_line": 873,
+          "kind": "FunctionDef",
+          "line": 823,
+          "name": "cmd_memory"
+        },
+        {
+          "description": "",
+          "end_line": 887,
+          "kind": "FunctionDef",
+          "line": 876,
+          "name": "cmd_adapter"
+        },
+        {
+          "description": "",
+          "end_line": 898,
+          "kind": "FunctionDef",
+          "line": 890,
+          "name": "cmd_assisted_resume"
+        },
+        {
+          "description": "",
+          "end_line": 912,
+          "kind": "FunctionDef",
+          "line": 901,
+          "name": "cmd_decision_fabric"
+        },
+        {
+          "description": "",
+          "end_line": 1107,
+          "kind": "FunctionDef",
+          "line": 915,
+          "name": "cmd_router"
+        },
+        {
+          "description": "",
+          "end_line": 1113,
+          "kind": "FunctionDef",
+          "line": 1110,
+          "name": "cmd_migrate"
+        },
+        {
+          "description": "",
+          "end_line": 1126,
+          "kind": "FunctionDef",
+          "line": 1116,
+          "name": "cmd_closeout"
+        },
+        {
+          "description": "",
+          "end_line": 1149,
+          "kind": "FunctionDef",
+          "line": 1129,
+          "name": "cmd_adapters"
+        },
+        {
+          "description": "",
+          "end_line": 1158,
+          "kind": "FunctionDef",
+          "line": 1152,
+          "name": "cmd_replay"
+        },
+        {
+          "description": "",
+          "end_line": 1165,
+          "kind": "FunctionDef",
+          "line": 1161,
+          "name": "cmd_mcp"
+        },
+        {
+          "description": "",
+          "end_line": 1307,
+          "kind": "FunctionDef",
+          "line": 1168,
+          "name": "build_parser"
+        },
+        {
+          "description": "",
+          "end_line": 1318,
+          "kind": "FunctionDef",
+          "line": 1310,
+          "name": "main"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "config",
+        "identity",
+        "memory",
+        "store",
+        "util"
+      ],
+      "module": "closeout",
+      "path": "src/contextcord/closeout.py",
+      "sha256": "70b4ab0c58333b03403636bba7da66864852c5ca1846835e6b4810ca86eaf78a",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 25,
+          "kind": "FunctionDef",
+          "line": 24,
+          "name": "_digest"
+        },
+        {
+          "description": "",
+          "end_line": 40,
+          "kind": "FunctionDef",
+          "line": 28,
+          "name": "_load_summary"
+        },
+        {
+          "description": "",
+          "end_line": 61,
+          "kind": "FunctionDef",
+          "line": 43,
+          "name": "_write_generated_doc"
+        },
+        {
+          "description": "Run the repository's single architecture sync entry point.\n\nThe helper is intentionally best-effort for ordinary private closeout:\nmissing Node/Archify reports ``RENDER_PENDING`` and never becomes a false\nsync claim.  The release drift gate remains the strict authority.",
+          "end_line": 101,
+          "kind": "FunctionDef",
+          "line": 64,
+          "name": "_architecture_phase"
+        },
+        {
+          "description": "",
+          "end_line": 197,
+          "kind": "FunctionDef",
+          "line": 104,
+          "name": "closeout"
+        }
+      ]
+    },
+    {
+      "group": "Capability Registry",
+      "local_imports": [
+        "contracts",
+        "util"
+      ],
+      "module": "config",
+      "path": "src/contextcord/config.py",
+      "sha256": "c326adc43f77c9fe60540244111b0243acbea5c46cb6a2eca0b08c2f17338a02",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 19,
+          "kind": "ClassDef",
+          "line": 18,
+          "name": "ConfigError"
+        },
+        {
+          "description": "Return the canonical config root, with an explicit legacy fallback.",
+          "end_line": 39,
+          "kind": "FunctionDef",
+          "line": 26,
+          "name": "state_root"
+        },
+        {
+          "description": "",
+          "end_line": 55,
+          "kind": "FunctionDef",
+          "line": 48,
+          "name": "_expand"
+        },
+        {
+          "description": "",
+          "end_line": 78,
+          "kind": "FunctionDef",
+          "line": 58,
+          "name": "load_data"
+        },
+        {
+          "description": "",
+          "end_line": 87,
+          "kind": "FunctionDef",
+          "line": 81,
+          "name": "_validate_regexes"
+        },
+        {
+          "description": "Compatibility bridge for a v0.2 project.toml that only had excludes.\n\nNew profiles ship truth.toml. During shadow migration, old installs still load\nwith a conservative source-default classifier and explicit ignore rules.",
+          "end_line": 106,
+          "kind": "FunctionDef",
+          "line": 90,
+          "name": "_legacy_truth"
+        },
+        {
+          "description": "",
+          "end_line": 116,
+          "kind": "FunctionDef",
+          "line": 109,
+          "name": "_legacy_qualification"
+        },
+        {
+          "description": "",
+          "end_line": 122,
+          "kind": "FunctionDef",
+          "line": 119,
+          "name": "_repo_owned_entrypoint"
+        },
+        {
+          "description": "Translate trusted-boundary path failures into configuration errors.\n\n``ensure_repo_path`` deliberately keeps its generic ``ValueError`` contract\nfor callers that need to distinguish path validation failures.  Config\ndiscovery is a policy boundary, so the same failures must be surfaced as a\nstable ``ConfigError`` instead of leaking an implementation exception.",
+          "end_line": 137,
+          "kind": "FunctionDef",
+          "line": 125,
+          "name": "_trusted_repo_path"
+        },
+        {
+          "description": "",
+          "end_line": 219,
+          "kind": "FunctionDef",
+          "line": 140,
+          "name": "_validate_semantics"
+        },
+        {
+          "description": "",
+          "end_line": 265,
+          "kind": "ClassDef",
+          "line": 223,
+          "name": "HarnessConfig"
+        },
+        {
+          "description": "",
+          "end_line": 237,
+          "kind": "FunctionDef",
+          "line": 235,
+          "name": "HarnessConfig.notes_ref"
+        },
+        {
+          "description": "",
+          "end_line": 241,
+          "kind": "FunctionDef",
+          "line": 240,
+          "name": "HarnessConfig.identity_mode"
+        },
+        {
+          "description": "",
+          "end_line": 247,
+          "kind": "FunctionDef",
+          "line": 244,
+          "name": "HarnessConfig.fingerprint_excludes"
+        },
+        {
+          "description": "",
+          "end_line": 252,
+          "kind": "FunctionDef",
+          "line": 250,
+          "name": "HarnessConfig.knowledge_entrypoints"
+        },
+        {
+          "description": "",
+          "end_line": 257,
+          "kind": "FunctionDef",
+          "line": 255,
+          "name": "HarnessConfig.policy_entrypoints"
+        },
+        {
+          "description": "",
+          "end_line": 261,
+          "kind": "FunctionDef",
+          "line": 260,
+          "name": "HarnessConfig.require_same_commit_as_truth"
+        },
+        {
+          "description": "",
+          "end_line": 265,
+          "kind": "FunctionDef",
+          "line": 264,
+          "name": "HarnessConfig.sealed_memory_on_verify"
+        },
+        {
+          "description": "",
+          "end_line": 312,
+          "kind": "FunctionDef",
+          "line": 268,
+          "name": "discover"
+        }
+      ]
+    },
+    {
+      "group": "Continuity Core",
+      "local_imports": [
+        "config",
+        "gitops",
+        "identity",
+        "runtime",
+        "store",
+        "truth"
+      ],
+      "module": "context",
+      "path": "src/contextcord/context.py",
+      "sha256": "45f1eb6d05659b855c34d2f9655db12c91fcd81f9432d28f729207783427281c",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 33,
+          "kind": "FunctionDef",
+          "line": 13,
+          "name": "resolve_context"
+        },
+        {
+          "description": "",
+          "end_line": 57,
+          "kind": "FunctionDef",
+          "line": 36,
+          "name": "render_context"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [],
+      "module": "contracts",
+      "path": "src/contextcord/contracts.py",
+      "sha256": "c1ed757f83c577122d085aecb9e4f0efe60b2a3045b225f48d40569e2823a6bd",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 11,
+          "kind": "ClassDef",
+          "line": 10,
+          "name": "ContractError"
+        },
+        {
+          "description": "",
+          "end_line": 46,
+          "kind": "FunctionDef",
+          "line": 38,
+          "name": "schema"
+        },
+        {
+          "description": "",
+          "end_line": 55,
+          "kind": "FunctionDef",
+          "line": 49,
+          "name": "validation_errors"
+        },
+        {
+          "description": "",
+          "end_line": 61,
+          "kind": "FunctionDef",
+          "line": 58,
+          "name": "validate"
+        }
+      ]
+    },
+    {
+      "group": "Decision Fabric",
+      "local_imports": [
+        "jev_provider"
+      ],
+      "module": "decision",
+      "path": "src/contextcord/decision.py",
+      "sha256": "0287148f191cebaf1900cbf4df57ca700ad28d6658c4007689b05ffd845f4332",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 24,
+          "kind": "FunctionDef",
+          "line": 17,
+          "name": "_tokens"
+        },
+        {
+          "description": "",
+          "end_line": 28,
+          "kind": "FunctionDef",
+          "line": 27,
+          "name": "_candidate_text"
+        },
+        {
+          "description": "",
+          "end_line": 48,
+          "kind": "FunctionDef",
+          "line": 31,
+          "name": "_validate"
+        },
+        {
+          "description": "",
+          "end_line": 52,
+          "kind": "FunctionDef",
+          "line": 51,
+          "name": "_pool_hash"
+        },
+        {
+          "description": "",
+          "end_line": 86,
+          "kind": "FunctionDef",
+          "line": 55,
+          "name": "_response"
+        },
+        {
+          "description": "",
+          "end_line": 96,
+          "kind": "ClassDef",
+          "line": 89,
+          "name": "DisabledDecisionProvider"
+        },
+        {
+          "description": "",
+          "end_line": 96,
+          "kind": "FunctionDef",
+          "line": 92,
+          "name": "DisabledDecisionProvider.rank"
+        },
+        {
+          "description": "",
+          "end_line": 113,
+          "kind": "ClassDef",
+          "line": 99,
+          "name": "HeuristicDecisionProvider"
+        },
+        {
+          "description": "",
+          "end_line": 113,
+          "kind": "FunctionDef",
+          "line": 102,
+          "name": "HeuristicDecisionProvider.rank"
+        },
+        {
+          "description": "",
+          "end_line": 129,
+          "kind": "FunctionDef",
+          "line": 116,
+          "name": "rank_candidates"
+        }
+      ]
+    },
+    {
+      "group": "Decision Fabric",
+      "local_imports": [
+        "jev_provider"
+      ],
+      "module": "decision_fabric",
+      "path": "src/contextcord/decision_fabric.py",
+      "sha256": "603709f190dc4bd99074715953eb4b657e5c7d323a263399296df7fed3147cbd",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 54,
+          "kind": "ClassDef",
+          "line": 51,
+          "name": "DecisionProvider"
+        },
+        {
+          "description": "",
+          "end_line": 54,
+          "kind": "FunctionDef",
+          "line": 54,
+          "name": "DecisionProvider.decide"
+        },
+        {
+          "description": "",
+          "end_line": 58,
+          "kind": "FunctionDef",
+          "line": 57,
+          "name": "_json_default"
+        },
+        {
+          "description": "Hash the decision state without retaining it in a receipt.",
+          "end_line": 64,
+          "kind": "FunctionDef",
+          "line": 61,
+          "name": "state_sha256"
+        },
+        {
+          "description": "",
+          "end_line": 72,
+          "kind": "FunctionDef",
+          "line": 67,
+          "name": "_finite"
+        },
+        {
+          "description": "",
+          "end_line": 78,
+          "kind": "FunctionDef",
+          "line": 75,
+          "name": "_bool_signal"
+        },
+        {
+          "description": "",
+          "end_line": 86,
+          "kind": "FunctionDef",
+          "line": 81,
+          "name": "_nonnegative_int"
+        },
+        {
+          "description": "",
+          "end_line": 100,
+          "kind": "FunctionDef",
+          "line": 89,
+          "name": "_candidate_margin"
+        },
+        {
+          "description": "Return the deterministic first decision about making a semantic call.",
+          "end_line": 160,
+          "kind": "FunctionDef",
+          "line": 103,
+          "name": "gate0"
+        },
+        {
+          "description": "",
+          "end_line": 172,
+          "kind": "FunctionDef",
+          "line": 163,
+          "name": "_answer"
+        },
+        {
+          "description": "",
+          "end_line": 178,
+          "kind": "FunctionDef",
+          "line": 175,
+          "name": "_value"
+        },
+        {
+          "description": "Local, auditable fallback used when no semantic service is available.",
+          "end_line": 235,
+          "kind": "ClassDef",
+          "line": 181,
+          "name": "DeterministicDecisionProvider"
+        },
+        {
+          "description": "",
+          "end_line": 235,
+          "kind": "FunctionDef",
+          "line": 186,
+          "name": "DeterministicDecisionProvider.decide"
+        },
+        {
+          "description": "",
+          "end_line": 257,
+          "kind": "FunctionDef",
+          "line": 238,
+          "name": "_normalise_answers"
+        },
+        {
+          "description": "",
+          "end_line": 295,
+          "kind": "FunctionDef",
+          "line": 260,
+          "name": "_code_actions"
+        },
+        {
+          "description": "",
+          "end_line": 301,
+          "kind": "ClassDef",
+          "line": 299,
+          "name": "DecisionFabricResult"
+        },
+        {
+          "description": "",
+          "end_line": 487,
+          "kind": "ClassDef",
+          "line": 304,
+          "name": "DecisionFabric"
+        },
+        {
+          "description": "",
+          "end_line": 309,
+          "kind": "FunctionDef",
+          "line": 305,
+          "name": "DecisionFabric.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 369,
+          "kind": "FunctionDef",
+          "line": 311,
+          "name": "DecisionFabric.evaluate"
+        },
+        {
+          "description": "Evaluate policy and, when available, perform provider-backed selection.\n\nThis is the production boundary used by Live Benchmark v3.  The\nDecision Fabric receipt is created first.  A Jev-backed provider may\nthen rank the bounded candidate projections through its real provider\npath.  A missing/unavailable provider never gets relabelled as a Jev\nselection; callers receive an empty selection and the receipt retains\nthe truthful unavailable status.",
+          "end_line": 452,
+          "kind": "FunctionDef",
+          "line": 371,
+          "name": "DecisionFabric.select_candidates"
+        },
+        {
+          "description": "",
+          "end_line": 487,
+          "kind": "FunctionDef",
+          "line": 454,
+          "name": "DecisionFabric._receipt"
+        },
+        {
+          "description": "",
+          "end_line": 498,
+          "kind": "FunctionDef",
+          "line": 490,
+          "name": "make_provider"
+        },
+        {
+          "description": "Convenience API used by CLI, Assisted Handoff and experiments.",
+          "end_line": 504,
+          "kind": "FunctionDef",
+          "line": 501,
+          "name": "evaluate_decision_fabric"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "config",
+        "contracts",
+        "util"
+      ],
+      "module": "dualrun",
+      "path": "src/contextcord/dualrun.py",
+      "sha256": "699aaf15e757d44bb832e76efef49839693dc506f6c2941fd106d2563ce207fa",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 26,
+          "kind": "FunctionDef",
+          "line": 17,
+          "name": "ledger_path"
+        },
+        {
+          "description": "",
+          "end_line": 47,
+          "kind": "FunctionDef",
+          "line": 29,
+          "name": "read_ledger"
+        },
+        {
+          "description": "",
+          "end_line": 85,
+          "kind": "FunctionDef",
+          "line": 50,
+          "name": "record"
+        },
+        {
+          "description": "",
+          "end_line": 112,
+          "kind": "FunctionDef",
+          "line": 88,
+          "name": "summary"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "cli"
+      ],
+      "module": "entrypoint",
+      "path": "src/contextcord/entrypoint.py",
+      "sha256": "dc14bd9a29f9564a4c1ca89b520c87458963c381b469549c950e38cf1e45a262",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 10,
+          "kind": "FunctionDef",
+          "line": 8,
+          "name": "main"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "config",
+        "gitops",
+        "identity",
+        "store",
+        "util"
+      ],
+      "module": "evidence",
+      "path": "src/contextcord/evidence.py",
+      "sha256": "35a5fdcaa469091cd424ba461d83074d5bce8de8e531b3da24e1f400514de7b2",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 22,
+          "kind": "FunctionDef",
+          "line": 15,
+          "name": "_identity_binding"
+        },
+        {
+          "description": "",
+          "end_line": 32,
+          "kind": "FunctionDef",
+          "line": 25,
+          "name": "resolve_evidence_path"
+        },
+        {
+          "description": "Validate evidence without mutating the SQLite store.\n\nThis two-phase design prevents failed closeout attempts from partially adding\nevidence before another trust invariant (workflow/policy/identity) rejects the\ncloseout.",
+          "end_line": 100,
+          "kind": "FunctionDef",
+          "line": 35,
+          "name": "prepare_records"
+        },
+        {
+          "description": "",
+          "end_line": 117,
+          "kind": "FunctionDef",
+          "line": 103,
+          "name": "record_prepared"
+        },
+        {
+          "description": "Compatibility wrapper for v0.2 callers.",
+          "end_line": 127,
+          "kind": "FunctionDef",
+          "line": 120,
+          "name": "validate_and_record"
+        },
+        {
+          "description": "",
+          "end_line": 171,
+          "kind": "FunctionDef",
+          "line": 130,
+          "name": "verify_evidence_records"
+        }
+      ]
+    },
+    {
+      "group": "Adaptive Router",
+      "local_imports": [
+        "contracts",
+        "router"
+      ],
+      "module": "execution_routes",
+      "path": "src/contextcord/execution_routes.py",
+      "sha256": "7faf3f67d1078fbc90aa919078697dd2ba875df31bfceb522b101189d62984ca",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 30,
+          "kind": "FunctionDef",
+          "line": 27,
+          "name": "_bool"
+        },
+        {
+          "description": "",
+          "end_line": 42,
+          "kind": "FunctionDef",
+          "line": 33,
+          "name": "_json_events"
+        },
+        {
+          "description": "",
+          "end_line": 55,
+          "kind": "FunctionDef",
+          "line": 45,
+          "name": "_resolved_identity"
+        },
+        {
+          "description": "Normalize host evidence into the locked four-state capability contract.",
+          "end_line": 129,
+          "kind": "FunctionDef",
+          "line": 58,
+          "name": "capability_from_probe"
+        },
+        {
+          "description": "Run one tiny read-only explicit Codex probe without retaining raw output.",
+          "end_line": 184,
+          "kind": "FunctionDef",
+          "line": 132,
+          "name": "run_codex_probe"
+        },
+        {
+          "description": "",
+          "end_line": 223,
+          "kind": "FunctionDef",
+          "line": 187,
+          "name": "_probe_candidates"
+        },
+        {
+          "description": "Discover at most five explicit routes and return the execution Catalog.",
+          "end_line": 272,
+          "kind": "FunctionDef",
+          "line": 226,
+          "name": "discover_codex_execution_routes"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "extensions",
+      "path": "src/contextcord/extensions.py",
+      "sha256": "7ca50472040ff72b61e872e22afbbc49ac300dbf03647b860226fe72beb1063b",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 16,
+          "kind": "ClassDef",
+          "line": 13,
+          "name": "RepositoryScope"
+        },
+        {
+          "description": "",
+          "end_line": 22,
+          "kind": "ClassDef",
+          "line": 19,
+          "name": "AuditSink"
+        },
+        {
+          "description": "Persist an authenticated batch, returning its durable server checkpoint.",
+          "end_line": 22,
+          "kind": "FunctionDef",
+          "line": 20,
+          "name": "AuditSink.append"
+        },
+        {
+          "description": "",
+          "end_line": 27,
+          "kind": "ClassDef",
+          "line": 25,
+          "name": "EvidenceStore"
+        },
+        {
+          "description": "",
+          "end_line": 26,
+          "kind": "FunctionDef",
+          "line": 26,
+          "name": "EvidenceStore.put"
+        },
+        {
+          "description": "",
+          "end_line": 27,
+          "kind": "FunctionDef",
+          "line": 27,
+          "name": "EvidenceStore.get"
+        },
+        {
+          "description": "",
+          "end_line": 33,
+          "kind": "ClassDef",
+          "line": 30,
+          "name": "PolicyPackProvider"
+        },
+        {
+          "description": "Return pinned policy bytes; callers must verify digest and signature.",
+          "end_line": 33,
+          "kind": "FunctionDef",
+          "line": 31,
+          "name": "PolicyPackProvider.fetch"
+        },
+        {
+          "description": "",
+          "end_line": 39,
+          "kind": "ClassDef",
+          "line": 36,
+          "name": "AttestationVerifier"
+        },
+        {
+          "description": "Verify signature, issuer, subject digest and validity, failing closed.",
+          "end_line": 39,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "AttestationVerifier.verify"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "gitops"
+      ],
+      "module": "fingerprint",
+      "path": "src/contextcord/fingerprint.py",
+      "sha256": "3d9cc02f91fa01279f301dd5de44fce5a538caba5207933f975d511c983bb47a",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 13,
+          "kind": "FunctionDef",
+          "line": 12,
+          "name": "_match_any"
+        },
+        {
+          "description": "Legacy v0.2 fingerprint API kept for migration tooling/tests.\n\nNew trust decisions use project_harness.truth.content_fingerprint through a\nHarnessConfig, which includes artifact kinds, symlink targets and exec bits.",
+          "end_line": 37,
+          "kind": "FunctionDef",
+          "line": 16,
+          "name": "content_fingerprint"
+        },
+        {
+          "description": "Hash trusted policy and knowledge without following symlinks.",
+          "end_line": 64,
+          "kind": "FunctionDef",
+          "line": 40,
+          "name": "policy_fingerprint"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "gitops",
+      "path": "src/contextcord/gitops.py",
+      "sha256": "62b4a9b439d7cc007eb5e18fb65f472081dd1e196b5177abf5de671f102f1058",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 8,
+          "kind": "ClassDef",
+          "line": 7,
+          "name": "GitError"
+        },
+        {
+          "description": "",
+          "end_line": 22,
+          "kind": "FunctionDef",
+          "line": 11,
+          "name": "git"
+        },
+        {
+          "description": "",
+          "end_line": 28,
+          "kind": "FunctionDef",
+          "line": 25,
+          "name": "repo_root"
+        },
+        {
+          "description": "",
+          "end_line": 37,
+          "kind": "FunctionDef",
+          "line": 31,
+          "name": "git_dir"
+        },
+        {
+          "description": "",
+          "end_line": 41,
+          "kind": "FunctionDef",
+          "line": 40,
+          "name": "head"
+        },
+        {
+          "description": "",
+          "end_line": 45,
+          "kind": "FunctionDef",
+          "line": 44,
+          "name": "tree"
+        },
+        {
+          "description": "",
+          "end_line": 49,
+          "kind": "FunctionDef",
+          "line": 48,
+          "name": "branch"
+        },
+        {
+          "description": "",
+          "end_line": 53,
+          "kind": "FunctionDef",
+          "line": 52,
+          "name": "status_porcelain"
+        },
+        {
+          "description": "",
+          "end_line": 58,
+          "kind": "FunctionDef",
+          "line": 56,
+          "name": "upstream"
+        },
+        {
+          "description": "",
+          "end_line": 63,
+          "kind": "FunctionDef",
+          "line": 61,
+          "name": "upstream_head"
+        },
+        {
+          "description": "",
+          "end_line": 74,
+          "kind": "FunctionDef",
+          "line": 66,
+          "name": "list_material_files"
+        },
+        {
+          "description": "",
+          "end_line": 89,
+          "kind": "FunctionDef",
+          "line": 77,
+          "name": "changed_paths"
+        },
+        {
+          "description": "",
+          "end_line": 93,
+          "kind": "FunctionDef",
+          "line": 92,
+          "name": "resolve_commit"
+        },
+        {
+          "description": "",
+          "end_line": 98,
+          "kind": "FunctionDef",
+          "line": 96,
+          "name": "notes_show"
+        },
+        {
+          "description": "",
+          "end_line": 102,
+          "kind": "FunctionDef",
+          "line": 101,
+          "name": "notes_write"
+        },
+        {
+          "description": "Build on a private ref and atomically publish only if the base is current.",
+          "end_line": 119,
+          "kind": "FunctionDef",
+          "line": 105,
+          "name": "notes_compare_and_swap"
+        }
+      ]
+    },
+    {
+      "group": "Continuity Core",
+      "local_imports": [
+        "config",
+        "decision_fabric",
+        "identity",
+        "memory",
+        "store",
+        "util"
+      ],
+      "module": "handoff",
+      "path": "src/contextcord/handoff.py",
+      "sha256": "e668be22d782641cf7d70e306c98b2dbbddb3243c55b699791811a36cda6133c",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 34,
+          "kind": "ClassDef",
+          "line": 32,
+          "name": "_HandoffDecision"
+        },
+        {
+          "description": "",
+          "end_line": 38,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "_tokens"
+        },
+        {
+          "description": "",
+          "end_line": 42,
+          "kind": "FunctionDef",
+          "line": 41,
+          "name": "_bounded"
+        },
+        {
+          "description": "",
+          "end_line": 51,
+          "kind": "FunctionDef",
+          "line": 45,
+          "name": "_freshness"
+        },
+        {
+          "description": "",
+          "end_line": 77,
+          "kind": "FunctionDef",
+          "line": 54,
+          "name": "_last_activity"
+        },
+        {
+          "description": "",
+          "end_line": 125,
+          "kind": "FunctionDef",
+          "line": 80,
+          "name": "_candidate_rows"
+        },
+        {
+          "description": "",
+          "end_line": 136,
+          "kind": "FunctionDef",
+          "line": 128,
+          "name": "_deterministic_scores"
+        },
+        {
+          "description": "",
+          "end_line": 141,
+          "kind": "FunctionDef",
+          "line": 139,
+          "name": "_state_sha256"
+        },
+        {
+          "description": "Select fresh local context without importing the Decision Plane.\n\nThis is the Continuum selection boundary, not a second Decision Fabric:\nHandoff already owns the lexical scores and only needs a stable, bounded\nset of fresh candidates for its local packet.  Semantic decisions remain\ndelegated to the lazy strategy below when explicitly requested.",
+          "end_line": 216,
+          "kind": "FunctionDef",
+          "line": 144,
+          "name": "_deterministic_handoff_decision"
+        },
+        {
+          "description": "Resolve the default local strategy or a user-requested enhancement.\n\nThe import boundary is intentionally inside the explicit non-deterministic\nbranch.  A deterministic preview/confirm therefore remains usable when\nDecision Plane and Jev are absent or unavailable.",
+          "end_line": 242,
+          "kind": "FunctionDef",
+          "line": 219,
+          "name": "_handoff_decision"
+        },
+        {
+          "description": "",
+          "end_line": 268,
+          "kind": "FunctionDef",
+          "line": 245,
+          "name": "_state_for_fabric"
+        },
+        {
+          "description": "",
+          "end_line": 301,
+          "kind": "FunctionDef",
+          "line": 271,
+          "name": "_continuation"
+        },
+        {
+          "description": "Preview or confirm one Assisted Handoff.  Preview performs no writes.",
+          "end_line": 385,
+          "kind": "FunctionDef",
+          "line": 304,
+          "name": "assist_resume"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [],
+      "module": "host_configs",
+      "path": "src/contextcord/host_configs.py",
+      "sha256": "8410f5b32efc671ca6b3c2ce5e97af28fe526f5964edacc1c49a0a1beadab91a",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 20,
+          "kind": "FunctionDef",
+          "line": 17,
+          "name": "_repo_value"
+        },
+        {
+          "description": "",
+          "end_line": 24,
+          "kind": "FunctionDef",
+          "line": 23,
+          "name": "_shell_quote"
+        },
+        {
+          "description": "",
+          "end_line": 110,
+          "kind": "FunctionDef",
+          "line": 27,
+          "name": "generate_host_config"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [],
+      "module": "host_registry",
+      "path": "src/contextcord/host_registry.py",
+      "sha256": "f502e4a8af8716a07b51a672275b84030bd0c1f11be08979d4624deb66340716",
+      "symbols": [
+        {
+          "description": "Raised when a host registry is malformed.",
+          "end_line": 26,
+          "kind": "ClassDef",
+          "line": 25,
+          "name": "RegistryError"
+        },
+        {
+          "description": "",
+          "end_line": 30,
+          "kind": "FunctionDef",
+          "line": 29,
+          "name": "registry_path"
+        },
+        {
+          "description": "",
+          "end_line": 36,
+          "kind": "FunctionDef",
+          "line": 33,
+          "name": "_require"
+        },
+        {
+          "description": "",
+          "end_line": 42,
+          "kind": "FunctionDef",
+          "line": 39,
+          "name": "_string_list"
+        },
+        {
+          "description": "",
+          "end_line": 53,
+          "kind": "FunctionDef",
+          "line": 45,
+          "name": "_validate_integration"
+        },
+        {
+          "description": "",
+          "end_line": 65,
+          "kind": "FunctionDef",
+          "line": 56,
+          "name": "_validate_continuation"
+        },
+        {
+          "description": "",
+          "end_line": 84,
+          "kind": "FunctionDef",
+          "line": 68,
+          "name": "_validate_qualification"
+        },
+        {
+          "description": "",
+          "end_line": 99,
+          "kind": "FunctionDef",
+          "line": 87,
+          "name": "_validate_host"
+        },
+        {
+          "description": "Validate a canonical v3 registry and return a detached dictionary.",
+          "end_line": 129,
+          "kind": "FunctionDef",
+          "line": 102,
+          "name": "validate_registry"
+        },
+        {
+          "description": "",
+          "end_line": 148,
+          "kind": "FunctionDef",
+          "line": 132,
+          "name": "_legacy_qualification"
+        },
+        {
+          "description": "",
+          "end_line": 190,
+          "kind": "FunctionDef",
+          "line": 151,
+          "name": "_normalize_v2"
+        },
+        {
+          "description": "Read v3 directly or normalize a historical v2 document in memory.",
+          "end_line": 202,
+          "kind": "FunctionDef",
+          "line": 193,
+          "name": "normalize_registry"
+        },
+        {
+          "description": "",
+          "end_line": 212,
+          "kind": "FunctionDef",
+          "line": 205,
+          "name": "_read_registry_file"
+        },
+        {
+          "description": "",
+          "end_line": 216,
+          "kind": "FunctionDef",
+          "line": 215,
+          "name": "load_registry"
+        },
+        {
+          "description": "Load either a canonical v3 or historical v2 registry file.",
+          "end_line": 221,
+          "kind": "FunctionDef",
+          "line": 219,
+          "name": "load_registry_file"
+        },
+        {
+          "description": "",
+          "end_line": 229,
+          "kind": "FunctionDef",
+          "line": 224,
+          "name": "host_row"
+        },
+        {
+          "description": "",
+          "end_line": 246,
+          "kind": "FunctionDef",
+          "line": 232,
+          "name": "benchmark_qualified"
+        },
+        {
+          "description": "",
+          "end_line": 261,
+          "kind": "FunctionDef",
+          "line": 249,
+          "name": "summary"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "config",
+        "policy",
+        "store"
+      ],
+      "module": "hostbridge",
+      "path": "src/contextcord/hostbridge.py",
+      "sha256": "c154ba32b4ebef5f215c5a3c48bdc7044206cdae23799a96f259d208c7fe05d4",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 35,
+          "kind": "ClassDef",
+          "line": 23,
+          "name": "HostAction"
+        },
+        {
+          "description": "",
+          "end_line": 35,
+          "kind": "FunctionDef",
+          "line": 29,
+          "name": "HostAction.as_dict"
+        },
+        {
+          "description": "",
+          "end_line": 39,
+          "kind": "FunctionDef",
+          "line": 38,
+          "name": "_mapping"
+        },
+        {
+          "description": "",
+          "end_line": 47,
+          "kind": "FunctionDef",
+          "line": 42,
+          "name": "_first_path"
+        },
+        {
+          "description": "",
+          "end_line": 95,
+          "kind": "FunctionDef",
+          "line": 50,
+          "name": "_command_action"
+        },
+        {
+          "description": "",
+          "end_line": 115,
+          "kind": "FunctionDef",
+          "line": 98,
+          "name": "classify_tool_call"
+        },
+        {
+          "description": "",
+          "end_line": 128,
+          "kind": "FunctionDef",
+          "line": 118,
+          "name": "_active_task_for_scope"
+        },
+        {
+          "description": "",
+          "end_line": 193,
+          "kind": "FunctionDef",
+          "line": 131,
+          "name": "authorize_host_action"
+        },
+        {
+          "description": "",
+          "end_line": 203,
+          "kind": "FunctionDef",
+          "line": 196,
+          "name": "event_payload_from_stdin"
+        },
+        {
+          "description": "",
+          "end_line": 221,
+          "kind": "FunctionDef",
+          "line": 206,
+          "name": "qoder_pretool_result"
+        },
+        {
+          "description": "",
+          "end_line": 240,
+          "kind": "FunctionDef",
+          "line": 224,
+          "name": "run_json_command"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "config",
+        "contracts",
+        "fingerprint",
+        "gitops",
+        "truth",
+        "util"
+      ],
+      "module": "identity",
+      "path": "src/contextcord/identity.py",
+      "sha256": "0d005aa27a438a64da799524f941c7bfb542ff10e9070dcb6a41c50627ffc244",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 29,
+          "kind": "FunctionDef",
+          "line": 13,
+          "name": "source_identity"
+        },
+        {
+          "description": "",
+          "end_line": 39,
+          "kind": "FunctionDef",
+          "line": 32,
+          "name": "memory_commit_errors"
+        },
+        {
+          "description": "",
+          "end_line": 47,
+          "kind": "FunctionDef",
+          "line": 42,
+          "name": "exact_closeout_errors"
+        },
+        {
+          "description": "",
+          "end_line": 61,
+          "kind": "FunctionDef",
+          "line": 50,
+          "name": "compare_identity"
+        }
+      ]
+    },
+    {
+      "group": "Decision Fabric",
+      "local_imports": [],
+      "module": "jev_dotenv",
+      "path": "src/contextcord/jev_dotenv.py",
+      "sha256": "d64ffcf669f37a739fa780b97fbe1406c69a5ca336d70c784830e7e160f3c97b",
+      "symbols": [
+        {
+          "description": "Load ``project_root/.env`` only when the process key is blank.\n\nThe return value contains only presence and provenance labels.  The key is\nnever returned, logged, placed in a bundle, or included in experiment\nevidence.",
+          "end_line": 37,
+          "kind": "FunctionDef",
+          "line": 12,
+          "name": "ensure_jev_key"
+        }
+      ]
+    },
+    {
+      "group": "Decision Fabric",
+      "local_imports": [
+        "decision",
+        "decision_fabric",
+        "jev_dotenv"
+      ],
+      "module": "jev_provider",
+      "path": "src/contextcord/jev_provider.py",
+      "sha256": "d6e849af0b7e0b6a6884e5cfc2dd60be036fba797d9ffb4966a055c11e809986",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 21,
+          "kind": "ClassDef",
+          "line": 20,
+          "name": "JevTransport"
+        },
+        {
+          "description": "",
+          "end_line": 21,
+          "kind": "FunctionDef",
+          "line": 21,
+          "name": "JevTransport.system_one"
+        },
+        {
+          "description": "",
+          "end_line": 27,
+          "kind": "FunctionDef",
+          "line": 24,
+          "name": "_field"
+        },
+        {
+          "description": "",
+          "end_line": 39,
+          "kind": "FunctionDef",
+          "line": 30,
+          "name": "_usage"
+        },
+        {
+          "description": "",
+          "end_line": 48,
+          "kind": "FunctionDef",
+          "line": 42,
+          "name": "_score"
+        },
+        {
+          "description": "",
+          "end_line": 58,
+          "kind": "FunctionDef",
+          "line": 51,
+          "name": "_reason"
+        },
+        {
+          "description": "",
+          "end_line": 314,
+          "kind": "ClassDef",
+          "line": 61,
+          "name": "JevApiDecisionProvider"
+        },
+        {
+          "description": "",
+          "end_line": 74,
+          "kind": "FunctionDef",
+          "line": 64,
+          "name": "JevApiDecisionProvider.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 78,
+          "kind": "FunctionDef",
+          "line": 77,
+          "name": "JevApiDecisionProvider._projection"
+        },
+        {
+          "description": "",
+          "end_line": 87,
+          "kind": "FunctionDef",
+          "line": 80,
+          "name": "JevApiDecisionProvider._questions"
+        },
+        {
+          "description": "",
+          "end_line": 109,
+          "kind": "FunctionDef",
+          "line": 89,
+          "name": "JevApiDecisionProvider._call_once"
+        },
+        {
+          "description": "Keep a Decision Fabric request bounded and free of host secrets.",
+          "end_line": 125,
+          "kind": "FunctionDef",
+          "line": 112,
+          "name": "JevApiDecisionProvider._fabric_projection"
+        },
+        {
+          "description": "",
+          "end_line": 144,
+          "kind": "FunctionDef",
+          "line": 128,
+          "name": "JevApiDecisionProvider._bundle_questions"
+        },
+        {
+          "description": "",
+          "end_line": 164,
+          "kind": "FunctionDef",
+          "line": 146,
+          "name": "JevApiDecisionProvider._bundle_fallback"
+        },
+        {
+          "description": "",
+          "end_line": 203,
+          "kind": "FunctionDef",
+          "line": 167,
+          "name": "JevApiDecisionProvider._bundle_answers"
+        },
+        {
+          "description": "Answer a typed Decision Bundle, with a local fallback on every failure.",
+          "end_line": 252,
+          "kind": "FunctionDef",
+          "line": 205,
+          "name": "JevApiDecisionProvider.decide"
+        },
+        {
+          "description": "",
+          "end_line": 263,
+          "kind": "FunctionDef",
+          "line": 254,
+          "name": "JevApiDecisionProvider._fallback"
+        },
+        {
+          "description": "",
+          "end_line": 314,
+          "kind": "FunctionDef",
+          "line": 265,
+          "name": "JevApiDecisionProvider.rank"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "MCP_SERVER_ID",
+        "__version__",
+        "service"
+      ],
+      "module": "mcp",
+      "path": "src/contextcord/mcp.py",
+      "sha256": "bf83e7cb8a3b8adce4e702cd853da7f4d13caf322dcb3f1ae5717a33f1201abc",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 66,
+          "kind": "ClassDef",
+          "line": 12,
+          "name": "Server"
+        },
+        {
+          "description": "",
+          "end_line": 16,
+          "kind": "FunctionDef",
+          "line": 13,
+          "name": "Server.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 66,
+          "kind": "FunctionDef",
+          "line": 18,
+          "name": "Server.handle"
+        },
+        {
+          "description": "",
+          "end_line": 91,
+          "kind": "FunctionDef",
+          "line": 69,
+          "name": "serve"
+        }
+      ]
+    },
+    {
+      "group": "Continuity Core",
+      "local_imports": [
+        "config",
+        "contracts",
+        "identity",
+        "store",
+        "truth",
+        "util"
+      ],
+      "module": "memory",
+      "path": "src/contextcord/memory.py",
+      "sha256": "85cd7e3834858f30852a462948e1a3dfa4ee8abc6cc1271e3235fee3cfd62f9c",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 52,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "_safe_relative"
+        },
+        {
+          "description": "",
+          "end_line": 58,
+          "kind": "FunctionDef",
+          "line": 55,
+          "name": "_secret_like"
+        },
+        {
+          "description": "",
+          "end_line": 79,
+          "kind": "FunctionDef",
+          "line": 61,
+          "name": "_safe_member"
+        },
+        {
+          "description": "",
+          "end_line": 83,
+          "kind": "FunctionDef",
+          "line": 82,
+          "name": "_json_bytes"
+        },
+        {
+          "description": "",
+          "end_line": 102,
+          "kind": "FunctionDef",
+          "line": 86,
+          "name": "_object"
+        },
+        {
+          "description": "",
+          "end_line": 119,
+          "kind": "FunctionDef",
+          "line": 105,
+          "name": "_payload"
+        },
+        {
+          "description": "",
+          "end_line": 127,
+          "kind": "FunctionDef",
+          "line": 122,
+          "name": "_row_json"
+        },
+        {
+          "description": "",
+          "end_line": 148,
+          "kind": "FunctionDef",
+          "line": 130,
+          "name": "_dependency_snapshot"
+        },
+        {
+          "description": "",
+          "end_line": 163,
+          "kind": "FunctionDef",
+          "line": 151,
+          "name": "_dependency_status"
+        },
+        {
+          "description": "Keep identity useful for transfer while excluding machine paths.",
+          "end_line": 170,
+          "kind": "FunctionDef",
+          "line": 166,
+          "name": "_portable_identity"
+        },
+        {
+          "description": "",
+          "end_line": 174,
+          "kind": "FunctionDef",
+          "line": 173,
+          "name": "_manifest_hash"
+        },
+        {
+          "description": "",
+          "end_line": 293,
+          "kind": "FunctionDef",
+          "line": 177,
+          "name": "export_memory"
+        },
+        {
+          "description": "",
+          "end_line": 328,
+          "kind": "FunctionDef",
+          "line": 296,
+          "name": "inspect_memory_bundle"
+        },
+        {
+          "description": "",
+          "end_line": 341,
+          "kind": "FunctionDef",
+          "line": 331,
+          "name": "_objects_by_kind"
+        },
+        {
+          "description": "",
+          "end_line": 345,
+          "kind": "FunctionDef",
+          "line": 344,
+          "name": "_canonical_record"
+        },
+        {
+          "description": "",
+          "end_line": 356,
+          "kind": "FunctionDef",
+          "line": 348,
+          "name": "_existing_task_conflict"
+        },
+        {
+          "description": "",
+          "end_line": 364,
+          "kind": "FunctionDef",
+          "line": 359,
+          "name": "_same_or_conflict"
+        },
+        {
+          "description": "",
+          "end_line": 368,
+          "kind": "FunctionDef",
+          "line": 367,
+          "name": "_planned_dependencies"
+        },
+        {
+          "description": "",
+          "end_line": 517,
+          "kind": "FunctionDef",
+          "line": 371,
+          "name": "plan_memory_import"
+        },
+        {
+          "description": "",
+          "end_line": 524,
+          "kind": "FunctionDef",
+          "line": 520,
+          "name": "_insert_task"
+        },
+        {
+          "description": "",
+          "end_line": 534,
+          "kind": "FunctionDef",
+          "line": 527,
+          "name": "_insert_session"
+        },
+        {
+          "description": "",
+          "end_line": 541,
+          "kind": "FunctionDef",
+          "line": 537,
+          "name": "_insert_note"
+        },
+        {
+          "description": "",
+          "end_line": 548,
+          "kind": "FunctionDef",
+          "line": 544,
+          "name": "_insert_job"
+        },
+        {
+          "description": "",
+          "end_line": 644,
+          "kind": "FunctionDef",
+          "line": 551,
+          "name": "import_memory"
+        },
+        {
+          "description": "",
+          "end_line": 673,
+          "kind": "FunctionDef",
+          "line": 647,
+          "name": "memory_context"
+        },
+        {
+          "description": "",
+          "end_line": 687,
+          "kind": "FunctionDef",
+          "line": 676,
+          "name": "add_note"
+        },
+        {
+          "description": "",
+          "end_line": 695,
+          "kind": "FunctionDef",
+          "line": 690,
+          "name": "add_context_job"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "config",
+        "gitops"
+      ],
+      "module": "migration",
+      "path": "src/contextcord/migration.py",
+      "sha256": "390cc6ba4b5a22c6ade97dc8cf205fe9871c5e6a3177c7edb8af48b1e256aa9b",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 26,
+          "kind": "FunctionDef",
+          "line": 21,
+          "name": "_sha"
+        },
+        {
+          "description": "",
+          "end_line": 38,
+          "kind": "FunctionDef",
+          "line": 29,
+          "name": "_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 52,
+          "kind": "FunctionDef",
+          "line": 41,
+          "name": "_mapped_bytes"
+        },
+        {
+          "description": "",
+          "end_line": 60,
+          "kind": "FunctionDef",
+          "line": 55,
+          "name": "_expected_manifest"
+        },
+        {
+          "description": "",
+          "end_line": 68,
+          "kind": "FunctionDef",
+          "line": 63,
+          "name": "_state_db"
+        },
+        {
+          "description": "",
+          "end_line": 72,
+          "kind": "FunctionDef",
+          "line": 71,
+          "name": "_now_slug"
+        },
+        {
+          "description": "",
+          "end_line": 153,
+          "kind": "FunctionDef",
+          "line": 75,
+          "name": "migrate_state"
+        }
+      ]
+    },
+    {
+      "group": "Model Intelligence",
+      "local_imports": [],
+      "module": "model_intelligence",
+      "path": "src/contextcord/model_intelligence.py",
+      "sha256": "01c98c53ae386eb300f9c2d5ad5f7b870285ab71efc1c271c459ac08bacd8dbb",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 33,
+          "kind": "FunctionDef",
+          "line": 29,
+          "name": "_numeric"
+        },
+        {
+          "description": "",
+          "end_line": 37,
+          "kind": "FunctionDef",
+          "line": 36,
+          "name": "_median"
+        },
+        {
+          "description": "",
+          "end_line": 41,
+          "kind": "FunctionDef",
+          "line": 40,
+          "name": "default_cache_path"
+        },
+        {
+          "description": "",
+          "end_line": 51,
+          "kind": "FunctionDef",
+          "line": 44,
+          "name": "_read_cache"
+        },
+        {
+          "description": "",
+          "end_line": 58,
+          "kind": "FunctionDef",
+          "line": 54,
+          "name": "_write_cache"
+        },
+        {
+          "description": "Fetch the public read-only table with bounded cache fallback.\n\nThe returned status is one of ``LIVE``, ``FRESH_CACHE``, ``STALE_CACHE``\nor ``UNAVAILABLE``.  Failure is deliberately non-blocking for routing.",
+          "end_line": 145,
+          "kind": "FunctionDef",
+          "line": 61,
+          "name": "fetch_codexradar_table"
+        },
+        {
+          "description": "Convert a table payload into derived GPT-5.6 route priors.",
+          "end_line": 221,
+          "kind": "FunctionDef",
+          "line": 148,
+          "name": "aggregate_codexradar"
+        },
+        {
+          "description": "Build the persisted, derived-only receipt shape.",
+          "end_line": 245,
+          "kind": "FunctionDef",
+          "line": 224,
+          "name": "model_intelligence_snapshot"
+        },
+        {
+          "description": "Load an opt-in derived prior; public/default routing stays disabled.\n\n``private_dogfood`` remains accepted for receipt compatibility but is no\nlonger a product hard gate.  The caller's explicit provider/capability\nconfiguration is the sole enablement decision.",
+          "end_line": 281,
+          "kind": "FunctionDef",
+          "line": 248,
+          "name": "load_codexradar_prior"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "policy",
+      "path": "src/contextcord/policy.py",
+      "sha256": "b94c822fa6927e51d1482155350c0e245fa7462d035a5ef69aff3dc6afbab654",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 31,
+          "kind": "ClassDef",
+          "line": 17,
+          "name": "Decision"
+        },
+        {
+          "description": "",
+          "end_line": 31,
+          "kind": "FunctionDef",
+          "line": 24,
+          "name": "Decision.as_dict"
+        },
+        {
+          "description": "",
+          "end_line": 48,
+          "kind": "FunctionDef",
+          "line": 34,
+          "name": "canonical_host_path"
+        },
+        {
+          "description": "",
+          "end_line": 66,
+          "kind": "FunctionDef",
+          "line": 51,
+          "name": "normalize_target"
+        },
+        {
+          "description": "",
+          "end_line": 70,
+          "kind": "FunctionDef",
+          "line": 69,
+          "name": "_match"
+        },
+        {
+          "description": "",
+          "end_line": 83,
+          "kind": "FunctionDef",
+          "line": 73,
+          "name": "_normalize_pattern"
+        },
+        {
+          "description": "",
+          "end_line": 87,
+          "kind": "FunctionDef",
+          "line": 86,
+          "name": "_patterns"
+        },
+        {
+          "description": "",
+          "end_line": 141,
+          "kind": "FunctionDef",
+          "line": 90,
+          "name": "authorize"
+        },
+        {
+          "description": "",
+          "end_line": 153,
+          "kind": "FunctionDef",
+          "line": 144,
+          "name": "reject_symlink_target"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "build_identity",
+        "config",
+        "contracts",
+        "identity",
+        "receipt",
+        "store",
+        "truth",
+        "util"
+      ],
+      "module": "portable",
+      "path": "src/contextcord/portable.py",
+      "sha256": "2be84cbfcbdd44178cc24a2f9f7128c8c6253fbb5d4c03090c474f43d651dfe7",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 31,
+          "kind": "FunctionDef",
+          "line": 25,
+          "name": "_safe_archive_path"
+        },
+        {
+          "description": "",
+          "end_line": 37,
+          "kind": "FunctionDef",
+          "line": 34,
+          "name": "_portable_evidence_path"
+        },
+        {
+          "description": "",
+          "end_line": 41,
+          "kind": "FunctionDef",
+          "line": 40,
+          "name": "_manifest_hash"
+        },
+        {
+          "description": "",
+          "end_line": 88,
+          "kind": "FunctionDef",
+          "line": 44,
+          "name": "export_bundle"
+        },
+        {
+          "description": "",
+          "end_line": 125,
+          "kind": "FunctionDef",
+          "line": 91,
+          "name": "inspect_bundle"
+        },
+        {
+          "description": "",
+          "end_line": 193,
+          "kind": "FunctionDef",
+          "line": 128,
+          "name": "verify_bundle"
+        },
+        {
+          "description": "",
+          "end_line": 226,
+          "kind": "FunctionDef",
+          "line": 196,
+          "name": "import_bundle"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "process",
+      "path": "src/contextcord/process.py",
+      "sha256": "4e8b754eca131d758361a0f52a39f05a2857c9c71330ba45e52c8f54ba4bca22",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 51,
+          "kind": "FunctionDef",
+          "line": 8,
+          "name": "capture"
+        }
+      ]
+    },
+    {
+      "group": "Capability Registry",
+      "local_imports": [
+        "util"
+      ],
+      "module": "profiles",
+      "path": "src/contextcord/profiles.py",
+      "sha256": "af6afe6aa0c50097385169288a1ff1aa4877cd059b34b2f2ae69ffa84e949892",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 572,
+          "kind": "FunctionDef",
+          "line": 530,
+          "name": "write_profile"
+        }
+      ]
+    },
+    {
+      "group": "Model Intelligence",
+      "local_imports": [
+        "model_intelligence"
+      ],
+      "module": "providers",
+      "path": "src/contextcord/providers.py",
+      "sha256": "811622297f6e6c1b3f3f517fcb2cf528885048fc7b372dff663cdd17e3cf50c2",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 21,
+          "kind": "FunctionDef",
+          "line": 17,
+          "name": "_module_installed"
+        },
+        {
+          "description": "Check one dotenv key without parsing or returning its value.",
+          "end_line": 45,
+          "kind": "FunctionDef",
+          "line": 24,
+          "name": "_dotenv_key_present"
+        },
+        {
+          "description": "",
+          "end_line": 101,
+          "kind": "FunctionDef",
+          "line": 48,
+          "name": "inspect_jev"
+        },
+        {
+          "description": "",
+          "end_line": 128,
+          "kind": "FunctionDef",
+          "line": 104,
+          "name": "inspect_codexradar"
+        },
+        {
+          "description": "",
+          "end_line": 154,
+          "kind": "FunctionDef",
+          "line": 131,
+          "name": "list_provider_statuses"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "config",
+        "contracts",
+        "evidence",
+        "gitops",
+        "util"
+      ],
+      "module": "qualification",
+      "path": "src/contextcord/qualification.py",
+      "sha256": "5c4176c7d998a2c237b35b9925157529b27e304a5f3376d6c69c7835ce26a058",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 19,
+          "kind": "FunctionDef",
+          "line": 18,
+          "name": "_record_hash"
+        },
+        {
+          "description": "",
+          "end_line": 60,
+          "kind": "FunctionDef",
+          "line": 22,
+          "name": "_migrate_legacy"
+        },
+        {
+          "description": "",
+          "end_line": 75,
+          "kind": "FunctionDef",
+          "line": 63,
+          "name": "read_note"
+        },
+        {
+          "description": "",
+          "end_line": 80,
+          "kind": "FunctionDef",
+          "line": 78,
+          "name": "_write"
+        },
+        {
+          "description": "",
+          "end_line": 89,
+          "kind": "FunctionDef",
+          "line": 83,
+          "name": "base_note"
+        },
+        {
+          "description": "",
+          "end_line": 96,
+          "kind": "FunctionDef",
+          "line": 92,
+          "name": "_latest_by_kind"
+        },
+        {
+          "description": "",
+          "end_line": 127,
+          "kind": "FunctionDef",
+          "line": 99,
+          "name": "_append"
+        },
+        {
+          "description": "",
+          "end_line": 132,
+          "kind": "FunctionDef",
+          "line": 130,
+          "name": "record"
+        },
+        {
+          "description": "",
+          "end_line": 164,
+          "kind": "FunctionDef",
+          "line": 135,
+          "name": "deploy"
+        },
+        {
+          "description": "",
+          "end_line": 196,
+          "kind": "FunctionDef",
+          "line": 167,
+          "name": "_integrity_errors"
+        },
+        {
+          "description": "",
+          "end_line": 246,
+          "kind": "FunctionDef",
+          "line": 199,
+          "name": "verify"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "build_identity",
+        "config",
+        "contracts",
+        "evidence",
+        "identity",
+        "store",
+        "util"
+      ],
+      "module": "receipt",
+      "path": "src/contextcord/receipt.py",
+      "sha256": "2d4c99b18a6eb6924b6b6fc28f329f0501bf51bfd5bbf8902738a345f9735509",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 23,
+          "kind": "FunctionDef",
+          "line": 19,
+          "name": "receipt_dir"
+        },
+        {
+          "description": "",
+          "end_line": 27,
+          "kind": "FunctionDef",
+          "line": 26,
+          "name": "receipt_hash"
+        },
+        {
+          "description": "",
+          "end_line": 38,
+          "kind": "FunctionDef",
+          "line": 30,
+          "name": "load_receipt"
+        },
+        {
+          "description": "",
+          "end_line": 46,
+          "kind": "FunctionDef",
+          "line": 41,
+          "name": "all_receipts"
+        },
+        {
+          "description": "",
+          "end_line": 91,
+          "kind": "FunctionDef",
+          "line": 49,
+          "name": "verify_receipt_chain"
+        },
+        {
+          "description": "",
+          "end_line": 113,
+          "kind": "FunctionDef",
+          "line": 94,
+          "name": "write_sealed_receipt"
+        },
+        {
+          "description": "",
+          "end_line": 135,
+          "kind": "FunctionDef",
+          "line": 116,
+          "name": "chain_order_newest_first"
+        },
+        {
+          "description": "",
+          "end_line": 139,
+          "kind": "FunctionDef",
+          "line": 138,
+          "name": "matching_complete_receipt"
+        },
+        {
+          "description": "Return the newest receipt of a type that matches current source identity.",
+          "end_line": 162,
+          "kind": "FunctionDef",
+          "line": 142,
+          "name": "matching_receipt"
+        },
+        {
+          "description": "",
+          "end_line": 166,
+          "kind": "FunctionDef",
+          "line": 165,
+          "name": "matching_handoff_receipt"
+        },
+        {
+          "description": "",
+          "end_line": 198,
+          "kind": "FunctionDef",
+          "line": 169,
+          "name": "_handoff_packet_errors"
+        },
+        {
+          "description": "Verify a HANDOFF receipt without upgrading it to engineering completion.",
+          "end_line": 211,
+          "kind": "FunctionDef",
+          "line": 201,
+          "name": "verify_handoff_receipt"
+        },
+        {
+          "description": "",
+          "end_line": 238,
+          "kind": "FunctionDef",
+          "line": 214,
+          "name": "verify_receipt"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "config",
+        "contracts",
+        "identity",
+        "runtime",
+        "util"
+      ],
+      "module": "release_identity",
+      "path": "src/contextcord/release_identity.py",
+      "sha256": "c5edc951036896fad7560f1e94db565a10184242ebe281d5de2efc34e27d314d",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 27,
+          "kind": "FunctionDef",
+          "line": 21,
+          "name": "_object_hash"
+        },
+        {
+          "description": "",
+          "end_line": 52,
+          "kind": "FunctionDef",
+          "line": 30,
+          "name": "_expand_patterns"
+        },
+        {
+          "description": "",
+          "end_line": 62,
+          "kind": "FunctionDef",
+          "line": 55,
+          "name": "_group"
+        },
+        {
+          "description": "",
+          "end_line": 96,
+          "kind": "FunctionDef",
+          "line": 65,
+          "name": "collect"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "store"
+      ],
+      "module": "replay",
+      "path": "src/contextcord/replay.py",
+      "sha256": "c92e459d474183346e55b7fb5a5ebbe1f1be7d7697dc1c4ca3811e24371d29ec",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 24,
+          "kind": "FunctionDef",
+          "line": 5,
+          "name": "replay"
+        }
+      ]
+    },
+    {
+      "group": "Adaptive Router",
+      "local_imports": [],
+      "module": "router",
+      "path": "src/contextcord/router.py",
+      "sha256": "10442dcbd025d2f2ffe462e6480a7db989553ab8fc22b50a279695983c4dab62",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 30,
+          "kind": "FunctionDef",
+          "line": 28,
+          "name": "_sha"
+        },
+        {
+          "description": "",
+          "end_line": 34,
+          "kind": "FunctionDef",
+          "line": 33,
+          "name": "_as_bool"
+        },
+        {
+          "description": "",
+          "end_line": 41,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "_host_models"
+        },
+        {
+          "description": "Accept only an explicit observed GPT-5.6 model for Codex routing.",
+          "end_line": 50,
+          "kind": "FunctionDef",
+          "line": 44,
+          "name": "_codex_model_allowed"
+        },
+        {
+          "description": "Return the canonical v2 route identity.",
+          "end_line": 56,
+          "kind": "FunctionDef",
+          "line": 53,
+          "name": "route_id"
+        },
+        {
+          "description": "",
+          "end_line": 120,
+          "kind": "FunctionDef",
+          "line": 59,
+          "name": "build_eligible_set"
+        },
+        {
+          "description": "",
+          "end_line": 163,
+          "kind": "FunctionDef",
+          "line": 123,
+          "name": "shadow_route"
+        },
+        {
+          "description": "Return a posterior mean and conservative lower estimate.\n\nExternal observations are capped because their task distribution differs\nfrom the local repository.  Local outcomes remain the dominant signal as\nthey accumulate.",
+          "end_line": 196,
+          "kind": "FunctionDef",
+          "line": 166,
+          "name": "_beta_estimate"
+        },
+        {
+          "description": "Compare separate cost units without pretending they are one currency.",
+          "end_line": 212,
+          "kind": "FunctionDef",
+          "line": 199,
+          "name": "_cost_key"
+        },
+        {
+          "description": "Build a deterministic near-best-quality/minimum-cost shortlist.",
+          "end_line": 310,
+          "kind": "FunctionDef",
+          "line": 215,
+          "name": "build_shortlist"
+        },
+        {
+          "description": "",
+          "end_line": 318,
+          "kind": "FunctionDef",
+          "line": 313,
+          "name": "_catalog_source_rows"
+        },
+        {
+          "description": "",
+          "end_line": 345,
+          "kind": "FunctionDef",
+          "line": 321,
+          "name": "_catalog_row"
+        },
+        {
+          "description": "",
+          "end_line": 353,
+          "kind": "FunctionDef",
+          "line": 348,
+          "name": "_catalog_sort_key"
+        },
+        {
+          "description": "Build the advisory analysis Catalog without granting execution authority.",
+          "end_line": 401,
+          "kind": "FunctionDef",
+          "line": 356,
+          "name": "discover_analysis_routes"
+        },
+        {
+          "description": "Return only explicitly observed, non-fallback host capabilities.",
+          "end_line": 425,
+          "kind": "FunctionDef",
+          "line": 404,
+          "name": "discover_execution_routes"
+        },
+        {
+          "description": "",
+          "end_line": 448,
+          "kind": "FunctionDef",
+          "line": 428,
+          "name": "_route_map"
+        },
+        {
+          "description": "Apply host/model/effort/policy gates before any quality estimate.",
+          "end_line": 496,
+          "kind": "FunctionDef",
+          "line": 451,
+          "name": "_hard_filter_routes"
+        },
+        {
+          "description": "Create the historical v2 receipt, or dispatch an explicit v3 request.\n\nThe v2 shape remains a read-only compatibility reader for existing callers\nand receipts.  New CLI/MCP requests set ``router_version=v3`` and use the\nactive Router v3 implementation below.",
+          "end_line": 604,
+          "kind": "FunctionDef",
+          "line": 499,
+          "name": "model_route_decision"
+        },
+        {
+          "description": "Decide deterministically whether a semantic Jev call is warranted.",
+          "end_line": 646,
+          "kind": "FunctionDef",
+          "line": 607,
+          "name": "router_gate0"
+        },
+        {
+          "description": "",
+          "end_line": 681,
+          "kind": "FunctionDef",
+          "line": 668,
+          "name": "_router_provider_usage"
+        },
+        {
+          "description": "",
+          "end_line": 689,
+          "kind": "FunctionDef",
+          "line": 684,
+          "name": "_router_answer_value"
+        },
+        {
+          "description": "Build the active Router v3 receipt with a closed Jev choice boundary.",
+          "end_line": 885,
+          "kind": "FunctionDef",
+          "line": 692,
+          "name": "model_route_decision_v3"
+        },
+        {
+          "description": "Compatibility helper matching the attached v3 reference shape.",
+          "end_line": 898,
+          "kind": "FunctionDef",
+          "line": 888,
+          "name": "decide_route_v3"
+        },
+        {
+          "description": "Compare the external-prior planner with the same planner plus local outcomes.",
+          "end_line": 922,
+          "kind": "FunctionDef",
+          "line": 901,
+          "name": "recommendation_pair"
+        },
+        {
+          "description": "Verify that a typed Jev route remains inside the closed shortlist.",
+          "end_line": 928,
+          "kind": "FunctionDef",
+          "line": 925,
+          "name": "validate_jev_choice"
+        },
+        {
+          "description": "Return at most one next Pareto candidate after a hard failure.",
+          "end_line": 945,
+          "kind": "FunctionDef",
+          "line": 931,
+          "name": "next_escalation_route"
+        },
+        {
+          "description": "Hard cap for a calibration round; cost units stay separate.",
+          "end_line": 1004,
+          "kind": "ClassDef",
+          "line": 949,
+          "name": "CalibrationBudget"
+        },
+        {
+          "description": "",
+          "end_line": 965,
+          "kind": "FunctionDef",
+          "line": 958,
+          "name": "CalibrationBudget.admit"
+        },
+        {
+          "description": "",
+          "end_line": 989,
+          "kind": "FunctionDef",
+          "line": 967,
+          "name": "CalibrationBudget.record"
+        },
+        {
+          "description": "",
+          "end_line": 1004,
+          "kind": "FunctionDef",
+          "line": 991,
+          "name": "CalibrationBudget.receipt"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "config",
+        "contracts",
+        "evidence",
+        "hostbridge",
+        "identity",
+        "process",
+        "store",
+        "util"
+      ],
+      "module": "runner",
+      "path": "src/contextcord/runner.py",
+      "sha256": "5982a389462d78b6f5121d6e54f12eed6539473d217231e30ead804136bcbaed",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 34,
+          "kind": "FunctionDef",
+          "line": 23,
+          "name": "_redact_bound"
+        },
+        {
+          "description": "",
+          "end_line": 48,
+          "kind": "FunctionDef",
+          "line": 37,
+          "name": "_cwd"
+        },
+        {
+          "description": "",
+          "end_line": 59,
+          "kind": "FunctionDef",
+          "line": 51,
+          "name": "_write_log"
+        },
+        {
+          "description": "",
+          "end_line": 152,
+          "kind": "FunctionDef",
+          "line": 62,
+          "name": "run_check"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "gitops"
+      ],
+      "module": "runtime",
+      "path": "src/contextcord/runtime.py",
+      "sha256": "36a7c3337f52809a49138f3d7de3ea9ba10e463cb48dc241b8359a253be2ccea",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 19,
+          "kind": "FunctionDef",
+          "line": 13,
+          "name": "_field"
+        },
+        {
+          "description": "",
+          "end_line": 67,
+          "kind": "FunctionDef",
+          "line": 22,
+          "name": "run_probes"
+        }
+      ]
+    },
+    {
+      "group": "MCP / Host Gateway",
+      "local_imports": [
+        "capabilities",
+        "cli",
+        "config",
+        "decision_fabric",
+        "gitops",
+        "handoff",
+        "jev_provider",
+        "memory",
+        "model_intelligence",
+        "replay",
+        "router",
+        "store"
+      ],
+      "module": "service",
+      "path": "src/contextcord/service.py",
+      "sha256": "8481ea4b9909406e0a267c23007d1b3c48d9d1acc4c9ad2bbaeaf52cc6dff41b",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 23,
+          "kind": "FunctionDef",
+          "line": 21,
+          "name": "object_schema"
+        },
+        {
+          "description": "Map the public ContextCord prefix to the legacy compatibility name.",
+          "end_line": 77,
+          "kind": "FunctionDef",
+          "line": 73,
+          "name": "_legacy_name"
+        },
+        {
+          "description": "",
+          "end_line": 83,
+          "kind": "FunctionDef",
+          "line": 80,
+          "name": "_primary_name"
+        },
+        {
+          "description": "",
+          "end_line": 240,
+          "kind": "ClassDef",
+          "line": 86,
+          "name": "HarnessService"
+        },
+        {
+          "description": "",
+          "end_line": 90,
+          "kind": "FunctionDef",
+          "line": 87,
+          "name": "HarnessService.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 105,
+          "kind": "FunctionDef",
+          "line": 92,
+          "name": "HarnessService._effective_capabilities"
+        },
+        {
+          "description": "",
+          "end_line": 128,
+          "kind": "FunctionDef",
+          "line": 107,
+          "name": "HarnessService.tools"
+        },
+        {
+          "description": "",
+          "end_line": 240,
+          "kind": "FunctionDef",
+          "line": 130,
+          "name": "HarnessService.call"
+        }
+      ]
+    },
+    {
+      "group": "Continuity Core",
+      "local_imports": [
+        "build_identity",
+        "contracts",
+        "gitops",
+        "util"
+      ],
+      "module": "store",
+      "path": "src/contextcord/store.py",
+      "sha256": "0b43bcbc1d72aa704898201261d7e2b92d14dfa3acdc7660513f80f739d5a5fc",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 179,
+          "kind": "FunctionDef",
+          "line": 167,
+          "name": "_selector"
+        },
+        {
+          "description": "",
+          "end_line": 188,
+          "kind": "FunctionDef",
+          "line": 182,
+          "name": "_literal_prefix"
+        },
+        {
+          "description": "",
+          "end_line": 198,
+          "kind": "FunctionDef",
+          "line": 191,
+          "name": "lease_keys_overlap"
+        },
+        {
+          "description": "",
+          "end_line": 206,
+          "kind": "FunctionDef",
+          "line": 201,
+          "name": "atomic"
+        },
+        {
+          "description": "",
+          "end_line": 816,
+          "kind": "ClassDef",
+          "line": 209,
+          "name": "StateStore"
+        },
+        {
+          "description": "",
+          "end_line": 238,
+          "kind": "FunctionDef",
+          "line": 210,
+          "name": "StateStore.__init__"
+        },
+        {
+          "description": "",
+          "end_line": 258,
+          "kind": "FunctionDef",
+          "line": 240,
+          "name": "StateStore._migrate"
+        },
+        {
+          "description": "",
+          "end_line": 272,
+          "kind": "FunctionDef",
+          "line": 261,
+          "name": "StateStore.transaction"
+        },
+        {
+          "description": "",
+          "end_line": 276,
+          "kind": "FunctionDef",
+          "line": 275,
+          "name": "StateStore.store_id"
+        },
+        {
+          "description": "",
+          "end_line": 279,
+          "kind": "FunctionDef",
+          "line": 278,
+          "name": "StateStore.close"
+        },
+        {
+          "description": "",
+          "end_line": 282,
+          "kind": "FunctionDef",
+          "line": 281,
+          "name": "StateStore.__enter__"
+        },
+        {
+          "description": "",
+          "end_line": 285,
+          "kind": "FunctionDef",
+          "line": 284,
+          "name": "StateStore.__exit__"
+        },
+        {
+          "description": "Atomically append one event and advance the event hash chain.\n\nBEGIN IMMEDIATE serializes writers so two processes cannot read the same\nchain head and fork the local event history.",
+          "end_line": 307,
+          "kind": "FunctionDef",
+          "line": 288,
+          "name": "StateStore.event"
+        },
+        {
+          "description": "",
+          "end_line": 311,
+          "kind": "FunctionDef",
+          "line": 309,
+          "name": "StateStore.event_chain_head"
+        },
+        {
+          "description": "",
+          "end_line": 317,
+          "kind": "FunctionDef",
+          "line": 313,
+          "name": "StateStore.event_hash_exists"
+        },
+        {
+          "description": "",
+          "end_line": 335,
+          "kind": "FunctionDef",
+          "line": 319,
+          "name": "StateStore.verify_event_chain"
+        },
+        {
+          "description": "",
+          "end_line": 346,
+          "kind": "FunctionDef",
+          "line": 338,
+          "name": "StateStore.create_session"
+        },
+        {
+          "description": "",
+          "end_line": 350,
+          "kind": "FunctionDef",
+          "line": 348,
+          "name": "StateStore.session"
+        },
+        {
+          "description": "",
+          "end_line": 357,
+          "kind": "FunctionDef",
+          "line": 352,
+          "name": "StateStore.open_sessions"
+        },
+        {
+          "description": "",
+          "end_line": 369,
+          "kind": "FunctionDef",
+          "line": 360,
+          "name": "StateStore.close_session"
+        },
+        {
+          "description": "",
+          "end_line": 376,
+          "kind": "FunctionDef",
+          "line": 371,
+          "name": "StateStore.get_task"
+        },
+        {
+          "description": "",
+          "end_line": 386,
+          "kind": "FunctionDef",
+          "line": 379,
+          "name": "StateStore.upsert_task"
+        },
+        {
+          "description": "",
+          "end_line": 393,
+          "kind": "FunctionDef",
+          "line": 388,
+          "name": "StateStore.active_tasks"
+        },
+        {
+          "description": "",
+          "end_line": 397,
+          "kind": "FunctionDef",
+          "line": 395,
+          "name": "StateStore.latest_closed_session"
+        },
+        {
+          "description": "",
+          "end_line": 405,
+          "kind": "FunctionDef",
+          "line": 400,
+          "name": "StateStore.add_evidence"
+        },
+        {
+          "description": "",
+          "end_line": 412,
+          "kind": "FunctionDef",
+          "line": 407,
+          "name": "StateStore.evidence_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 419,
+          "kind": "FunctionDef",
+          "line": 414,
+          "name": "StateStore.evidence_for_session"
+        },
+        {
+          "description": "",
+          "end_line": 425,
+          "kind": "FunctionDef",
+          "line": 421,
+          "name": "StateStore.evidence_by_portable_id"
+        },
+        {
+          "description": "Append one route outcome without storing prompt or credential data.",
+          "end_line": 530,
+          "kind": "FunctionDef",
+          "line": 428,
+          "name": "StateStore.record_model_outcome"
+        },
+        {
+          "description": "",
+          "end_line": 564,
+          "kind": "FunctionDef",
+          "line": 532,
+          "name": "StateStore.model_outcomes"
+        },
+        {
+          "description": "",
+          "end_line": 618,
+          "kind": "FunctionDef",
+          "line": 566,
+          "name": "StateStore.model_outcome_summary"
+        },
+        {
+          "description": "",
+          "end_line": 645,
+          "kind": "FunctionDef",
+          "line": 621,
+          "name": "StateStore.create_note"
+        },
+        {
+          "description": "",
+          "end_line": 654,
+          "kind": "FunctionDef",
+          "line": 647,
+          "name": "StateStore.note"
+        },
+        {
+          "description": "",
+          "end_line": 658,
+          "kind": "FunctionDef",
+          "line": 656,
+          "name": "StateStore.notes_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 662,
+          "kind": "FunctionDef",
+          "line": 660,
+          "name": "StateStore.notes_for_session"
+        },
+        {
+          "description": "",
+          "end_line": 669,
+          "kind": "FunctionDef",
+          "line": 665,
+          "name": "StateStore._note_row"
+        },
+        {
+          "description": "",
+          "end_line": 690,
+          "kind": "FunctionDef",
+          "line": 672,
+          "name": "StateStore.create_context_job"
+        },
+        {
+          "description": "",
+          "end_line": 699,
+          "kind": "FunctionDef",
+          "line": 692,
+          "name": "StateStore.context_job"
+        },
+        {
+          "description": "",
+          "end_line": 703,
+          "kind": "FunctionDef",
+          "line": 701,
+          "name": "StateStore.context_jobs_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 710,
+          "kind": "FunctionDef",
+          "line": 706,
+          "name": "StateStore._context_job_row"
+        },
+        {
+          "description": "",
+          "end_line": 714,
+          "kind": "FunctionDef",
+          "line": 712,
+          "name": "StateStore.sessions_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 720,
+          "kind": "FunctionDef",
+          "line": 716,
+          "name": "StateStore.portable_import"
+        },
+        {
+          "description": "",
+          "end_line": 728,
+          "kind": "FunctionDef",
+          "line": 723,
+          "name": "StateStore.record_portable_import"
+        },
+        {
+          "description": "",
+          "end_line": 737,
+          "kind": "FunctionDef",
+          "line": 731,
+          "name": "StateStore.record_memory_event"
+        },
+        {
+          "description": "",
+          "end_line": 744,
+          "kind": "FunctionDef",
+          "line": 739,
+          "name": "StateStore.memory_events_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 751,
+          "kind": "FunctionDef",
+          "line": 746,
+          "name": "StateStore.recent_events"
+        },
+        {
+          "description": "",
+          "end_line": 771,
+          "kind": "FunctionDef",
+          "line": 754,
+          "name": "StateStore.acquire_lease"
+        },
+        {
+          "description": "",
+          "end_line": 784,
+          "kind": "FunctionDef",
+          "line": 774,
+          "name": "StateStore.release_lease"
+        },
+        {
+          "description": "",
+          "end_line": 789,
+          "kind": "FunctionDef",
+          "line": 786,
+          "name": "StateStore.active_leases"
+        },
+        {
+          "description": "",
+          "end_line": 798,
+          "kind": "FunctionDef",
+          "line": 791,
+          "name": "StateStore.lease_conflict"
+        },
+        {
+          "description": "",
+          "end_line": 802,
+          "kind": "FunctionDef",
+          "line": 800,
+          "name": "StateStore.receipt_head"
+        },
+        {
+          "description": "CAS-append a sealed receipt to the local receipt chain.",
+          "end_line": 816,
+          "kind": "FunctionDef",
+          "line": 805,
+          "name": "StateStore.append_receipt_index"
+        }
+      ]
+    },
+    {
+      "group": "Trust & Freshness",
+      "local_imports": [
+        "config",
+        "gitops",
+        "util"
+      ],
+      "module": "truth",
+      "path": "src/contextcord/truth.py",
+      "sha256": "4686d2d1daab555948e66aa7e7f9263d53fc16969740e20d0b3536623b84c163",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 26,
+          "kind": "ClassDef",
+          "line": 24,
+          "name": "ClassifiedPath"
+        },
+        {
+          "description": "",
+          "end_line": 38,
+          "kind": "FunctionDef",
+          "line": 29,
+          "name": "classify_path"
+        },
+        {
+          "description": "",
+          "end_line": 42,
+          "kind": "FunctionDef",
+          "line": 41,
+          "name": "classified_files"
+        },
+        {
+          "description": "",
+          "end_line": 57,
+          "kind": "FunctionDef",
+          "line": 45,
+          "name": "_object_hash"
+        },
+        {
+          "description": "",
+          "end_line": 98,
+          "kind": "FunctionDef",
+          "line": 60,
+          "name": "content_fingerprint"
+        },
+        {
+          "description": "",
+          "end_line": 107,
+          "kind": "FunctionDef",
+          "line": 101,
+          "name": "memory_fingerprint"
+        },
+        {
+          "description": "",
+          "end_line": 114,
+          "kind": "FunctionDef",
+          "line": 110,
+          "name": "classification_counts"
+        },
+        {
+          "description": "",
+          "end_line": 119,
+          "kind": "FunctionDef",
+          "line": 117,
+          "name": "dirty_truth_paths"
+        },
+        {
+          "description": "",
+          "end_line": 138,
+          "kind": "FunctionDef",
+          "line": 122,
+          "name": "latest_commit_for_kinds"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "util",
+      "path": "src/contextcord/util.py",
+      "sha256": "1416e2f6b067294c2aef89e35b2b6cf2810c0d9b778828edb68cf637a03b407f",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 13,
+          "kind": "FunctionDef",
+          "line": 12,
+          "name": "utc_now"
+        },
+        {
+          "description": "",
+          "end_line": 17,
+          "kind": "FunctionDef",
+          "line": 16,
+          "name": "sha256_bytes"
+        },
+        {
+          "description": "",
+          "end_line": 25,
+          "kind": "FunctionDef",
+          "line": 20,
+          "name": "sha256_file"
+        },
+        {
+          "description": "",
+          "end_line": 29,
+          "kind": "FunctionDef",
+          "line": 28,
+          "name": "canonical_json"
+        },
+        {
+          "description": "",
+          "end_line": 36,
+          "kind": "FunctionDef",
+          "line": 32,
+          "name": "sha256_json"
+        },
+        {
+          "description": "",
+          "end_line": 43,
+          "kind": "FunctionDef",
+          "line": 39,
+          "name": "atomic_write_json"
+        },
+        {
+          "description": "",
+          "end_line": 50,
+          "kind": "FunctionDef",
+          "line": 46,
+          "name": "read_json"
+        },
+        {
+          "description": "",
+          "end_line": 54,
+          "kind": "FunctionDef",
+          "line": 53,
+          "name": "expand_string"
+        },
+        {
+          "description": "",
+          "end_line": 59,
+          "kind": "FunctionDef",
+          "line": 57,
+          "name": "safe_id"
+        },
+        {
+          "description": "Resolve a path without silently following a symlink outside the repository.\n\nThe final path itself may not be a symlink. Any existing parent component inside\nthe repository also may not be a symlink. External paths are allowed only when\nexplicitly requested by policy.",
+          "end_line": 94,
+          "kind": "FunctionDef",
+          "line": 62,
+          "name": "ensure_repo_path"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "version",
+      "path": "src/contextcord/version.py",
+      "sha256": "32d1e1de7aec1b041ca96289eec0547ffdf9ad06834fd72c53a66f5faccc6e06",
+      "symbols": []
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [],
+      "module": "workflow",
+      "path": "src/contextcord/workflow.py",
+      "sha256": "4eb43f1b77cb79f98bd9d72487e85dc78be62f009fa330699debc3aadc085222",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 10,
+          "kind": "FunctionDef",
+          "line": 6,
+          "name": "phase_rows"
+        },
+        {
+          "description": "",
+          "end_line": 14,
+          "kind": "FunctionDef",
+          "line": 13,
+          "name": "phase_ids"
+        },
+        {
+          "description": "",
+          "end_line": 21,
+          "kind": "FunctionDef",
+          "line": 17,
+          "name": "required_phases_for_scope"
+        },
+        {
+          "description": "",
+          "end_line": 67,
+          "kind": "FunctionDef",
+          "line": 24,
+          "name": "validate_workflow"
+        },
+        {
+          "description": "",
+          "end_line": 80,
+          "kind": "FunctionDef",
+          "line": 70,
+          "name": "ready_phases"
+        },
+        {
+          "description": "",
+          "end_line": 93,
+          "kind": "FunctionDef",
+          "line": 83,
+          "name": "initial_task"
+        },
+        {
+          "description": "",
+          "end_line": 112,
+          "kind": "FunctionDef",
+          "line": 96,
+          "name": "advance"
+        }
+      ]
+    },
+    {
+      "group": "Evidence & Runtime",
+      "local_imports": [
+        "config",
+        "evidence",
+        "fingerprint",
+        "identity",
+        "qualification",
+        "runtime",
+        "store",
+        "workflow"
+      ],
+      "module": "workflow_checks",
+      "path": "src/contextcord/workflow_checks.py",
+      "sha256": "3e8ad6e1daa5afbfd77f179ce453047cd2d60c150458403772758205fe644824",
+      "symbols": [
+        {
+          "description": "",
+          "end_line": 18,
+          "kind": "FunctionDef",
+          "line": 14,
+          "name": "_latest_evidence_by_name"
+        },
+        {
+          "description": "",
+          "end_line": 78,
+          "kind": "FunctionDef",
+          "line": 21,
+          "name": "phase_contract_verdict"
+        },
+        {
+          "description": "",
+          "end_line": 106,
+          "kind": "FunctionDef",
+          "line": 81,
+          "name": "workflow_completion_verdict"
+        }
+      ]
+    }
+  ],
+  "schema": "contextcord-source-inventory-v3",
+  "scope": "top-level src/contextcord/*.py; static source inventory, not a runtime call trace",
+  "source_inventory_sha256": "388fbc6a0f449e5334922277bc81a70cdc3e861cc81acb0a4480d6579b7ef0e7",
+  "source_modules_sha256": "94f1d0c1939684ba386d4372f892ff209ab9890e35c2a9849bad548209518fb9",
+  "source_package": "src/contextcord"
+}

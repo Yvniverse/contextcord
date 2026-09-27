@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · 接续到自适应执行",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [
+      1080,
+      680
+    ]
+  },
+  "lanes": [
+    {
+      "id": "host",
+      "label": "宿主 / 用户"
+    },
+    {
+      "id": "continuity",
+      "label": "Continuity"
+    },
+    {
+      "id": "decision",
+      "label": "Adaptive Router"
+    },
+    {
+      "id": "evidence",
+      "label": "Runtime / Evidence"
+    }
+  ],
+  "mainPath": [
+    "resume",
+    "recheck",
+    "packet",
+    "discover",
+    "choose",
+    "execute",
+    "verify",
+    "outcome",
+    "closeout"
+  ],
+  "nodes": [
+    {
+      "id": "resume",
+      "lane": "host",
+      "col": 0,
+      "type": "external",
+      "label": "继续任务"
+    },
+    {
+      "id": "recheck",
+      "lane": "continuity",
+      "col": 0,
+      "type": "security",
+      "label": "重检来源"
+    },
+    {
+      "id": "packet",
+      "lane": "continuity",
+      "col": 1,
+      "type": "backend",
+      "label": "有界上下文"
+    },
+    {
+      "id": "discover",
+      "lane": "decision",
+      "col": 2,
+      "type": "security",
+      "label": "发现执行路线"
+    },
+    {
+      "id": "choose",
+      "lane": "decision",
+      "col": 3,
+      "type": "backend",
+      "label": "自适应选路"
+    },
+    {
+      "id": "execute",
+      "lane": "host",
+      "col": 4,
+      "type": "backend",
+      "label": "宿主执行"
+    },
+    {
+      "id": "verify",
+      "lane": "evidence",
+      "col": 4,
+      "type": "security",
+      "label": "Verifier"
+    },
+    {
+      "id": "outcome",
+      "lane": "evidence",
+      "col": 5,
+      "type": "database",
+      "label": "记录 Outcome"
+    },
+    {
+      "id": "closeout",
+      "lane": "continuity",
+      "col": 5,
+      "type": "database",
+      "label": "Closeout"
+    }
+  ],
+  "edges": [
+    {
+      "id": "resume-recheck",
+      "from": "resume",
+      "to": "recheck"
+    },
+    {
+      "id": "recheck-packet",
+      "from": "recheck",
+      "to": "packet"
+    },
+    {
+      "id": "packet-discover",
+      "from": "packet",
+      "to": "discover"
+    },
+    {
+      "id": "discover-choose",
+      "from": "discover",
+      "to": "choose"
+    },
+    {
+      "id": "choose-execute",
+      "from": "choose",
+      "to": "execute"
+    },
+    {
+      "id": "execute-verify",
+      "from": "execute",
+      "to": "verify"
+    },
+    {
+      "id": "verify-outcome",
+      "from": "verify",
+      "to": "outcome"
+    },
+    {
+      "id": "outcome-closeout",
+      "from": "outcome",
+      "to": "closeout"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "确定性门禁先行",
+      "items": [
+        "Source identity、权限与 execution catalog 决定能否执行。",
+        "Jev 只在 closed shortlist 内给出可选语义判断。"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "近最佳质量，再看成本",
+      "items": [
+        "Planner 先收敛 near-best shortlist。",
+        "低风险或优势明确时 Gate 0 直接绕过 Jev。"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "结果反哺下一次路由",
+      "items": [
+        "Verifier 结果写入 Local Outcome Ledger。",
+        "Closeout 记录 COMPLETE 或可继续的 HANDOFF。"
+      ]
+    }
+  ]
+}

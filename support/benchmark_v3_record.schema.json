@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContextCord Live Benchmark v3 trial",
+  "type": "object",
+  "required": ["arm","trial","host","model_identity","source_sha256","context_packet_sha256","oracle","host_result"],
+  "properties": {
+    "arm": {"enum":["NO_MEMORY","TEXT_HANDOFF","AGENT_NEXUS_BM25","AGENT_NEXUS_JEV","CONTEXTCORD_BM25","CONTEXTCORD_JEV"]},
+    "trial": {"type":"integer","minimum":1},
+    "host": {"type":"string"},
+    "model_identity": {"type":["string","null"]},
+    "source_sha256": {"type":"string"},
+    "candidate_pool_sha256": {"type":["string","null"]},
+    "selected_memory_ids": {"type":"array","items":{"type":"string"}},
+    "restored_archive_ids": {"type":"array","items":{"type":"string"}},
+    "context_packet_sha256": {"type":"string"},
+    "context_estimated_tokens": {"type":["integer","null"]},
+    "jev_usage": {"type":["object","null"]},
+    "host_result": {"type":"object"},
+    "oracle": {"type":"object"},
+    "tests_unchanged": {"type":"boolean"},
+    "wall_time_ms": {"type":"number"}
+  }
+}

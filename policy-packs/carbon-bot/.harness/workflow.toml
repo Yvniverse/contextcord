@@ -1,0 +1,70 @@
+[[phases]]
+id = "A_AUTHORITY"
+requires = []
+[[phases]]
+id = "B_EXECUTION_GUARDS"
+requires = ["A_AUTHORITY"]
+[[phases]]
+id = "C_DATA_BOUND_TESTS"
+requires = ["B_EXECUTION_GUARDS"]
+[[phases]]
+id = "D_LOCAL_STAGING"
+requires = ["C_DATA_BOUND_TESTS"]
+[[phases]]
+id = "E_QWEN_LOCAL_COMPARE"
+requires = ["D_LOCAL_STAGING"]
+[[phases]]
+id = "F_BROWSER_EVIDENCE"
+requires = ["E_QWEN_LOCAL_COMPARE"]
+[[phases]]
+id = "G_MEMORY_CLOSEOUT"
+requires = ["F_BROWSER_EVIDENCE"]
+[[phases]]
+id = "H_PUSH_CI"
+requires = ["G_MEMORY_CLOSEOUT"]
+[[phases]]
+id = "I_PUBLIC_DEPLOY"
+requires = ["H_PUSH_CI"]
+[[phases]]
+id = "J_PUBLIC_SMOKE_REVIEW"
+requires = ["I_PUBLIC_DEPLOY"]
+
+[scope_profiles.code-only]
+required_phases = ["A_AUTHORITY", "B_EXECUTION_GUARDS"]
+[scope_profiles.data-readonly]
+required_phases = ["A_AUTHORITY", "B_EXECUTION_GUARDS", "C_DATA_BOUND_TESTS"]
+[scope_profiles.staging]
+required_phases = ["A_AUTHORITY", "B_EXECUTION_GUARDS", "C_DATA_BOUND_TESTS", "D_LOCAL_STAGING"]
+[scope_profiles.release]
+required_phases = ["A_AUTHORITY", "B_EXECUTION_GUARDS", "C_DATA_BOUND_TESTS", "D_LOCAL_STAGING", "E_QWEN_LOCAL_COMPARE", "F_BROWSER_EVIDENCE", "G_MEMORY_CLOSEOUT", "H_PUSH_CI", "I_PUBLIC_DEPLOY", "J_PUBLIC_SMOKE_REVIEW"]
+
+[phase_contracts.A_AUTHORITY]
+require_policy_stable = true
+[phase_contracts.B_EXECUTION_GUARDS]
+minimum_pass_evidence = 1
+[phase_contracts.C_DATA_BOUND_TESTS]
+required_evidence = ["data-bound-tests"]
+[phase_contracts.D_LOCAL_STAGING]
+required_evidence = ["local-staging"]
+[phase_contracts.E_QWEN_LOCAL_COMPARE]
+required_evidence = ["qwen-local-compare"]
+[phase_contracts.F_BROWSER_EVIDENCE]
+required_evidence = ["browser-evidence"]
+[phase_contracts.G_MEMORY_CLOSEOUT]
+require_clean_truth = true
+[phase_contracts.H_PUSH_CI]
+require_qualification_profile = "candidate"
+[phase_contracts.I_PUBLIC_DEPLOY]
+require_qualification_profile = "production"
+[phase_contracts.J_PUBLIC_SMOKE_REVIEW]
+required_evidence = ["public-smoke-review"]
+
+[operation_gates.push]
+allowed_current_phases = ["H_PUSH_CI"]
+requires_completed = ["G_MEMORY_CLOSEOUT"]
+[operation_gates.release]
+allowed_current_phases = ["I_PUBLIC_DEPLOY"]
+requires_completed = ["H_PUSH_CI"]
+[operation_gates.deploy]
+allowed_current_phases = ["I_PUBLIC_DEPLOY"]
+requires_completed = ["H_PUSH_CI"]

@@ -1,0 +1,59 @@
+[[phases]]
+id = "authority"
+requires = []
+[[phases]]
+id = "implementation"
+requires = ["authority"]
+[[phases]]
+id = "static_tests"
+requires = ["implementation"]
+[[phases]]
+id = "integration_tests"
+requires = ["static_tests"]
+[[phases]]
+id = "exact_sha_runtime"
+requires = ["integration_tests"]
+[[phases]]
+id = "browser_uat"
+requires = ["exact_sha_runtime"]
+[[phases]]
+id = "qualification"
+requires = ["browser_uat"]
+[[phases]]
+id = "push_ci"
+requires = ["qualification"]
+[[phases]]
+id = "deployment"
+requires = ["push_ci"]
+
+[scope_profiles.code]
+required_phases = ["authority", "implementation", "static_tests", "integration_tests"]
+[scope_profiles.uat]
+required_phases = ["authority", "implementation", "static_tests", "integration_tests", "exact_sha_runtime", "browser_uat"]
+[scope_profiles.release]
+required_phases = ["authority", "implementation", "static_tests", "integration_tests", "exact_sha_runtime", "browser_uat", "qualification", "push_ci", "deployment"]
+
+[phase_contracts.authority]
+require_policy_stable = true
+[phase_contracts.static_tests]
+required_evidence = ["static-tests"]
+[phase_contracts.integration_tests]
+required_evidence = ["integration-tests"]
+[phase_contracts.exact_sha_runtime]
+required_runtime = ["backend", "frontend"]
+[phase_contracts.browser_uat]
+required_evidence = ["browser-uat"]
+[phase_contracts.qualification]
+require_qualification_profile = "candidate"
+[phase_contracts.deployment]
+require_qualification_profile = "deployed"
+
+[operation_gates.push]
+allowed_current_phases = ["push_ci"]
+requires_completed = ["qualification"]
+[operation_gates.release]
+allowed_current_phases = ["deployment"]
+requires_completed = ["push_ci"]
+[operation_gates.deploy]
+allowed_current_phases = ["deployment"]
+requires_completed = ["push_ci"]

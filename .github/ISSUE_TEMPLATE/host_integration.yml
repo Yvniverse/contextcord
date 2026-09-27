@@ -1,0 +1,40 @@
+name: Host integration
+description: Propose or improve a coding-agent host adapter
+title: "[Host] "
+labels: ["host-integration"]
+body:
+  - type: input
+    id: host
+    attributes:
+      label: Host name and version
+      placeholder: "Example: Codex 1.x"
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Official host documentation
+      description: Link to the vendor's MCP/config/tool documentation.
+    validations:
+      required: true
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport
+      options:
+        - stdio
+        - streamable HTTP
+        - SSE
+        - other / unknown
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Minimal configuration example
+      description: Remove tokens and machine-specific private paths.
+  - type: textarea
+    id: observation
+    attributes:
+      label: What has actually been observed?
+      description: Separate config syntax, tool discovery, memory calls, continuation and benchmark evidence.

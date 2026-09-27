@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/jev-router-codex-pilot-v1.json",
+  "title": "ContextCord Jev Router Codex Pilot Receipt",
+  "type": "object",
+  "required": [
+    "schema",
+    "mode",
+    "status",
+    "eligible_routes",
+    "scenarios",
+    "codex_execution_calls"
+  ],
+  "properties": {
+    "schema": {
+      "const": "contextcord-jev-router-codex-pilot-v1"
+    },
+    "mode": {
+      "enum": [
+        "SHADOW",
+        "BOUNDED_EXECUTION"
+      ]
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PARTIAL",
+        "NOT_RUN",
+        "NO_ELIGIBLE_GPT56_ROUTE",
+        "FAILED"
+      ]
+    },
+    "eligible_routes": {
+      "type": "array"
+    },
+    "scenarios": {
+      "type": "array"
+    },
+    "codex_execution_calls": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    },
+    "non_gpt56_routes_rejected": {
+      "type": "boolean"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

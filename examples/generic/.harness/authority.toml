@@ -1,0 +1,17 @@
+ # Legacy compatibility fixture: these .harness contracts remain readable for migration tests; current public setup uses ContextCord.
+[[protected]]
+path = ".git/**"
+operations = ["write", "delete", "move"]
+reason = "direct Git metadata mutation is forbidden; use Git commands"
+
+[scopes.code]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**"]
+allow_external = false
+
+[scopes.release]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint", "push", "release", "deploy"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**"]
+allow_external = false

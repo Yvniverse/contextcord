@@ -1,0 +1,135 @@
+{
+  "$id": "https://project-harness.dev/schemas/project.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "adapter_requirements": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "boolean"
+        },
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "dogfood": {
+      "additionalProperties": true,
+      "properties": {
+        "ledger_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "required_task_classes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "identity": {
+      "additionalProperties": true,
+      "properties": {
+        "mode": {
+          "enum": [
+            "content_equivalent",
+            "exact_commit"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "knowledge": {
+      "additionalProperties": true,
+      "properties": {
+        "entrypoints": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "memory": {
+      "additionalProperties": true,
+      "properties": {
+        "require_same_commit_as_truth": {
+          "type": "boolean"
+        },
+        "sealed_on_verify": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "policy": {
+      "additionalProperties": true,
+      "properties": {
+        "entrypoints": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "project": {
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "release_identity": {
+      "additionalProperties": true,
+      "properties": {
+        "config_files": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dependency_files": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "migration_files": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "required_patterns": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "project"
+  ],
+  "title": "Unified Project Harness project manifest",
+  "type": "object"
+}

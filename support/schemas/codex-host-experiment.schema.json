@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/codex-host-experiment-v1.json",
+  "title": "ContextCord Codex Host Experiment Receipt",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "source_sha",
+    "codex_version",
+    "contextcord_version",
+    "model_policy",
+    "provider_calls",
+    "mcp",
+    "phases"
+  ],
+  "properties": {
+    "schema": {
+      "const": "contextcord-codex-host-experiment-v1"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PARTIAL",
+        "NOT_RUN",
+        "MODEL_POLICY_UNRESOLVED",
+        "HOST_TOOL_PATH_NOT_QUALIFIED",
+        "FAILED"
+      ]
+    },
+    "source_sha": {
+      "type": "string"
+    },
+    "codex_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contextcord_version": {
+      "type": "string"
+    },
+    "model_policy": {
+      "type": "object",
+      "required": [
+        "label",
+        "fallback_allowed",
+        "resolved_model_id"
+      ],
+      "properties": {
+        "label": {
+          "const": "GPT-5.6 Luna Max only"
+        },
+        "fallback_allowed": {
+          "const": false
+        },
+        "resolved_model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolution_evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "provider_calls": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "mcp": {
+      "type": "object"
+    },
+    "phases": {
+      "type": "array"
+    },
+    "mutation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

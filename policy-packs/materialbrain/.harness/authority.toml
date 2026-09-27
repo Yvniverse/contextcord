@@ -1,0 +1,34 @@
+[[protected]]
+path = ".git/**"
+operations = ["write", "delete", "move"]
+reason = "direct Git metadata mutation is forbidden"
+[[protected]]
+path = ".env"
+operations = ["write", "delete", "move"]
+reason = "secrets file is not an agent write target"
+[[protected]]
+path = "storage/backups/**"
+operations = ["write", "delete", "move"]
+reason = "backup artifacts require explicit release workflow"
+
+[leases]
+enforce_conflicts = true
+require_for_mutation = false
+
+[scopes.code]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**", ".env"]
+allow_external = false
+
+[scopes.uat]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**", ".env", "storage/backups/**"]
+allow_external = false
+
+[scopes.release]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint", "push", "release", "deploy"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**", ".env"]
+allow_external = false

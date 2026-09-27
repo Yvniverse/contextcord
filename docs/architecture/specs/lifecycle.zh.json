@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · 任务、路由与交接生命周期",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [
+      980,
+      680
+    ]
+  },
+  "lanes": [
+    {
+      "id": "main",
+      "label": "主生命周期"
+    },
+    {
+      "id": "waiting",
+      "label": "接续边界"
+    },
+    {
+      "id": "recovery",
+      "label": "恢复路径"
+    },
+    {
+      "id": "terminal",
+      "label": "终态"
+    }
+  ],
+  "states": [
+    {
+      "id": "task",
+      "type": "start",
+      "label": "Task Active",
+      "sublabel": "source-bound",
+      "lane": "main",
+      "col": 0,
+      "step": "01"
+    },
+    {
+      "id": "session",
+      "type": "active",
+      "label": "Session Open",
+      "sublabel": "continuity restored",
+      "lane": "main",
+      "col": 1,
+      "step": "02"
+    },
+    {
+      "id": "routing",
+      "type": "decision",
+      "label": "Route Decision",
+      "sublabel": "planner + Gate 0",
+      "lane": "main",
+      "col": 2,
+      "step": "03"
+    },
+    {
+      "id": "executing",
+      "type": "active",
+      "label": "Executing",
+      "sublabel": "host-authorized",
+      "lane": "main",
+      "col": 3,
+      "step": "04"
+    },
+    {
+      "id": "closeout",
+      "type": "decision",
+      "label": "Closeout / Handoff",
+      "sublabel": "verify + continuation",
+      "lane": "main",
+      "col": 4,
+      "step": "05"
+    },
+    {
+      "id": "retry",
+      "type": "failure",
+      "label": "Retryable",
+      "sublabel": "one bounded escalation",
+      "lane": "recovery",
+      "col": 1,
+      "yOffset": 70
+    },
+    {
+      "id": "complete",
+      "type": "success",
+      "label": "COMPLETE",
+      "sublabel": "verified closeout",
+      "lane": "terminal",
+      "col": 2
+    },
+    {
+      "id": "blocked",
+      "type": "failure",
+      "label": "BLOCKED",
+      "sublabel": "no executable route",
+      "lane": "terminal",
+      "col": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "execution-retry",
+      "from": "executing",
+      "to": "retry",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "retry-routing",
+      "from": "retry",
+      "to": "routing",
+      "variant": "emphasis"
+    },
+    {
+      "id": "closeout-complete",
+      "from": "closeout",
+      "to": "complete",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "routing-blocked",
+      "from": "routing",
+      "to": "blocked",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "HANDOFF 与 COMPLETE 分离",
+      "items": [
+        "HANDOFF 是可继续的非终态边界；之后的 resume 会打开新 Session。",
+        "COMPLETE 需要当前源码、测试与 evidence 满足完成合同。"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "语义判断留在 Route Decision 内",
+      "items": [
+        "Gate 0 只有在 tradeoff 需要语义判断时请求 Jev。",
+        "Jev 不可用时回到 deterministic planner，不改变权限边界。"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "失败路径保持有界",
+      "items": [
+        "执行失败最多进行一次自动升级，再回到路由判断。",
+        "没有可执行 route 时进入 BLOCKED，不伪造模型执行。"
+      ]
+    }
+  ]
+}

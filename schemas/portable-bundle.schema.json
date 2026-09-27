@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-harness.dev/schemas/portable-bundle.schema.json",
+  "title": "Unified Project Harness portable evidence bundle manifest",
+  "type": "object",
+  "required": ["schema", "source_identity", "receipt_leaf", "files", "bundle_sha256"],
+  "properties": {
+    "schema": {"const": "project-harness-portable-bundle-v1"},
+    "source_identity": {"type": "object"},
+    "receipt_leaf": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "files": {"type": "array", "items": {"type": "object", "required": ["path", "sha256", "bytes", "kind"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "bytes": {"type": "integer", "minimum": 0}, "kind": {"enum": ["receipt", "evidence"]}}}},
+    "bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/host-adapter-v1.json",
+  "title": "ContextCord Host Adapter Manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "display_name",
+    "transports"
+  ],
+  "properties": {
+    "schema": {
+      "enum": [
+        "contextcord-host-adapter-v1",
+        "agent-nexus-host-adapter-v1"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "version_probe": {
+      "type": "object"
+    },
+    "transports": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "stdio",
+          "streamable_http",
+          "sse"
+        ]
+      },
+      "minItems": 1
+    },
+    "config_scopes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "project",
+          "user",
+          "local"
+        ]
+      }
+    },
+    "config_template": {
+      "type": "object"
+    },
+    "reload": {
+      "type": "object"
+    },
+    "list_tools": {
+      "type": "object"
+    },
+    "lazy_loading": {
+      "type": "object"
+    },
+    "permissions": {
+      "type": "object"
+    },
+    "telemetry": {
+      "type": "object"
+    },
+    "required_agent_nexus_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "required_contextcord_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "schema": {
+          "const": "contextcord-host-adapter-v1"
+        }
+      },
+      "required": [
+        "required_contextcord_tools"
+      ]
+    },
+    {
+      "properties": {
+        "schema": {
+          "const": "agent-nexus-host-adapter-v1"
+        }
+      },
+      "required": [
+        "required_agent_nexus_tools"
+      ]
+    }
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,34 @@
+# Reference policy; Luna should map this into ContextCord's real config layer.
+
+[external.codexradar]
+enabled_by_default = false
+explicit_feature_provider_enablement = true
+mode = "advisory_only"
+endpoint = "https://api.codexradar.com/api/v1/table?benchmark=deep-swe"
+timeout_seconds = 3
+ttl_seconds = 600
+max_stale_seconds = 86400
+commit_raw_payload = false
+attribution = "Data source: Codex Radar / Distributed Radar — DeepSWE"
+
+[routing]
+allowed_model_family = "gpt-5.6"
+max_execution_attempts = 2
+max_external_prior_equivalent_samples = 8
+require_explicit_model_id = true
+reasoning_effort_is_route_identity = true
+allow_default_alias = false
+allow_fallback_route = false
+
+[routing.regret]
+explorer = 0.10
+implementer = 0.06
+reviewer = 0.035
+high_risk = 0.02
+
+[calibration]
+max_live_calls_per_round = 6
+max_sol_max_runs_per_round = 1
+early_stop = true
+host_qualification_model = "gpt-5.6-luna"
+host_qualification_effort = "medium"

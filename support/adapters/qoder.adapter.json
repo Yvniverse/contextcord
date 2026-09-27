@@ -1,0 +1,47 @@
+{
+  "schema": "contextcord-host-adapter-v1",
+  "id": "qoder",
+  "display_name": "Qoder",
+  "vendor": "Alibaba/Qoder",
+  "official_docs": "https://docs.qoder.com/cli/mcp-servers",
+  "transports": [
+    "stdio"
+  ],
+  "config_scopes": [
+    "user",
+    "project"
+  ],
+  "version_probe": {
+    "command": [
+      "qoder",
+      "--version"
+    ]
+  },
+  "config_template": {
+    "command": "qoder mcp add contextcord -- contextcord mcp"
+  },
+  "reload": {
+    "kind": "slash",
+    "command": "/mcp reload"
+  },
+  "list_tools": {
+    "kind": "mcp_list",
+    "command": "qoder mcp list"
+  },
+  "lazy_loading": {
+    "supported": true,
+    "setting": "mcp.lazyLoad",
+    "env": "QODER_MCP_LAZY=1"
+  },
+  "permissions": {
+    "user_confirmation_required": true
+  },
+  "telemetry": {
+    "model_id": "host_returned",
+    "token_usage": "host_returned_or_unknown"
+  },
+  "required_contextcord_tools": [
+    "contextcord_memory",
+    "contextcord_memory_recheck"
+  ]
+}

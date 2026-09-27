@@ -1,0 +1,37 @@
+"""ContextCord: portable engineering continuity for coding agents."""
+
+from .version import (
+    CLI_NAME,
+    DISTRIBUTION_NAME,
+    IMPORT_PACKAGE,
+    LEGACY_CLI_NAME,
+    LEGACY_DISTRIBUTION_NAME,
+    LEGACY_IMPORT_PACKAGE,
+    LEGACY_MCP_SERVER_ID,
+    LEGACY_PRODUCT_NAME,
+    MCP_SERVER_ID,
+    MCP_TOOL_PREFIX,
+    PRODUCT_NAME,
+    RELEASE_LABEL,
+    RELEASE_VERSION,
+    STATE_DIR_NAME,
+    __version__,
+)
+
+__all__ = [
+    "CLI_NAME",
+    "DISTRIBUTION_NAME",
+    "IMPORT_PACKAGE",
+    "LEGACY_CLI_NAME",
+    "LEGACY_DISTRIBUTION_NAME",
+    "LEGACY_IMPORT_PACKAGE",
+    "LEGACY_MCP_SERVER_ID",
+    "LEGACY_PRODUCT_NAME",
+    "MCP_SERVER_ID",
+    "MCP_TOOL_PREFIX",
+    "PRODUCT_NAME",
+    "RELEASE_LABEL",
+    "RELEASE_VERSION",
+    "STATE_DIR_NAME",
+    "__version__",
+]

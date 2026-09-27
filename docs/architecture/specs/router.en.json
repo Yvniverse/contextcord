@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Adaptive Router v3 · Model × Effort Decision",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1100,
+      760
+    ],
+    "views": [
+      {
+        "id": "catalogs",
+        "label": "Dual catalogs",
+        "focus": [
+          "task",
+          "execution_catalog",
+          "analysis_catalog",
+          "eligibility"
+        ],
+        "note": "Analysis candidates and truly executable candidates remain strictly separated."
+      },
+      {
+        "id": "planner",
+        "label": "Planner and Jev",
+        "focus": [
+          "planner",
+          "gate0",
+          "jev",
+          "effective"
+        ],
+        "note": "The deterministic planner narrows candidates first; Jev handles closed-set semantic judgment only when Gate 0 requests it."
+      },
+      {
+        "id": "learning",
+        "label": "Local learning loop",
+        "focus": [
+          "effective",
+          "runtime",
+          "outcomes"
+        ],
+        "note": "Only verified real executions are written to Local Outcome."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "task",
+      "type": "frontend",
+      "label": "Task Profile",
+      "sublabel": "role · risk · context pressure",
+      "pos": [
+        40,
+        70
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "execution_catalog",
+      "type": "security",
+      "label": "Execution Catalog",
+      "sublabel": "runtime-observed model × effort",
+      "pos": [
+        320,
+        70
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "analysis_catalog",
+      "type": "external",
+      "label": "Analysis Catalog",
+      "sublabel": "CodexRadar + historical/local prior",
+      "pos": [
+        600,
+        70
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "eligibility",
+      "type": "security",
+      "label": "Hard Eligibility",
+      "sublabel": "host · model · effort · budget · fallback",
+      "pos": [
+        40,
+        290
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "planner",
+      "type": "backend",
+      "label": "Deterministic Planner",
+      "sublabel": "near-best quality → minimum cost",
+      "pos": [
+        320,
+        290
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "gate0",
+      "type": "security",
+      "label": "Gate 0",
+      "sublabel": "bypass or request semantic judgment",
+      "pos": [
+        600,
+        290
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "effective",
+      "type": "backend",
+      "label": "Effective Route",
+      "sublabel": "model × effort × role",
+      "pos": [
+        600,
+        510
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "runtime",
+      "type": "backend",
+      "label": "Codex Execution",
+      "sublabel": "authorized host run + verifier",
+      "pos": [
+        320,
+        510
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "outcomes",
+      "type": "database",
+      "label": "Local Outcome Ledger",
+      "sublabel": "PASS / FAIL · latency · usage",
+      "pos": [
+        40,
+        510
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "jev",
+      "type": "external",
+      "label": "Jev Semantic Choice",
+      "sublabel": "optional closed-set Choice",
+      "pos": [
+        840,
+        510
+      ],
+      "size": [
+        180,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "task-eligibility",
+      "from": "task",
+      "to": "eligibility"
+    },
+    {
+      "id": "exec-eligibility",
+      "from": "execution_catalog",
+      "to": "eligibility",
+      "label": "execution truth",
+      "labelAt": [
+        290,
+        215
+      ]
+    },
+    {
+      "id": "analysis-planner",
+      "from": "analysis_catalog",
+      "to": "planner",
+      "label": "advisory prior",
+      "labelAt": [
+        570,
+        215
+      ]
+    },
+    {
+      "id": "eligibility-planner",
+      "from": "eligibility",
+      "to": "planner",
+      "label": "eligible routes",
+      "labelAt": [
+        290,
+        404
+      ]
+    },
+    {
+      "id": "planner-gate",
+      "from": "planner",
+      "to": "gate0",
+      "label": "shortlist",
+      "labelAt": [
+        570,
+        404
+      ]
+    },
+    {
+      "id": "gate-effective",
+      "from": "gate0",
+      "to": "effective",
+      "label": "planner route",
+      "labelAt": [
+        710,
+        440
+      ],
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "gate-jev",
+      "from": "gate0",
+      "to": "jev",
+      "label": "optional Choice exchange",
+      "labelAt": [
+        905,
+        430
+      ],
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "effective-runtime",
+      "from": "effective",
+      "to": "runtime",
+      "label": "explicit route",
+      "labelAt": [
+        570,
+        625
+      ]
+    },
+    {
+      "id": "runtime-outcomes",
+      "from": "runtime",
+      "to": "outcomes",
+      "label": "verifier result",
+      "labelAt": [
+        290,
+        625
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Analysis ≠ Execution",
+      "items": [
+        "External benchmarks may inform analysis but cannot promote an unknown route to executable.",
+        "The execution catalog accepts only capabilities observed from the current host."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Jev only when useful",
+      "items": [
+        "Bypass Jev when the shortlist is singular or the tradeoff is clear.",
+        "Jev may choose only from shortlist route IDs; it cannot invent models or exceed budget."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Local evidence grows in priority",
+      "items": [
+        "External priors are a starting point, not final truth.",
+        "Only real execution plus verifier outcome enters the Local Outcome Ledger."
+      ]
+    }
+  ]
+}

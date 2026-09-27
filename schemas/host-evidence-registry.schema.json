@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/host-evidence-registry-v3.json",
+  "title": "ContextCord Host Evidence Registry v3",
+  "type": "object",
+  "required": [
+    "schema",
+    "registry_version",
+    "built_in_hosts",
+    "byoh",
+    "truth_boundary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "contextcord-host-evidence-registry-v3"
+    },
+    "registry_version": {
+      "type": "string"
+    },
+    "verified_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "built_in_hosts": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "host_id",
+          "display_name",
+          "product_tier",
+          "integration",
+          "continuation",
+          "qualification",
+          "limitations"
+        ],
+        "properties": {
+          "host_id": {
+            "enum": [
+              "codex",
+              "qoder",
+              "cursor",
+              "opencode",
+              "workbuddy"
+            ]
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "vendor": {
+            "type": "string"
+          },
+          "product_tier": {
+            "const": "BUILT_IN"
+          },
+          "integration": {
+            "type": "object",
+            "required": [
+              "adapter",
+              "config"
+            ],
+            "properties": {
+              "adapter": {
+                "type": "object",
+                "required": [
+                  "status",
+                  "manifest",
+                  "manifest_schema"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "PASS",
+                      "PARTIAL",
+                      "NOT_RUN"
+                    ]
+                  },
+                  "manifest": {
+                    "type": "string"
+                  },
+                  "manifest_schema": {
+                    "type": "string"
+                  },
+                  "official_docs": {
+                    "type": "string"
+                  }
+                }
+              },
+              "config": {
+                "type": "object",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "PASS",
+                      "PARTIAL",
+                      "NOT_RUN"
+                    ]
+                  },
+                  "format": {
+                    "type": "string"
+                  },
+                  "official_docs_verified": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "continuation": {
+            "type": "object",
+            "required": [
+              "status",
+              "evidence_refs"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "PARTIAL",
+                  "PENDING",
+                  "NOT_RUN"
+                ]
+              },
+              "protocol_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "model_observation": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "qualification": {
+            "type": "object",
+            "required": [
+              "status",
+              "qualified",
+              "evidence_refs"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "PASS",
+                  "PARTIAL",
+                  "NOT_QUALIFIED",
+                  "NOT_RUN",
+                  "PROVIDER_UNAVAILABLE"
+                ]
+              },
+              "qualified": {
+                "type": "boolean"
+              },
+              "protocol_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "trials_per_arm": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "host_id": {
+                "const": "codex"
+              }
+            },
+            "required": [
+              "host_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "host_id": {
+                "const": "qoder"
+              }
+            },
+            "required": [
+              "host_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "host_id": {
+                "const": "cursor"
+              }
+            },
+            "required": [
+              "host_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "host_id": {
+                "const": "opencode"
+              }
+            },
+            "required": [
+              "host_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "host_id": {
+                "const": "workbuddy"
+              }
+            },
+            "required": [
+              "host_id"
+            ]
+          }
+        }
+      ]
+    },
+    "byoh": {
+      "type": "object",
+      "required": [
+        "product_tier",
+        "manifest_schema"
+      ],
+      "properties": {
+        "product_tier": {
+          "const": "BYOH"
+        },
+        "manifest_schema": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "truth_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

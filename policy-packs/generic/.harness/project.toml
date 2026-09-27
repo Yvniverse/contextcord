@@ -1,0 +1,19 @@
+[project]
+name = "replace-me"
+
+[identity]
+mode = "content_equivalent"
+
+[knowledge]
+entrypoints = ["AGENTS.md"]
+
+[policy]
+entrypoints = ["AGENTS.md"]
+
+[memory]
+require_same_commit_as_truth = false
+sealed_on_verify = true
+
+[dogfood]
+ledger_path = ".harness/dual-run/adjudications.json"
+required_task_classes = []

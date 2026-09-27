@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · Current Runtime Architecture",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1160,
+      850
+    ],
+    "views": [
+      {
+        "id": "continuity-path",
+        "label": "Engineering continuity",
+        "focus": [
+          "hosts",
+          "gateway",
+          "continuity",
+          "context_engine",
+          "router",
+          "runtime"
+        ],
+        "note": "From the host entrypoint through bounded context, routing, and controlled execution."
+      },
+      {
+        "id": "adaptive-route",
+        "label": "Adaptive routing",
+        "focus": [
+          "router",
+          "decision_intel",
+          "outcomes"
+        ],
+        "note": "Model priors and optional Jev judgment shape the effective route; verified results feed local outcomes."
+      },
+      {
+        "id": "trust-state",
+        "label": "Evidence and state",
+        "focus": [
+          "continuity",
+          "trust",
+          "state_store",
+          "runtime"
+        ],
+        "note": "Tasks, sessions, evidence, and state remain in the repository-local truth source."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "hosts",
+      "type": "external",
+      "label": "Coding Agent Hosts",
+      "sublabel": "5 built-in hosts + BYOH",
+      "pos": [
+        30,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "gateway",
+      "type": "backend",
+      "label": "CLI / MCP Gateway",
+      "sublabel": "unified entrypoint + dynamic tools",
+      "pos": [
+        290,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "continuity",
+      "type": "backend",
+      "label": "Continuity Core",
+      "sublabel": "Task · Session · Note · Handoff",
+      "pos": [
+        550,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "context_engine",
+      "type": "backend",
+      "label": "Context Engine",
+      "sublabel": "bounded selection + packet",
+      "pos": [
+        810,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "capabilities",
+      "type": "security",
+      "label": "Capability Registry",
+      "sublabel": "profile + dependency closure",
+      "pos": [
+        30,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "state_store",
+      "type": "database",
+      "label": "StateStore",
+      "sublabel": "tasks · sessions · events · outcomes",
+      "pos": [
+        290,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "trust",
+      "type": "security",
+      "label": "Trust & Freshness",
+      "sublabel": "identity · evidence · receipts",
+      "pos": [
+        550,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "router",
+      "type": "backend",
+      "label": "Adaptive Router v3",
+      "sublabel": "eligibility → shortlist → route",
+      "pos": [
+        810,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "outcomes",
+      "type": "database",
+      "label": "Local Outcomes",
+      "sublabel": "executed route + verifier result",
+      "pos": [
+        290,
+        530
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "decision_intel",
+      "type": "external",
+      "label": "Decision Intelligence",
+      "sublabel": "CodexRadar prior + optional Jev",
+      "pos": [
+        550,
+        530
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "runtime",
+      "type": "backend",
+      "label": "Execution Runtime",
+      "sublabel": "policy · runner · verifier",
+      "pos": [
+        810,
+        530
+      ],
+      "size": [
+        200,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "host-gateway",
+      "from": "hosts",
+      "to": "gateway",
+      "label": "MCP / CLI",
+      "labelAt": [
+        260,
+        54
+      ]
+    },
+    {
+      "id": "gateway-cont",
+      "from": "gateway",
+      "to": "continuity",
+      "label": "resume / memory",
+      "labelAt": [
+        520,
+        54
+      ]
+    },
+    {
+      "id": "cont-context",
+      "from": "continuity",
+      "to": "context_engine",
+      "label": "bounded candidates",
+      "labelAt": [
+        780,
+        54
+      ]
+    },
+    {
+      "id": "context-router",
+      "from": "context_engine",
+      "to": "router",
+      "label": "task context",
+      "labelAt": [
+        1040,
+        220
+      ]
+    },
+    {
+      "id": "router-runtime",
+      "from": "router",
+      "to": "runtime",
+      "label": "effective route",
+      "labelAt": [
+        1040,
+        450
+      ]
+    },
+    {
+      "id": "gateway-cap",
+      "from": "gateway",
+      "to": "capabilities"
+    },
+    {
+      "id": "continuity-store",
+      "from": "continuity",
+      "to": "state_store"
+    },
+    {
+      "id": "context-trust",
+      "from": "context_engine",
+      "to": "trust"
+    },
+    {
+      "id": "trust-store",
+      "from": "trust",
+      "to": "state_store",
+      "label": "verified state",
+      "labelAt": [
+        520,
+        400
+      ]
+    },
+    {
+      "id": "intel-router",
+      "from": "decision_intel",
+      "to": "router",
+      "label": "prior + optional Choice",
+      "labelAt": [
+        650,
+        450
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Code owns hard boundaries",
+      "items": [
+        "Jev and CodexRadar provide advisory intelligence only.",
+        "Permissions, budget, executable candidates, fallback, and verification remain code-owned."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Capabilities stay composable",
+      "items": [
+        "Continuity does not depend on model routing.",
+        "The Capability Registry controls the tools and capabilities exposed by the active profile."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Outcome feedback loop",
+      "items": [
+        "Only real executions that pass through the verifier enter the Local Outcome Ledger.",
+        "Local outcomes calibrate later route choices."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+ # Legacy compatibility fixture: these .harness contracts remain readable for migration tests; current public setup uses ContextCord.
+[project]
+name = "replace-me"
+
+[knowledge]
+entrypoints = ["AGENTS.md"]
+
+[fingerprint]
+exclude = [".harness/receipts/**", ".harness/generated/**"]
+
+[qualification]
+notes_ref = "refs/notes/project-harness"

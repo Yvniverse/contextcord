@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/model-intelligence-snapshot-v1.json",
+  "title": "ContextCord Model Intelligence Snapshot v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "source",
+    "retrieved_at",
+    "status",
+    "routes"
+  ],
+  "properties": {
+    "schema": {
+      "const": "contextcord-model-intelligence-snapshot-v1"
+    },
+    "source": {
+      "type": "string"
+    },
+    "retrieved_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "LIVE",
+        "FRESH_CACHE",
+        "STALE_CACHE",
+        "UNAVAILABLE"
+      ]
+    },
+    "benchmark": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "model_id",
+          "reasoning_effort"
+        ],
+        "properties": {
+          "model_id": {
+            "type": "string"
+          },
+          "reasoning_effort": {
+            "type": "string"
+          },
+          "task_equal_pass_rate": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "iq_equivalent": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "task_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "run_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "median_duration_minutes": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "median_api_equivalent_cost_usd": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "median_estimated_quota_pct": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "attribution": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_payload_committed": {
+      "const": false
+    },
+    "latency_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "external_route_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cache_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

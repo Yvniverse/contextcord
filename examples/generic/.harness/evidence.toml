@@ -1,0 +1,5 @@
+ # Legacy compatibility fixture: these .harness contracts remain readable for migration tests; current public setup uses ContextCord.
+[rules]
+require_file_for_pass = true
+exact_revision_required = true
+receipt_dir = ".harness/receipts"

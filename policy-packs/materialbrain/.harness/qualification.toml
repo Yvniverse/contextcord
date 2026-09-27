@@ -1,0 +1,6 @@
+notes_ref = "refs/notes/contextcord"
+default_profile = "current-records"
+[profiles.candidate]
+required = ["ci", "browser"]
+[profiles.deployed]
+required = ["ci", "browser", "deployment:production"]

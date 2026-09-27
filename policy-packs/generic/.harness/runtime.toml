@@ -1,0 +1,2 @@
+required_scopes = []
+# Optional probes support http_json, file_json, or command_json.

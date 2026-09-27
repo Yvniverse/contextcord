@@ -1,0 +1,27 @@
+{
+  "schema": "contextcord-model-intelligence-snapshot-v1",
+  "status": "LIVE",
+  "cache_status": "LIVE",
+  "benchmark": "deep-swe",
+  "source": "CodexRadar / Distributed Radar",
+  "attribution": "Data source: Codex Radar / Distributed Radar — DeepSWE",
+  "external_route_count": 15,
+  "raw_payload_committed": false,
+  "routes": [
+    {"model_id": "gpt-5.6-luna", "reasoning_effort": "high", "task_equal_pass_rate": 0.5089464285714286, "task_count": 112, "median_api_equivalent_cost_usd": 0.165, "median_estimated_quota_pct": null, "median_duration_minutes": 13.0},
+    {"model_id": "gpt-5.6-luna", "reasoning_effort": "low", "task_equal_pass_rate": 0.04761607142857143, "task_count": 112, "median_api_equivalent_cost_usd": 0.027825, "median_estimated_quota_pct": null, "median_duration_minutes": 3.0},
+    {"model_id": "gpt-5.6-luna", "reasoning_effort": "max", "task_equal_pass_rate": 0.6815625, "task_count": 112, "median_api_equivalent_cost_usd": 0.4, "median_estimated_quota_pct": null, "median_duration_minutes": 27.0},
+    {"model_id": "gpt-5.6-luna", "reasoning_effort": "medium", "task_equal_pass_rate": 0.21724107142857144, "task_count": 112, "median_api_equivalent_cost_usd": 0.06722, "median_estimated_quota_pct": null, "median_duration_minutes": 6.0},
+    {"model_id": "gpt-5.6-luna", "reasoning_effort": "xhigh", "task_equal_pass_rate": 0.5744285714285714, "task_count": 112, "median_api_equivalent_cost_usd": 0.26, "median_estimated_quota_pct": null, "median_duration_minutes": 19.0},
+    {"model_id": "gpt-5.6-sol", "reasoning_effort": "high", "task_equal_pass_rate": 0.6428392857142857, "task_count": 112, "median_api_equivalent_cost_usd": 2.815, "median_estimated_quota_pct": null, "median_duration_minutes": 16.0},
+    {"model_id": "gpt-5.6-sol", "reasoning_effort": "low", "task_equal_pass_rate": 0.5417053571428572, "task_count": 112, "median_api_equivalent_cost_usd": 1.14, "median_estimated_quota_pct": null, "median_duration_minutes": 7.0},
+    {"model_id": "gpt-5.6-sol", "reasoning_effort": "max", "task_equal_pass_rate": 0.7232410714285714, "task_count": 112, "median_api_equivalent_cost_usd": 5.795, "median_estimated_quota_pct": null, "median_duration_minutes": 28.0},
+    {"model_id": "gpt-5.6-sol", "reasoning_effort": "medium", "task_equal_pass_rate": 0.636919642857143, "task_count": 112, "median_api_equivalent_cost_usd": 2.09, "median_estimated_quota_pct": null, "median_duration_minutes": 12.0},
+    {"model_id": "gpt-5.6-sol", "reasoning_effort": "xhigh", "task_equal_pass_rate": 0.6547678571428572, "task_count": 112, "median_api_equivalent_cost_usd": 3.71, "median_estimated_quota_pct": null, "median_duration_minutes": 20.0},
+    {"model_id": "gpt-5.6-terra", "reasoning_effort": "high", "task_equal_pass_rate": 0.5148839285714286, "task_count": 112, "median_api_equivalent_cost_usd": 0.89, "median_estimated_quota_pct": null, "median_duration_minutes": 9.0},
+    {"model_id": "gpt-5.6-terra", "reasoning_effort": "low", "task_equal_pass_rate": 0.3392678571428572, "task_count": 112, "median_api_equivalent_cost_usd": 0.42, "median_estimated_quota_pct": null, "median_duration_minutes": 5.0},
+    {"model_id": "gpt-5.6-terra", "reasoning_effort": "max", "task_equal_pass_rate": 0.672625, "task_count": 112, "median_api_equivalent_cost_usd": 3.195, "median_estimated_quota_pct": null, "median_duration_minutes": 25.0},
+    {"model_id": "gpt-5.6-terra", "reasoning_effort": "medium", "task_equal_pass_rate": 0.3987857142857143, "task_count": 112, "median_api_equivalent_cost_usd": 0.545, "median_estimated_quota_pct": null, "median_duration_minutes": 6.0},
+    {"model_id": "gpt-5.6-terra", "reasoning_effort": "xhigh", "task_equal_pass_rate": 0.5863482142857144, "task_count": 112, "median_api_equivalent_cost_usd": 1.59, "median_estimated_quota_pct": null, "median_duration_minutes": 14.0}
+  ]
+}

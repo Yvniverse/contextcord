@@ -1,0 +1,109 @@
+{
+  "$id": "https://project-harness.dev/schemas/workflow.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "operation_gates": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "properties": {
+          "allowed_current_phases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "requires_completed": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "phase_contracts": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "properties": {
+          "minimum_pass_evidence": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "require_clean_truth": {
+            "type": "boolean"
+          },
+          "require_policy_stable": {
+            "type": "boolean"
+          },
+          "require_qualification_profile": {
+            "type": "string"
+          },
+          "required_evidence": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "required_runtime": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "phases": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "requires": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "scope_profiles": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "properties": {
+          "required_phases": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "required_phases"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "phases"
+  ],
+  "title": "Unified Project Harness workflow manifest",
+  "type": "object"
+}

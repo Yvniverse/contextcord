@@ -1,0 +1,43 @@
+{
+  "schema": "contextcord-host-adapter-v1",
+  "id": "generic-mcp",
+  "display_name": "Generic MCP Host",
+  "vendor": "community",
+  "transports": [
+    "stdio",
+    "streamable_http"
+  ],
+  "config_scopes": [
+    "project"
+  ],
+  "config_template": {
+    "stdio": {
+      "command": "contextcord",
+      "args": [
+        "mcp"
+      ]
+    }
+  },
+  "reload": {
+    "kind": "manual",
+    "instruction": "Restart or reload MCP servers in the host"
+  },
+  "list_tools": {
+    "kind": "host_specific",
+    "instruction": "Verify contextcord_memory, contextcord_memory_recheck, and resume tools"
+  },
+  "lazy_loading": {
+    "supported": "unknown"
+  },
+  "permissions": {
+    "user_confirmation_required": true
+  },
+  "telemetry": {
+    "model_id": "optional",
+    "token_usage": "optional"
+  },
+  "required_contextcord_tools": [
+    "contextcord_memory",
+    "contextcord_memory_recheck"
+  ]
+}

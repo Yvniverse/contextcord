@@ -1,0 +1,42 @@
+{
+  "query": "continue relay retry resume implementation against current contract",
+  "critical_memory_ids": ["mem-current-contract", "mem-raw-trace-pointer", "mem-stale-checkpoint"],
+  "candidates": [
+    {
+      "id": "mem-current-contract",
+      "freshness": "CURRENT",
+      "source": "task handoff",
+      "text": "Current retry policy uses max_attempts=4, total_delay_budget=1.2s and max_single_delay=0.75s. Retry only 429/503. Preserve opaque server checkpoint values exactly."
+    },
+    {
+      "id": "mem-stale-checkpoint",
+      "freshness": "STALE_REVALIDATE",
+      "source": "older Session S1 note",
+      "text": "Historical note said numeric checkpoints could be normalized through int() and the single-delay cap was 1.5s. This depended on an older client implementation and must be revalidated."
+    },
+    {
+      "id": "mem-raw-trace-pointer",
+      "freshness": "HISTORICAL",
+      "source": "archive pointer",
+      "text": "A prior integration trace captured two protocol edge cases that were not in the public spec. Restore archive relay-trace-017 when exact behavior matters."
+    },
+    {
+      "id": "mem-visible-tests",
+      "freshness": "CURRENT",
+      "source": "project note",
+      "text": "Visible tests cover basic success/non-retryable behavior only. The independent oracle is outside the coding-agent workspace and must not be modified."
+    },
+    {
+      "id": "mem-ui-note",
+      "freshness": "CURRENT",
+      "source": "unrelated UI session",
+      "text": "Workbench navigation copy was changed from Evidence to Verification."
+    },
+    {
+      "id": "mem-old-readme",
+      "freshness": "HISTORICAL",
+      "source": "old README",
+      "text": "An old README example showed a five-attempt exponential retry loop. It predates the current task contract."
+    }
+  ]
+}

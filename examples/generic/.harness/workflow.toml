@@ -1,0 +1,30 @@
+ # Legacy compatibility fixture: these .harness contracts remain readable for migration tests; current public setup uses ContextCord.
+[[phases]]
+id = "authority"
+requires = []
+
+[[phases]]
+id = "implementation"
+requires = ["authority"]
+
+[[phases]]
+id = "tests"
+requires = ["implementation"]
+
+[[phases]]
+id = "qualification"
+requires = ["tests"]
+
+[[phases]]
+id = "delivery"
+requires = ["qualification"]
+
+[operation_gates.push]
+allowed_current_phases = ["delivery"]
+requires_completed = ["qualification"]
+[operation_gates.release]
+allowed_current_phases = ["delivery"]
+requires_completed = ["qualification"]
+[operation_gates.deploy]
+allowed_current_phases = ["delivery"]
+requires_completed = ["qualification"]

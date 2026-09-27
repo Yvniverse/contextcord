@@ -1,0 +1,20 @@
+{
+  "schema": "contextcord-host-tier-source-v1",
+  "tiers": {
+    "BUILT_IN": ["codex", "qoder", "cursor", "opencode", "workbuddy"],
+    "COMPAT_TEMPLATE": ["claude", "deepseek"],
+    "BYOH": ["generic-mcp", "adapter-manifest"]
+  },
+  "display_names": {
+    "codex": "Codex",
+    "qoder": "Qoder",
+    "cursor": "Cursor",
+    "opencode": "OpenCode",
+    "workbuddy": "WorkBuddy",
+    "claude": "Claude",
+    "deepseek": "DeepSeek",
+    "generic-mcp": "Generic MCP",
+    "adapter-manifest": "Adapter Manifest"
+  },
+  "truth_boundary": "Product integration, native continuation evidence and benchmark qualification remain independent dimensions."
+}

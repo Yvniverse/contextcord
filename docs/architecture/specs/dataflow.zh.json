@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · 数据流与证据边界",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [
+      1040,
+      720
+    ]
+  },
+  "stages": [
+    {
+      "label": "来源"
+    },
+    {
+      "label": "有界投影"
+    },
+    {
+      "label": "决策 / 执行"
+    },
+    {
+      "label": "持久证据"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "type": "external",
+      "label": "Repository Source",
+      "sublabel": "tracked source",
+      "stage": 0,
+      "row": 0
+    },
+    {
+      "id": "identity",
+      "type": "security",
+      "label": "Source Identity",
+      "sublabel": "hash + Git identity",
+      "stage": 1,
+      "row": 0
+    },
+    {
+      "id": "runtime",
+      "type": "backend",
+      "label": "Execution Runtime",
+      "sublabel": "authorized host run",
+      "stage": 2,
+      "row": 0
+    },
+    {
+      "id": "evidence",
+      "type": "database",
+      "label": "Evidence / Receipt",
+      "sublabel": "tests + provenance",
+      "stage": 3,
+      "row": 0
+    },
+    {
+      "id": "memory",
+      "type": "database",
+      "label": "Continuity State",
+      "sublabel": "repository-local state",
+      "stage": 0,
+      "row": 1
+    },
+    {
+      "id": "packet",
+      "type": "backend",
+      "label": "Context Packet",
+      "sublabel": "selected records",
+      "stage": 1,
+      "row": 1
+    },
+    {
+      "id": "router",
+      "type": "backend",
+      "label": "Adaptive Router v3",
+      "sublabel": "effective route",
+      "stage": 2,
+      "row": 1
+    },
+    {
+      "id": "outcome",
+      "type": "database",
+      "label": "Outcome Ledger",
+      "sublabel": "verified observations",
+      "stage": 3,
+      "row": 1
+    },
+    {
+      "id": "radar",
+      "type": "external",
+      "label": "CodexRadar",
+      "sublabel": "public benchmark",
+      "stage": 0,
+      "row": 2
+    },
+    {
+      "id": "prior",
+      "type": "security",
+      "label": "Derived Prior",
+      "sublabel": "bounded metrics",
+      "stage": 1,
+      "row": 2
+    },
+    {
+      "id": "planner",
+      "type": "backend",
+      "label": "Planner Input",
+      "sublabel": "quality + cost prior",
+      "stage": 2,
+      "row": 2
+    },
+    {
+      "id": "route_receipt",
+      "type": "database",
+      "label": "Route Receipt",
+      "sublabel": "decision evidence",
+      "stage": 3,
+      "row": 2
+    },
+    {
+      "id": "decision_state",
+      "type": "database",
+      "label": "Decision State",
+      "sublabel": "shortlist + risk",
+      "stage": 0,
+      "row": 3
+    },
+    {
+      "id": "jev_projection",
+      "type": "security",
+      "label": "Jev Projection",
+      "sublabel": "typed bounded fields",
+      "stage": 1,
+      "row": 3
+    },
+    {
+      "id": "jev",
+      "type": "external",
+      "label": "Optional Jev",
+      "sublabel": "closed-set Choice",
+      "stage": 2,
+      "row": 3
+    },
+    {
+      "id": "decision_receipt",
+      "type": "database",
+      "label": "Decision Receipt",
+      "sublabel": "usage + source",
+      "stage": 3,
+      "row": 3
+    }
+  ],
+  "flows": [
+    {
+      "id": "source-identity",
+      "from": "source",
+      "to": "identity",
+      "variant": "emphasis",
+      "route": "straight",
+      "label": "source"
+    },
+    {
+      "id": "identity-runtime",
+      "from": "identity",
+      "to": "runtime",
+      "variant": "emphasis",
+      "route": "straight",
+      "label": "identity"
+    },
+    {
+      "id": "runtime-evidence",
+      "from": "runtime",
+      "to": "evidence",
+      "variant": "emphasis",
+      "route": "straight",
+      "label": "verified"
+    },
+    {
+      "id": "memory-packet",
+      "from": "memory",
+      "to": "packet",
+      "route": "straight",
+      "label": "records"
+    },
+    {
+      "id": "packet-router",
+      "from": "packet",
+      "to": "router",
+      "route": "straight",
+      "label": "context"
+    },
+    {
+      "id": "router-outcome",
+      "from": "router",
+      "to": "outcome",
+      "route": "straight",
+      "label": "outcome"
+    },
+    {
+      "id": "radar-prior",
+      "from": "radar",
+      "to": "prior",
+      "variant": "dashed",
+      "route": "straight",
+      "label": "public prior"
+    },
+    {
+      "id": "prior-planner",
+      "from": "prior",
+      "to": "planner",
+      "variant": "dashed",
+      "route": "straight",
+      "label": "metrics"
+    },
+    {
+      "id": "planner-receipt",
+      "from": "planner",
+      "to": "route_receipt",
+      "variant": "dashed",
+      "route": "straight",
+      "label": "planner"
+    },
+    {
+      "id": "state-projection",
+      "from": "decision_state",
+      "to": "jev_projection",
+      "variant": "security",
+      "route": "straight",
+      "label": "state"
+    },
+    {
+      "id": "projection-jev",
+      "from": "jev_projection",
+      "to": "jev",
+      "variant": "security",
+      "route": "straight",
+      "label": "typed"
+    },
+    {
+      "id": "jev-receipt",
+      "from": "jev",
+      "to": "decision_receipt",
+      "variant": "security",
+      "route": "straight",
+      "label": "choice"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "四类数据分开保管",
+      "items": [
+        "源码身份与执行证据保持 repository-local。",
+        "任务上下文、外部 prior、Jev 投影分别有自己的有界数据路径。"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "分析数据不授予执行资格",
+      "items": [
+        "CodexRadar 只提供派生 prior，不会把 route 变成 executable。",
+        "Execution Catalog 与宿主权限仍由本地代码判断。"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "学习只吃真实结果",
+      "items": [
+        "只有真实执行并经过 Verifier 的结果进入 Local Outcome Ledger。",
+        "fixture 与 shadow 推荐保留为分析证据，不伪装成 outcome。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · 当前运行架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1160,
+      850
+    ],
+    "views": [
+      {
+        "id": "continuity-path",
+        "label": "工程接续主链",
+        "focus": [
+          "hosts",
+          "gateway",
+          "continuity",
+          "context_engine",
+          "router",
+          "runtime"
+        ],
+        "note": "从宿主入口到上下文、路由与受控执行。"
+      },
+      {
+        "id": "adaptive-route",
+        "label": "自适应路由",
+        "focus": [
+          "router",
+          "decision_intel",
+          "outcomes"
+        ],
+        "note": "模型先验与可选 Jev 判断共同形成 effective route，真实 verifier 结果回到本地 outcome。"
+      },
+      {
+        "id": "trust-state",
+        "label": "证据与状态",
+        "focus": [
+          "continuity",
+          "trust",
+          "state_store",
+          "runtime"
+        ],
+        "note": "任务、会话、证据和状态保存在 repository-local truth source。"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "hosts",
+      "type": "external",
+      "label": "Coding Agent Hosts",
+      "sublabel": "5 built-in hosts + BYOH",
+      "pos": [
+        30,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "gateway",
+      "type": "backend",
+      "label": "CLI / MCP Gateway",
+      "sublabel": "统一入口与动态工具面",
+      "pos": [
+        290,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "continuity",
+      "type": "backend",
+      "label": "Continuity Core",
+      "sublabel": "Task · Session · Note · Handoff",
+      "pos": [
+        550,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "context_engine",
+      "type": "backend",
+      "label": "Context Engine",
+      "sublabel": "bounded selection + packet",
+      "pos": [
+        810,
+        70
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "capabilities",
+      "type": "security",
+      "label": "Capability Registry",
+      "sublabel": "profile + dependency closure",
+      "pos": [
+        30,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "state_store",
+      "type": "database",
+      "label": "StateStore",
+      "sublabel": "tasks · sessions · events · outcomes",
+      "pos": [
+        290,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "trust",
+      "type": "security",
+      "label": "Trust & Freshness",
+      "sublabel": "identity · evidence · receipts",
+      "pos": [
+        550,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "router",
+      "type": "backend",
+      "label": "Adaptive Router v3",
+      "sublabel": "eligibility → shortlist → route",
+      "pos": [
+        810,
+        300
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "outcomes",
+      "type": "database",
+      "label": "Local Outcomes",
+      "sublabel": "executed route + verifier result",
+      "pos": [
+        290,
+        530
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "decision_intel",
+      "type": "external",
+      "label": "Decision Intelligence",
+      "sublabel": "CodexRadar prior + optional Jev",
+      "pos": [
+        550,
+        530
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "runtime",
+      "type": "backend",
+      "label": "Execution Runtime",
+      "sublabel": "policy · runner · verifier",
+      "pos": [
+        810,
+        530
+      ],
+      "size": [
+        200,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "host-gateway",
+      "from": "hosts",
+      "to": "gateway",
+      "label": "MCP / CLI",
+      "labelAt": [
+        260,
+        54
+      ]
+    },
+    {
+      "id": "gateway-cont",
+      "from": "gateway",
+      "to": "continuity",
+      "label": "resume / memory",
+      "labelAt": [
+        520,
+        54
+      ]
+    },
+    {
+      "id": "cont-context",
+      "from": "continuity",
+      "to": "context_engine",
+      "label": "bounded candidates",
+      "labelAt": [
+        780,
+        54
+      ]
+    },
+    {
+      "id": "context-router",
+      "from": "context_engine",
+      "to": "router",
+      "label": "task context",
+      "labelAt": [
+        1040,
+        220
+      ]
+    },
+    {
+      "id": "router-runtime",
+      "from": "router",
+      "to": "runtime",
+      "label": "effective route",
+      "labelAt": [
+        1040,
+        450
+      ]
+    },
+    {
+      "id": "gateway-cap",
+      "from": "gateway",
+      "to": "capabilities"
+    },
+    {
+      "id": "continuity-store",
+      "from": "continuity",
+      "to": "state_store"
+    },
+    {
+      "id": "context-trust",
+      "from": "context_engine",
+      "to": "trust"
+    },
+    {
+      "id": "trust-store",
+      "from": "trust",
+      "to": "state_store",
+      "label": "verified state",
+      "labelAt": [
+        520,
+        400
+      ]
+    },
+    {
+      "id": "intel-router",
+      "from": "decision_intel",
+      "to": "router",
+      "label": "prior + optional Choice",
+      "labelAt": [
+        650,
+        450
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "代码拥有硬边界",
+      "items": [
+        "Jev 与 CodexRadar 只提供 advisory intelligence。",
+        "权限、预算、可执行候选、fallback 与 verifier 继续由代码掌控。"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "能力可以独立组合",
+      "items": [
+        "Continuity 不依赖模型路由。",
+        "Capability Registry 决定当前 profile 暴露的工具与能力。"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Outcome 闭环",
+      "items": [
+        "只有真实执行并经过 verifier 的结果进入 Local Outcome Ledger。",
+        "本地 outcome 用于校准后续 route 选择。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+include LICENSE NOTICE README.md README_CN.md CHANGELOG.md CONTRIBUTING.md SECURITY.md AGENTS.md action.yml .gitattributes .gitignore
+recursive-include .github *.yml
+recursive-include docs *.md
+recursive-include schemas *.json
+recursive-include policy-packs *.toml *.md .gitignore .gitattributes
+recursive-include scripts *.py
+recursive-include integrations *.yml *.md
+recursive-include benchmark *.py *.md
+recursive-include skills *.md *.py
+recursive-include tests *.py
+global-exclude __pycache__ *.py[cod] .env .env.*

@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://project-harness.dev/schemas/dual-run-ledger.schema.json",
+  "title":"Unified Project Harness dual-run ledger",
+  "type":"object",
+  "required":["schema","records"],
+  "properties":{"schema":{"const":"project-harness-dual-run-ledger-v1"},"records":{"type":"array","items":{"type":"object","required":["record_id","task_id","task_class","legacy_status","harness_status","expected_status","adjudication","recorded_at","previous_record_hash","record_hash"],"properties":{"record_id":{"type":"string"},"task_id":{"type":"string"},"task_class":{"type":"string"},"legacy_status":{"enum":["PASS","FAIL","BLOCKED","NOT_RUN"]},"harness_status":{"enum":["PASS","FAIL","BLOCKED","NOT_RUN"]},"expected_status":{"enum":["PASS","FAIL","BLOCKED","NOT_RUN"]},"adjudication":{"enum":["BOTH_CORRECT","LEGACY_CORRECT","HARNESS_CORRECT","BOTH_WRONG","UNRESOLVED"]},"recorded_at":{"type":"string"},"previous_record_hash":{"type":["string","null"]},"record_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"}},"additionalProperties":true}}},
+  "additionalProperties":true
+}

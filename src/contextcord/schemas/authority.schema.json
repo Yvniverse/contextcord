@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://project-harness.dev/schemas/authority.schema.json",
+  "title":"Unified Project Harness authority manifest",
+  "type":"object",
+  "required":["scopes"],
+  "properties":{
+    "protected":{"type":"array","items":{"type":"object","required":["path"],"properties":{"path":{"type":"string","minLength":1},"operations":{"type":"array","items":{"type":"string"}},"reason":{"type":"string"}},"additionalProperties":true}},
+    "scopes":{"type":"object","minProperties":1,"additionalProperties":{"type":"object","properties":{"allow_operations":{"type":"array","items":{"type":"string"}},"write_patterns":{"type":"array","items":{"type":"string"}},"read_patterns":{"type":"array","items":{"type":"string"}},"forbidden_patterns":{"type":"array","items":{"type":"string"}},"allow_external":{"type":"boolean"},"external_read_patterns":{"type":"array","items":{"type":"string"}},"external_write_patterns":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}},
+    "leases":{"type":"object","properties":{"enforce_conflicts":{"type":"boolean"},"require_for_mutation":{"type":"boolean"}},"additionalProperties":true}
+  },
+  "additionalProperties":true
+}

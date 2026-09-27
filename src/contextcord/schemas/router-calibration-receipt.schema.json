@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/router-calibration-receipt-v1.json",
+  "title": "ContextCord Router Calibration Receipt v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "round_id",
+    "live_call_cap",
+    "calls_used",
+    "routes",
+    "early_stop"
+  ],
+  "properties": {
+    "schema": {
+      "const": "contextcord-router-calibration-receipt-v1"
+    },
+    "round_id": {
+      "type": "string"
+    },
+    "live_call_cap": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "calls_used": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "sol_max_runs": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "early_stop": {
+      "type": "boolean"
+    },
+    "stop_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

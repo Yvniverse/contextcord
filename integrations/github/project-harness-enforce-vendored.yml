@@ -1,0 +1,52 @@
+name: Unified Project Harness Required Verify
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  harness-required:
+    runs-on: ubuntu-latest
+    env:
+      # A project-specific trusted download step MUST materialize the portable
+      # closeout bundle at this path before the verification step below.
+      PROJECT_HARNESS_BUNDLE: .project-harness/portable-closeout.zip
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install reviewed vendored Unified Project Harness wheel
+        shell: bash
+        run: |
+          set -euo pipefail
+          wheel=$(find tools/project-harness -maxdepth 1 -name 'project_operations_harness-*.whl' -print -quit)
+          test -n "$wheel"
+          python -m pip install --no-deps "$wheel"
+
+      - name: Validate project policy and exact current identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          project-harness doctor
+          project-harness identity
+          project-harness release-identity || true
+
+      # REQUIRED IN REAL REPOSITORIES:
+      # Add a reviewed artifact-download step here. It should fetch the bundle
+      # produced for this exact candidate by `project-harness bundle export`.
+      # Do not create a new source commit merely to transport post-commit proof.
+
+      - name: Require and verify portable closeout evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "$PROJECT_HARNESS_BUNDLE" || {
+            echo "Required Portable Evidence Bundle missing: $PROJECT_HARNESS_BUNDLE" >&2
+            echo "Configure a trusted post-commit artifact download step before enforcing this workflow." >&2
+            exit 2
+          }
+          project-harness bundle verify --path "$PROJECT_HARNESS_BUNDLE"
+          # Optional artifact materialization: project-harness bundle import --path "$PROJECT_HARNESS_BUNDLE"
+          git fetch origin refs/notes/project-harness:refs/notes/project-harness 2>/dev/null || true
+          # Local verify --ci requires the original live store; imported artifacts do not recreate it.

@@ -1,0 +1,18 @@
+{
+  "archive_id": "relay-trace-017",
+  "kind": "public-synthetic integration trace",
+  "events": [
+    {
+      "request_checkpoint": null,
+      "response_status": 503,
+      "response_headers": {"Retry-After": ".35", "X-Relay-Checkpoint": "0007"},
+      "observation": "The peer accepted a decimal Retry-After value. The next request succeeded only when checkpoint was replayed byte-for-byte as '0007'; integer normalization to '7' caused the peer to restart from the wrong offset."
+    },
+    {
+      "request_checkpoint": "0007",
+      "response_status": 409,
+      "response_headers": {"X-Relay-State": "already-applied"},
+      "observation": "A 409 carrying X-Relay-State=already-applied means the chunk was already committed and continuation should terminate successfully without another retry."
+    }
+  ]
+}

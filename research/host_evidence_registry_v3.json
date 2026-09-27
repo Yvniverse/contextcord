@@ -1,0 +1,218 @@
+{
+  "schema": "contextcord-host-evidence-registry-v3",
+  "registry_version": "v3",
+  "verified_at": "2026-09-26",
+  "built_in_hosts": [
+    {
+      "host_id": "codex",
+      "display_name": "OpenAI Codex",
+      "vendor": "OpenAI",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "support/adapters/codex.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1",
+          "official_docs": "https://developers.openai.com/learn/docs-mcp"
+        },
+        "config": {
+          "status": "PASS",
+          "format": "TOML [mcp_servers.contextcord] / stdio",
+          "official_docs_verified": "2026-09-26"
+        }
+      },
+      "continuation": {
+        "status": "NOT_RUN",
+        "protocol_id": null,
+        "model_observation": null,
+        "evidence_refs": []
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": null,
+        "trials_per_arm": null,
+        "evidence_refs": []
+      },
+      "limitations": [
+        "The bounded live experiment was not run because the local Codex CLI had no credentials and the provider transport was unreachable.",
+        "Live qualification defaults to runtime-resolved gpt-5.6-luna at medium effort; any model-specific PASS requires observed model and effort identity, with no fallback."
+      ]
+    },
+    {
+      "host_id": "qoder",
+      "display_name": "Qoder",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "support/adapters/qoder.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1",
+          "official_docs": "https://docs.qoder.com/cli/mcp-servers"
+        },
+        "config": {
+          "status": "PASS",
+          "format": "mcpServers / stdio",
+          "project_path": ".mcp.json",
+          "user_path": "~/.qoder/settings.json",
+          "reload": "qoder mcp list or /mcp reload",
+          "official_docs_verified": "2026-09-25"
+        }
+      },
+      "continuation": {
+        "status": "VERIFIED",
+        "evidence_generation": "A11",
+        "evidence_date": "2026-09-23",
+        "fixture_scope": "public_synthetic_native_continuation",
+        "model_observation": "host_returned_or_unobserved",
+        "evidence_refs": [],
+        "evidence_visibility": "internal_not_staged"
+      },
+      "qualification": {
+        "status": "NOT_QUALIFIED",
+        "qualified": false,
+        "protocol_id": "A12.2-v3",
+        "trials_per_arm": 2,
+        "latest_probe": "PROVIDER_UNAVAILABLE_AFTER_TWO_TRIALS",
+        "evidence_refs": []
+      },
+      "limitations": [
+        "Native continuation evidence is independent of current Benchmark v3 qualification.",
+        "Provider/model identity is recorded only when the host exposes it."
+      ]
+    },
+    {
+      "host_id": "cursor",
+      "display_name": "Cursor",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "support/adapters/cursor.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1",
+          "official_docs": "https://docs.cursor.com/context/model-context-protocol"
+        },
+        "config": {
+          "status": "PASS",
+          "format": "mcpServers / stdio",
+          "project_path": ".cursor/mcp.json",
+          "user_path": "~/.cursor/mcp.json",
+          "reload": "Cursor MCP panel or cursor-agent mcp list",
+          "official_docs_verified": "2026-09-25"
+        }
+      },
+      "continuation": {
+        "status": "VERIFIED",
+        "evidence_generation": "A11",
+        "evidence_date": "2026-09-23",
+        "fixture_scope": "public_synthetic_native_continuation",
+        "model_observation": "Auto",
+        "evidence_refs": [],
+        "evidence_visibility": "internal_not_staged"
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": "A12.2-v3",
+        "trials_per_arm": 0,
+        "latest_probe": "CAPABILITY_MISMATCH_DESKTOP_LAUNCHER",
+        "evidence_refs": []
+      },
+      "limitations": [
+        "Cursor model routing may be observable only as Auto.",
+        "A desktop launcher is not treated as a headless benchmark CLI."
+      ]
+    },
+    {
+      "host_id": "opencode",
+      "display_name": "OpenCode",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "support/adapters/opencode.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1",
+          "official_docs": "https://opencode.ai/v2/docs/mcp-servers"
+        },
+        "config": {
+          "status": "PASS",
+          "format": "mcp.servers / local command array",
+          "project_path": "opencode.json or opencode.jsonc",
+          "user_path": "~/.config/opencode/opencode.json",
+          "reload": "opencode mcp list",
+          "official_docs_verified": "2026-09-25"
+        }
+      },
+      "continuation": {
+        "status": "VERIFIED",
+        "evidence_generation": "A11",
+        "evidence_date": "2026-09-23",
+        "fixture_scope": "public_synthetic_native_continuation",
+        "model_observation": "host_returned_or_unobserved",
+        "evidence_refs": [],
+        "evidence_visibility": "internal_not_staged"
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": "A12.2-v3",
+        "trials_per_arm": 0,
+        "latest_probe": "CLI_NOT_AVAILABLE_ON_CURRENT_PATH",
+        "evidence_refs": []
+      },
+      "limitations": [
+        "OpenCode was not available on the current Windows PATH during the initial probe.",
+        "The exact installed OpenCode schema remains host-version dependent."
+      ]
+    },
+    {
+      "host_id": "workbuddy",
+      "display_name": "WorkBuddy",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "support/adapters/workbuddy.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1",
+          "official_docs": "https://www.codebuddy.ai/docs/cli/mcp"
+        },
+        "config": {
+          "status": "PASS",
+          "format": "mcpServers / stdio JSONC",
+          "project_path": ".mcp.json",
+          "user_path": "~/.codebuddy/.mcp.json",
+          "reload": "codebuddy mcp list or host reload",
+          "official_docs_verified": "2026-09-25"
+        }
+      },
+      "continuation": {
+        "status": "VERIFIED",
+        "evidence_generation": "A11",
+        "evidence_date": "2026-09-23",
+        "fixture_scope": "public_synthetic_native_continuation",
+        "model_observation": "host_returned_or_unobserved",
+        "evidence_refs": [],
+        "evidence_visibility": "internal_not_staged"
+      },
+      "qualification": {
+        "status": "NOT_QUALIFIED",
+        "qualified": false,
+        "protocol_id": "A12.2-v3",
+        "trials_per_arm": 3,
+        "latest_probe": "4_ARMS_X3_COMPLETED_NOT_QUALIFIED",
+        "evidence_refs": []
+      },
+      "limitations": [
+        "WorkBuddy/CodeBuddy may use deferred MCP loading controlled by host settings or environment.",
+        "A GUI-only or unobservable probe is not treated as a headless benchmark result."
+      ]
+    }
+  ],
+  "byoh": {
+    "product_tier": "BYOH",
+    "manifest_schema": "contextcord-host-adapter-v1",
+    "status": "available_for_manifest_validation",
+    "qualification_rule": "A BYOH manifest cannot add a built-in host or inherit another host's evidence."
+  },
+  "truth_boundary": "Product integration, native or MCP continuation evidence, and qualification are independent dimensions. A timeout or provider outage updates only the affected evidence dimension; it does not erase historical evidence."
+}

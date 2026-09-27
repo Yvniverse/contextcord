@@ -1,0 +1,52 @@
+{
+  "schema": "contextcord-host-adapter-v1",
+  "id": "opencode",
+  "display_name": "OpenCode",
+  "vendor": "OpenCode",
+  "transports": [
+    "stdio",
+    "streamable_http"
+  ],
+  "config_scopes": [
+    "project",
+    "user"
+  ],
+  "official_docs": "https://opencode.ai/v2/docs/mcp-servers",
+  "config_template": {
+    "opencode.jsonc": {
+      "$schema": "https://opencode.ai/config.json",
+      "mcp": {
+        "servers": {
+          "contextcord": {
+            "type": "local",
+            "command": [
+              "contextcord",
+              "mcp"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "reload": {
+    "kind": "host_managed"
+  },
+  "list_tools": {
+    "kind": "cli",
+    "command": "opencode mcp list"
+  },
+  "lazy_loading": {
+    "supported": "host_specific"
+  },
+  "permissions": {
+    "user_confirmation_required": true
+  },
+  "telemetry": {
+    "model_id": "host_returned",
+    "token_usage": "host_returned"
+  },
+  "required_contextcord_tools": [
+    "contextcord_memory",
+    "contextcord_memory_recheck"
+  ]
+}

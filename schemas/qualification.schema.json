@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://project-harness.dev/schemas/qualification.schema.json",
+  "title":"Unified Project Harness qualification manifest",
+  "type":"object",
+  "properties":{
+    "notes_ref":{"type":"string","minLength":1},
+    "default_profile":{"type":"string"},
+    "profiles":{"type":"object","additionalProperties":{"type":"object","properties":{"required":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}}
+  },
+  "additionalProperties":true
+}

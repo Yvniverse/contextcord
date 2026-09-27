@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · Continuity to Adaptive Execution",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [
+      1080,
+      680
+    ]
+  },
+  "lanes": [
+    {
+      "id": "host",
+      "label": "Host / User"
+    },
+    {
+      "id": "continuity",
+      "label": "Continuity"
+    },
+    {
+      "id": "decision",
+      "label": "Adaptive Router"
+    },
+    {
+      "id": "evidence",
+      "label": "Runtime / Evidence"
+    }
+  ],
+  "mainPath": [
+    "resume",
+    "recheck",
+    "packet",
+    "discover",
+    "choose",
+    "execute",
+    "verify",
+    "outcome",
+    "closeout"
+  ],
+  "nodes": [
+    {
+      "id": "resume",
+      "lane": "host",
+      "col": 0,
+      "type": "external",
+      "label": "Resume task"
+    },
+    {
+      "id": "recheck",
+      "lane": "continuity",
+      "col": 0,
+      "type": "security",
+      "label": "Revalidate"
+    },
+    {
+      "id": "packet",
+      "lane": "continuity",
+      "col": 1,
+      "type": "backend",
+      "label": "Context packet"
+    },
+    {
+      "id": "discover",
+      "lane": "decision",
+      "col": 2,
+      "type": "security",
+      "label": "Discover routes",
+      "width": 110
+    },
+    {
+      "id": "choose",
+      "lane": "decision",
+      "col": 3,
+      "type": "backend",
+      "label": "Adaptive route"
+    },
+    {
+      "id": "execute",
+      "lane": "host",
+      "col": 4,
+      "type": "backend",
+      "label": "Host execution"
+    },
+    {
+      "id": "verify",
+      "lane": "evidence",
+      "col": 4,
+      "type": "security",
+      "label": "Verifier"
+    },
+    {
+      "id": "outcome",
+      "lane": "evidence",
+      "col": 5,
+      "type": "database",
+      "label": "Record outcome"
+    },
+    {
+      "id": "closeout",
+      "lane": "continuity",
+      "col": 5,
+      "type": "database",
+      "label": "Closeout"
+    }
+  ],
+  "edges": [
+    {
+      "id": "resume-recheck",
+      "from": "resume",
+      "to": "recheck"
+    },
+    {
+      "id": "recheck-packet",
+      "from": "recheck",
+      "to": "packet"
+    },
+    {
+      "id": "packet-discover",
+      "from": "packet",
+      "to": "discover"
+    },
+    {
+      "id": "discover-choose",
+      "from": "discover",
+      "to": "choose"
+    },
+    {
+      "id": "choose-execute",
+      "from": "choose",
+      "to": "execute"
+    },
+    {
+      "id": "execute-verify",
+      "from": "execute",
+      "to": "verify"
+    },
+    {
+      "id": "verify-outcome",
+      "from": "verify",
+      "to": "outcome"
+    },
+    {
+      "id": "outcome-closeout",
+      "from": "outcome",
+      "to": "closeout"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Deterministic gates first",
+      "items": [
+        "Source identity, permissions, and the execution catalog determine what can run.",
+        "Jev provides optional semantic judgment only within the closed shortlist."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Near-best quality, then cost",
+      "items": [
+        "The planner first narrows a near-best shortlist.",
+        "Gate 0 bypasses Jev when risk is low or the advantage is clear."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Outcomes inform the next route",
+      "items": [
+        "Verifier results are written to the Local Outcome Ledger.",
+        "Closeout records either COMPLETE or a resumable HANDOFF."
+      ]
+    }
+  ]
+}

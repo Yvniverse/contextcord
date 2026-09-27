@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://project-harness.dev/schemas/event.schema.json",
+  "title":"Unified Project Harness append-only event",
+  "type":"object",
+  "required":["event_id","event_type","payload","ts","prev_hash","event_hash"],
+  "properties":{"event_id":{"type":"string","minLength":1},"event_type":{"type":"string","minLength":1},"payload":{"type":"object"},"ts":{"type":"string"},"prev_hash":{"type":["string","null"]},"event_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},"task_id":{"type":["string","null"]},"session_id":{"type":["string","null"]}},
+  "additionalProperties":true
+}

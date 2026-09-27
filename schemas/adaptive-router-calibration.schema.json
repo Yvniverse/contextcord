@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/adaptive-router-calibration-v1.json",
+  "title": "ContextCord Adaptive Router Calibration v1",
+  "type": "object",
+  "required": ["schema", "codex_execution_cap", "jev_call_cap", "sol_max_cap", "tasks", "early_stop"],
+  "properties": {
+    "schema": {"const": "contextcord-adaptive-router-calibration-v1"},
+    "codex_execution_cap": {"const": 6},
+    "jev_call_cap": {"const": 3},
+    "sol_max_cap": {"const": 1},
+    "codex_executions_used": {"type": "integer", "minimum": 0, "maximum": 6},
+    "jev_calls_used": {"type": "integer", "minimum": 0, "maximum": 3},
+    "sol_max_used": {"type": "integer", "minimum": 0, "maximum": 1},
+    "tasks": {"type": "array", "items": {"type": "object"}},
+    "early_stop": {"type": "boolean"},
+    "stop_reason": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

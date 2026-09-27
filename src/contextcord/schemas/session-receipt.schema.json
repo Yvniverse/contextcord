@@ -1,0 +1,140 @@
+{
+  "$id": "https://project-harness.dev/schemas/session-receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "closeout_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "HANDOFF"
+      ]
+    },
+    "event_chain_head": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_records": {
+      "type": "array"
+    },
+    "finished_at": {
+      "type": "string"
+    },
+    "integrity_status": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "previous_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_type": {
+      "enum": [
+        "COMPLETE",
+        "HANDOFF"
+      ]
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "schema": {
+      "enum": [
+        "project-harness-session-receipt-v2",
+        "project-harness-session-receipt-v3"
+      ]
+    },
+    "scope": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "session_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_identity": {
+      "required": [
+        "schema",
+        "mode",
+        "git_commit",
+        "git_tree",
+        "truth_fingerprint",
+        "policy_fingerprint",
+        "memory_fingerprint",
+        "dirty_truth",
+        "identity_sha256"
+      ],
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "task_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "workflow_verdict": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema",
+    "receipt_type",
+    "session_id",
+    "task_id",
+    "scope",
+    "source_identity",
+    "summary",
+    "evidence_records",
+    "event_chain_head",
+    "integrity_status",
+    "closeout_status",
+    "finished_at",
+    "previous_receipt_hash",
+    "receipt_hash"
+  ],
+  "title": "Unified Project Harness sealed session receipt v2",
+  "type": "object",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema": {
+            "const": "project-harness-session-receipt-v3"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "store_id",
+          "build_identity"
+        ],
+        "properties": {
+          "store_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "build_identity": {
+            "type": "object",
+            "required": [
+              "sha256",
+              "version",
+              "file_count"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

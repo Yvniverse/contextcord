@@ -1,0 +1,9 @@
+ # Legacy compatibility fixture: these .harness contracts remain readable for migration tests; current public setup uses ContextCord.
+# Optional runtime probes. Each probe may be http_json or file_json.
+# [[probes]]
+# id = "backend"
+# kind = "http_json"
+# url = "http://127.0.0.1:8000/runtime-info"
+# revision_field = "build_sha"
+# expected = "HEAD"
+# required = false

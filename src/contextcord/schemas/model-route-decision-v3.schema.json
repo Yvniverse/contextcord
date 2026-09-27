@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/model-route-decision-v3.json",
+  "title": "ContextCord Model Route Decision v3",
+  "type": "object",
+  "required": [
+    "schema",
+    "mode",
+    "task_profile",
+    "eligible_routes",
+    "planner_recommendation",
+    "semantic_decision",
+    "decision_source",
+    "effective_route",
+    "execution"
+  ],
+  "properties": {
+    "schema": {"const": "contextcord-model-route-decision-v3"},
+    "mode": {"enum": ["SHADOW", "EXECUTE"]},
+    "task_profile": {"type": "object"},
+    "eligible_routes": {"type": "array", "items": {"type": "object"}},
+    "planner_recommendation": {"type": ["object", "null"]},
+    "semantic_decision": {"type": ["object", "null"]},
+    "decision_source": {
+      "enum": [
+        "deterministic_planner",
+        "jev_api",
+        "jev_bypassed",
+        "jev_unavailable",
+        "jev_invalid_choice"
+      ]
+    },
+    "effective_route": {"type": ["object", "null"]},
+    "semantic_gate": {"type": ["object", "null"]},
+    "provider_usage": {"type": ["object", "null"]},
+    "execution": {"type": "object"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Adaptive Router v3 · Model × Effort 决策",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1100,
+      760
+    ],
+    "views": [
+      {
+        "id": "catalogs",
+        "label": "双 Catalog",
+        "focus": [
+          "task",
+          "execution_catalog",
+          "analysis_catalog",
+          "eligibility"
+        ],
+        "note": "分析候选与真实可执行候选严格分离。"
+      },
+      {
+        "id": "planner",
+        "label": "Planner 与 Jev",
+        "focus": [
+          "planner",
+          "gate0",
+          "jev",
+          "effective"
+        ],
+        "note": "确定性 Planner 先缩小候选，Jev 只在 Gate 0 需要时处理闭集语义判断。"
+      },
+      {
+        "id": "learning",
+        "label": "本地学习闭环",
+        "focus": [
+          "effective",
+          "runtime",
+          "outcomes"
+        ],
+        "note": "只有真实执行并经过 verifier 的结果写入 Local Outcome。"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "task",
+      "type": "frontend",
+      "label": "Task Profile",
+      "sublabel": "role · risk · context pressure",
+      "pos": [
+        40,
+        70
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "execution_catalog",
+      "type": "security",
+      "label": "Execution Catalog",
+      "sublabel": "runtime-observed model × effort",
+      "pos": [
+        320,
+        70
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "analysis_catalog",
+      "type": "external",
+      "label": "Analysis Catalog",
+      "sublabel": "CodexRadar + historical/local prior",
+      "pos": [
+        600,
+        70
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "eligibility",
+      "type": "security",
+      "label": "Hard Eligibility",
+      "sublabel": "host · model · effort · budget · fallback",
+      "pos": [
+        40,
+        290
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "planner",
+      "type": "backend",
+      "label": "Deterministic Planner",
+      "sublabel": "near-best quality → minimum cost",
+      "pos": [
+        320,
+        290
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "gate0",
+      "type": "security",
+      "label": "Gate 0",
+      "sublabel": "bypass or request semantic judgment",
+      "pos": [
+        600,
+        290
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "effective",
+      "type": "backend",
+      "label": "Effective Route",
+      "sublabel": "model × effort × role",
+      "pos": [
+        600,
+        510
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "runtime",
+      "type": "backend",
+      "label": "Codex Execution",
+      "sublabel": "authorized host run + verifier",
+      "pos": [
+        320,
+        510
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "outcomes",
+      "type": "database",
+      "label": "Local Outcome Ledger",
+      "sublabel": "PASS / FAIL · latency · usage",
+      "pos": [
+        40,
+        510
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "jev",
+      "type": "external",
+      "label": "Jev Semantic Choice",
+      "sublabel": "optional closed-set Choice",
+      "pos": [
+        840,
+        510
+      ],
+      "size": [
+        180,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "task-eligibility",
+      "from": "task",
+      "to": "eligibility"
+    },
+    {
+      "id": "exec-eligibility",
+      "from": "execution_catalog",
+      "to": "eligibility",
+      "label": "execution truth",
+      "labelAt": [
+        290,
+        215
+      ]
+    },
+    {
+      "id": "analysis-planner",
+      "from": "analysis_catalog",
+      "to": "planner",
+      "label": "advisory prior",
+      "labelAt": [
+        570,
+        215
+      ]
+    },
+    {
+      "id": "eligibility-planner",
+      "from": "eligibility",
+      "to": "planner",
+      "label": "eligible routes",
+      "labelAt": [
+        290,
+        404
+      ]
+    },
+    {
+      "id": "planner-gate",
+      "from": "planner",
+      "to": "gate0",
+      "label": "shortlist",
+      "labelAt": [
+        570,
+        404
+      ]
+    },
+    {
+      "id": "gate-effective",
+      "from": "gate0",
+      "to": "effective",
+      "label": "planner route",
+      "labelAt": [
+        710,
+        440
+      ],
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "gate-jev",
+      "from": "gate0",
+      "to": "jev",
+      "label": "optional Choice exchange",
+      "labelAt": [
+        905,
+        430
+      ],
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "effective-runtime",
+      "from": "effective",
+      "to": "runtime",
+      "label": "explicit route",
+      "labelAt": [
+        570,
+        625
+      ]
+    },
+    {
+      "id": "runtime-outcomes",
+      "from": "runtime",
+      "to": "outcomes",
+      "label": "verifier result",
+      "labelAt": [
+        290,
+        625
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Analysis ≠ Execution",
+      "items": [
+        "外部 benchmark 可以参与分析，但不能把 unknown route 自动升级为可执行。",
+        "execution catalog 只接受当前宿主真实观测到的能力。"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Jev 按需调用",
+      "items": [
+        "shortlist 单一或 tradeoff 清晰时直接 bypass。",
+        "Jev 只能从 shortlist route IDs 中选择，不能创造模型或越过预算。"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "本地证据优先增长",
+      "items": [
+        "外部 prior 是起点，不是最终真相。",
+        "真实 execution + verifier outcome 才进入 Local Outcome Ledger。"
+      ]
+    }
+  ]
+}

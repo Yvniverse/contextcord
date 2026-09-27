@@ -1,0 +1,38 @@
+[defaults]
+kind = "source"
+[[rules]]
+pattern = ".harness/generated/**"
+kind = "generated"
+[[rules]]
+pattern = ".harness/receipts/**"
+kind = "evidence"
+[[rules]]
+pattern = ".harness/dual-run/**"
+kind = "evidence"
+[[rules]]
+pattern = "artifacts/**"
+kind = "evidence"
+[[rules]]
+pattern = "backend/eval-results/**"
+kind = "evidence"
+[[rules]]
+pattern = "backend/.local-evals/**"
+kind = "generated"
+[[rules]]
+pattern = "storage/exports/**"
+kind = "generated"
+[[rules]]
+pattern = "storage/backups/**"
+kind = "generated"
+[[rules]]
+pattern = "frontend/dist/**"
+kind = "generated"
+[[rules]]
+pattern = "frontend/node_modules/**"
+kind = "ignore"
+[[rules]]
+pattern = "docs/PROJECT_MEMORY.md"
+kind = "durable_memory"
+[[rules]]
+pattern = ".harness/*.toml"
+kind = "source"

@@ -1,0 +1,51 @@
+{
+  "schema": "contextcord-host-adapter-v1",
+  "id": "codex",
+  "display_name": "OpenAI Codex",
+  "vendor": "OpenAI",
+  "official_docs": "https://developers.openai.com/learn/docs-mcp",
+  "transports": [
+    "stdio"
+  ],
+  "config_scopes": [
+    "user",
+    "project"
+  ],
+  "version_probe": {
+    "command": [
+      "codex",
+      "--version"
+    ]
+  },
+  "config_template": {
+    "toml": "[mcp_servers.contextcord]\\ncommand = \\\"contextcord\\\"\\nargs = [\\\"mcp\\\"]\\n",
+    "cli": "codex mcp add contextcord -- contextcord mcp"
+  },
+  "reload": {
+    "kind": "restart_or_shared_config",
+    "instruction": "Codex CLI and IDE share MCP configuration; reload/restart the active client if needed."
+  },
+  "list_tools": {
+    "kind": "mcp_list",
+    "command": "codex mcp list"
+  },
+  "permissions": {
+    "user_confirmation_required": true
+  },
+  "telemetry": {
+    "model_id": "explicit_override_and_host_returned_or_unknown",
+    "token_usage": "host_returned_or_unknown"
+  },
+  "required_contextcord_tools": [
+    "contextcord_memory",
+    "contextcord_memory_recheck"
+  ],
+  "model_control": {
+    "explicit_override_supported": true,
+    "flag": "--model",
+    "host_integration_policy": "Explicit GPT-5.6 model and reasoning effort; runtime-resolved identity; no fallback",
+    "jev_router_policy": "runtime-resolved explicit GPT-5.6 family and effort only",
+    "qualification_default_model": "gpt-5.6-luna",
+    "qualification_default_reasoning_effort": "medium"
+  }
+}

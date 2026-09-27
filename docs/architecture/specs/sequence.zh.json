@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {"title":"接续、路由与执行时序","locale":"zh-CN","viewBox":[1180,760],"column_fit":"spread","quality_profile":"showcase","animation":"none"},
+  "participants": [
+    {"id":"host","type":"external","label":"Coding Agent"},
+    {"id":"svc","type":"backend","label":"CLI / MCP"},
+    {"id":"store","type":"database","label":"StateStore"},
+    {"id":"router","type":"backend","label":"Router v3"},
+    {"id":"intel","type":"external","label":"Model Intelligence"},
+    {"id":"jev","type":"external","label":"Jev"},
+    {"id":"runner","type":"security","label":"Runtime / Verifier"}
+  ],
+  "messages": [
+    {"id":"m1","from":"host","to":"svc","y":160,"label":"resume / route request","variant":"default"},
+    {"id":"m2","from":"svc","to":"store","y":198,"label":"read task + session + outcomes","variant":"default"},
+    {"id":"m3","from":"store","to":"svc","y":236,"label":"current state","variant":"return"},
+    {"id":"m4","from":"svc","to":"router","y":274,"label":"task profile + executable routes","variant":"default"},
+    {"id":"m5","from":"router","to":"intel","y":312,"label":"read optional prior","variant":"default"},
+    {"id":"m6","from":"intel","to":"router","y":350,"label":"derived metrics / unavailable","variant":"return"},
+    {"id":"m7","from":"router","to":"jev","y":388,"label":"optional closed shortlist","variant":"default"},
+    {"id":"m8","from":"jev","to":"router","y":426,"label":"typed Choice / unavailable","variant":"return"},
+    {"id":"m9","from":"router","to":"runner","y":464,"label":"effective route","variant":"default"},
+    {"id":"m10","from":"runner","to":"host","y":502,"label":"authorized execution","variant":"default"},
+    {"id":"m11","from":"host","to":"runner","y":540,"label":"result + usage + tests","variant":"return"},
+    {"id":"m12","from":"runner","to":"store","y":578,"label":"verified outcome + receipt","variant":"default"},
+    {"id":"m13","from":"store","to":"svc","y":616,"label":"closeout / handoff state","variant":"return"},
+    {"id":"m14","from":"svc","to":"host","y":654,"label":"bounded continuation receipt","variant":"return"}
+  ]
+}

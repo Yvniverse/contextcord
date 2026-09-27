@@ -1,0 +1,59 @@
+{
+  "schema": "contextcord-official-model-catalog-v1",
+  "reviewed_at": "2026-09-26",
+  "source": "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6",
+  "note": "API prices are not Codex subscription quota costs.",
+  "models": [
+    {
+      "id": "gpt-5.6-luna",
+      "tier": "efficient",
+      "reasoning_efforts": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "api_price_per_1m": {
+        "input_usd": 0.2,
+        "cached_input_usd": 0.02,
+        "output_usd": 1.2
+      }
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "tier": "balanced",
+      "reasoning_efforts": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "api_price_per_1m": {
+        "input_usd": 2.0,
+        "cached_input_usd": 0.2,
+        "output_usd": 12.0
+      }
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "tier": "flagship",
+      "reasoning_efforts": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "api_price_per_1m": {
+        "input_usd": 4.0,
+        "cached_input_usd": 0.4,
+        "output_usd": 20.0
+      }
+    }
+  ]
+}

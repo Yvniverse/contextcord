@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "ContextCord 0.6.2a1 · Task, Routing, and Handoff Lifecycle",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [
+      980,
+      680
+    ]
+  },
+  "lanes": [
+    {
+      "id": "main",
+      "label": "Main lifecycle"
+    },
+    {
+      "id": "waiting",
+      "label": "Continuation boundary"
+    },
+    {
+      "id": "recovery",
+      "label": "Recovery path"
+    },
+    {
+      "id": "terminal",
+      "label": "Terminal states"
+    }
+  ],
+  "states": [
+    {
+      "id": "task",
+      "type": "start",
+      "label": "Task Active",
+      "sublabel": "source-bound",
+      "lane": "main",
+      "col": 0,
+      "step": "01"
+    },
+    {
+      "id": "session",
+      "type": "active",
+      "label": "Session Open",
+      "sublabel": "continuity restored",
+      "lane": "main",
+      "col": 1,
+      "step": "02"
+    },
+    {
+      "id": "routing",
+      "type": "decision",
+      "label": "Route Decision",
+      "sublabel": "planner + Gate 0",
+      "lane": "main",
+      "col": 2,
+      "step": "03"
+    },
+    {
+      "id": "executing",
+      "type": "active",
+      "label": "Executing",
+      "sublabel": "host-authorized",
+      "lane": "main",
+      "col": 3,
+      "step": "04"
+    },
+    {
+      "id": "closeout",
+      "type": "decision",
+      "label": "Closeout / Handoff",
+      "sublabel": "verify + continuation",
+      "lane": "main",
+      "col": 4,
+      "step": "05"
+    },
+    {
+      "id": "retry",
+      "type": "failure",
+      "label": "Retryable",
+      "sublabel": "one bounded escalation",
+      "lane": "recovery",
+      "col": 1,
+      "yOffset": 70
+    },
+    {
+      "id": "complete",
+      "type": "success",
+      "label": "COMPLETE",
+      "sublabel": "verified closeout",
+      "lane": "terminal",
+      "col": 2
+    },
+    {
+      "id": "blocked",
+      "type": "failure",
+      "label": "BLOCKED",
+      "sublabel": "no executable route",
+      "lane": "terminal",
+      "col": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "execution-retry",
+      "from": "executing",
+      "to": "retry",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "retry-routing",
+      "from": "retry",
+      "to": "routing",
+      "variant": "emphasis"
+    },
+    {
+      "id": "closeout-complete",
+      "from": "closeout",
+      "to": "complete",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "routing-blocked",
+      "from": "routing",
+      "to": "blocked",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "HANDOFF and COMPLETE are distinct",
+      "items": [
+        "HANDOFF is a resumable non-terminal boundary; a later resume opens a new Session.",
+        "COMPLETE requires current source, tests, and evidence to satisfy the completion contract."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Semantic judgment stays inside Route Decision",
+      "items": [
+        "Gate 0 requests Jev only when the tradeoff needs semantic judgment.",
+        "If Jev is unavailable, routing falls back to the deterministic planner without changing authority."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Failure paths stay bounded",
+      "items": [
+        "An execution failure allows at most one automatic escalation before routing is reconsidered.",
+        "When no executable route exists, enter BLOCKED rather than fabricating model execution."
+      ]
+    }
+  ]
+}

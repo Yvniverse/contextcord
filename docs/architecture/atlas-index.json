@@ -1,0 +1,84 @@
+{
+  "artifacts": 12,
+  "view_count": 6,
+  "views": [
+    {
+      "files": {
+        "en": "maps/system.en.html",
+        "zh": "maps/system.zh.html"
+      },
+      "id": "system",
+      "status": "source-backed",
+      "title": {
+        "en": "Current system architecture",
+        "zh": "当前系统架构"
+      },
+      "type": "architecture"
+    },
+    {
+      "files": {
+        "en": "maps/router.en.html",
+        "zh": "maps/router.zh.html"
+      },
+      "id": "router",
+      "status": "source-backed",
+      "title": {
+        "en": "Adaptive Router v3",
+        "zh": "Adaptive Router v3"
+      },
+      "type": "architecture"
+    },
+    {
+      "files": {
+        "en": "maps/workflow.en.html",
+        "zh": "maps/workflow.zh.html"
+      },
+      "id": "workflow",
+      "status": "source-backed",
+      "title": {
+        "en": "Continuity and execution workflow",
+        "zh": "接续与执行工作流"
+      },
+      "type": "workflow"
+    },
+    {
+      "files": {
+        "en": "maps/sequence.en.html",
+        "zh": "maps/sequence.zh.html"
+      },
+      "id": "sequence",
+      "status": "source-backed",
+      "title": {
+        "en": "Routing execution sequence",
+        "zh": "路由执行时序"
+      },
+      "type": "sequence"
+    },
+    {
+      "files": {
+        "en": "maps/dataflow.en.html",
+        "zh": "maps/dataflow.zh.html"
+      },
+      "id": "dataflow",
+      "status": "source-backed",
+      "title": {
+        "en": "Data flow and evidence custody",
+        "zh": "数据流与证据边界"
+      },
+      "type": "dataflow"
+    },
+    {
+      "files": {
+        "en": "maps/lifecycle.en.html",
+        "zh": "maps/lifecycle.zh.html"
+      },
+      "id": "lifecycle",
+      "status": "source-backed",
+      "title": {
+        "en": "Task, routing and handoff lifecycle",
+        "zh": "任务、路由与交接生命周期"
+      },
+      "type": "lifecycle"
+    }
+  ]
+}

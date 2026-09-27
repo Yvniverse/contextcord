@@ -1,0 +1,13 @@
+[rules]
+require_file_for_pass = true
+require_any_test_for_complete = true
+exact_revision_required = true
+allow_external_paths = false
+receipt_dir = ".harness/receipts"
+runner_dir = ".harness/generated/evidence"
+runner_allow_external_cwd = false
+runner_max_output_bytes = 1048576
+runner_redact_patterns = []
+runner_require_identity_stable = true
+require_workflow_complete = true
+require_policy_stable = true
