@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from .contracts import ContractError, validate
-from .util import expand_string, ensure_repo_path
+from .util import absolute_path, expand_string, ensure_repo_path
 
 
 class ConfigError(RuntimeError):
@@ -25,7 +25,7 @@ LEGACY_STATE_DIR = ".harness"
 
 def state_root(repo: Path) -> Path:
     """Return the canonical config root, with an explicit legacy fallback."""
-    repo = repo.resolve()
+    repo = absolute_path(repo)
     requested = os.environ.get("CONTEXTCORD_STATE_DIR")
     candidates = ([requested] if requested else []) + [PRIMARY_STATE_DIR, LEGACY_STATE_DIR]
     seen: set[str] = set()
@@ -266,7 +266,7 @@ class HarnessConfig:
 
 
 def discover(repo: Path) -> HarnessConfig:
-    repo = repo.resolve()
+    repo = absolute_path(repo)
     root = state_root(repo)
     state_name = root.name
     _trusted_repo_path(repo, Path(state_name) / "project.toml", label="trusted_config")

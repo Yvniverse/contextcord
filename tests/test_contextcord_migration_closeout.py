@@ -3,6 +3,7 @@ from __future__ import annotations
 import subprocess
 import tempfile
 import unittest
+import os
 from pathlib import Path
 
 from contextcord.closeout import closeout
@@ -43,6 +44,18 @@ class ContextCordMigrationCloseoutTests(unittest.TestCase):
                 store.event("CANONICAL_STATE_TEST", {"ok": True}, task_id="t")
             self.assertTrue((repo / ".contextcord" / "state.db").is_file())
             self.assertFalse((repo / ".git" / "project-harness" / "state.db").exists())
+        finally:
+            tmp.cleanup()
+
+    @unittest.skipUnless(os.name == "nt", "Windows path spelling regression")
+    def test_repository_state_preserves_windows_temp_path_spelling(self) -> None:
+        tmp, repo = self._repo(state_dir=".contextcord")
+        try:
+            cfg = discover(repo)
+            self.assertEqual(cfg.repo, repo)
+            self.assertEqual(cfg.root, repo / ".contextcord")
+            with StateStore(repo) as store:
+                self.assertEqual(store.path, repo / ".contextcord" / "state.db")
         finally:
             tmp.cleanup()
 

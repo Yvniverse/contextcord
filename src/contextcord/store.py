@@ -17,7 +17,7 @@ from typing import Any
 from .build_identity import build_identity
 from .contracts import validate
 from .gitops import git_dir
-from .util import canonical_json, utc_now
+from .util import absolute_path, canonical_json, utc_now
 
 SCHEMA = """
 PRAGMA journal_mode=WAL;
@@ -208,7 +208,7 @@ def atomic(method):
 
 class StateStore:
     def __init__(self, repo: Path):
-        self.repo = repo.resolve()
+        self.repo = absolute_path(repo)
         # ContextCord keeps its primary local state beside its config.  The
         # legacy Git-dir location remains readable for un-migrated Harness
         # projects and is intentionally not copied implicitly.

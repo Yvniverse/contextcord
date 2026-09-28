@@ -948,7 +948,7 @@
       ],
       "module": "closeout",
       "path": "src/contextcord/closeout.py",
-      "sha256": "70b4ab0c58333b03403636bba7da66864852c5ca1846835e6b4810ca86eaf78a",
+      "sha256": "8ad549dade49c5753e4039c8db34f49f276a74370f9ad29cb1ec113af19e9c0e",
       "symbols": [
         {
           "description": "",
@@ -995,7 +995,7 @@
       ],
       "module": "config",
       "path": "src/contextcord/config.py",
-      "sha256": "c326adc43f77c9fe60540244111b0243acbea5c46cb6a2eca0b08c2f17338a02",
+      "sha256": "a57205503a9684fafe32d9184a03599a4119e4adb6819f21eecfbcd91530c22e",
       "symbols": [
         {
           "description": "",
@@ -2672,59 +2672,60 @@
       "group": "Evidence & Runtime",
       "local_imports": [
         "config",
-        "gitops"
+        "gitops",
+        "util"
       ],
       "module": "migration",
       "path": "src/contextcord/migration.py",
-      "sha256": "390cc6ba4b5a22c6ade97dc8cf205fe9871c5e6a3177c7edb8af48b1e256aa9b",
+      "sha256": "536c77ad901ae3e11b6b8b6292e0d3c28f4abb2fa608d4638888bde88c6015b1",
       "symbols": [
         {
           "description": "",
-          "end_line": 26,
+          "end_line": 27,
           "kind": "FunctionDef",
-          "line": 21,
+          "line": 22,
           "name": "_sha"
         },
         {
           "description": "",
-          "end_line": 38,
+          "end_line": 39,
           "kind": "FunctionDef",
-          "line": 29,
+          "line": 30,
           "name": "_manifest"
         },
         {
           "description": "",
-          "end_line": 52,
+          "end_line": 53,
           "kind": "FunctionDef",
-          "line": 41,
+          "line": 42,
           "name": "_mapped_bytes"
         },
         {
           "description": "",
-          "end_line": 60,
+          "end_line": 61,
           "kind": "FunctionDef",
-          "line": 55,
+          "line": 56,
           "name": "_expected_manifest"
         },
         {
           "description": "",
-          "end_line": 68,
+          "end_line": 69,
           "kind": "FunctionDef",
-          "line": 63,
+          "line": 64,
           "name": "_state_db"
         },
         {
           "description": "",
-          "end_line": 72,
+          "end_line": 73,
           "kind": "FunctionDef",
-          "line": 71,
+          "line": 72,
           "name": "_now_slug"
         },
         {
           "description": "",
-          "end_line": 153,
+          "end_line": 154,
           "kind": "FunctionDef",
-          "line": 75,
+          "line": 76,
           "name": "migrate_state"
         }
       ]
@@ -3659,7 +3660,7 @@
       ],
       "module": "store",
       "path": "src/contextcord/store.py",
-      "sha256": "0b43bcbc1d72aa704898201261d7e2b92d14dfa3acdc7660513f80f739d5a5fc",
+      "sha256": "6fe3100b2581dcdc6c1100825b960b761e96463ece980d6d9423555a2e6dc068",
       "symbols": [
         {
           "description": "",
@@ -4108,7 +4109,7 @@
       "local_imports": [],
       "module": "util",
       "path": "src/contextcord/util.py",
-      "sha256": "1416e2f6b067294c2aef89e35b2b6cf2810c0d9b778828edb68cf637a03b407f",
+      "sha256": "269de5ce3e83c74caddc36ec5fb4fa4208ebdbf6f04d9c592f985a850325d15f",
       "symbols": [
         {
           "description": "",
@@ -4167,17 +4168,38 @@
           "name": "expand_string"
         },
         {
-          "description": "",
-          "end_line": 59,
+          "description": "Make a path absolute without changing its Windows spelling.\n\nWindows temporary directories may be returned with an 8.3 short prefix\n(for example, ``RUNNER~1``) while ``Path.resolve()`` returns the long\nspelling. Keeping the caller's absolute representation avoids false path\ninequality in repository-bound state while security checks below compare\ncanonical spellings separately.",
+          "end_line": 66,
           "kind": "FunctionDef",
           "line": 57,
+          "name": "absolute_path"
+        },
+        {
+          "description": "Expand an existing Windows path's short components for comparison.",
+          "end_line": 93,
+          "kind": "FunctionDef",
+          "line": 69,
+          "name": "_long_path"
+        },
+        {
+          "description": "",
+          "end_line": 97,
+          "kind": "FunctionDef",
+          "line": 96,
+          "name": "_comparison_path"
+        },
+        {
+          "description": "",
+          "end_line": 102,
+          "kind": "FunctionDef",
+          "line": 100,
           "name": "safe_id"
         },
         {
           "description": "Resolve a path without silently following a symlink outside the repository.\n\nThe final path itself may not be a symlink. Any existing parent component inside\nthe repository also may not be a symlink. External paths are allowed only when\nexplicitly requested by policy.",
-          "end_line": 94,
+          "end_line": 141,
           "kind": "FunctionDef",
-          "line": 62,
+          "line": 105,
           "name": "ensure_repo_path"
         }
       ]
@@ -4290,7 +4312,7 @@
   ],
   "schema": "contextcord-source-inventory-v3",
   "scope": "top-level src/contextcord/*.py; static source inventory, not a runtime call trace",
-  "source_inventory_sha256": "388fbc6a0f449e5334922277bc81a70cdc3e861cc81acb0a4480d6579b7ef0e7",
-  "source_modules_sha256": "94f1d0c1939684ba386d4372f892ff209ab9890e35c2a9849bad548209518fb9",
+  "source_inventory_sha256": "f80a11584b59644bb92ef2e9cb984180386e5cbab1f3356076b1308395def0a6",
+  "source_modules_sha256": "0d65f5d37a91acfd5f294a2a5391634b2e1948efb965de927d8abc72a1609120",
   "source_package": "src/contextcord"
 }
