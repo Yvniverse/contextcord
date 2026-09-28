@@ -3,7 +3,7 @@
 52 Python modules scanned from `src/contextcord/*.py`.
 This is a static inventory, not a runtime call trace.
 
-Source inventory SHA-256: `f80a11584b59644bb92ef2e9cb984180386e5cbab1f3356076b1308395def0a6`
+Source inventory SHA-256: `a65cedd32976dccb061273ef32da6e54a22da0b7d43422946b8a4de89bbe4121`
 
 Architecture labels describe logical responsibility groups, not separate deployed services.
 

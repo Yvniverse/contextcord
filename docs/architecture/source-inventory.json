@@ -1461,34 +1461,34 @@
       ],
       "module": "dualrun",
       "path": "src/contextcord/dualrun.py",
-      "sha256": "699aaf15e757d44bb832e76efef49839693dc506f6c2941fd106d2563ce207fa",
+      "sha256": "1b9208ecb79035d81dfe8d33519253c6805eb9edd77344819b1de15b6b0186b8",
       "symbols": [
         {
           "description": "",
-          "end_line": 26,
+          "end_line": 27,
           "kind": "FunctionDef",
           "line": 17,
           "name": "ledger_path"
         },
         {
           "description": "",
-          "end_line": 47,
+          "end_line": 48,
           "kind": "FunctionDef",
-          "line": 29,
+          "line": 30,
           "name": "read_ledger"
         },
         {
           "description": "",
-          "end_line": 85,
+          "end_line": 86,
           "kind": "FunctionDef",
-          "line": 50,
+          "line": 51,
           "name": "record"
         },
         {
           "description": "",
-          "end_line": 112,
+          "end_line": 113,
           "kind": "FunctionDef",
-          "line": 88,
+          "line": 89,
           "name": "summary"
         }
       ]
@@ -4312,7 +4312,7 @@
   ],
   "schema": "contextcord-source-inventory-v3",
   "scope": "top-level src/contextcord/*.py; static source inventory, not a runtime call trace",
-  "source_inventory_sha256": "f80a11584b59644bb92ef2e9cb984180386e5cbab1f3356076b1308395def0a6",
-  "source_modules_sha256": "0d65f5d37a91acfd5f294a2a5391634b2e1948efb965de927d8abc72a1609120",
+  "source_inventory_sha256": "a65cedd32976dccb061273ef32da6e54a22da0b7d43422946b8a4de89bbe4121",
+  "source_modules_sha256": "2c8953df5647d51bab8e9ee76e6f435f7b8f23e11cc50d1e541486080c1f0213",
   "source_package": "src/contextcord"
 }

@@ -7,7 +7,7 @@ from typing import Any
 
 from .config import HarnessConfig
 from .contracts import validate
-from .util import atomic_write_json, sha256_json, utc_now
+from .util import _comparison_path, absolute_path, atomic_write_json, sha256_json, utc_now
 
 SCHEMA = "project-harness-dual-run-ledger-v1"
 STATUSES = {"PASS", "FAIL", "BLOCKED", "NOT_RUN"}
@@ -16,9 +16,10 @@ ADJUDICATIONS = {"BOTH_CORRECT", "LEGACY_CORRECT", "HARNESS_CORRECT", "BOTH_WRON
 
 def ledger_path(cfg: HarnessConfig) -> Path:
     raw = str(cfg.project.get("dogfood", {}).get("ledger_path") or f"{cfg.root.name}/dual-run/adjudications.json")
-    path = (cfg.repo / raw).resolve(strict=False)
+    repo = absolute_path(cfg.repo)
+    path = absolute_path(repo / raw)
     try:
-        path.relative_to(cfg.repo)
+        _comparison_path(path).relative_to(_comparison_path(repo))
     except ValueError as exc:
         raise ValueError(f"dual_run_ledger_outside_repository:{raw}") from exc
     if path.is_symlink():
