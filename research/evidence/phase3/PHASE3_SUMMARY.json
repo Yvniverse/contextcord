@@ -1,0 +1,26 @@
+{
+  "schema": "contextcord-phase3-live-summary-v1",
+  "phase": "phase3-live-execution",
+  "execution_source_commit": "59787b82838178e26615557e239d7821a7d59aba",
+  "classification": "MODEL_PROVIDER_UNAVAILABLE",
+  "valid_s0_trials": 0,
+  "valid_arms": 0,
+  "s1": {
+    "deepswe": "NOT_RUN",
+    "ccbench": "NOT_RUN"
+  },
+  "s2": "NOT_RUN",
+  "formal_pilot": "NOT_RUN",
+  "performance_conclusion": null,
+  "official_verifier": "NOT_RUN",
+  "live_invariant_validator": "NOT_RUN",
+  "hidden_isolation_preparation": "PASS",
+  "provider": "MODEL_PROVIDER_UNAVAILABLE",
+  "jev_smoke": "JEV_LIVE_PASS",
+  "production_containers": "4/4 healthy",
+  "benchmark_resource_delta": {
+    "networks": 0,
+    "containers": 0,
+    "running_containers": 0
+  }
+}
