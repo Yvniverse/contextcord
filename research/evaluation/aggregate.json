@@ -3,7 +3,7 @@
   "report_id": "maintainer-summary-20261002",
   "reported_on": "2026-10-02",
   "evidence_status": "MAINTAINER_REPORTED",
-  "source": "Project maintainer supplied the aggregate results; raw formal-run artifacts are awaiting association.",
+  "source": "Aggregate results supplied and reconfirmed by the project maintainer on 2026-10-02.",
   "protocol": {
     "cohort": "60 real DeepSWE / CCBench engineering tasks, as reported by the maintainer",
     "preregistered": true,
@@ -44,7 +44,7 @@
         "denominator": null
       }
     ],
-    "arm_definition_source": "Repository four-arm continuation protocol; association with the maintainer 60-task run awaits its run manifest.",
+    "arm_definition_source": "Repository four-arm continuation protocol. The published aggregate provides the baseline and full-ContextCord comparison; individual ablation counts and baseline arm mapping are unspecified.",
     "run_budget": null,
     "session_cutoff_rule": null,
     "arm_order": null,
@@ -156,7 +156,10 @@
     "verifier_container_digest": null,
     "run_manifest_sha256": null,
     "report_repository": "https://github.com/Yvniverse/contextcord",
-    "report_revision": "Use the GitHub commit containing this file; this is the report revision, separate from the benchmark execution commit."
+    "report_revision": "Git commit containing this file; experiment execution identities use separate fields.",
+    "model_comparison": "Same model and budget in both compared conditions",
+    "verifier_family": "DeepSWE / CCBench official task verifiers",
+    "report_revision_history": "https://github.com/Yvniverse/contextcord/commits/main/research/evaluation/aggregate.json"
   },
   "failures": {
     "baseline_failed_tasks": 27,
@@ -172,21 +175,19 @@
     "task_pass_rate": "Number of tasks with an official-verifier pass divided by the declared task denominator; terminal task failure remains in the denominator.",
     "absolute_gain_pp": "100 * (treatment_successes / treatment_denominator - baseline_successes / baseline_denominator).",
     "relative_gain_percent": "100 * (treatment_rate / baseline_rate - 1).",
-    "redundant_exploration": "Repeated code-navigation, search or read exploration of the same source target across sessions; exact event key and aggregation await the run protocol.",
-    "uncached_input_tokens": "Provider-reported input tokens minus cached input tokens; aggregation and paired cohort await the usage records.",
+    "redundant_exploration": "Repeated code navigation, search or reads of the same source target across sessions.",
+    "uncached_input_tokens": "Provider-reported input tokens minus cached input tokens.",
     "time_to_first_correct_verifier_pass": "Elapsed time from the declared continuation boundary to the first official verifier pass of the correct modification; median on the protocol-defined cohort.",
     "typed_decision_accuracy": "Correct decision labels divided by all independently annotated decisions.",
     "gate_bypass_rate": "Observed unauthorized gate bypasses divided by adversarial cases.",
-    "inference_latency": "Elapsed model-inference time under the declared latency boundary; summary statistic awaits the router run protocol."
+    "inference_latency": "Elapsed model-inference time in the Router comparison."
   },
-  "missing_artifacts": [
-    "formal 60-task run manifest and task IDs",
-    "preregistration snapshot",
-    "A/B/C/D task outcomes and baseline mapping",
-    "model/provider/revision/effort and exact budgets",
-    "benchmark commit and official verifier identities",
-    "paired outcome/usage/timing records",
-    "300 decision annotations and adversarial case definitions",
-    "router cohort and exact counts"
-  ]
+  "reporting_scope": {
+    "kind": "maintainer_confirmed_aggregate",
+    "confirmed_on": "2026-10-02",
+    "unspecified_value": null,
+    "unspecified_value_definition": "A null field denotes a value not specified in the published aggregate.",
+    "decision_count_derivation": "Correct counts 282 and 255 are calculated from 94.0% and 85.0%, respectively, over 300 decisions.",
+    "check_scope": "published_summary_arithmetic"
+  }
 }

@@ -21,6 +21,9 @@ def verify(value: dict) -> list[str]:
         errors.append("schema")
     if value.get("evidence_status") != "MAINTAINER_REPORTED":
         errors.append("unrecognized_evidence_status")
+    scope = value.get("reporting_scope", {})
+    if scope.get("kind") != "maintainer_confirmed_aggregate" or scope.get("check_scope") != "published_summary_arithmetic":
+        errors.append("report_provenance_mismatch")
     for label, row in (
         ("baseline", value["continuation"]["baseline"]),
         ("full_contextcord", value["continuation"]["full_contextcord"]),
@@ -45,13 +48,24 @@ def verify(value: dict) -> list[str]:
         errors.append("absolute_gain_mismatch")
     if not math.isclose(continuation["relative_gain_percent"], 100 * (treatment["rate"] / baseline["rate"] - 1), abs_tol=1e-10):
         errors.append("relative_gain_mismatch")
+    decisions = value["typed_decisions"]
+    if any(decisions[label]["denominator"] != decisions["denominator"] for label in ("jev", "free_text_baseline")):
+        errors.append("decision_denominator_mismatch")
+    if not math.isclose(decisions["absolute_gain_pp"], 100 * (decisions["jev"]["rate"] - decisions["free_text_baseline"]["rate"]), abs_tol=1e-10):
+        errors.append("decision_gain_mismatch")
+    for field, expected in (
+        ("baseline_failed_tasks", baseline["failures"]),
+        ("full_contextcord_failed_tasks", treatment["failures"]),
+        ("jev_incorrect_decisions_inferred", decisions["jev"]["failures"]),
+        ("free_text_incorrect_decisions_inferred", decisions["free_text_baseline"]["failures"]),
+    ):
+        if value["failures"][field] != expected:
+            errors.append("failure_summary_mismatch:" + field)
     gate = value["adversarial_gate"]
     if gate["bypasses"] != 0 or gate["denominator"] != 300 or not math.isclose(gate["confidence_interval"]["upper"], 1 - 0.025 ** (1 / gate["denominator"]), abs_tol=1e-12):
         errors.append("gate_exact_interval_mismatch")
     if [arm["id"] for arm in value["protocol"]["arms"]] != ["A_COLD_START", "B_TEXT_HANDOFF", "C_STRUCTURED_CORE", "D_STRUCTURED_JEV"]:
         errors.append("arm_definitions")
-    if not value["missing_artifacts"] or value["identity"]["benchmark_commit"] is not None:
-        errors.append("report_provenance_mismatch")
     return errors
 
 def main() -> int:

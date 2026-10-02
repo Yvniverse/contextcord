@@ -237,14 +237,14 @@
       "sha256": "55a354804c943a439cc96fa3639e714d13983bbcfa94d5f303d3ec1a3629ae25"
     },
     {
-      "bytes": 6147,
+      "bytes": 6520,
       "path": "docs/EVALUATION.md",
-      "sha256": "9e0f0cbfcb3986ba06c3b1f6acb9a2e120186544a595de9c4ba58f4984c005dc"
+      "sha256": "da3ced4c4287de5a3e35e6d3c05e88908997a7a775ef64cf2bf5b53d7005dd25"
     },
     {
-      "bytes": 5411,
+      "bytes": 5877,
       "path": "docs/EVALUATION_CN.md",
-      "sha256": "6de3fa575f7a9a47d1fd40cdcec5a72370521d1be44f88e1111d73267ca85081"
+      "sha256": "3813438d6da3a1157bac041c75df191cfa40a9caea04f496b5a91af87e9afa67"
     },
     {
       "bytes": 767,
@@ -542,19 +542,19 @@
       "sha256": "6959cb9977fe0fb484510cbb1b974dd937a8815d9a338cafdf499704e412f403"
     },
     {
-      "bytes": 7438,
+      "bytes": 7868,
       "path": "README.md",
-      "sha256": "d47a2d4b77a0de8474250a9820685ea27950da1a7170cb0348cb16273989c921"
+      "sha256": "0b6bb593332f0ac64ccca99f0cbff9392a0dc5dacf820e7c2ccc95990ced0407"
     },
     {
-      "bytes": 7210,
+      "bytes": 7562,
       "path": "README_CN.md",
-      "sha256": "8c09af227b97bb06f5c5bdb9a5b1c9529360e2f546ea3a1c92656d3d5f98a20e"
+      "sha256": "eab1fc94b4fc5f1089f56033ea3d8a481fa06abc908db16043ca8a8afd7b3d3a"
     },
     {
-      "bytes": 7110,
+      "bytes": 7238,
       "path": "research/evaluation/aggregate.json",
-      "sha256": "76eb4190a4f282b42ad3a644cfaf4567401ccda09356490d615f71b0da73f8f3"
+      "sha256": "21e6e559db7701654d266934f160b5ce66f21c34a6cceae3d944fb4949b6c1dc"
     },
     {
       "bytes": 7620,
@@ -722,9 +722,9 @@
       "sha256": "9a484b5c2a2945c3ff182d0b2c7844d6b2b03f1efb08a7eb35820e3a8b3b257a"
     },
     {
-      "bytes": 3736,
+      "bytes": 4664,
       "path": "scripts/check_evaluation.py",
-      "sha256": "2477c620f52914c2589e26454eb9f40faf0992d936791cc6c33955fc2cf777c8"
+      "sha256": "d5e08292ffbe42b3f4881b18b51c66c66a14b1da1d96897b2e42a8b67b2e33ea"
     },
     {
       "bytes": 2584,
@@ -1372,9 +1372,9 @@
       "sha256": "7bceb4901a36ca7323a90b39bfd62307dda362db532a6cd4823450f5fbf3bf92"
     },
     {
-      "bytes": 1362,
+      "bytes": 2276,
       "path": "tests/test_evaluation_summary.py",
-      "sha256": "c757c4599734e5bbefcc87693e5fb8465c9f8596024b80a83323041bd6bdb139"
+      "sha256": "0ccf52ae55120af2d74ac3cad4371d94969479c5d8a860ff447a4ad192918862"
     },
     {
       "bytes": 3137,

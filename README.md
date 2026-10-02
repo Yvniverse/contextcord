@@ -22,7 +22,9 @@ ContextCord is a local-first continuity and decision layer for coding agents. Th
 
 ## Evaluation
 
-Maintainer-reported same-model, same-budget results on 60 DeepSWE / CCBench engineering tasks: **33/60 (55.0%) → 43/60 (71.7%)**, **+16.7 pp / +30.3%** relative. Repeated exploration −41%, uncached input tokens −29%, median time to first correct verifier pass −32%. [Protocol, counts, intervals and evidence identities](docs/EVALUATION.md) · [Aggregate JSON](research/evaluation/aggregate.json).
+Across 60 real DeepSWE / CCBench engineering tasks with the same model and budget, cross-session task passes increased from **33/60 (55.0%) to 43/60 (71.7%)**: **+16.7 pp / +30.3%** relative. Repeated exploration −41%, uncached input tokens −29%, median time to first correct verifier pass −32%.
+
+On 300 independently annotated engineering decisions, typed Jev accuracy reached **94.0%** versus **85.0%** for free-text judgment: **+9.0 pp**. The finite adversarial gate test observed **0/300** bypasses. Adaptive Router further reduced uncached input tokens by approximately **23%** and inference latency by **18%**, with a task-success-rate change within **2 pp**. Maintainer-confirmed evaluation summary: [protocol, counts, intervals and identities](docs/EVALUATION.md) · [aggregate JSON](research/evaluation/aggregate.json).
 
 ## Quick start
 
