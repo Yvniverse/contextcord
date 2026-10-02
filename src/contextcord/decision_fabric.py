@@ -19,7 +19,7 @@ from typing import Any, Protocol
 
 
 QUESTION_SCHEMA_VERSION = "a12-decision-bundle-v1"
-RECEIPT_SCHEMA = "agent-nexus-jev-decision-receipt-v1"
+RECEIPT_SCHEMA = "contextcord-jev-decision-receipt-v1"
 THRESHOLD_POLICY_VERSION = "a12-v1"
 DEFAULT_CONFIDENCE_THRESHOLD = 0.72
 DEFAULT_RERANK_THRESHOLD = 0.65

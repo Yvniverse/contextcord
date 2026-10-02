@@ -11,53 +11,11 @@ from .evidence import resolve_evidence_path
 from .gitops import notes_show, notes_write, resolve_commit, notes_compare_and_swap, git
 from .util import sha256_file, sha256_json, utc_now
 
-SCHEMA = "project-harness-qualification-v2"
-LEGACY_SCHEMA = "project-operations-harness-qualification-v1"
+SCHEMA = "contextcord-qualification-v2"
 
 
 def _record_hash(row: dict[str, Any]) -> str:
     return sha256_json(row, exclude_keys=("record_hash",))
-
-
-def _migrate_legacy(value: dict[str, Any], commit: str) -> dict[str, Any]:
-    records: list[dict[str, Any]] = []
-    previous: str | None = None
-    q = value.get("qualification")
-    if isinstance(q, dict):
-        evidence = []
-        if q.get("evidence") and q.get("evidence_sha256"):
-            evidence.append({"path": q["evidence"], "sha256": q["evidence_sha256"]})
-        row = {
-            "record_id": "legacy-qualification",
-            "kind": "review",
-            "status": str(q.get("status") or "NOT_RUN"),
-            "recorded_at": str(q.get("recorded_at") or utc_now()),
-            "evidence": evidence,
-            "summary": str(q.get("summary") or ""),
-            "metadata": dict(q.get("metadata") or {}),
-            "environment": None,
-            "runtime_revisions": [],
-            "supersedes": None,
-            "previous_record_hash": previous,
-        }
-        row["record_hash"] = _record_hash(row); previous = row["record_hash"]; records.append(row)
-    for index, dep in enumerate(value.get("deployments", [])):
-        env = str(dep.get("environment") or "unknown")
-        row = {
-            "record_id": f"legacy-deploy-{index}",
-            "kind": f"deployment:{env}",
-            "status": str(dep.get("status") or "NOT_RUN"),
-            "recorded_at": str(dep.get("recorded_at") or utc_now()),
-            "evidence": [],
-            "summary": str(dep.get("summary") or ""),
-            "metadata": dict(dep.get("metadata") or {}),
-            "environment": env,
-            "runtime_revisions": [str(x) for x in dep.get("runtime_revisions", [])],
-            "supersedes": None,
-            "previous_record_hash": previous,
-        }
-        row["record_hash"] = _record_hash(row); previous = row["record_hash"]; records.append(row)
-    return {"schema": SCHEMA, "commit": commit, "records": records, "migrated_from_schema": value.get("schema") or LEGACY_SCHEMA}
 
 
 def read_note(cfg: HarnessConfig, commit: str) -> dict[str, Any] | None:
@@ -67,9 +25,7 @@ def read_note(cfg: HarnessConfig, commit: str) -> dict[str, Any] | None:
     value = json.loads(raw)
     if not isinstance(value, dict):
         raise ValueError("qualification note must be an object")
-    if value.get("schema") == LEGACY_SCHEMA:
-        value = _migrate_legacy(value, commit)
-    elif value.get("schema") != SCHEMA:
+    if value.get("schema") != SCHEMA:
         raise ValueError("unknown_qualification_schema")
     validate("qualification-note", value)
     return value

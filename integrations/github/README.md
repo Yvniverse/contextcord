@@ -1,13 +1,13 @@
 # GitHub integration
 
-The Unified Project Harness keeps live SQLite state and generated closeout artifacts out of Source Truth. A fresh GitHub checkout therefore **cannot** honestly run `project-harness verify --ci` unless the closeout proof for that exact candidate is transported into the job.
+The ContextCord keeps live SQLite state and generated closeout artifacts out of Source Truth. A fresh GitHub checkout therefore **cannot** honestly run `contextcord verify --ci` unless the closeout proof for that exact candidate is transported into the job.
 
 ## Portable Evidence Bundle
 
 After a local or controlled-worker `finish --mode complete` succeeds, export a bundle **outside the repository**:
 
 ```bash
-project-harness bundle export --path /tmp/project-harness-closeout.zip
+contextcord bundle export --path /tmp/contextcord-closeout.zip
 ```
 
 The bundle contains the sealed receipt chain and the non-source Evidence referenced by the leaf receipt. Its manifest binds the bundle to the candidate SourceIdentity. Import rejects source-classified destinations and path/symlink escapes.
@@ -16,13 +16,13 @@ A real repository chooses its own trusted transport, for example a protected CI 
 
 ## Shadow workflow
 
-`project-harness-shadow.yml` always runs `doctor`, `identity`, and `release-identity` when the vendored wheel exists. If no portable bundle has been downloaded, it explicitly reports that closeout evidence was **not** certified. This is suitable while migrating a legacy Harness.
+`contextcord-shadow.yml` always runs `doctor`, `identity`, and `release-identity` when the vendored wheel exists. If no portable bundle has been downloaded, it explicitly reports that closeout evidence was **not** certified. This is suitable while migrating a legacy Harness.
 
 ## Required workflow
 
-`project-harness-enforce-vendored.yml` fails if the bundle is absent. Add a project-specific download step before the `Require and verify portable closeout evidence` step. The downloaded file must match the path in `PROJECT_HARNESS_BUNDLE`.
+`contextcord-enforce-vendored.yml` fails if the bundle is absent. Add a project-specific download step before the `Require and verify portable closeout evidence` step. The downloaded file must match the path in `CONTEXTCORD_BUNDLE`.
 
-For qualification stored in Git Notes, the templates also attempt to fetch `refs/notes/project-harness`; projects using a custom notes ref should adjust that fetch to match `.harness/qualification.toml`.
+For qualification stored in Git Notes, the templates also attempt to fetch `refs/notes/contextcord`; projects using a custom notes ref should adjust that fetch to match `.contextcord/qualification.toml`.
 
 ## Important exact-commit rule
 

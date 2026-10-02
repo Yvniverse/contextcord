@@ -10,11 +10,11 @@ import zipfile
 from contextlib import redirect_stdout
 from pathlib import Path
 
-from project_harness.cli import main
-from project_harness.profiles import write_profile
-from project_harness.service import HarnessService
-from project_harness.store import StateStore
-from project_harness.util import sha256_json
+from contextcord.cli import main
+from contextcord.profiles import write_profile
+from contextcord.service import HarnessService
+from contextcord.store import StateStore
+from contextcord.util import sha256_json
 
 
 def call(repo: Path, *args: str):
@@ -52,10 +52,10 @@ class PortableMemoryTests(unittest.TestCase):
         self.assertEqual(call(repo, "memory", "job", "record", "--task-id", "task-migrate", "--session-id", sid,
                               "--job-id", "job-1", "--provider", "deterministic-fallback", "--packet", '{"facts":["retry"]}',
                               "--archive-ref", "trace-1")[0], 0)
-        evidence = repo / ".harness" / "generated" / "evidence" / "history.txt"
+        evidence = repo / ".contextcord" / "generated" / "evidence" / "history.txt"
         evidence.parent.mkdir(parents=True, exist_ok=True); evidence.write_text("historical evidence\n", encoding="utf-8")
-        self.assertEqual(call(repo, "evidence", "add", "--session-id", sid, "--name", "historical-pass", "--status", "PASS", "--path", ".harness/generated/evidence/history.txt")[0], 0)
-        self.assertEqual(call(repo, "evidence", "add", "--session-id", sid, "--name", "historical-fail", "--status", "FAIL", "--path", ".harness/generated/evidence/history.txt", "--reason", "known regression")[0], 0)
+        self.assertEqual(call(repo, "evidence", "add", "--session-id", sid, "--name", "historical-pass", "--status", "PASS", "--path", ".contextcord/generated/evidence/history.txt")[0], 0)
+        self.assertEqual(call(repo, "evidence", "add", "--session-id", sid, "--name", "historical-fail", "--status", "FAIL", "--path", ".contextcord/generated/evidence/history.txt", "--reason", "known regression")[0], 0)
         return "task-migrate", sid, evidence
 
     def test_live_memory_fresh_root_mcp_resume_recheck_and_idempotence(self) -> None:
@@ -77,7 +77,7 @@ class PortableMemoryTests(unittest.TestCase):
             self.assertEqual({row["job_id"] for row in shown["context_jobs"]}, {"job-1"})
 
             server = HarnessService(clone)
-            value = server.call("harness_memory", {"task_id": task_id})
+            value = server.call("contextcord_memory", {"task_id": task_id})
             self.assertEqual(value["task"]["task_id"], task_id)
             self.assertIn("note-1", {row["note_id"] for row in value["notes"]})
 

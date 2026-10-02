@@ -8,11 +8,11 @@ from pathlib import Path
 
 import yaml
 
-from project_harness.cli import main
-from project_harness.config import discover
-from project_harness.profiles import write_profile
-from project_harness.qualification import record as qualification_record, deploy as qualification_deploy
-from project_harness.store import StateStore
+from contextcord.cli import main
+from contextcord.config import discover
+from contextcord.profiles import write_profile
+from contextcord.qualification import record as qualification_record, deploy as qualification_deploy
+from contextcord.store import StateStore
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,8 +23,8 @@ def git(repo: Path, *args: str) -> str:
 
 class DeliverySurfaceTests(unittest.TestCase):
     def test_github_workflows_are_yaml_and_portable_bundle_aware(self):
-        required = ROOT / "integrations/github/project-harness-enforce-vendored.yml"
-        shadow = ROOT / "integrations/github/project-harness-shadow.yml"
+        required = ROOT / "integrations/github/contextcord-enforce-vendored.yml"
+        shadow = ROOT / "integrations/github/contextcord-shadow.yml"
         for path in (required, shadow):
             value = yaml.safe_load(path.read_text(encoding="utf-8"))
             self.assertIsInstance(value, dict)
@@ -50,14 +50,14 @@ class DeliverySurfaceTests(unittest.TestCase):
             write_profile(repo, "carbon-bot")
             git(repo, "add", "."); git(repo, "commit", "-qm", "initial")
             cfg = discover(repo)
-            ci = repo / ".harness/generated/ci.txt"; ci.parent.mkdir(parents=True, exist_ok=True); ci.write_text("PASS\n", encoding="utf-8")
+            ci = repo / ".contextcord/generated/ci.txt"; ci.parent.mkdir(parents=True, exist_ok=True); ci.write_text("PASS\n", encoding="utf-8")
             qualification_record(cfg, commitish="HEAD", status="PASS", evidence=ci, summary="ci", kind="ci")
-            deploy_ev = repo / ".harness/generated/deploy.txt"; deploy_ev.write_text("deployed\n", encoding="utf-8")
+            deploy_ev = repo / ".contextcord/generated/deploy.txt"; deploy_ev.write_text("deployed\n", encoding="utf-8")
             qualification_deploy(cfg, commitish="HEAD", status="PASS", environment="production", runtime_revisions=["HEAD"], summary="deployed", evidence_paths=[deploy_ev])
-            value = __import__("project_harness.qualification", fromlist=["verify"]).verify(cfg, commitish="HEAD", profile="production")
+            value = __import__("contextcord.qualification", fromlist=["verify"]).verify(cfg, commitish="HEAD", profile="production")
             self.assertEqual(value["status"], "PASS")
             deploy_ev.write_text("tampered\n", encoding="utf-8")
-            value = __import__("project_harness.qualification", fromlist=["verify"]).verify(cfg, commitish="HEAD", profile="production")
+            value = __import__("contextcord.qualification", fromlist=["verify"]).verify(cfg, commitish="HEAD", profile="production")
             self.assertEqual(value["integrity_status"], "FAIL")
 
 

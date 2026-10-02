@@ -1,6 +1,6 @@
 # Generic policy pack
 
-Baseline Unified Project Harness policy for repositories without a domain-specific preset.
+Baseline ContextCord policy for repositories without a domain-specific preset.
 
 - content-equivalent SourceIdentity;
 - scope-aware `code` and `release` workflow boundaries;
@@ -9,4 +9,4 @@ Baseline Unified Project Harness policy for repositories without a domain-specif
 - candidate/release qualification profiles;
 - no external-path authority by default.
 
-Copy `.harness/` into a repository and review every path/scope before enforcement.
+Copy `.contextcord/` into a repository and review every path/scope before enforcement.

@@ -127,7 +127,7 @@ class ModularCapabilityTests(unittest.TestCase):
             output = io.StringIO()
             with redirect_stdout(output):
                 self.assertEqual(main(["--repo", str(repo), "decision", "fabric", "--state-file", str(state_file)]), 0)
-            self.assertEqual(json.loads(output.getvalue())["schema"], "agent-nexus-jev-decision-receipt-v1")
+            self.assertEqual(json.loads(output.getvalue())["schema"], "contextcord-jev-decision-receipt-v1")
             output = io.StringIO()
             with redirect_stdout(output):
                 self.assertEqual(main(["--repo", str(repo), "router", "shadow", "--input", str(state_file)]), 0)

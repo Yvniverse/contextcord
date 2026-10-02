@@ -7,11 +7,11 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from project_harness.adapters import render
-from project_harness.cli import main
-from project_harness.hostbridge import classify_tool_call
-from project_harness.profiles import write_profile
-from project_harness.store import StateStore
+from contextcord.adapters import render
+from contextcord.cli import main
+from contextcord.hostbridge import classify_tool_call
+from contextcord.profiles import write_profile
+from contextcord.store import StateStore
 
 
 def git(repo: Path, *args: str) -> str:
@@ -92,8 +92,8 @@ class V02Test(unittest.TestCase):
             self.assertTrue((root / "qoder" / "settings.json").is_file())
             settings = json.loads((root / "qoder" / "settings.json").read_text())
             self.assertIn("PreToolUse", settings["hooks"])
-            self.assertTrue((root / "opencode" / "plugins" / "project-operations-harness.js").is_file())
-            self.assertIn('ctx.tool.hook("execute.before"', (root / "opencode" / "plugins" / "project-operations-harness.js").read_text())
+            self.assertTrue((root / "opencode" / "plugins" / "contextcord.js").is_file())
+            self.assertIn('ctx.tool.hook("execute.before"', (root / "opencode" / "plugins" / "contextcord.js").read_text())
             pkg = json.loads((root / "deepseek" / "package.json").read_text())
             self.assertEqual(pkg["dsh"]["bundle"]["patch"], "./cordis.patch.yml")
             self.assertTrue(q and o and d)

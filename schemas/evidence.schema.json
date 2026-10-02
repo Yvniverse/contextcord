@@ -1,5 +1,5 @@
 {
-  "$id": "https://project-harness.dev/schemas/evidence.schema.json",
+  "$id": "https://contextcord.pages.dev/schemas/evidence.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": true,
   "properties": {
@@ -52,6 +52,6 @@
       "type": "object"
     }
   },
-  "title": "Unified Project Harness evidence manifest",
+  "title": "ContextCord evidence manifest",
   "type": "object"
 }

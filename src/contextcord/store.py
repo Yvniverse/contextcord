@@ -17,7 +17,7 @@ from typing import Any
 from .build_identity import build_identity
 from .contracts import validate
 from .gitops import git_dir
-from .util import absolute_path, canonical_json, utc_now
+from .util import canonical_json, utc_now
 
 SCHEMA = """
 PRAGMA journal_mode=WAL;
@@ -208,15 +208,9 @@ def atomic(method):
 
 class StateStore:
     def __init__(self, repo: Path):
-        self.repo = absolute_path(repo)
-        # ContextCord keeps its primary local state beside its config.  The
-        # legacy Git-dir location remains readable for un-migrated Harness
-        # projects and is intentionally not copied implicitly.
-        contextcord_root = self.repo / ".contextcord"
-        if (contextcord_root / "project.toml").is_file():
-            self.path = contextcord_root / "state.db"
-        else:
-            self.path = git_dir(self.repo) / "project-harness" / "state.db"
+        self.repo = repo.resolve()
+        # Legacy state is imported explicitly into the repository-local StateStore.
+        self.path = self.repo / ".contextcord" / "state.db"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.conn = sqlite3.connect(self.path, timeout=30.0, isolation_level=None)
         self.conn.row_factory = sqlite3.Row

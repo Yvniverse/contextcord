@@ -8,11 +8,11 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
-from project_harness.config import ConfigError, discover
-from project_harness.contracts import SCHEMAS, schema, validate
-from project_harness.identity import source_identity
-from project_harness.profiles import write_profile
-from project_harness.store import StateStore
+from contextcord.config import ConfigError, discover
+from contextcord.contracts import SCHEMAS, schema, validate
+from contextcord.identity import source_identity
+from contextcord.profiles import write_profile
+from contextcord.store import StateStore
 
 
 def git(repo: Path, *args: str) -> str:
@@ -43,42 +43,42 @@ class ContractTests(unittest.TestCase):
     def test_invalid_runtime_probe_kind_fails_config_load(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/runtime.toml"; p.write_text('required_scopes = []\n[[probes]]\nid="x"\nkind="made-up"\n')
+            p=repo/".contextcord/runtime.toml"; p.write_text('required_scopes = []\n[[probes]]\nid="x"\nkind="made-up"\n')
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 
     def test_unknown_required_scope_fails_config_load(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/runtime.toml"; p.write_text('required_scopes = ["missing"]\n')
+            p=repo/".contextcord/runtime.toml"; p.write_text('required_scopes = ["missing"]\n')
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 
     def test_invalid_redaction_regex_fails_config_load(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/evidence.toml"; p.write_text(p.read_text().replace('runner_redact_patterns = []','runner_redact_patterns = ["("]'))
+            p=repo/".contextcord/evidence.toml"; p.write_text(p.read_text().replace('runner_redact_patterns = []','runner_redact_patterns = ["("]'))
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 
     def test_unknown_authority_operation_fails_config_load(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/authority.toml"; p.write_text(p.read_text().replace('"checkpoint"]','"checkpoint", "wirte"]',1))
+            p=repo/".contextcord/authority.toml"; p.write_text(p.read_text().replace('"checkpoint"]','"checkpoint", "wirte"]',1))
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 
     def test_phase_contract_unknown_runtime_probe_fails_config_load(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/workflow.toml"; text=p.read_text(); p.write_text(text.replace('[phase_contracts.delivery]\nrequire_qualification_profile = "release"', '[phase_contracts.delivery]\nrequire_qualification_profile = "release"\nrequired_runtime=["missing-probe"]'))
+            p=repo/".contextcord/workflow.toml"; text=p.read_text(); p.write_text(text.replace('[phase_contracts.delivery]\nrequire_qualification_profile = "release"', '[phase_contracts.delivery]\nrequire_qualification_profile = "release"\nrequired_runtime=["missing-probe"]'))
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 
     def test_policy_entrypoint_cannot_escape_repository(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/project.toml"; p.write_text(p.read_text().replace('entrypoints = ["AGENTS.md"]','entrypoints = ["../outside.md"]',1))
+            p=repo/".contextcord/project.toml"; p.write_text(p.read_text().replace('entrypoints = ["AGENTS.md"]','entrypoints = ["../outside.md"]',1))
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 

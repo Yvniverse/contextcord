@@ -7,10 +7,10 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from project_harness.config import discover
-from project_harness.policy import authorize
-from project_harness.profiles import PROFILES, write_profile
-from project_harness.workflow import phase_ids, validate_workflow
+from contextcord.config import discover
+from contextcord.policy import authorize
+from contextcord.profiles import PROFILES, write_profile
+from contextcord.workflow import phase_ids, validate_workflow
 
 
 def git(repo: Path, *args: str) -> str:
@@ -55,7 +55,7 @@ class ProfileTest(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         names = ["project.toml", "truth.toml", "workflow.toml", "authority.toml", "runtime.toml", "evidence.toml", "qualification.toml"]
         for profile, payloads in PROFILES.items():
-            pack = root / "policy-packs" / profile / ".harness"
+            pack = root / "policy-packs" / profile / ".contextcord"
             for name, expected in zip(names, payloads):
                 self.assertEqual((pack / name).read_text(encoding="utf-8"), expected, f"policy pack drift: {profile}/{name}")
             self.assertEqual((pack / ".gitignore").read_text(encoding="utf-8"), "generated/\nreceipts/\ndual-run/\n")

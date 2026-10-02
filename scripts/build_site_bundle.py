@@ -67,8 +67,10 @@ def build(root: Path, destination: Path) -> Path:
     for p in map_files:
         copy_file(p, destination / "architecture" / "maps" / p.name)
 
-    # Public distribution legal surface. Root NOTICE is intentionally absent for the MIT Public Alpha.
+    # Public distribution legal surface: project and retained third-party notices.
     copy_file(root / "LICENSE", destination / "legal" / "LICENSE.txt")
+    copy_file(root / "NOTICE", destination / "legal" / "NOTICE.txt")
+    copy_file(root / "docs/legal/CONTEXTCORD_PREVIOUS_MIT.txt", destination / "legal" / "CONTEXTCORD_PREVIOUS_MIT.txt")
     copy_file(root / "THIRD_PARTY_NOTICES.md", destination / "legal" / "THIRD_PARTY_NOTICES.md")
     copy_file(root / "ACKNOWLEDGEMENTS.md", destination / "legal" / "ACKNOWLEDGEMENTS.md")
 

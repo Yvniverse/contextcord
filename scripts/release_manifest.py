@@ -22,6 +22,6 @@ def main()->int:
   if any(part in EXCLUDE_PARTS or part.endswith('.egg-info') for part in rel.parts) or p.suffix in EXCLUDE_SUFFIXES: continue
   if p.is_symlink() or not p.resolve().is_relative_to(root): raise ValueError('release_symlink_or_escape:'+str(rel))
   rows.append({'path':rel.as_posix(),'bytes':p.stat().st_size,'sha256':digest(p)})
- payload={'schema':'unified-project-harness-release-manifest-v1','version':ns.version,'generated_utc':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'files':rows}
+ payload={'schema':'unified-contextcord-release-manifest-v1','version':ns.version,'generated_utc':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'files':rows}
  out.write_text(json.dumps(payload,indent=2,sort_keys=True)+'\n',encoding='utf-8'); print(json.dumps({'status':'PASS','files':len(rows),'output':str(out)},indent=2)); return 0
 if __name__=='__main__': raise SystemExit(main())

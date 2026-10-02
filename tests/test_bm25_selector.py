@@ -1,6 +1,6 @@
 import unittest
 
-from project_harness.bm25 import BM25Selector
+from contextcord.bm25 import BM25Selector
 
 
 class BM25SelectorTests(unittest.TestCase):

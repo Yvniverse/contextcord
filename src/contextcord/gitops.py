@@ -105,7 +105,7 @@ def notes_write(repo: Path, ref: str, commit: str, payload: str) -> None:
 def notes_compare_and_swap(repo: Path, ref: str, commit: str, payload: str, expected: str) -> bool:
     """Build on a private ref and atomically publish only if the base is current."""
     import uuid
-    temporary = 'refs/notes/project-harness-tmp/' + uuid.uuid4().hex
+    temporary = 'refs/notes/contextcord-tmp/' + uuid.uuid4().hex
     try:
         if expected:
             git(repo, 'update-ref', temporary, expected)

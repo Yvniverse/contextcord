@@ -16,4 +16,4 @@ Runtime and development dependencies declared by ContextCord remain under the li
 
 ## Inherited source
 
-Any inherited source that carries a prior copyright or license notice must retain that notice for the scope where it applies. The first Public Alpha does not attempt to replace those obligations with a different license.
+Any inherited source that carries a prior copyright or license notice must retain that notice for the scope where it applies. ContextCord is distributed under Apache-2.0. The original MIT copyright and permission notice is retained verbatim in docs/legal/CONTEXTCORD_PREVIOUS_MIT.txt; inherited material retains its original rights and obligations.

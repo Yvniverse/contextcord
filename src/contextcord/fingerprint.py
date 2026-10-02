@@ -16,7 +16,7 @@ def _match_any(path: str, patterns: list[str]) -> bool:
 def content_fingerprint(repo: Path, exclude: list[str] | None = None) -> dict[str, object]:
     """Legacy v0.2 fingerprint API kept for migration tooling/tests.
 
-    New trust decisions use project_harness.truth.content_fingerprint through a
+    New trust decisions use contextcord.truth.content_fingerprint through a
     HarnessConfig, which includes artifact kinds, symlink targets and exec bits.
     """
     exclude = exclude or []

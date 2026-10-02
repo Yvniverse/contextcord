@@ -3,12 +3,12 @@ import io, json, os, subprocess, tempfile, unittest
 from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
-from project_harness.cli import main
-from project_harness.profiles import write_profile
-from project_harness.store import StateStore
-from project_harness.workflow import required_phases_for_scope, validate_workflow
-from project_harness.config import discover
-from project_harness.qualification import record as qualification_record
+from contextcord.cli import main
+from contextcord.profiles import write_profile
+from contextcord.store import StateStore
+from contextcord.workflow import required_phases_for_scope, validate_workflow
+from contextcord.config import discover
+from contextcord.qualification import record as qualification_record
 
 def git(repo,*args): return subprocess.check_output(["git","-C",str(repo),*args],text=True).strip()
 def call(repo,*args):
@@ -24,7 +24,7 @@ class ScopeWorkflowTests(unittest.TestCase):
             rc,_=call(repo,"start","--task-id","code","--scope","code","--json"); self.assertEqual(rc,0)
             with StateStore(repo) as store: sid=store.open_sessions("code")[0]["session_id"]
             for phase in ["authority","implementation"]: self.assertEqual(call(repo,"state","advance","--task-id","code","--phase",phase,"--next-action","next","--session-id",sid)[0],0)
-            ev=repo/".harness/generated/unit.txt"; ev.parent.mkdir(parents=True,exist_ok=True); ev.write_text("PASS\n")
+            ev=repo/".contextcord/generated/unit.txt"; ev.parent.mkdir(parents=True,exist_ok=True); ev.write_text("PASS\n")
             self.assertEqual(call(repo,"evidence","add","--session-id",sid,"--name","unit","--status","PASS","--path",ev.relative_to(repo).as_posix())[0],0)
             rc, state = call(repo,"state","advance","--task-id","code","--phase","tests","--next-action","finish","--session-id",sid); self.assertEqual(rc,0,state)
             self.assertEqual(state["status"], "READY_TO_FINISH"); self.assertIsNone(state["current_phase"])
@@ -39,18 +39,18 @@ class ScopeWorkflowTests(unittest.TestCase):
             with StateStore(repo) as store: sid=store.open_sessions("rel")[0]["session_id"]
             for phase in ["authority","implementation"]:
                 self.assertEqual(call(repo,"state","advance","--task-id","rel","--phase",phase,"--next-action","next","--session-id",sid)[0],0)
-            unit=repo/".harness/generated/unit.txt"; unit.parent.mkdir(parents=True,exist_ok=True); unit.write_text("PASS\n")
+            unit=repo/".contextcord/generated/unit.txt"; unit.parent.mkdir(parents=True,exist_ok=True); unit.write_text("PASS\n")
             self.assertEqual(call(repo,"evidence","add","--session-id",sid,"--name","unit","--status","PASS","--path",unit.relative_to(repo).as_posix())[0],0)
             self.assertEqual(call(repo,"state","advance","--task-id","rel","--phase","tests","--next-action","qualification","--session-id",sid)[0],0)
             rc, missing_candidate = call(repo,"state","advance","--task-id","rel","--phase","qualification","--next-action","delivery","--session-id",sid)
             self.assertEqual(rc,2,missing_candidate); self.assertTrue(any("phase_qualification_not_pass:qualification:candidate" in x for x in missing_candidate.get("failures", [])))
             cfg=discover(repo)
-            ci=repo/".harness/generated/ci.txt"; ci.write_text("ci pass\n")
+            ci=repo/".contextcord/generated/ci.txt"; ci.write_text("ci pass\n")
             qualification_record(cfg, commitish="HEAD", status="PASS", evidence=ci, summary="ci", kind="ci")
             self.assertEqual(call(repo,"state","advance","--task-id","rel","--phase","qualification","--next-action","delivery","--session-id",sid)[0],0)
             rc, missing_release = call(repo,"state","advance","--task-id","rel","--phase","delivery","--next-action","finish","--session-id",sid)
             self.assertEqual(rc,2,missing_release); self.assertTrue(any("phase_qualification_not_pass:delivery:release" in x for x in missing_release.get("failures", [])))
-            review=repo/".harness/generated/review.txt"; review.write_text("review pass\n")
+            review=repo/".contextcord/generated/review.txt"; review.write_text("review pass\n")
             qualification_record(cfg, commitish="HEAD", status="PASS", evidence=review, summary="review", kind="review")
             rc, state = call(repo,"state","advance","--task-id","rel","--phase","delivery","--next-action","finish","--session-id",sid)
             self.assertEqual(rc,0,state); self.assertEqual(state["status"],"READY_TO_FINISH"); self.assertIsNone(state["current_phase"])

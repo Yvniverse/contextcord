@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from project_harness.decision import rank_candidates
+from contextcord.decision import rank_candidates
 
 
 class FakeTransport:
@@ -31,7 +31,7 @@ class JevProviderTests(unittest.TestCase):
         ]
 
     def test_fake_jev_ranking_keeps_truth_fields_local(self) -> None:
-        from project_harness.jev_provider import JevApiDecisionProvider
+        from contextcord.jev_provider import JevApiDecisionProvider
         transport = FakeTransport()
         result = JevApiDecisionProvider(transport=transport).rank("retry", self.candidates())
         self.assertEqual(result["status"], "JEV_FAKE_PASS")

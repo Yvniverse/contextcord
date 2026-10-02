@@ -6,7 +6,7 @@ durability, idempotency and key custody. These ports are not invoked automatical
 from dataclasses import dataclass
 from typing import Mapping, Protocol, Sequence
 
-API_VERSION = 'project-harness-extension-v1'
+API_VERSION = 'contextcord-extension-v1'
 
 
 @dataclass(frozen=True)

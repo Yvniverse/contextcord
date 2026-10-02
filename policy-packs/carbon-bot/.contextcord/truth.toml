@@ -1,13 +1,13 @@
 [defaults]
 kind = "source"
 [[rules]]
-pattern = ".harness/generated/**"
+pattern = ".contextcord/generated/**"
 kind = "generated"
 [[rules]]
-pattern = ".harness/receipts/**"
+pattern = ".contextcord/receipts/**"
 kind = "evidence"
 [[rules]]
-pattern = ".harness/dual-run/**"
+pattern = ".contextcord/dual-run/**"
 kind = "evidence"
 [[rules]]
 pattern = "docs/agent/sessions/**"
@@ -28,5 +28,5 @@ kind = "runtime_input"
 pattern = "evaluation/**"
 kind = "runtime_input"
 [[rules]]
-pattern = ".harness/*.toml"
+pattern = ".contextcord/*.toml"
 kind = "source"

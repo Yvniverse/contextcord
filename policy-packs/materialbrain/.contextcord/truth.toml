@@ -1,13 +1,13 @@
 [defaults]
 kind = "source"
 [[rules]]
-pattern = ".harness/generated/**"
+pattern = ".contextcord/generated/**"
 kind = "generated"
 [[rules]]
-pattern = ".harness/receipts/**"
+pattern = ".contextcord/receipts/**"
 kind = "evidence"
 [[rules]]
-pattern = ".harness/dual-run/**"
+pattern = ".contextcord/dual-run/**"
 kind = "evidence"
 [[rules]]
 pattern = "artifacts/**"
@@ -34,5 +34,5 @@ kind = "ignore"
 pattern = "docs/PROJECT_MEMORY.md"
 kind = "durable_memory"
 [[rules]]
-pattern = ".harness/*.toml"
+pattern = ".contextcord/*.toml"
 kind = "source"

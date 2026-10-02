@@ -42,7 +42,7 @@ class Server:
             result = {'protocolVersion': params['protocolVersion'] if params['protocolVersion'] in SUPPORTED else SUPPORTED[0],
                       'capabilities': {'tools': {'listChanged': False}},
                       'serverInfo': {'name': MCP_SERVER_ID, 'version': __version__},
-                      'instructions': 'ContextCord repository-scoped continuity and governance. Verification is not a sandbox or a signed attestation. Legacy harness_* tool aliases remain deprecated compatibility readers.'}
+                      'instructions': 'ContextCord repository-scoped continuity, policy and verified engineering evidence.'}
         elif method == 'ping':
             result = {}
         elif not self.initialized:

@@ -10,18 +10,18 @@ import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
-from project_harness.cli import main
-from project_harness.config import ConfigError, discover
-from project_harness.dualrun import ledger_path, read_ledger, record as dual_record, summary as dual_summary
-from project_harness.evidence import prepare_records
-from project_harness.identity import memory_commit_errors, source_identity
-from project_harness.policy import authorize
-from project_harness.profiles import write_profile
-from project_harness.qualification import record as qualification_record
-from project_harness.qualification import verify as qualification_verify
-from project_harness.receipt import verify_receipt_chain
-from project_harness.store import StateStore
-from project_harness.truth import content_fingerprint
+from contextcord.cli import main
+from contextcord.config import ConfigError, discover
+from contextcord.dualrun import ledger_path, read_ledger, record as dual_record, summary as dual_summary
+from contextcord.evidence import prepare_records
+from contextcord.identity import memory_commit_errors, source_identity
+from contextcord.policy import authorize
+from contextcord.profiles import write_profile
+from contextcord.qualification import record as qualification_record
+from contextcord.qualification import verify as qualification_verify
+from contextcord.receipt import verify_receipt_chain
+from contextcord.store import StateStore
+from contextcord.truth import content_fingerprint
 
 
 def git(repo: Path, *args: str) -> str:
@@ -46,7 +46,7 @@ class RepoCase(unittest.TestCase):
         (repo / "src").mkdir(); (repo / "src" / "app.py").write_text("VALUE = 1\n", encoding="utf-8")
         write_profile(repo, "generic")
         if exact:
-            p = repo / ".harness" / "project.toml"
+            p = repo / ".contextcord" / "project.toml"
             p.write_text(p.read_text(encoding="utf-8").replace('mode = "content_equivalent"', 'mode = "exact_commit"'), encoding="utf-8")
         git(repo, "add", "."); git(repo, "commit", "-qm", "initial")
         return td, repo
@@ -58,7 +58,7 @@ class RepoCase(unittest.TestCase):
             return store.open_sessions(task)[0]["session_id"]
 
     def add_pass(self, repo: Path, sid: str, *, name: str = "unit") -> Path:
-        p = repo / ".harness" / "generated" / "manual" / f"{name}.txt"
+        p = repo / ".contextcord" / "generated" / "manual" / f"{name}.txt"
         p.parent.mkdir(parents=True, exist_ok=True); p.write_text("PASS\n", encoding="utf-8")
         rc, value = invoke(repo, "evidence", "add", "--session-id", sid, "--name", name, "--status", "PASS", "--path", p.relative_to(repo).as_posix())
         self.assertEqual(rc, 0, value)
@@ -105,8 +105,8 @@ class TrustPlaneTests(RepoCase):
         td, repo = self.make_repo()
         try:
             sid = self.start(repo)
-            ev = repo / ".harness" / "generated" / "manual" / "summary.txt"; ev.parent.mkdir(parents=True, exist_ok=True); ev.write_text("PASS\n")
-            summary = repo / ".harness" / "generated" / "summary.json"
+            ev = repo / ".contextcord" / "generated" / "manual" / "summary.txt"; ev.parent.mkdir(parents=True, exist_ok=True); ev.write_text("PASS\n")
+            summary = repo / ".contextcord" / "generated" / "summary.json"
             summary.write_text(json.dumps({"summary":"x","tests":[{"name":"summary-check","status":"PASS","evidence":ev.relative_to(repo).as_posix()}],"evidence_paths":[ev.relative_to(repo).as_posix()]}), encoding="utf-8")
             rc, value = invoke(repo, "finish", "--session-id", sid, "--summary-file", str(summary))
             self.assertEqual(rc, 2); self.assertEqual(value["status"], "BLOCKED")
@@ -117,9 +117,9 @@ class TrustPlaneTests(RepoCase):
     def test_zero_evidence_complete_closeout_is_impossible_even_without_phase_evidence_contract(self):
         td, repo = self.make_repo()
         try:
-            wf = repo / ".harness" / "workflow.toml"
+            wf = repo / ".contextcord" / "workflow.toml"
             text = wf.read_text(); text = text.replace('[phase_contracts.tests]\nminimum_pass_evidence = 1\n', '')
-            wf.write_text(text); git(repo, "add", ".harness/workflow.toml"); git(repo, "commit", "-qm", "allow no phase evidence")
+            wf.write_text(text); git(repo, "add", ".contextcord/workflow.toml"); git(repo, "commit", "-qm", "allow no phase evidence")
             sid = self.start(repo)
             self.complete_workflow(repo, sid, add_evidence=False)
             rc, value = invoke(repo, "finish", "--session-id", sid, "--summary-text", "no evidence")
@@ -161,7 +161,7 @@ class TrustPlaneTests(RepoCase):
         try:
             sid = self.start(repo)
             (repo / "src" / "app.py").write_text("VALUE = 2\n", encoding="utf-8")
-            ev = repo / ".harness" / "generated" / "manual" / "unit.txt"; ev.parent.mkdir(parents=True, exist_ok=True); ev.write_text("PASS\n")
+            ev = repo / ".contextcord" / "generated" / "manual" / "unit.txt"; ev.parent.mkdir(parents=True, exist_ok=True); ev.write_text("PASS\n")
             rc, value = invoke(repo, "evidence", "add", "--session-id", sid, "--name", "unit", "--status", "PASS", "--path", ev.relative_to(repo).as_posix())
             self.assertEqual(rc, 2); self.assertIn("exact_identity_evidence_requires_clean_truth", value["error"])
         finally: td.cleanup()
@@ -179,7 +179,7 @@ class TrustPlaneTests(RepoCase):
         td, repo = self.make_repo()
         try:
             sid = self.start(repo); self.complete_workflow(repo, sid); self.assertEqual(invoke(repo, "finish", "--session-id", sid, "--summary-text", "sealed")[0], 0)
-            path = next((repo / ".harness" / "receipts").glob("*.json")); payload = json.loads(path.read_text()); payload["summary"]["summary"] = "tampered"; path.write_text(json.dumps(payload), encoding="utf-8")
+            path = next((repo / ".contextcord" / "receipts").glob("*.json")); payload = json.loads(path.read_text()); payload["summary"]["summary"] = "tampered"; path.write_text(json.dumps(payload), encoding="utf-8")
             rc, value = invoke(repo, "verify", "--ci")
             self.assertEqual(rc, 2); self.assertTrue(any("receipt_hash_mismatch" in x for x in value["failures"]))
         finally: td.cleanup()
@@ -189,7 +189,7 @@ class TrustPlaneTests(RepoCase):
         try:
             for task in ("a", "b"):
                 sid = self.start(repo, task); self.complete_workflow(repo, sid, task); self.assertEqual(invoke(repo, "finish", "--session-id", sid, "--summary-text", task)[0], 0)
-            receipts = sorted((repo / ".harness" / "receipts").glob("*.json")); self.assertEqual(len(receipts), 2)
+            receipts = sorted((repo / ".contextcord" / "receipts").glob("*.json")); self.assertEqual(len(receipts), 2)
             # Find the root explicitly rather than relying on filename order.
             root = next(p for p in receipts if json.loads(p.read_text()).get("previous_receipt_hash") is None); root.unlink()
             rc, value = invoke(repo, "receipt", "--verify-chain")
@@ -233,8 +233,8 @@ class TrustPlaneTests(RepoCase):
         td, repo = self.make_repo(); outside_td = tempfile.TemporaryDirectory()
         try:
             cfg = discover(repo); sid = self.start(repo)
-            target = repo / ".harness" / "generated" / "real.txt"; target.parent.mkdir(parents=True, exist_ok=True); target.write_text("PASS\n")
-            link = repo / ".harness" / "generated" / "link.txt"; link.symlink_to(target)
+            target = repo / ".contextcord" / "generated" / "real.txt"; target.parent.mkdir(parents=True, exist_ok=True); target.write_text("PASS\n")
+            link = repo / ".contextcord" / "generated" / "link.txt"; link.symlink_to(target)
             rc, _ = invoke(repo, "evidence", "add", "--session-id", sid, "--name", "link", "--status", "PASS", "--path", link.relative_to(repo).as_posix()); self.assertEqual(rc, 2)
             outside = Path(outside_td.name) / "outside.txt"; outside.write_text("PASS\n")
             with self.assertRaises(ValueError): prepare_records(cfg, tests=[{"name":"outside","status":"PASS","evidence":str(outside)}], evidence_paths=[str(outside)])
@@ -244,8 +244,8 @@ class TrustPlaneTests(RepoCase):
         td, repo = self.make_repo()
         try:
             docs = repo / "docs"; docs.mkdir(); mem = docs / "PROJECT_MEMORY.md"; mem.write_text("# memory v1\n")
-            truth = repo / ".harness" / "truth.toml"; truth.write_text(truth.read_text() + '\n[[rules]]\npattern = "docs/PROJECT_MEMORY.md"\nkind = "durable_memory"\n')
-            proj = repo / ".harness" / "project.toml"; proj.write_text(proj.read_text().replace('[knowledge]\nentrypoints = ["AGENTS.md"]', '[knowledge]\nentrypoints = ["AGENTS.md", "docs/PROJECT_MEMORY.md"]'))
+            truth = repo / ".contextcord" / "truth.toml"; truth.write_text(truth.read_text() + '\n[[rules]]\npattern = "docs/PROJECT_MEMORY.md"\nkind = "durable_memory"\n')
+            proj = repo / ".contextcord" / "project.toml"; proj.write_text(proj.read_text().replace('[knowledge]\nentrypoints = ["AGENTS.md"]', '[knowledge]\nentrypoints = ["AGENTS.md", "docs/PROJECT_MEMORY.md"]'))
             git(repo, "add", "."); git(repo, "commit", "-qm", "add memory")
             sid = self.start(repo); self.complete_workflow(repo, sid); self.assertEqual(invoke(repo, "finish", "--session-id", sid, "--summary-text", "sealed memory")[0], 0)
             mem.write_text("# memory v2\n")
@@ -266,9 +266,9 @@ class TrustPlaneTests(RepoCase):
     def test_qualification_rehash_and_append_only_history(self):
         td, repo = self.make_repo()
         try:
-            cfg=discover(repo); ev1=repo/".harness/generated/q1.txt"; ev1.parent.mkdir(parents=True,exist_ok=True); ev1.write_text("first\n")
+            cfg=discover(repo); ev1=repo/".contextcord/generated/q1.txt"; ev1.parent.mkdir(parents=True,exist_ok=True); ev1.write_text("first\n")
             n1=qualification_record(cfg,commitish="HEAD",status="FAIL",evidence=ev1,summary="bad",kind="ci")
-            ev2=repo/".harness/generated/q2.txt"; ev2.write_text("second\n"); n2=qualification_record(cfg,commitish="HEAD",status="PASS",evidence=ev2,summary="good",kind="ci")
+            ev2=repo/".contextcord/generated/q2.txt"; ev2.write_text("second\n"); n2=qualification_record(cfg,commitish="HEAD",status="PASS",evidence=ev2,summary="good",kind="ci")
             self.assertEqual(len(n2["records"]),2); self.assertEqual(n2["records"][1]["supersedes"],n2["records"][0]["record_id"])
             self.assertEqual(qualification_verify(cfg,commitish="HEAD",profile="candidate")["status"],"PASS")
             ev2.write_text("tampered\n"); result=qualification_verify(cfg,commitish="HEAD",profile="candidate"); self.assertEqual(result["integrity_status"],"FAIL"); self.assertEqual(result["status"],"FAIL")
@@ -288,7 +288,7 @@ class TrustPlaneTests(RepoCase):
         td, repo = self.make_repo()
         outside_td = tempfile.TemporaryDirectory()
         try:
-            evcfg=repo/".harness/evidence.toml"; text=evcfg.read_text(); text=text.replace('runner_max_output_bytes = 1048576','runner_max_output_bytes = 1024').replace('runner_redact_patterns = []','runner_redact_patterns = ["SECRET=[^ ]+"]'); evcfg.write_text(text); git(repo,"add",".harness/evidence.toml"); git(repo,"commit","-qm","runner policy")
+            evcfg=repo/".contextcord/evidence.toml"; text=evcfg.read_text(); text=text.replace('runner_max_output_bytes = 1048576','runner_max_output_bytes = 1024').replace('runner_redact_patterns = []','runner_redact_patterns = ["SECRET=[^ ]+"]'); evcfg.write_text(text); git(repo,"add",".contextcord/evidence.toml"); git(repo,"commit","-qm","runner policy")
             sid=self.start(repo,scope="release")
             rc,val=invoke(repo,"run","--session-id",sid,"--name","deny","--","git","push","--force","origin","HEAD"); self.assertEqual(rc,2); self.assertIn("runner_command_denied",val["error"])
             rc,val=invoke(repo,"run","--session-id",sid,"--name","cwd","--cwd",outside_td.name,"--","python","-c","print('x')"); self.assertEqual(rc,2); self.assertIn("runner_cwd_outside_repository",val["error"])
@@ -302,7 +302,7 @@ class TrustPlaneTests(RepoCase):
         try:
             sid=self.start(repo); self.complete_workflow(repo,sid); self.assertEqual(invoke(repo,"finish","--session-id",sid,"--summary-text","sealed")[0],0)
             # Receipts are ignored by default; explicitly add one as a CI-carried artifact for this contract test.
-            receipt=next((repo/".harness/receipts").glob("*.json")); evidence=repo/".harness/generated/manual/unit.txt"
+            receipt=next((repo/".contextcord/receipts").glob("*.json")); evidence=repo/".contextcord/generated/manual/unit.txt"
             git(repo,"add","-f",str(receipt.relative_to(repo)),str(evidence.relative_to(repo))); git(repo,"commit","-qm","carry sealed receipt and evidence")
             clone=Path(clone_td.name)/"clone"; subprocess.check_call(["git","clone","-q",str(repo),str(clone)])
             rc,value=invoke(clone,"verify","--ci")
@@ -326,14 +326,14 @@ class TrustPlaneTests(RepoCase):
         try:
             outside=Path(outside_td.name)/"memory.md"; outside.write_text("outside\n")
             docs=repo/"docs"; docs.mkdir(); mem=docs/"PROJECT_MEMORY.md"; mem.symlink_to(outside)
-            truth=repo/".harness/truth.toml"; truth.write_text(truth.read_text()+'\n[[rules]]\npattern="docs/PROJECT_MEMORY.md"\nkind="durable_memory"\n')
+            truth=repo/".contextcord/truth.toml"; truth.write_text(truth.read_text()+'\n[[rules]]\npattern="docs/PROJECT_MEMORY.md"\nkind="durable_memory"\n')
             with self.assertRaises(ValueError): source_identity(discover(repo))
         finally: outside_td.cleanup(); td.cleanup()
 
     def test_receipt_and_runner_directories_cannot_escape_repository(self):
         td,repo=self.make_repo()
         try:
-            p=repo/".harness/evidence.toml"; p.write_text(p.read_text().replace('receipt_dir = ".harness/receipts"','receipt_dir = "../outside"'))
+            p=repo/".contextcord/evidence.toml"; p.write_text(p.read_text().replace('receipt_dir = ".contextcord/receipts"','receipt_dir = "../outside"'))
             with self.assertRaises(ConfigError): discover(repo)
         finally: td.cleanup()
 

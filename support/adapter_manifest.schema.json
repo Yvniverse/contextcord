@@ -7,14 +7,12 @@
     "schema",
     "id",
     "display_name",
-    "transports"
+    "transports",
+    "required_contextcord_tools"
   ],
   "properties": {
     "schema": {
-      "enum": [
-        "contextcord-host-adapter-v1",
-        "agent-nexus-host-adapter-v1"
-      ]
+      "const": "contextcord-host-adapter-v1"
     },
     "id": {
       "type": "string",
@@ -69,13 +67,6 @@
     "telemetry": {
       "type": "object"
     },
-    "required_agent_nexus_tools": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1
-    },
     "required_contextcord_tools": {
       "type": "array",
       "items": {
@@ -84,27 +75,10 @@
       "minItems": 1
     }
   },
-  "oneOf": [
-    {
-      "properties": {
-        "schema": {
-          "const": "contextcord-host-adapter-v1"
-        }
-      },
-      "required": [
-        "required_contextcord_tools"
-      ]
-    },
-    {
-      "properties": {
-        "schema": {
-          "const": "agent-nexus-host-adapter-v1"
-        }
-      },
-      "required": [
-        "required_agent_nexus_tools"
-      ]
-    }
-  ],
-  "additionalProperties": true
+  "additionalProperties": true,
+  "not": {
+    "required": [
+      "required_agent_nexus_tools"
+    ]
+  }
 }

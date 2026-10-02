@@ -16,23 +16,23 @@ class AdapterLabTests(unittest.TestCase):
         self.assertTrue({"codex", "qoder", "cursor", "opencode", "workbuddy"}.issubset(ids))
 
     def test_secret_like_manifest_field_is_rejected(self) -> None:
-        value = {"schema": "agent-nexus-host-adapter-v1", "id": "x", "display_name": "x", "transports": ["stdio"], "required_agent_nexus_tools": ["harness_memory"], "api_key": "not allowed"}
+        value = {"schema": "contextcord-host-adapter-v1", "id": "x", "display_name": "x", "transports": ["stdio"], "required_agent_nexus_tools": ["contextcord_memory"], "api_key": "not allowed"}
         self.assertEqual(validate_manifest(value)["status"], "FAIL")
 
-    def test_canonical_schema_is_emitted_and_legacy_reader_remains_accepted(self) -> None:
+    def test_canonical_schema_is_emitted_and_retired_alias_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             created = init_manifest("canonical-host", root / "canonical-host.adapter.json")
             self.assertEqual(created["manifest"]["schema"], "contextcord-host-adapter-v1")
             self.assertIn("required_contextcord_tools", created["manifest"])
             legacy = {
-                "schema": "agent-nexus-host-adapter-v1",
+                "schema": "contextcord-host-adapter-v1",
                 "id": "legacy-host",
                 "display_name": "Legacy Host",
                 "transports": ["stdio"],
-                "required_agent_nexus_tools": ["harness_memory"],
+                "required_agent_nexus_tools": ["contextcord_memory"],
             }
-            self.assertEqual(validate_manifest(legacy)["status"], "PASS")
+            self.assertEqual(validate_manifest(legacy)["status"], "FAIL")
 
     def test_init_render_and_certification_are_staged_only(self) -> None:
         with tempfile.TemporaryDirectory() as td:

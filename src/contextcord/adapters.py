@@ -165,7 +165,7 @@ export function apply(ctx) {
   // DeepSeek Harness. Existing sandbox/approval policy remains enabled.
   ctx.on("tools/pre-execute", async (exec, next) => {
     const decision = contextcord(exec)
-    if (!decision.allowed) return { kind: "deny", reason: `Unified Project Harness: ${decision.reason}` }
+    if (!decision.allowed) return { kind: "deny", reason: `ContextCord: ${decision.reason}` }
     return next()
   })
 }
@@ -173,7 +173,7 @@ export function apply(ctx) {
 
 DEEPSEEK_PATCH = '''- insert:\n    - id: contextcord\n      name: dsh-contextcord\n'''
 
-GENERIC_README = '''# ContextCord generic adapter\n\nAny coding agent can use the CLI without a native plugin:\n\n1. At session start: `contextcord doctor && contextcord context`.\n2. Start/resume a task with `contextcord start --task-id <id> --scope <scope>`.\n3. Before high-risk actions call `contextcord authorize --scope <scope> --operation <op> --target <target>`.\n4. Before lifecycle handoff or stop, run `contextcord finish --mode handoff ...`; complete CI closeout is a separate workflow/evidence gate.\n5. CI runs `contextcord verify --ci`.\n\nThe legacy `project-harness` and `poh` commands remain deprecated forwarding aliases.\n'''
+GENERIC_README = '''# ContextCord generic adapter\n\nAny coding agent can use the CLI without a native plugin:\n\n1. At session start: `contextcord doctor && contextcord context`.\n2. Start/resume a task with `contextcord start --task-id <id> --scope <scope>`.\n3. Before high-risk actions call `contextcord authorize --scope <scope> --operation <op> --target <target>`.\n4. Before lifecycle handoff or stop, run `contextcord finish --mode handoff ...`; complete CI closeout is a separate workflow/evidence gate.\n5. CI runs `contextcord verify --ci`.\n'''
 
 
 CAPABILITIES = {
@@ -261,7 +261,6 @@ def render(host: str, destination: Path) -> list[Path]:
     if host in {"claude", "cursor"}:
         mcp = {"mcpServers": {
             "contextcord": {"command": "contextcord", "args": ["mcp"]},
-            "project-harness": {"command": "project-harness", "args": ["mcp"]},
         }}
         p = destination / (".mcp.json" if host == "claude" else "mcp.json")
         p.write_text(json.dumps(mcp, indent=2) + "\n", encoding="utf-8"); written.append(p)
@@ -301,11 +300,6 @@ def render(host: str, destination: Path) -> list[Path]:
         p = destination / "plugins" / "contextcord.js"
         p.write_text(OPENCODE_PLUGIN, encoding="utf-8")
         written.append(p)
-        # Keep the historical filename as a byte-compatible forwarding artifact
-        # for existing OpenCode installations; the canonical plugin is above.
-        legacy = destination / "plugins" / "project-operations-harness.js"
-        legacy.write_text(OPENCODE_PLUGIN, encoding="utf-8")
-        written.append(legacy)
         r = destination / "README.md"
         r.write_text(
             "# OpenCode adapter\n\nCopy/merge this directory into `.opencode/`. "

@@ -14,9 +14,9 @@ Do not immediately remove:
 ## Bootstrap
 
 ```bash
-project-harness init --profile carbon-bot
-project-harness doctor
-project-harness identity
+contextcord init --profile carbon-bot
+contextcord doctor
+contextcord identity
 ```
 
 Set real mounted values for `CARBON_DATA_ROOT` and `CARBON_STAGING_ROOT`. If the authority is not available, preserve BLOCKED rather than replacing it with fake data.

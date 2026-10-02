@@ -5,12 +5,12 @@ import unittest
 import subprocess
 from pathlib import Path
 
-from project_harness.decision_fabric import DecisionFabric, gate0, state_sha256
-from project_harness.handoff import assist_resume
-from project_harness.config import discover
-from project_harness.profiles import write_profile
-from project_harness.store import StateStore
-from project_harness.workflow import initial_task
+from contextcord.decision_fabric import DecisionFabric, gate0, state_sha256
+from contextcord.handoff import assist_resume
+from contextcord.config import discover
+from contextcord.profiles import write_profile
+from contextcord.store import StateStore
+from contextcord.workflow import initial_task
 
 
 class BundleProvider:

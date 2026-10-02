@@ -13,7 +13,6 @@ from typing import Any
 
 from .config import LEGACY_STATE_DIR, PRIMARY_STATE_DIR
 from .gitops import git_dir
-from .util import absolute_path
 
 
 SCHEMA = "contextcord-state-migration-v1"
@@ -74,7 +73,7 @@ def _now_slug() -> str:
 
 
 def migrate_state(repo: Path, *, apply: bool = False) -> dict[str, Any]:
-    repo = absolute_path(repo)
+    repo = repo.resolve()
     legacy = repo / LEGACY_STATE_DIR
     target = repo / PRIMARY_STATE_DIR
     marker = target / "migration.json"

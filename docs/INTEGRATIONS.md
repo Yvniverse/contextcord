@@ -56,9 +56,7 @@ OpenCode uses its native shape:
 }
 ```
 
-Legacy `project-harness`, `poh` and `harness_*` entries remain deprecated
-compatibility aliases. Other hosts must declare the versioned BYOH Adapter
-Manifest contract and `product_tier: BYOH`.
+Use the contextcord namespace for all current CLI and MCP integrations. See [Migration](MIGRATION.md).
 
 See `support/adapters/` for manifests and
 [Host Evidence Registry v3](../research/host_evidence_registry_v3.json)

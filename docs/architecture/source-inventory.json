@@ -91,7 +91,7 @@
       ],
       "module": "__init__",
       "path": "src/contextcord/__init__.py",
-      "sha256": "e2a9180672969587e25bdab83d28a7aaea1abdd9fe299af323a291b9cd284832",
+      "sha256": "58b6339cd8bab99f872a882b9aa7fe9aedcc4418a7153d90db93c79355e402d5",
       "symbols": []
     },
     {
@@ -111,104 +111,104 @@
       ],
       "module": "adapter_lab",
       "path": "src/contextcord/adapter_lab.py",
-      "sha256": "f5325c1e02ef470a68fb4fc4614838522064dcd60cb9203eb33a48b1df031ac2",
+      "sha256": "31ca40880f7e129442c6fcc3063a147aa0e61bb3d00d8f56c7cdb437816d5a7e",
       "symbols": [
         {
           "description": "",
-          "end_line": 34,
+          "end_line": 33,
           "kind": "FunctionDef",
-          "line": 33,
+          "line": 32,
           "name": "_repo_root"
         },
         {
           "description": "",
-          "end_line": 38,
+          "end_line": 37,
           "kind": "FunctionDef",
-          "line": 37,
+          "line": 36,
           "name": "_schema_path"
         },
         {
           "description": "",
-          "end_line": 43,
+          "end_line": 42,
           "kind": "FunctionDef",
-          "line": 41,
+          "line": 40,
           "name": "_redact"
         },
         {
           "description": "",
-          "end_line": 60,
+          "end_line": 59,
           "kind": "FunctionDef",
-          "line": 46,
+          "line": 45,
           "name": "_secret_paths"
         },
         {
           "description": "",
-          "end_line": 67,
+          "end_line": 66,
           "kind": "FunctionDef",
-          "line": 63,
+          "line": 62,
           "name": "load_manifest"
         },
         {
           "description": "",
-          "end_line": 84,
+          "end_line": 82,
           "kind": "FunctionDef",
-          "line": 70,
+          "line": 69,
           "name": "validate_manifest"
         },
         {
           "description": "",
-          "end_line": 99,
+          "end_line": 97,
           "kind": "FunctionDef",
-          "line": 87,
+          "line": 85,
           "name": "discover_manifests"
         },
         {
           "description": "",
-          "end_line": 127,
+          "end_line": 125,
           "kind": "FunctionDef",
-          "line": 102,
+          "line": 100,
           "name": "init_manifest"
         },
         {
           "description": "",
-          "end_line": 135,
+          "end_line": 133,
           "kind": "FunctionDef",
-          "line": 130,
+          "line": 128,
           "name": "_command"
         },
         {
           "description": "",
-          "end_line": 143,
+          "end_line": 141,
           "kind": "FunctionDef",
-          "line": 138,
+          "line": 136,
           "name": "_safe_environment"
         },
         {
           "description": "",
-          "end_line": 157,
+          "end_line": 155,
           "kind": "FunctionDef",
-          "line": 146,
+          "line": 144,
           "name": "_run_probe"
         },
         {
           "description": "",
-          "end_line": 177,
+          "end_line": 175,
           "kind": "FunctionDef",
-          "line": 160,
+          "line": 158,
           "name": "probe_manifest"
         },
         {
           "description": "",
-          "end_line": 197,
+          "end_line": 195,
           "kind": "FunctionDef",
-          "line": 180,
+          "line": 178,
           "name": "render_manifest"
         },
         {
           "description": "",
-          "end_line": 221,
+          "end_line": 219,
           "kind": "FunctionDef",
-          "line": 200,
+          "line": 198,
           "name": "certify_manifest"
         }
       ]
@@ -218,7 +218,7 @@
       "local_imports": [],
       "module": "adapters",
       "path": "src/contextcord/adapters.py",
-      "sha256": "000e0de39c91baa5357af8b48498a91f8697b57622a2d1f0608e73b7a2f4230a",
+      "sha256": "ef6967cc24210225f8f9cd1810f78b5a8f9a7cae1114379bfe559ce94736b1d4",
       "symbols": [
         {
           "description": "",
@@ -236,7 +236,7 @@
         },
         {
           "description": "",
-          "end_line": 340,
+          "end_line": 334,
           "kind": "FunctionDef",
           "line": 254,
           "name": "render"
@@ -248,7 +248,7 @@
       "local_imports": [],
       "module": "bm25",
       "path": "src/contextcord/bm25.py",
-      "sha256": "7af1d32def0e70d5bf39823bf37501a0ce41fdba5523fab8f9ddef6416eded76",
+      "sha256": "9cdde8d34d57687e5bf0e84d18fbd0d874c3756d09cc28ea9620100bb6e77937",
       "symbols": [
         {
           "description": "",
@@ -534,7 +534,7 @@
       ],
       "module": "cli",
       "path": "src/contextcord/cli.py",
-      "sha256": "050550b6f105d544e17519ddb5216542b343dd7b3460d782dd71803c9c63a54f",
+      "sha256": "eb84c7b61a863f8e1788da1221ee3116a66ab72c0582572a1488b0e20dd3afe5",
       "symbols": [
         {
           "description": "",
@@ -948,7 +948,7 @@
       ],
       "module": "closeout",
       "path": "src/contextcord/closeout.py",
-      "sha256": "8ad549dade49c5753e4039c8db34f49f276a74370f9ad29cb1ec113af19e9c0e",
+      "sha256": "70b4ab0c58333b03403636bba7da66864852c5ca1846835e6b4810ca86eaf78a",
       "symbols": [
         {
           "description": "",
@@ -995,7 +995,7 @@
       ],
       "module": "config",
       "path": "src/contextcord/config.py",
-      "sha256": "a57205503a9684fafe32d9184a03599a4119e4adb6819f21eecfbcd91530c22e",
+      "sha256": "3b1cf916bd080f4d861b4848210803b35e065099b2a1dcda377309ddf2f9bb7b",
       "symbols": [
         {
           "description": "",
@@ -1005,7 +1005,7 @@
           "name": "ConfigError"
         },
         {
-          "description": "Return the canonical config root, with an explicit legacy fallback.",
+          "description": "Return the canonical config root, for new and migrated projects.",
           "end_line": 39,
           "kind": "FunctionDef",
           "line": 26,
@@ -1206,7 +1206,7 @@
       ],
       "module": "decision",
       "path": "src/contextcord/decision.py",
-      "sha256": "0287148f191cebaf1900cbf4df57ca700ad28d6658c4007689b05ffd845f4332",
+      "sha256": "4bfad9beb6e37864f1343714492bc534608088c71cb108b43616bca217c79a3a",
       "symbols": [
         {
           "description": "",
@@ -1287,7 +1287,7 @@
       ],
       "module": "decision_fabric",
       "path": "src/contextcord/decision_fabric.py",
-      "sha256": "603709f190dc4bd99074715953eb4b657e5c7d323a263399296df7fed3147cbd",
+      "sha256": "bbb7feeb6173d5bd88a4ace9ce7c6273975b2c435b59d553d0d7ae9a9f3125b6",
       "symbols": [
         {
           "description": "",
@@ -1461,34 +1461,34 @@
       ],
       "module": "dualrun",
       "path": "src/contextcord/dualrun.py",
-      "sha256": "1b9208ecb79035d81dfe8d33519253c6805eb9edd77344819b1de15b6b0186b8",
+      "sha256": "6684701c0bd53da3cfd5c2593c2331c8f5f2a398d916b980f0a3cbc34786c402",
       "symbols": [
         {
           "description": "",
-          "end_line": 27,
+          "end_line": 26,
           "kind": "FunctionDef",
           "line": 17,
           "name": "ledger_path"
         },
         {
           "description": "",
-          "end_line": 48,
+          "end_line": 47,
           "kind": "FunctionDef",
-          "line": 30,
+          "line": 29,
           "name": "read_ledger"
         },
         {
           "description": "",
-          "end_line": 86,
+          "end_line": 85,
           "kind": "FunctionDef",
-          "line": 51,
+          "line": 50,
           "name": "record"
         },
         {
           "description": "",
-          "end_line": 113,
+          "end_line": 112,
           "kind": "FunctionDef",
-          "line": 89,
+          "line": 88,
           "name": "summary"
         }
       ]
@@ -1634,7 +1634,7 @@
       "local_imports": [],
       "module": "extensions",
       "path": "src/contextcord/extensions.py",
-      "sha256": "7ca50472040ff72b61e872e22afbbc49ac300dbf03647b860226fe72beb1063b",
+      "sha256": "82bdd37f90b38027d8750db6e0a2c66b45592cf69213bf58c3571b26c29d3287",
       "symbols": [
         {
           "description": "",
@@ -1715,7 +1715,7 @@
       ],
       "module": "fingerprint",
       "path": "src/contextcord/fingerprint.py",
-      "sha256": "3d9cc02f91fa01279f301dd5de44fce5a538caba5207933f975d511c983bb47a",
+      "sha256": "f4526ddbba1bdd8d904c0f25fa8e1c619d85c5ce8da2e7033849c5f21bb6962d",
       "symbols": [
         {
           "description": "",
@@ -1725,7 +1725,7 @@
           "name": "_match_any"
         },
         {
-          "description": "Legacy v0.2 fingerprint API kept for migration tooling/tests.\n\nNew trust decisions use project_harness.truth.content_fingerprint through a\nHarnessConfig, which includes artifact kinds, symlink targets and exec bits.",
+          "description": "Legacy v0.2 fingerprint API kept for migration tooling/tests.\n\nNew trust decisions use contextcord.truth.content_fingerprint through a\nHarnessConfig, which includes artifact kinds, symlink targets and exec bits.",
           "end_line": 37,
           "kind": "FunctionDef",
           "line": 16,
@@ -1745,7 +1745,7 @@
       "local_imports": [],
       "module": "gitops",
       "path": "src/contextcord/gitops.py",
-      "sha256": "62b4a9b439d7cc007eb5e18fb65f472081dd1e196b5177abf5de671f102f1058",
+      "sha256": "95ac15386d6bfe23a6174c70248579c60b346f62480a1419b5e6005ca1120c90",
       "symbols": [
         {
           "description": "",
@@ -1873,7 +1873,7 @@
       ],
       "module": "handoff",
       "path": "src/contextcord/handoff.py",
-      "sha256": "e668be22d782641cf7d70e306c98b2dbbddb3243c55b699791811a36cda6133c",
+      "sha256": "ccc983ae811b058346d282c651fed4e24aa962a0cc9b96b4e1a675219375e048",
       "symbols": [
         {
           "description": "",
@@ -1973,7 +1973,7 @@
       "local_imports": [],
       "module": "host_configs",
       "path": "src/contextcord/host_configs.py",
-      "sha256": "8410f5b32efc671ca6b3c2ce5e97af28fe526f5964edacc1c49a0a1beadab91a",
+      "sha256": "16b4638b10e0df459f1920600b3a1fa70d596a303a700b909eae88a8bc8f3ce7",
       "symbols": [
         {
           "description": "",
@@ -1991,7 +1991,7 @@
         },
         {
           "description": "",
-          "end_line": 110,
+          "end_line": 103,
           "kind": "FunctionDef",
           "line": 27,
           "name": "generate_host_config"
@@ -2003,132 +2003,118 @@
       "local_imports": [],
       "module": "host_registry",
       "path": "src/contextcord/host_registry.py",
-      "sha256": "f502e4a8af8716a07b51a672275b84030bd0c1f11be08979d4624deb66340716",
+      "sha256": "20b2579537f6c261d10e957a6c9517d317776cff0af28eeee7b308c0bcf77904",
       "symbols": [
         {
           "description": "Raised when a host registry is malformed.",
-          "end_line": 26,
+          "end_line": 15,
           "kind": "ClassDef",
-          "line": 25,
+          "line": 14,
           "name": "RegistryError"
         },
         {
           "description": "",
-          "end_line": 30,
+          "end_line": 19,
           "kind": "FunctionDef",
-          "line": 29,
+          "line": 18,
           "name": "registry_path"
         },
         {
           "description": "",
-          "end_line": 36,
+          "end_line": 25,
           "kind": "FunctionDef",
-          "line": 33,
+          "line": 22,
           "name": "_require"
+        },
+        {
+          "description": "",
+          "end_line": 31,
+          "kind": "FunctionDef",
+          "line": 28,
+          "name": "_string_list"
         },
         {
           "description": "",
           "end_line": 42,
           "kind": "FunctionDef",
-          "line": 39,
-          "name": "_string_list"
-        },
-        {
-          "description": "",
-          "end_line": 53,
-          "kind": "FunctionDef",
-          "line": 45,
+          "line": 34,
           "name": "_validate_integration"
         },
         {
           "description": "",
-          "end_line": 65,
+          "end_line": 54,
           "kind": "FunctionDef",
-          "line": 56,
+          "line": 45,
           "name": "_validate_continuation"
         },
         {
           "description": "",
-          "end_line": 84,
+          "end_line": 73,
           "kind": "FunctionDef",
-          "line": 68,
+          "line": 57,
           "name": "_validate_qualification"
         },
         {
           "description": "",
-          "end_line": 99,
+          "end_line": 88,
           "kind": "FunctionDef",
-          "line": 87,
+          "line": 76,
           "name": "_validate_host"
         },
         {
           "description": "Validate a canonical v3 registry and return a detached dictionary.",
-          "end_line": 129,
+          "end_line": 118,
           "kind": "FunctionDef",
-          "line": 102,
+          "line": 91,
           "name": "validate_registry"
         },
         {
-          "description": "",
-          "end_line": 148,
+          "description": "Validate the canonical v3 document.",
+          "end_line": 128,
           "kind": "FunctionDef",
-          "line": 132,
-          "name": "_legacy_qualification"
-        },
-        {
-          "description": "",
-          "end_line": 190,
-          "kind": "FunctionDef",
-          "line": 151,
-          "name": "_normalize_v2"
-        },
-        {
-          "description": "Read v3 directly or normalize a historical v2 document in memory.",
-          "end_line": 202,
-          "kind": "FunctionDef",
-          "line": 193,
+          "line": 121,
           "name": "normalize_registry"
         },
         {
           "description": "",
-          "end_line": 212,
+          "end_line": 138,
           "kind": "FunctionDef",
-          "line": 205,
+          "line": 131,
           "name": "_read_registry_file"
         },
         {
           "description": "",
-          "end_line": 216,
+          "end_line": 142,
           "kind": "FunctionDef",
-          "line": 215,
+          "line": 141,
           "name": "load_registry"
         },
         {
-          "description": "Load either a canonical v3 or historical v2 registry file.",
-          "end_line": 221,
+          "description": "Load a canonical v3 registry file.",
+          "end_line": 147,
           "kind": "FunctionDef",
-          "line": 219,
+          "line": 145,
           "name": "load_registry_file"
         },
         {
           "description": "",
-          "end_line": 229,
+          "end_line": 155,
           "kind": "FunctionDef",
-          "line": 224,
+          "line": 150,
           "name": "host_row"
         },
         {
           "description": "",
-          "end_line": 246,
+          "end_line": 172,
           "kind": "FunctionDef",
-          "line": 232,
+          "line": 158,
           "name": "benchmark_qualified"
         },
         {
           "description": "",
-          "end_line": 261,
+          "end_line": 187,
           "kind": "FunctionDef",
-          "line": 249,
+          "line": 175,
           "name": "summary"
         }
       ]
@@ -2235,7 +2221,7 @@
       ],
       "module": "identity",
       "path": "src/contextcord/identity.py",
-      "sha256": "0d005aa27a438a64da799524f941c7bfb542ff10e9070dcb6a41c50627ffc244",
+      "sha256": "c41f2906e3aeddc034071af73112ec1325063a9554e514f7399cb7f85bdd4e0a",
       "symbols": [
         {
           "description": "",
@@ -2292,7 +2278,7 @@
       ],
       "module": "jev_provider",
       "path": "src/contextcord/jev_provider.py",
-      "sha256": "d6e849af0b7e0b6a6884e5cfc2dd60be036fba797d9ffb4966a055c11e809986",
+      "sha256": "56c5b833853e8eff297efd87df9bd698e78ef74c0a5b03e59ee40287d0ab106e",
       "symbols": [
         {
           "description": "",
@@ -2431,7 +2417,7 @@
       ],
       "module": "mcp",
       "path": "src/contextcord/mcp.py",
-      "sha256": "bf83e7cb8a3b8adce4e702cd853da7f4d13caf322dcb3f1ae5717a33f1201abc",
+      "sha256": "25a5e61f7bb79d17c5322daa8b75a0584a7227fc0caf84f63dab3741fec01d72",
       "symbols": [
         {
           "description": "",
@@ -2475,7 +2461,7 @@
       ],
       "module": "memory",
       "path": "src/contextcord/memory.py",
-      "sha256": "85cd7e3834858f30852a462948e1a3dfa4ee8abc6cc1271e3235fee3cfd62f9c",
+      "sha256": "91357e24d9ba08493809f79a5ec901316eeb49bce5e915c4de8b001d003db7b4",
       "symbols": [
         {
           "description": "",
@@ -2672,60 +2658,59 @@
       "group": "Evidence & Runtime",
       "local_imports": [
         "config",
-        "gitops",
-        "util"
+        "gitops"
       ],
       "module": "migration",
       "path": "src/contextcord/migration.py",
-      "sha256": "536c77ad901ae3e11b6b8b6292e0d3c28f4abb2fa608d4638888bde88c6015b1",
+      "sha256": "390cc6ba4b5a22c6ade97dc8cf205fe9871c5e6a3177c7edb8af48b1e256aa9b",
       "symbols": [
         {
           "description": "",
-          "end_line": 27,
+          "end_line": 26,
           "kind": "FunctionDef",
-          "line": 22,
+          "line": 21,
           "name": "_sha"
         },
         {
           "description": "",
-          "end_line": 39,
+          "end_line": 38,
           "kind": "FunctionDef",
-          "line": 30,
+          "line": 29,
           "name": "_manifest"
         },
         {
           "description": "",
-          "end_line": 53,
+          "end_line": 52,
           "kind": "FunctionDef",
-          "line": 42,
+          "line": 41,
           "name": "_mapped_bytes"
         },
         {
           "description": "",
-          "end_line": 61,
+          "end_line": 60,
           "kind": "FunctionDef",
-          "line": 56,
+          "line": 55,
           "name": "_expected_manifest"
         },
         {
           "description": "",
-          "end_line": 69,
+          "end_line": 68,
           "kind": "FunctionDef",
-          "line": 64,
+          "line": 63,
           "name": "_state_db"
         },
         {
           "description": "",
-          "end_line": 73,
+          "end_line": 72,
           "kind": "FunctionDef",
-          "line": 72,
+          "line": 71,
           "name": "_now_slug"
         },
         {
           "description": "",
-          "end_line": 154,
+          "end_line": 153,
           "kind": "FunctionDef",
-          "line": 76,
+          "line": 75,
           "name": "migrate_state"
         }
       ]
@@ -2888,7 +2873,7 @@
       ],
       "module": "portable",
       "path": "src/contextcord/portable.py",
-      "sha256": "2be84cbfcbdd44178cc24a2f9f7128c8c6253fbb5d4c03090c474f43d651dfe7",
+      "sha256": "2c8444c0b66b23a43de2642e1fdf1470242aee3bfffd1fc8f3ef859045303d21",
       "symbols": [
         {
           "description": "",
@@ -2964,11 +2949,11 @@
       ],
       "module": "profiles",
       "path": "src/contextcord/profiles.py",
-      "sha256": "af6afe6aa0c50097385169288a1ff1aa4877cd059b34b2f2ae69ffa84e949892",
+      "sha256": "1eb5e1f2cd452b7d24790968b7b6662b551cd39df57f460f31fa83b7904968dc",
       "symbols": [
         {
           "description": "",
-          "end_line": 572,
+          "end_line": 569,
           "kind": "FunctionDef",
           "line": 530,
           "name": "write_profile"
@@ -3032,83 +3017,76 @@
       ],
       "module": "qualification",
       "path": "src/contextcord/qualification.py",
-      "sha256": "5c4176c7d998a2c237b35b9925157529b27e304a5f3376d6c69c7835ce26a058",
+      "sha256": "828a74b00cf07e123b0390a4eceaeaaaed714cc82dfd4d8cdeacf650971e61d7",
       "symbols": [
         {
           "description": "",
-          "end_line": 19,
+          "end_line": 18,
           "kind": "FunctionDef",
-          "line": 18,
+          "line": 17,
           "name": "_record_hash"
         },
         {
           "description": "",
-          "end_line": 60,
+          "end_line": 31,
           "kind": "FunctionDef",
-          "line": 22,
-          "name": "_migrate_legacy"
-        },
-        {
-          "description": "",
-          "end_line": 75,
-          "kind": "FunctionDef",
-          "line": 63,
+          "line": 21,
           "name": "read_note"
         },
         {
           "description": "",
-          "end_line": 80,
+          "end_line": 36,
           "kind": "FunctionDef",
-          "line": 78,
+          "line": 34,
           "name": "_write"
         },
         {
           "description": "",
-          "end_line": 89,
+          "end_line": 45,
           "kind": "FunctionDef",
-          "line": 83,
+          "line": 39,
           "name": "base_note"
         },
         {
           "description": "",
-          "end_line": 96,
+          "end_line": 52,
           "kind": "FunctionDef",
-          "line": 92,
+          "line": 48,
           "name": "_latest_by_kind"
         },
         {
           "description": "",
-          "end_line": 127,
+          "end_line": 83,
           "kind": "FunctionDef",
-          "line": 99,
+          "line": 55,
           "name": "_append"
         },
         {
           "description": "",
-          "end_line": 132,
+          "end_line": 88,
           "kind": "FunctionDef",
-          "line": 130,
+          "line": 86,
           "name": "record"
         },
         {
           "description": "",
-          "end_line": 164,
+          "end_line": 120,
           "kind": "FunctionDef",
-          "line": 135,
+          "line": 91,
           "name": "deploy"
         },
         {
           "description": "",
-          "end_line": 196,
+          "end_line": 152,
           "kind": "FunctionDef",
-          "line": 167,
+          "line": 123,
           "name": "_integrity_errors"
         },
         {
           "description": "",
-          "end_line": 246,
+          "end_line": 202,
           "kind": "FunctionDef",
-          "line": 199,
+          "line": 155,
           "name": "verify"
         }
       ]
@@ -3126,7 +3104,7 @@
       ],
       "module": "receipt",
       "path": "src/contextcord/receipt.py",
-      "sha256": "2d4c99b18a6eb6924b6b6fc28f329f0501bf51bfd5bbf8902738a345f9735509",
+      "sha256": "f58019b668698af3e12882f920d3011a199a8e620c86cb8f840686cbe034df3b",
       "symbols": [
         {
           "description": "",
@@ -3232,7 +3210,7 @@
       ],
       "module": "release_identity",
       "path": "src/contextcord/release_identity.py",
-      "sha256": "c5edc951036896fad7560f1e94db565a10184242ebe281d5de2efc34e27d314d",
+      "sha256": "b13e907f8c6a2734a9c70a244f510f2849b4e2068d922131238dff83aa08efc6",
       "symbols": [
         {
           "description": "",
@@ -3515,7 +3493,7 @@
       ],
       "module": "runner",
       "path": "src/contextcord/runner.py",
-      "sha256": "5982a389462d78b6f5121d6e54f12eed6539473d217231e30ead804136bcbaed",
+      "sha256": "1feda921d47d039b879458052d95c452e6ed4605be770677f44d296dbb59dca9",
       "symbols": [
         {
           "description": "",
@@ -3590,7 +3568,7 @@
       ],
       "module": "service",
       "path": "src/contextcord/service.py",
-      "sha256": "8481ea4b9909406e0a267c23007d1b3c48d9d1acc4c9ad2bbaeaf52cc6dff41b",
+      "sha256": "c083ab685e4361a44fcdb8b533c61cc85dc7f74aef9b5a26bf3454f68bd79f29",
       "symbols": [
         {
           "description": "",
@@ -3600,52 +3578,38 @@
           "name": "object_schema"
         },
         {
-          "description": "Map the public ContextCord prefix to the legacy compatibility name.",
-          "end_line": 77,
-          "kind": "FunctionDef",
-          "line": 73,
-          "name": "_legacy_name"
-        },
-        {
           "description": "",
-          "end_line": 83,
-          "kind": "FunctionDef",
-          "line": 80,
-          "name": "_primary_name"
-        },
-        {
-          "description": "",
-          "end_line": 240,
+          "end_line": 221,
           "kind": "ClassDef",
-          "line": 86,
+          "line": 73,
           "name": "HarnessService"
         },
         {
           "description": "",
-          "end_line": 90,
+          "end_line": 77,
           "kind": "FunctionDef",
-          "line": 87,
+          "line": 74,
           "name": "HarnessService.__init__"
         },
         {
           "description": "",
-          "end_line": 105,
+          "end_line": 92,
           "kind": "FunctionDef",
-          "line": 92,
+          "line": 79,
           "name": "HarnessService._effective_capabilities"
         },
         {
           "description": "",
-          "end_line": 128,
+          "end_line": 110,
           "kind": "FunctionDef",
-          "line": 107,
+          "line": 94,
           "name": "HarnessService.tools"
         },
         {
           "description": "",
-          "end_line": 240,
+          "end_line": 221,
           "kind": "FunctionDef",
-          "line": 130,
+          "line": 112,
           "name": "HarnessService.call"
         }
       ]
@@ -3660,7 +3624,7 @@
       ],
       "module": "store",
       "path": "src/contextcord/store.py",
-      "sha256": "6fe3100b2581dcdc6c1100825b960b761e96463ece980d6d9423555a2e6dc068",
+      "sha256": "718a66d0c14010d14824f1db602c595059f59651eb4caba6a09dbe80b12a0f91",
       "symbols": [
         {
           "description": "",
@@ -3692,338 +3656,338 @@
         },
         {
           "description": "",
-          "end_line": 816,
+          "end_line": 810,
           "kind": "ClassDef",
           "line": 209,
           "name": "StateStore"
         },
         {
           "description": "",
-          "end_line": 238,
+          "end_line": 232,
           "kind": "FunctionDef",
           "line": 210,
           "name": "StateStore.__init__"
         },
         {
           "description": "",
-          "end_line": 258,
+          "end_line": 252,
           "kind": "FunctionDef",
-          "line": 240,
+          "line": 234,
           "name": "StateStore._migrate"
         },
         {
           "description": "",
-          "end_line": 272,
+          "end_line": 266,
           "kind": "FunctionDef",
-          "line": 261,
+          "line": 255,
           "name": "StateStore.transaction"
+        },
+        {
+          "description": "",
+          "end_line": 270,
+          "kind": "FunctionDef",
+          "line": 269,
+          "name": "StateStore.store_id"
+        },
+        {
+          "description": "",
+          "end_line": 273,
+          "kind": "FunctionDef",
+          "line": 272,
+          "name": "StateStore.close"
         },
         {
           "description": "",
           "end_line": 276,
           "kind": "FunctionDef",
           "line": 275,
-          "name": "StateStore.store_id"
+          "name": "StateStore.__enter__"
         },
         {
           "description": "",
           "end_line": 279,
           "kind": "FunctionDef",
           "line": 278,
-          "name": "StateStore.close"
-        },
-        {
-          "description": "",
-          "end_line": 282,
-          "kind": "FunctionDef",
-          "line": 281,
-          "name": "StateStore.__enter__"
-        },
-        {
-          "description": "",
-          "end_line": 285,
-          "kind": "FunctionDef",
-          "line": 284,
           "name": "StateStore.__exit__"
         },
         {
           "description": "Atomically append one event and advance the event hash chain.\n\nBEGIN IMMEDIATE serializes writers so two processes cannot read the same\nchain head and fork the local event history.",
-          "end_line": 307,
+          "end_line": 301,
           "kind": "FunctionDef",
-          "line": 288,
+          "line": 282,
           "name": "StateStore.event"
+        },
+        {
+          "description": "",
+          "end_line": 305,
+          "kind": "FunctionDef",
+          "line": 303,
+          "name": "StateStore.event_chain_head"
         },
         {
           "description": "",
           "end_line": 311,
           "kind": "FunctionDef",
-          "line": 309,
-          "name": "StateStore.event_chain_head"
-        },
-        {
-          "description": "",
-          "end_line": 317,
-          "kind": "FunctionDef",
-          "line": 313,
+          "line": 307,
           "name": "StateStore.event_hash_exists"
         },
         {
           "description": "",
-          "end_line": 335,
+          "end_line": 329,
           "kind": "FunctionDef",
-          "line": 319,
+          "line": 313,
           "name": "StateStore.verify_event_chain"
         },
         {
           "description": "",
-          "end_line": 346,
+          "end_line": 340,
           "kind": "FunctionDef",
-          "line": 338,
+          "line": 332,
           "name": "StateStore.create_session"
         },
         {
           "description": "",
-          "end_line": 350,
+          "end_line": 344,
           "kind": "FunctionDef",
-          "line": 348,
+          "line": 342,
           "name": "StateStore.session"
         },
         {
           "description": "",
-          "end_line": 357,
+          "end_line": 351,
           "kind": "FunctionDef",
-          "line": 352,
+          "line": 346,
           "name": "StateStore.open_sessions"
         },
         {
           "description": "",
-          "end_line": 369,
+          "end_line": 363,
           "kind": "FunctionDef",
-          "line": 360,
+          "line": 354,
           "name": "StateStore.close_session"
         },
         {
           "description": "",
-          "end_line": 376,
+          "end_line": 370,
           "kind": "FunctionDef",
-          "line": 371,
+          "line": 365,
           "name": "StateStore.get_task"
         },
         {
           "description": "",
-          "end_line": 386,
+          "end_line": 380,
           "kind": "FunctionDef",
-          "line": 379,
+          "line": 373,
           "name": "StateStore.upsert_task"
         },
         {
           "description": "",
-          "end_line": 393,
+          "end_line": 387,
           "kind": "FunctionDef",
-          "line": 388,
+          "line": 382,
           "name": "StateStore.active_tasks"
         },
         {
           "description": "",
-          "end_line": 397,
+          "end_line": 391,
           "kind": "FunctionDef",
-          "line": 395,
+          "line": 389,
           "name": "StateStore.latest_closed_session"
         },
         {
           "description": "",
-          "end_line": 405,
+          "end_line": 399,
           "kind": "FunctionDef",
-          "line": 400,
+          "line": 394,
           "name": "StateStore.add_evidence"
         },
         {
           "description": "",
-          "end_line": 412,
+          "end_line": 406,
           "kind": "FunctionDef",
-          "line": 407,
+          "line": 401,
           "name": "StateStore.evidence_for_task"
+        },
+        {
+          "description": "",
+          "end_line": 413,
+          "kind": "FunctionDef",
+          "line": 408,
+          "name": "StateStore.evidence_for_session"
         },
         {
           "description": "",
           "end_line": 419,
           "kind": "FunctionDef",
-          "line": 414,
-          "name": "StateStore.evidence_for_session"
-        },
-        {
-          "description": "",
-          "end_line": 425,
-          "kind": "FunctionDef",
-          "line": 421,
+          "line": 415,
           "name": "StateStore.evidence_by_portable_id"
         },
         {
           "description": "Append one route outcome without storing prompt or credential data.",
-          "end_line": 530,
+          "end_line": 524,
           "kind": "FunctionDef",
-          "line": 428,
+          "line": 422,
           "name": "StateStore.record_model_outcome"
         },
         {
           "description": "",
-          "end_line": 564,
+          "end_line": 558,
           "kind": "FunctionDef",
-          "line": 532,
+          "line": 526,
           "name": "StateStore.model_outcomes"
         },
         {
           "description": "",
-          "end_line": 618,
+          "end_line": 612,
           "kind": "FunctionDef",
-          "line": 566,
+          "line": 560,
           "name": "StateStore.model_outcome_summary"
         },
         {
           "description": "",
-          "end_line": 645,
+          "end_line": 639,
           "kind": "FunctionDef",
-          "line": 621,
+          "line": 615,
           "name": "StateStore.create_note"
         },
         {
           "description": "",
-          "end_line": 654,
+          "end_line": 648,
           "kind": "FunctionDef",
-          "line": 647,
+          "line": 641,
           "name": "StateStore.note"
         },
         {
           "description": "",
-          "end_line": 658,
+          "end_line": 652,
           "kind": "FunctionDef",
-          "line": 656,
+          "line": 650,
           "name": "StateStore.notes_for_task"
         },
         {
           "description": "",
-          "end_line": 662,
+          "end_line": 656,
           "kind": "FunctionDef",
-          "line": 660,
+          "line": 654,
           "name": "StateStore.notes_for_session"
         },
         {
           "description": "",
-          "end_line": 669,
+          "end_line": 663,
           "kind": "FunctionDef",
-          "line": 665,
+          "line": 659,
           "name": "StateStore._note_row"
         },
         {
           "description": "",
-          "end_line": 690,
+          "end_line": 684,
           "kind": "FunctionDef",
-          "line": 672,
+          "line": 666,
           "name": "StateStore.create_context_job"
         },
         {
           "description": "",
-          "end_line": 699,
+          "end_line": 693,
           "kind": "FunctionDef",
-          "line": 692,
+          "line": 686,
           "name": "StateStore.context_job"
         },
         {
           "description": "",
-          "end_line": 703,
+          "end_line": 697,
           "kind": "FunctionDef",
-          "line": 701,
+          "line": 695,
           "name": "StateStore.context_jobs_for_task"
         },
         {
           "description": "",
-          "end_line": 710,
+          "end_line": 704,
+          "kind": "FunctionDef",
+          "line": 700,
+          "name": "StateStore._context_job_row"
+        },
+        {
+          "description": "",
+          "end_line": 708,
           "kind": "FunctionDef",
           "line": 706,
-          "name": "StateStore._context_job_row"
+          "name": "StateStore.sessions_for_task"
         },
         {
           "description": "",
           "end_line": 714,
           "kind": "FunctionDef",
-          "line": 712,
-          "name": "StateStore.sessions_for_task"
-        },
-        {
-          "description": "",
-          "end_line": 720,
-          "kind": "FunctionDef",
-          "line": 716,
+          "line": 710,
           "name": "StateStore.portable_import"
         },
         {
           "description": "",
-          "end_line": 728,
+          "end_line": 722,
           "kind": "FunctionDef",
-          "line": 723,
+          "line": 717,
           "name": "StateStore.record_portable_import"
         },
         {
           "description": "",
-          "end_line": 737,
+          "end_line": 731,
           "kind": "FunctionDef",
-          "line": 731,
+          "line": 725,
           "name": "StateStore.record_memory_event"
         },
         {
           "description": "",
-          "end_line": 744,
+          "end_line": 738,
           "kind": "FunctionDef",
-          "line": 739,
+          "line": 733,
           "name": "StateStore.memory_events_for_task"
         },
         {
           "description": "",
-          "end_line": 751,
+          "end_line": 745,
           "kind": "FunctionDef",
-          "line": 746,
+          "line": 740,
           "name": "StateStore.recent_events"
         },
         {
           "description": "",
-          "end_line": 771,
+          "end_line": 765,
           "kind": "FunctionDef",
-          "line": 754,
+          "line": 748,
           "name": "StateStore.acquire_lease"
         },
         {
           "description": "",
-          "end_line": 784,
+          "end_line": 778,
           "kind": "FunctionDef",
-          "line": 774,
+          "line": 768,
           "name": "StateStore.release_lease"
         },
         {
           "description": "",
-          "end_line": 789,
+          "end_line": 783,
           "kind": "FunctionDef",
-          "line": 786,
+          "line": 780,
           "name": "StateStore.active_leases"
         },
         {
           "description": "",
-          "end_line": 798,
+          "end_line": 792,
           "kind": "FunctionDef",
-          "line": 791,
+          "line": 785,
           "name": "StateStore.lease_conflict"
         },
         {
           "description": "",
-          "end_line": 802,
+          "end_line": 796,
           "kind": "FunctionDef",
-          "line": 800,
+          "line": 794,
           "name": "StateStore.receipt_head"
         },
         {
           "description": "CAS-append a sealed receipt to the local receipt chain.",
-          "end_line": 816,
+          "end_line": 810,
           "kind": "FunctionDef",
-          "line": 805,
+          "line": 799,
           "name": "StateStore.append_receipt_index"
         }
       ]
@@ -4109,97 +4073,90 @@
       "local_imports": [],
       "module": "util",
       "path": "src/contextcord/util.py",
-      "sha256": "269de5ce3e83c74caddc36ec5fb4fa4208ebdbf6f04d9c592f985a850325d15f",
+      "sha256": "dc5d1d4ab925234f7d33e297625b9bdee3dfc5dfec19e8795b9448d84b10e45e",
       "symbols": [
         {
           "description": "",
-          "end_line": 13,
+          "end_line": 14,
           "kind": "FunctionDef",
-          "line": 12,
+          "line": 13,
           "name": "utc_now"
         },
         {
           "description": "",
-          "end_line": 17,
+          "end_line": 18,
           "kind": "FunctionDef",
-          "line": 16,
+          "line": 17,
           "name": "sha256_bytes"
         },
         {
           "description": "",
-          "end_line": 25,
+          "end_line": 26,
           "kind": "FunctionDef",
-          "line": 20,
+          "line": 21,
           "name": "sha256_file"
         },
         {
           "description": "",
-          "end_line": 29,
+          "end_line": 30,
           "kind": "FunctionDef",
-          "line": 28,
+          "line": 29,
           "name": "canonical_json"
         },
         {
           "description": "",
-          "end_line": 36,
+          "end_line": 37,
           "kind": "FunctionDef",
-          "line": 32,
+          "line": 33,
           "name": "sha256_json"
         },
         {
           "description": "",
-          "end_line": 43,
+          "end_line": 44,
           "kind": "FunctionDef",
-          "line": 39,
+          "line": 40,
           "name": "atomic_write_json"
         },
         {
           "description": "",
-          "end_line": 50,
+          "end_line": 51,
           "kind": "FunctionDef",
-          "line": 46,
+          "line": 47,
           "name": "read_json"
         },
         {
           "description": "",
-          "end_line": 54,
+          "end_line": 55,
           "kind": "FunctionDef",
-          "line": 53,
+          "line": 54,
           "name": "expand_string"
         },
         {
-          "description": "Make a path absolute without changing its Windows spelling.\n\nWindows temporary directories may be returned with an 8.3 short prefix\n(for example, ``RUNNER~1``) while ``Path.resolve()`` returns the long\nspelling. Keeping the caller's absolute representation avoids false path\ninequality in repository-bound state while security checks below compare\ncanonical spellings separately.",
-          "end_line": 66,
-          "kind": "FunctionDef",
-          "line": 57,
-          "name": "absolute_path"
-        },
-        {
-          "description": "Expand an existing Windows path's short components for comparison.",
-          "end_line": 93,
-          "kind": "FunctionDef",
-          "line": 69,
-          "name": "_long_path"
-        },
-        {
           "description": "",
-          "end_line": 97,
+          "end_line": 60,
           "kind": "FunctionDef",
-          "line": 96,
-          "name": "_comparison_path"
-        },
-        {
-          "description": "",
-          "end_line": 102,
-          "kind": "FunctionDef",
-          "line": 100,
+          "line": 58,
           "name": "safe_id"
         },
         {
-          "description": "Resolve a path without silently following a symlink outside the repository.\n\nThe final path itself may not be a symlink. Any existing parent component inside\nthe repository also may not be a symlink. External paths are allowed only when\nexplicitly requested by policy.",
-          "end_line": 141,
+          "description": "Reject junctions on Python 3.11 too, without following their target.",
+          "end_line": 71,
           "kind": "FunctionDef",
-          "line": 105,
+          "line": 63,
+          "name": "_link_or_reparse_point"
+        },
+        {
+          "description": "Accept an alternate spelling only with an OS same-directory witness.\n\nWindows TEMP may contain a genuine 8.3 name even though repo.resolve()\nexpanded it. Resolution alone is insufficient: every lexical ancestor\nmust be non-link/non-junction, and one must physically be the repo root.\nNo permission or outside-repository policy is granted by this operation.",
+          "end_line": 93,
+          "kind": "FunctionDef",
+          "line": 74,
+          "name": "_repository_alias_candidate"
+        },
+        {
+          "description": "Resolve a path without silently following a symlink outside the repository.\n\nThe final path itself may not be a symlink. Any existing parent component inside\nthe repository also may not be a symlink. External paths are allowed only when\nexplicitly requested by policy.",
+          "end_line": 129,
+          "kind": "FunctionDef",
+          "line": 96,
           "name": "ensure_repo_path"
         }
       ]
@@ -4209,7 +4166,7 @@
       "local_imports": [],
       "module": "version",
       "path": "src/contextcord/version.py",
-      "sha256": "32d1e1de7aec1b041ca96289eec0547ffdf9ad06834fd72c53a66f5faccc6e06",
+      "sha256": "9935845f05bed1bf016e2e2440d0bd0ec28e033231afd0c00973827b24676417",
       "symbols": []
     },
     {
@@ -4312,7 +4269,7 @@
   ],
   "schema": "contextcord-source-inventory-v3",
   "scope": "top-level src/contextcord/*.py; static source inventory, not a runtime call trace",
-  "source_inventory_sha256": "a65cedd32976dccb061273ef32da6e54a22da0b7d43422946b8a4de89bbe4121",
-  "source_modules_sha256": "2c8953df5647d51bab8e9ee76e6f435f7b8f23e11cc50d1e541486080c1f0213",
+  "source_inventory_sha256": "92e841329c5d5fbc501be751b9b6767640d8a896f1138dab959044452582c48b",
+  "source_modules_sha256": "275d40d933d92cd0874dffa46d3ad265c25d95ebfd79c518864bd41418cd226e",
   "source_package": "src/contextcord"
 }

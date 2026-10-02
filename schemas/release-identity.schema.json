@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://project-harness.dev/schemas/release-identity.schema.json",
-  "title": "Unified Project Harness ReleaseIdentity",
+  "$id": "https://contextcord.pages.dev/schemas/release-identity.schema.json",
+  "title": "ContextCord ReleaseIdentity",
   "type": "object",
   "required": ["schema", "source_identity", "groups", "runtime", "status", "release_sha256"],
   "properties": {
-    "schema": {"const": "project-harness-release-identity-v1"},
+    "schema": {"const": "contextcord-release-identity-v1"},
     "source_identity": {"type": "object"},
     "groups": {"type": "object"},
     "runtime": {"type": "object"},

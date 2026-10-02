@@ -1,7 +1,5 @@
-# ContextCord research
+# ContextCord evaluation and research
 
-Research records are evidence artifacts, not product marketing. The current
-ContextCord-native host registry is `host_evidence_registry_v3.json`; it keeps
-integration, continuation and qualification dimensions separate. Historical
-v2 registries and trial dumps are preserved under `research/history/` and are
-not part of the current public candidate.
+Start with [Evaluation](../docs/EVALUATION.md) for the reported engineering results, protocol, counts, uncertainty and execution identities. [Aggregate JSON](evaluation/aggregate.json) and the public recomputation script keep the arithmetic easy to inspect.
+
+The Host Evidence Registry records integration and host-specific qualification. Historical experiment generations retain their original evidence in the private source repository.

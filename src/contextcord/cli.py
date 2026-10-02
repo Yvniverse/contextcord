@@ -319,7 +319,7 @@ def _find_unresolved(value: Any, path: str = "") -> list[str]:
 
 def cmd_init(args: argparse.Namespace) -> int:
     repo = _repo(args.repo)
-    state_dir = getattr(args, "state_dir", None) or os.environ.get("CONTEXTCORD_INIT_STATE_DIR", ".harness")
+    state_dir = getattr(args, "state_dir", None) or os.environ.get("CONTEXTCORD_INIT_STATE_DIR", ".contextcord")
     paths = write_profile(repo, args.profile, force=args.force, state_dir=state_dir)
     _json({"status": "PASS", "profile": args.profile, "state_dir": state_dir, "written": [str(p.relative_to(repo)) for p in paths]})
     return 0
@@ -571,7 +571,7 @@ def cmd_finish(args: argparse.Namespace) -> int:
         store.close_session(rec["session_id"], fingerprint=ident["truth_fingerprint"]["sha256"], end_head=ident["git_commit"], summary=summary, policy_fingerprint=ident["policy_fingerprint"]["sha256"], source_identity_sha256=ident["identity_sha256"], status="CLOSED" if closeout_status in {"PASS", "HANDOFF"} else "CLOSED_FAILED")
         event_head = store.event_chain_head(); chain_ok, bad = store.verify_event_chain()
         payload = {
-            "schema": "project-harness-session-receipt-v3",
+            "schema": "contextcord-session-receipt-v3",
             "store_id": store.store_id,
             "build_identity": build_identity(),
             "receipt_type": mode,
@@ -680,7 +680,7 @@ def cmd_hook_start(args: argparse.Namespace) -> int:
         if rec is None:
             store.create_session(task_id=f"host:{sid}", scope="hook", head=ident["git_commit"], fingerprint=ident["truth_fingerprint"]["sha256"], policy_fingerprint=ident["policy_fingerprint"]["sha256"], source_identity_sha256=ident["identity_sha256"], session_id=sid)
         tasks = store.active_tasks(); task_id = tasks[0]["task_id"] if len(tasks) == 1 else None; context = resolve_context(cfg, store, task_id=task_id)
-    text = render_context(context) + f"\n\ncontextcord_session {sid}\nFor lifecycle handoff use `contextcord finish --mode handoff --session-id {sid} --summary-text ...`. Complete CI closeout requires a real task/workflow/evidence. Legacy harness_session/project-harness aliases remain compatibility-only."
+    text = render_context(context) + f"\n\ncontextcord_session {sid}\nFor lifecycle handoff use `contextcord finish --mode handoff --session-id {sid} --summary-text ...`. Complete CI closeout requires a real task/workflow/evidence."
     if args.host in {"codex", "qoder", "claude"}: _json({"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": text}})
     else: _json({"host": args.host, "session_id": sid, "additionalContext": text})
     return 0
@@ -700,11 +700,11 @@ def cmd_hook_stop(args: argparse.Namespace) -> int:
         reason = "project_identity_changed_after_closeout"
     blocked = bool(reason) and not stop_active
     if args.host in {"codex", "claude"}:
-        if blocked: _json({"decision": "block", "reason": f"Unified Project Harness: {reason}"})
-        else: _json({"systemMessage": f"Unified Project Harness {'did not re-block active Stop hook; CI remains authoritative' if stop_active and reason else 'closeout current'} ({sid})"})
+        if blocked: _json({"decision": "block", "reason": f"ContextCord: {reason}"})
+        else: _json({"systemMessage": f"ContextCord {'did not re-block active Stop hook; CI remains authoritative' if stop_active and reason else 'closeout current'} ({sid})"})
         return 0
     if args.host == "qoder":
-        if blocked: print(f"Unified Project Harness blocked stop: {reason}", file=sys.stderr); return 2
+        if blocked: print(f"ContextCord blocked stop: {reason}", file=sys.stderr); return 2
         _json({"status": "PASS", "session_id": sid, "warning": reason if stop_active else None}); return 0
     _json({"status": "BLOCKED" if blocked else "PASS", "session_id": sid, "reason": reason, "stop_hook_active": stop_active}); return 2 if blocked else 0
 
@@ -842,7 +842,7 @@ def cmd_memory(args: argparse.Namespace) -> int:
         value = memory_context(cfg, task_id=args.task_id)
         if command == "next" and args.task_id:
             value["next_action"] = value["task"].get("next_action")
-            value["resume_command"] = f"poh --repo {repo} memory resume --task-id {args.task_id} --scope {value['task'].get('scope')}"
+            value["resume_command"] = f"contextcord --repo {repo} memory resume --task-id {args.task_id} --scope {value['task'].get('scope')}"
         _json(value); return 0
     if command == "resume":
         ident = source_identity(cfg)
@@ -1233,7 +1233,7 @@ def build_parser() -> argparse.ArgumentParser:
     x.add_argument("--external-prior-source"); x.add_argument("--external-prior-age-seconds", type=float)
     x.add_argument("--receipt-sha256", dest="receipt_sha256"); x.add_argument("--task-id")
     x.set_defaults(func=cmd_router_outcomes)
-    s=sub.add_parser("init"); s.add_argument("--profile", choices=sorted(PROFILES), default="generic"); s.add_argument("--state-dir", choices=[".contextcord", ".harness"], default=None, help="state directory; ContextCord defaults to .contextcord"); s.add_argument("--force", action="store_true"); s.set_defaults(func=cmd_init)
+    s=sub.add_parser("init"); s.add_argument("--profile", choices=sorted(PROFILES), default="generic"); s.add_argument("--state-dir", choices=[".contextcord"], default=None, help="state directory; ContextCord defaults to .contextcord"); s.add_argument("--force", action="store_true"); s.set_defaults(func=cmd_init)
     s=sub.add_parser("migrate", help="plan or apply an explicit .harness to .contextcord migration"); s.add_argument("--apply", action="store_true", help="copy with backup and equality verification"); s.add_argument("--dry-run", action="store_true", help="show the migration plan (default)"); s.set_defaults(func=cmd_migrate)
     s=sub.add_parser("closeout", help="single idempotent state/memory/docs/architecture closeout facade"); s.add_argument("--summary-file"); s.add_argument("--summary-text"); s.add_argument("--task-id"); s.add_argument("--session-id"); s.add_argument("--update-memory", action="store_true"); s.add_argument("--update-docs", action="store_true"); s.add_argument("--architecture", choices=["auto", "if-changed", "never"], default="auto"); s.set_defaults(func=cmd_closeout)
     s=sub.add_parser("doctor"); s.set_defaults(func=cmd_doctor)

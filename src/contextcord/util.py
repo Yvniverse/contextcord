@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import re
+import stat
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -54,52 +55,42 @@ def expand_string(value: str) -> str:
     return os.path.expandvars(os.path.expanduser(value))
 
 
-def absolute_path(path: Path) -> Path:
-    """Make a path absolute without changing its Windows spelling.
-
-    Windows temporary directories may be returned with an 8.3 short prefix
-    (for example, ``RUNNER~1``) while ``Path.resolve()`` returns the long
-    spelling. Keeping the caller's absolute representation avoids false path
-    inequality in repository-bound state while security checks below compare
-    canonical spellings separately.
-    """
-    return Path(os.path.abspath(os.fspath(path)))
-
-
-def _long_path(path: Path) -> Path:
-    """Expand an existing Windows path's short components for comparison."""
-    value = absolute_path(path)
-    if os.name != "nt":
-        return value
-    try:
-        import ctypes
-
-        missing: list[str] = []
-        probe = value
-        while not probe.exists() and probe != probe.parent:
-            missing.append(probe.name)
-            probe = probe.parent
-        if not probe.exists():
-            return value
-        buffer = ctypes.create_unicode_buffer(32768)
-        length = ctypes.windll.kernel32.GetLongPathNameW(str(probe), buffer, len(buffer))
-        if not length or length >= len(buffer):
-            return value
-        expanded = Path(buffer.value)
-        for part in reversed(missing):
-            expanded /= part
-        return expanded
-    except (AttributeError, OSError):
-        return value
-
-
-def _comparison_path(path: Path) -> Path:
-    return _long_path(Path(os.path.realpath(os.fspath(path))))
-
-
 def safe_id(value: str, *, fallback: str = "item") -> str:
     cleaned = re.sub(r"[^A-Za-z0-9_.-]+", "-", value.strip()).strip("-.")
     return cleaned or fallback
+
+
+def _link_or_reparse_point(path: Path) -> bool:
+    """Reject junctions on Python 3.11 too, without following their target."""
+    if path.is_symlink() or (hasattr(path, "is_junction") and path.is_junction()):
+        return True
+    try:
+        attributes = getattr(path.lstat(), "st_file_attributes", 0)
+    except FileNotFoundError:
+        return False
+    return bool(attributes & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400))
+
+
+def _repository_alias_candidate(repo: Path, candidate: Path, *, label: str) -> Path:
+    """Accept an alternate spelling only with an OS same-directory witness.
+
+    Windows TEMP may contain a genuine 8.3 name even though repo.resolve()
+    expanded it. Resolution alone is insufficient: every lexical ancestor
+    must be non-link/non-junction, and one must physically be the repo root.
+    No permission or outside-repository policy is granted by this operation.
+    """
+    ancestors = (candidate, *candidate.parents)
+    for ancestor in ancestors:
+        if _link_or_reparse_point(ancestor):
+            raise ValueError(f"{label}_path_traverses_symlink:{ancestor}")
+    for ancestor in ancestors:
+        try:
+            same_root = ancestor.samefile(repo)
+        except (FileNotFoundError, NotADirectoryError):
+            continue
+        if same_root:
+            return repo / candidate.relative_to(ancestor)
+    raise ValueError(f"{label}_path_outside_repository:{candidate}")
 
 
 def ensure_repo_path(repo: Path, path: Path, *, label: str, allow_external: bool = False) -> tuple[Path, str]:
@@ -109,33 +100,30 @@ def ensure_repo_path(repo: Path, path: Path, *, label: str, allow_external: bool
     the repository also may not be a symlink. External paths are allowed only when
     explicitly requested by policy.
     """
-    repo = absolute_path(repo)
-    repo_lexical = _long_path(repo)
-    candidate = absolute_path(path if path.is_absolute() else repo / path)
-    candidate_lexical = _long_path(candidate)
+    repo = repo.resolve()
+    candidate = path if path.is_absolute() else repo / path
     if not allow_external:
         try:
-            lexical = candidate_lexical.relative_to(repo_lexical)
-        except ValueError as exc:
-            raise ValueError(f"{label}_path_outside_repository:{path}") from exc
-        current = repo_lexical
+            lexical = candidate.relative_to(repo)
+        except ValueError:
+            candidate = _repository_alias_candidate(repo, candidate, label=label)
+            lexical = candidate.relative_to(repo)
+        current = repo
         for part in lexical.parts:
             current = current / part
-            if current.is_symlink() or (hasattr(current, "is_junction") and current.is_junction()):
+            if _link_or_reparse_point(current):
                 raise ValueError(f"{label}_path_traverses_symlink:{current}")
-    elif candidate.is_symlink():
+    elif _link_or_reparse_point(candidate):
         raise ValueError(f"{label}_path_must_not_be_symlink:{path}")
     resolved = candidate.resolve(strict=False)
-    resolved_for_compare = _comparison_path(resolved)
-    repo_for_compare = _comparison_path(repo)
     if not allow_external:
         try:
-            rel = resolved_for_compare.relative_to(repo_for_compare).as_posix()
+            rel = resolved.relative_to(repo).as_posix()
         except ValueError as exc:
             raise ValueError(f"{label}_path_resolves_outside_repository:{path}") from exc
     else:
         try:
-            rel = resolved_for_compare.relative_to(repo_for_compare).as_posix()
+            rel = resolved.relative_to(repo).as_posix()
         except ValueError:
-            rel = str(resolved_for_compare)
-    return candidate, rel
+            rel = str(resolved)
+    return resolved, rel

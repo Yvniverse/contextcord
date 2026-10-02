@@ -25,62 +25,49 @@ def object_schema(properties=None, required=()):
 
 TEXT = {'type': 'string', 'minLength': 1, 'maxLength': 4096}
 TOOLS = {
-    'harness_context': ('Current project workflow, sessions and next actions.', object_schema({'task_id': TEXT})),
-    'harness_memory': ('Read bounded portable Task, Session, Note, dependency and historical evidence memory.', object_schema({'task_id': TEXT})),
-    'harness_memory_recheck': ('Recheck imported relative dependencies without upgrading historical evidence.', object_schema({'task_id': TEXT}, ('task_id',))),
-    'harness_resume': ('Preview a bounded Assisted Handoff for one unfinished task; this is read-only.', object_schema({'task_id': TEXT, 'host': TEXT, 'provider': {'enum': ['deterministic', 'jev_api']}})),
-    'harness_resume_confirm': ('Confirm a bounded Assisted Handoff and create one local session plus context job.', object_schema({'task_id': TEXT, 'host': TEXT, 'provider': {'enum': ['deterministic', 'jev_api']}, 'session_id': TEXT}, ('task_id',))),
-    'harness_decision_fabric': ('Evaluate Gate 0 and an optional typed Jev Decision Bundle; code retains hard-gate authority.', object_schema({'state': {'type': 'object', 'additionalProperties': True}, 'provider': {'enum': ['deterministic', 'jev_api']}} , ('state',))),
-    'harness_identity': ('Content, policy and Git identity of this repository.', object_schema()),
-    'harness_verify': ('Require a complete, current local closeout and valid evidence.', object_schema()),
-    'harness_authorize': ('Evaluate policy for an operation; this does not execute it.', object_schema(
+    'contextcord_context': ('Current project workflow, sessions and next actions.', object_schema({'task_id': TEXT})),
+    'contextcord_memory': ('Read bounded portable Task, Session, Note, dependency and historical evidence memory.', object_schema({'task_id': TEXT})),
+    'contextcord_memory_recheck': ('Recheck imported relative dependencies without upgrading historical evidence.', object_schema({'task_id': TEXT}, ('task_id',))),
+    'contextcord_resume': ('Preview a bounded Assisted Handoff for one unfinished task; this is read-only.', object_schema({'task_id': TEXT, 'host': TEXT, 'provider': {'enum': ['deterministic', 'jev_api']}})),
+    'contextcord_resume_confirm': ('Confirm a bounded Assisted Handoff and create one local session plus context job.', object_schema({'task_id': TEXT, 'host': TEXT, 'provider': {'enum': ['deterministic', 'jev_api']}, 'session_id': TEXT}, ('task_id',))),
+    'contextcord_decision_fabric': ('Evaluate Gate 0 and an optional typed Jev Decision Bundle; code retains hard-gate authority.', object_schema({'state': {'type': 'object', 'additionalProperties': True}, 'provider': {'enum': ['deterministic', 'jev_api']}} , ('state',))),
+    'contextcord_identity': ('Content, policy and Git identity of this repository.', object_schema()),
+    'contextcord_verify': ('Require a complete, current local closeout and valid evidence.', object_schema()),
+    'contextcord_authorize': ('Evaluate policy for an operation; this does not execute it.', object_schema(
         {'scope': TEXT, 'operation': TEXT, 'target': TEXT, 'task_id': TEXT, 'session_id': TEXT}, ('scope', 'operation'))),
-    'harness_replay': ('Verify and page the local audit timeline; never reruns commands.', object_schema(
+    'contextcord_replay': ('Verify and page the local audit timeline; never reruns commands.', object_schema(
         {'task_id': TEXT, 'after': {'type': 'integer', 'minimum': 0}, 'limit': {'type': 'integer', 'minimum': 1, 'maximum': 10000}})),
-    'harness_start': ('Start a task session in a configured scope.', object_schema({'task_id': TEXT, 'scope': TEXT}, ('task_id','scope'))),
-    'harness_checkpoint': ('Record a checkpoint for an open session.', object_schema({'session_id': TEXT, 'summary': TEXT}, ('session_id','summary'))),
-    'harness_advance': ('Advance a workflow phase after core evidence checks.', object_schema(
+    'contextcord_start': ('Start a task session in a configured scope.', object_schema({'task_id': TEXT, 'scope': TEXT}, ('task_id','scope'))),
+    'contextcord_checkpoint': ('Record a checkpoint for an open session.', object_schema({'session_id': TEXT, 'summary': TEXT}, ('session_id','summary'))),
+    'contextcord_advance': ('Advance a workflow phase after core evidence checks.', object_schema(
         {'task_id': TEXT, 'session_id': TEXT, 'phase': TEXT, 'next_action': TEXT}, ('task_id','session_id','phase','next_action'))),
-    'harness_finish': ('Close a session; completion requires evidence and workflow gates.', object_schema(
+    'contextcord_finish': ('Close a session; completion requires evidence and workflow gates.', object_schema(
         {'session_id': TEXT, 'summary': TEXT, 'mode': {'enum': ['complete','handoff']}}, ('session_id','summary','mode'))),
-    'harness_route_model': ('Build a closed model x reasoning-effort route decision; this never executes a host.', object_schema(
+    'contextcord_route_model': ('Build a closed model x reasoning-effort route decision; this never executes a host.', object_schema(
         {'state': {'type': 'object', 'additionalProperties': True}, 'task': {'type': 'object', 'additionalProperties': True}})),
-    'harness_model_intelligence_snapshot': ('Read the derived CodexRadar model-intelligence snapshot; raw provider payloads remain local-only.', object_schema(
+    'contextcord_model_intelligence_snapshot': ('Read the derived CodexRadar model-intelligence snapshot; raw provider payloads remain local-only.', object_schema(
         {'refresh': {'type': 'boolean'}})),
 }
-MUTATIONS = {'harness_start','harness_checkpoint','harness_advance','harness_finish','harness_resume_confirm'}
+MUTATIONS = {'contextcord_start','contextcord_checkpoint','contextcord_advance','contextcord_finish','contextcord_resume_confirm'}
 
 TOOL_CAPABILITIES = {
-    'harness_context': 'continuity',
-    'harness_memory': 'memory',
-    'harness_memory_recheck': 'memory',
-    'harness_resume': 'handoff',
-    'harness_resume_confirm': 'handoff',
-    'harness_decision_fabric': 'decision',
-    'harness_identity': 'core',
-    'harness_verify': 'evidence',
-    'harness_authorize': 'core',
-    'harness_replay': 'evidence',
-    'harness_start': 'continuity',
-    'harness_checkpoint': 'continuity',
-    'harness_advance': 'continuity',
-    'harness_finish': 'continuity',
-    'harness_route_model': 'router',
-    'harness_model_intelligence_snapshot': 'model_intelligence',
+    'contextcord_context': 'continuity',
+    'contextcord_memory': 'memory',
+    'contextcord_memory_recheck': 'memory',
+    'contextcord_resume': 'handoff',
+    'contextcord_resume_confirm': 'handoff',
+    'contextcord_decision_fabric': 'decision',
+    'contextcord_identity': 'core',
+    'contextcord_verify': 'evidence',
+    'contextcord_authorize': 'core',
+    'contextcord_replay': 'evidence',
+    'contextcord_start': 'continuity',
+    'contextcord_checkpoint': 'continuity',
+    'contextcord_advance': 'continuity',
+    'contextcord_finish': 'continuity',
+    'contextcord_route_model': 'router',
+    'contextcord_model_intelligence_snapshot': 'model_intelligence',
 }
-
-
-def _legacy_name(name: str) -> str:
-    """Map the public ContextCord prefix to the legacy compatibility name."""
-    if name.startswith("contextcord_"):
-        return "harness_" + name[len("contextcord_"):]
-    return name
-
-
-def _primary_name(name: str) -> str:
-    if name.startswith("harness_"):
-        return "contextcord_" + name[len("harness_"):]
-    return name
 
 
 class HarnessService:
@@ -112,30 +99,24 @@ class HarnessService:
         # even when that profile enables otherwise valid application features.
         if "mcp" not in effective:
             return result
-        for legacy, (description, schema) in TOOLS.items():
-            if TOOL_CAPABILITIES.get(legacy, 'core') not in effective:
+        for name, (description, schema) in TOOLS.items():
+            if TOOL_CAPABILITIES.get(name, 'core') not in effective:
                 continue
-            names = [_primary_name(legacy), legacy] if _primary_name(legacy) != legacy else [legacy]
-            for name in names:
-                is_legacy = name == legacy and name != _primary_name(legacy)
-                if not self.allow_mutations and legacy in MUTATIONS:
-                    continue
-                result.append({'name': name,
-                               'description': ("[deprecated compatibility alias] " if is_legacy else "") + description,
-                               'inputSchema': schema,
-                               'annotations': {'readOnlyHint': legacy not in MUTATIONS and legacy != 'harness_authorize',
-                                               'destructiveHint': legacy in MUTATIONS, 'openWorldHint': False}})
+            if not self.allow_mutations and name in MUTATIONS:
+                continue
+            result.append({'name': name, 'description': description, 'inputSchema': schema,
+                           'annotations': {'readOnlyHint': name not in MUTATIONS and name != 'contextcord_authorize',
+                                           'destructiveHint': name in MUTATIONS, 'openWorldHint': False}})
         return result
 
     def call(self, name, arguments):
-        name = _legacy_name(name)
         effective = self._effective_capabilities()
         if "mcp" not in effective or name not in TOOLS or TOOL_CAPABILITIES.get(name, 'core') not in effective or name in MUTATIONS and not self.allow_mutations:
             raise ValueError('tool_not_available')
         errors = sorted(Draft202012Validator(TOOLS[name][1]).iter_errors(arguments), key=lambda e: str(e.path))
         if errors:
             raise ValueError('invalid_arguments: ' + errors[0].message)
-        if name in {'harness_memory', 'harness_memory_recheck'}:
+        if name in {'contextcord_memory', 'contextcord_memory_recheck'}:
             from .config import discover
             from .memory import memory_context
             value = memory_context(discover(self.repo), task_id=arguments.get('task_id'))
@@ -144,23 +125,23 @@ class HarnessService:
             for key in ('sessions', 'notes', 'evidence', 'context_jobs', 'imported_events'):
                 if isinstance(value.get(key), list):
                     value[key] = value[key][-100:]
-            if name == 'harness_memory_recheck':
+            if name == 'contextcord_memory_recheck':
                 value = {
                     'status': value.get('status'), 'task_id': arguments.get('task_id'),
                     'current_qualification': value.get('current_qualification'),
                     'notes': [{'note_id': row.get('note_id'), 'dependency_status': row.get('dependency_status', [])} for row in value.get('notes', [])],
                 }
             return value
-        if name in {'harness_resume', 'harness_resume_confirm'}:
+        if name in {'contextcord_resume', 'contextcord_resume_confirm'}:
             from .config import discover
             from .handoff import assist_resume
             return assist_resume(discover(self.repo), task_id=arguments.get('task_id'), host=arguments.get('host'),
-                                 provider=arguments.get('provider', 'deterministic'), confirm=name == 'harness_resume_confirm',
+                                 provider=arguments.get('provider', 'deterministic'), confirm=name == 'contextcord_resume_confirm',
                                  session_id=arguments.get('session_id'))
-        if name == 'harness_decision_fabric':
+        if name == 'contextcord_decision_fabric':
             from .decision_fabric import evaluate_decision_fabric
             return evaluate_decision_fabric(arguments['state'], provider=arguments.get('provider', 'deterministic'), project_root=str(self.repo))
-        if name == 'harness_route_model':
+        if name == 'contextcord_route_model':
             from .config import ConfigError, discover
             from .jev_provider import JevApiDecisionProvider
             from .router import model_route_decision_v3
@@ -202,7 +183,7 @@ class HarnessService:
                 pass
             state.setdefault('router_version', 'v3')
             return model_route_decision_v3(state, mode=state.get('mode', 'SHADOW'), jev_provider=jev_provider)
-        if name == 'harness_model_intelligence_snapshot':
+        if name == 'contextcord_model_intelligence_snapshot':
             from .config import discover
             from .model_intelligence import load_codexradar_prior
             cfg = discover(self.repo)
@@ -218,17 +199,17 @@ class HarnessService:
                 max_stale_seconds=int(radar.get('max_stale_seconds', 86400)),
                 timeout_seconds=float(radar.get('timeout_seconds', 3)),
             )
-        if name == 'harness_replay':
+        if name == 'contextcord_replay':
             from .replay import replay
             return replay(self.repo, **arguments)
         from .cli import main
-        commands = {'harness_context': ['context','--json'], 'harness_identity': ['identity'],
-                    'harness_verify': ['verify','--ci'], 'harness_authorize': ['authorize'],
-                    'harness_start': ['start','--json'], 'harness_checkpoint': ['checkpoint'],
-                    'harness_advance': ['state','advance'], 'harness_finish': ['finish']}
+        commands = {'contextcord_context': ['context','--json'], 'contextcord_identity': ['identity'],
+                    'contextcord_verify': ['verify','--ci'], 'contextcord_authorize': ['authorize'],
+                    'contextcord_start': ['start','--json'], 'contextcord_checkpoint': ['checkpoint'],
+                    'contextcord_advance': ['state','advance'], 'contextcord_finish': ['finish']}
         argv = ['--repo', str(self.repo), *commands[name]]
         for key, value in arguments.items():
-            option = 'summary-text' if key == 'summary' and name == 'harness_finish' else key.replace('_','-')
+            option = 'summary-text' if key == 'summary' and name == 'contextcord_finish' else key.replace('_','-')
             # Equals form prevents values beginning with '-' from becoming options.
             argv.append(f'--{option}={value}')
         output = io.StringIO()

@@ -2,9 +2,9 @@ from __future__ import annotations
 import io,json,subprocess,tempfile,unittest
 from contextlib import redirect_stdout
 from pathlib import Path
-from project_harness.cli import main
-from project_harness.profiles import write_profile
-from project_harness.store import StateStore
+from contextcord.cli import main
+from contextcord.profiles import write_profile
+from contextcord.store import StateStore
 
 def git(repo,*args): return subprocess.check_output(["git","-C",str(repo),*args],text=True).strip()
 def call(repo,*args):

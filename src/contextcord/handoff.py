@@ -25,7 +25,7 @@ from .util import utc_now
 
 
 TOKEN_RE = re.compile(r"[^\W_]+", re.UNICODE)
-HANDOFF_SCHEMA = "agent-nexus-assisted-handoff-v1"
+HANDOFF_SCHEMA = "contextcord-assisted-handoff-v1"
 
 
 @dataclass(frozen=True)
@@ -183,7 +183,7 @@ def _deterministic_handoff_decision(
         actions = hard_overrides + ["NO_SEMANTIC_OVERRIDE"]
 
     receipt = {
-        "schema": "agent-nexus-jev-decision-receipt-v1",
+        "schema": "contextcord-jev-decision-receipt-v1",
         "state_sha256": _state_sha256(state),
         "gate0": {
             "outcome": "BYPASS_JEV_DETERMINISTIC_HANDOFF",
@@ -375,7 +375,7 @@ def assist_resume(cfg: HarnessConfig, *, task_id: str | None = None, host: str |
         "session_id": new_session_id,
         "context_job_id": job_id,
         "machine_receipt": {
-            "schema": "agent-nexus-assisted-handoff-receipt-v1",
+            "schema": "contextcord-assisted-handoff-receipt-v1",
             "task_id": task_id,
             "session_id": new_session_id,
             "context_job_id": job_id,

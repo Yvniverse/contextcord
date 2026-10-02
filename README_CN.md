@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="README.md">English</a> ·
-  <a href="web/docs/index.html">Docs</a> ·
+  <a href="https://contextcord.pages.dev/docs/">Docs</a> ·
   <a href="docs/ARCHITECTURE_CN.md">架构</a> ·
   <a href="docs/INTEGRATIONS_CN.md">宿主</a> ·
   <a href="docs/ROUTER_CN.md">Adaptive Router</a>
@@ -14,11 +14,15 @@
 <p align="center">
   <img alt="状态：Public Alpha" src="https://img.shields.io/badge/status-public%20alpha-2f6f57">
   <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-3776AB">
-  <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-2f6f57">
+  <img alt="Apache-2.0 License" src="https://img.shields.io/badge/license-Apache--2.0-2f6f57">
   <img alt="MCP" src="https://img.shields.io/badge/interface-MCP-59675F">
 </p>
 
 ContextCord 是面向 Coding Agent 的本地优先工程连续性与决策层。它不是“聊天记忆”产品：真实仓库始终是工程真值，旧结论可以针对当前源码重新验证，下一次会话拿到的是有界 Context Packet，而不是整段历史对话。
+
+## 量化评测
+
+维护者报告：60 个 DeepSWE / CCBench 工程任务的同模型、同预算实验中，任务通过数 **33/60（55.0%）→ 43/60（71.7%）**，**+16.7pp / 相对提升 30.3%**；重复探索 −41%、未缓存输入 Token −29%、首次正确修改通过验证器的时间中位数 −32%。[协议、计数、区间及证据身份](docs/EVALUATION_CN.md) · [汇总 JSON](research/evaluation/aggregate.json)。
 
 ## 60 秒开始
 
@@ -45,7 +49,7 @@ contextcord resume --assist
 | **MCP / Host Gateway** | 怎么跨多个 Coding Agent 继续工作 | 动态 MCP Tool Surface、Host Registry/Config、BYOH Adapter | **一个核心状态层，接入多个 Coding Agent** |
 | **Jev** · 可选 | 哪些窄问题值得语义判断 | 只在有界 Decision Path 上启用的 typed provider | **把 LLM 从执行者降级成有边界的语义顾问** |
 
-六个模块是产品职责视图，不是六个独立 Python 包或六套数据库。内部继续由一份 Capability Registry 和一个 repository-local StateStore 控制运行时组合。
+六个模块共享本地任务状态和证据，通过 Capability Registry 按需组合。
 
 ## 只启用你需要的能力
 
@@ -125,4 +129,4 @@ ContextCord 处于 **Public Alpha**。Continuity、Evidence、Capability 与 MCP
 
 ## 许可证与致谢
 
-ContextCord 0.6.2a1 Public Alpha 使用 [MIT License](LICENSE) 发布。第三方依赖与生成资产仍遵循各自许可与归属要求，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md)。架构文档使用 [Archify](https://github.com/tt-a1i/archify)；可选 Model Intelligence 可以把 [CodexRadar / DRadar](https://deng.codexradar.com/) 的公开观测数据作为带归属的 advisory source。
+ContextCord 0.6.2a1 Public Alpha 使用 [Apache-2.0 License](LICENSE) 发布。第三方依赖与生成资产仍遵循各自许可与归属要求，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md)。架构文档使用 [Archify](https://github.com/tt-a1i/archify)；可选 Model Intelligence 可以把 [CodexRadar / DRadar](https://deng.codexradar.com/) 的公开观测数据作为带归属的 advisory source。

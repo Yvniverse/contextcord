@@ -19,23 +19,23 @@ require_same_commit_as_truth = false
 sealed_on_verify = true
 
 [dogfood]
-ledger_path = ".harness/dual-run/adjudications.json"
+ledger_path = ".contextcord/dual-run/adjudications.json"
 required_task_classes = []
 '''
 GENERIC_TRUTH = '''[defaults]
 kind = "source"
 
 [[rules]]
-pattern = ".harness/generated/**"
+pattern = ".contextcord/generated/**"
 kind = "generated"
 [[rules]]
-pattern = ".harness/receipts/**"
+pattern = ".contextcord/receipts/**"
 kind = "evidence"
 [[rules]]
-pattern = ".harness/dual-run/**"
+pattern = ".contextcord/dual-run/**"
 kind = "evidence"
 [[rules]]
-pattern = ".harness/*.toml"
+pattern = ".contextcord/*.toml"
 kind = "source"
 '''
 GENERIC_WORKFLOW = '''[[phases]]
@@ -107,8 +107,8 @@ require_file_for_pass = true
 require_any_test_for_complete = true
 exact_revision_required = true
 allow_external_paths = false
-receipt_dir = ".harness/receipts"
-runner_dir = ".harness/generated/evidence"
+receipt_dir = ".contextcord/receipts"
+runner_dir = ".contextcord/generated/evidence"
 runner_allow_external_cwd = false
 runner_max_output_bytes = 1048576
 runner_redact_patterns = []
@@ -153,19 +153,19 @@ require_same_commit_as_truth = false
 sealed_on_verify = true
 
 [dogfood]
-ledger_path = ".harness/dual-run/adjudications.json"
+ledger_path = ".contextcord/dual-run/adjudications.json"
 required_task_classes = ["code-only", "data-readonly", "staging", "release"]
 '''
 CARBON_TRUTH = '''[defaults]
 kind = "source"
 [[rules]]
-pattern = ".harness/generated/**"
+pattern = ".contextcord/generated/**"
 kind = "generated"
 [[rules]]
-pattern = ".harness/receipts/**"
+pattern = ".contextcord/receipts/**"
 kind = "evidence"
 [[rules]]
-pattern = ".harness/dual-run/**"
+pattern = ".contextcord/dual-run/**"
 kind = "evidence"
 [[rules]]
 pattern = "docs/agent/sessions/**"
@@ -186,7 +186,7 @@ kind = "runtime_input"
 pattern = "evaluation/**"
 kind = "runtime_input"
 [[rules]]
-pattern = ".harness/*.toml"
+pattern = ".contextcord/*.toml"
 kind = "source"
 '''
 CARBON_WORKFLOW = '''[[phases]]
@@ -357,19 +357,19 @@ require_same_commit_as_truth = true
 sealed_on_verify = true
 
 [dogfood]
-ledger_path = ".harness/dual-run/adjudications.json"
+ledger_path = ".contextcord/dual-run/adjudications.json"
 required_task_classes = ["backend", "frontend", "browser", "release"]
 '''
 MATERIAL_TRUTH = '''[defaults]
 kind = "source"
 [[rules]]
-pattern = ".harness/generated/**"
+pattern = ".contextcord/generated/**"
 kind = "generated"
 [[rules]]
-pattern = ".harness/receipts/**"
+pattern = ".contextcord/receipts/**"
 kind = "evidence"
 [[rules]]
-pattern = ".harness/dual-run/**"
+pattern = ".contextcord/dual-run/**"
 kind = "evidence"
 [[rules]]
 pattern = "artifacts/**"
@@ -396,7 +396,7 @@ kind = "ignore"
 pattern = "docs/PROJECT_MEMORY.md"
 kind = "durable_memory"
 [[rules]]
-pattern = ".harness/*.toml"
+pattern = ".contextcord/*.toml"
 kind = "source"
 '''
 MATERIAL_WORKFLOW = '''[[phases]]
@@ -527,7 +527,7 @@ PROFILES = {
 }
 
 
-def write_profile(repo: Path, profile: str, *, force: bool = False, state_dir: str | Path = ".harness") -> list[Path]:
+def write_profile(repo: Path, profile: str, *, force: bool = False, state_dir: str | Path = ".contextcord") -> list[Path]:
     if profile not in PROFILES:
         raise ValueError(f"unknown profile: {profile}")
     from .util import ensure_repo_path
@@ -547,17 +547,14 @@ def write_profile(repo: Path, profile: str, *, force: bool = False, state_dir: s
         p = root / name
         if p.exists() and not force:
             raise FileExistsError(f"refusing to overwrite {p}; pass --force")
-        if state_name != ".harness":
-            text = text.replace(".harness", state_name)
-            if name == "truth.toml" and 'pattern = "docs/generated/**"' not in text:
-                text += '\n[[rules]]\npattern = "docs/generated/**"\nkind = "generated"\n'
-            if name == "truth.toml" and state_name == ".contextcord":
-                text += ('\n[[rules]]\npattern = ".contextcord/state.db*"\nkind = "ignore"\n'
-                         '[[rules]]\npattern = ".contextcord/closeout/**"\nkind = "generated"\n'
-                         '[[rules]]\npattern = ".contextcord/migrations/**"\nkind = "evidence"\n'
-                         '[[rules]]\npattern = ".contextcord/*.lock"\nkind = "generated"\n')
-        else:
-            text = text.replace("refs/notes/contextcord", "refs/notes/project-harness")
+        text = text.replace(".contextcord", state_name)
+        if name == "truth.toml" and 'pattern = "docs/generated/**"' not in text:
+            text += '\n[[rules]]\npattern = "docs/generated/**"\nkind = "generated"\n'
+        if name == "truth.toml" and state_name == ".contextcord":
+            text += ('\n[[rules]]\npattern = ".contextcord/state.db*"\nkind = "ignore"\n'
+                     '[[rules]]\npattern = ".contextcord/closeout/**"\nkind = "generated"\n'
+                     '[[rules]]\npattern = ".contextcord/migrations/**"\nkind = "evidence"\n'
+                     '[[rules]]\npattern = ".contextcord/*.lock"\nkind = "generated"\n')
         p.write_text(text, encoding="utf-8", newline="\n"); written.append(p)
     ignore = root / ".gitignore"
     ignore_text = "generated/\nreceipts/\ndual-run/\n"

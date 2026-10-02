@@ -1,7 +1,7 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://project-harness.dev/schemas/authority.schema.json",
-  "title":"Unified Project Harness authority manifest",
+  "$id":"https://contextcord.pages.dev/schemas/authority.schema.json",
+  "title":"ContextCord authority manifest",
   "type":"object",
   "required":["scopes"],
   "properties":{

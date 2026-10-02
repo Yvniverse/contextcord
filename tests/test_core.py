@@ -5,13 +5,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from project_harness.cli import main
-from project_harness.config import discover
-from project_harness.identity import source_identity
-from project_harness.policy import authorize, canonical_host_path
-from project_harness.profiles import write_profile
-from project_harness.qualification import deploy, record, verify
-from project_harness.store import StateStore
+from contextcord.cli import main
+from contextcord.config import discover
+from contextcord.identity import source_identity
+from contextcord.policy import authorize, canonical_host_path
+from contextcord.profiles import write_profile
+from contextcord.qualification import deploy, record, verify
+from contextcord.store import StateStore
 
 
 def git(repo: Path, *args: str) -> str:
@@ -51,12 +51,12 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(canonical_host_path("/mnt/d/data/x"), "d:/data/x")
         self.assertTrue(authorize(self.repo, cfg.authority, scope="code", operation="write", target="src/app.py").allowed)
         self.assertFalse(authorize(self.repo, cfg.authority, scope="code", operation="write", target="/tmp/out.txt").allowed)
-        self.assertEqual(__import__("project_harness.policy", fromlist=["normalize_target"]).normalize_target(self.repo, ".env")[0], ".env")
+        self.assertEqual(__import__("contextcord.policy", fromlist=["normalize_target"]).normalize_target(self.repo, ".env")[0], ".env")
 
     def test_complete_closeout_requires_workflow_and_evidence_then_ci_rehashes(self) -> None:
         sid = self.start(); evidence = self.add_pass_evidence(sid); self.complete_generic_workflow("t1", sid)
         self.assertEqual(main(["--repo", str(self.repo), "finish", "--session-id", sid, "--summary-text", "tested"]), 0)
-        receipts = list((self.repo / ".harness" / "receipts").glob("*.json")); self.assertEqual(len(receipts), 1)
+        receipts = list((self.repo / ".contextcord" / "receipts").glob("*.json")); self.assertEqual(len(receipts), 1)
         self.assertEqual(main(["--repo", str(self.repo), "verify", "--ci"]), 0)
         evidence.write_text("TAMPERED\n", encoding="utf-8")
         self.assertEqual(main(["--repo", str(self.repo), "verify", "--ci"]), 2)
@@ -80,7 +80,7 @@ class HarnessTest(unittest.TestCase):
             self.assertEqual(main(["--repo", str(self.repo), "state", "advance", "--task-id", "rel", "--phase", phase, "--next-action", "next", "--session-id", sid]), 0)
         self.add_pass_evidence(sid)
         self.assertEqual(main(["--repo", str(self.repo), "state", "advance", "--task-id", "rel", "--phase", "tests", "--next-action", "qualify", "--session-id", sid]), 0)
-        qev = self.repo / ".harness/generated/qualification-release.txt"; qev.parent.mkdir(parents=True, exist_ok=True); qev.write_text("ci pass\n", encoding="utf-8")
+        qev = self.repo / ".contextcord/generated/qualification-release.txt"; qev.parent.mkdir(parents=True, exist_ok=True); qev.write_text("ci pass\n", encoding="utf-8")
         record(discover(self.repo), commitish="HEAD", status="PASS", evidence=qev, summary="ci", kind="ci")
         self.assertEqual(main(["--repo", str(self.repo), "state", "advance", "--task-id", "rel", "--phase", "qualification", "--next-action", "deliver", "--session-id", sid]), 0)
         self.assertEqual(main(["--repo", str(self.repo), "authorize", "--task-id", "rel", "--scope", "release", "--operation", "deploy", "--target", "staging", "--session-id", sid]), 0)
@@ -103,7 +103,7 @@ class HarnessTest(unittest.TestCase):
 
     def test_source_identity_has_distinct_policy_and_truth(self) -> None:
         cfg = discover(self.repo); value = source_identity(cfg)
-        self.assertEqual(value["schema"], "project-harness-source-identity-v1")
+        self.assertEqual(value["schema"], "contextcord-source-identity-v1")
         self.assertNotEqual(value["truth_fingerprint"]["sha256"], value["policy_fingerprint"]["sha256"])
 
 

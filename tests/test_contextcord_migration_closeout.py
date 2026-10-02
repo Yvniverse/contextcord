@@ -1,13 +1,13 @@
 from __future__ import annotations
 
+import os
 import subprocess
 import tempfile
 import unittest
-import os
 from pathlib import Path
 
 from contextcord.closeout import closeout
-from contextcord.config import discover
+from contextcord.config import ConfigError, discover
 from contextcord.migration import migrate_state
 from contextcord.profiles import write_profile
 from contextcord.router import build_eligible_set, shadow_route
@@ -21,7 +21,9 @@ def git(repo: Path, *args: str) -> str:
 class ContextCordMigrationCloseoutTests(unittest.TestCase):
     def _repo(self, *, state_dir: str) -> tuple[tempfile.TemporaryDirectory[str], Path]:
         tmp = tempfile.TemporaryDirectory()
-        repo = Path(tmp.name)
+        # Discovery returns canonical paths; hosted Windows TEMP may be an
+        # 8.3 alias. Normalize the fixture, retaining the exact assertions.
+        repo = Path(tmp.name).resolve()
         subprocess.check_call(["git", "init", "-q", str(repo)])
         git(repo, "config", "user.email", "contextcord@example.com")
         git(repo, "config", "user.name", "ContextCord Tests")
@@ -34,7 +36,7 @@ class ContextCordMigrationCloseoutTests(unittest.TestCase):
         git(repo, "commit", "-qm", "initial")
         return tmp, repo
 
-    def test_canonical_state_store_is_local_and_legacy_import_remains_available(self) -> None:
+    def test_canonical_state_store_is_local(self) -> None:
         tmp, repo = self._repo(state_dir=".contextcord")
         try:
             cfg = discover(repo)
@@ -47,26 +49,21 @@ class ContextCordMigrationCloseoutTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
-    @unittest.skipUnless(os.name == "nt", "Windows path spelling regression")
-    def test_repository_state_preserves_windows_temp_path_spelling(self) -> None:
-        tmp, repo = self._repo(state_dir=".contextcord")
-        try:
-            cfg = discover(repo)
-            self.assertEqual(cfg.repo, repo)
-            self.assertEqual(cfg.root, repo / ".contextcord")
-            with StateStore(repo) as store:
-                self.assertEqual(store.path, repo / ".contextcord" / "state.db")
-        finally:
-            tmp.cleanup()
-
     def test_migration_is_dry_run_first_idempotent_and_preserves_legacy_bytes(self) -> None:
         tmp, repo = self._repo(state_dir=".harness")
         try:
             raw = repo / ".harness" / "receipts" / "historical.bin"
             raw.parent.mkdir(parents=True, exist_ok=True)
             raw.write_bytes(b"historical receipt bytes\x00\xff")
-            with StateStore(repo) as store:
-                store.event("LEGACY_STATE_TEST", {"ok": True}, task_id="legacy")
+            # A preserved legacy SQLite file is imported without reopening or rewriting it.
+            import sqlite3
+            old_db = repo / ".git" / "project-harness" / "state.db"
+            old_db.parent.mkdir(parents=True, exist_ok=True)
+            from contextlib import closing
+            with closing(sqlite3.connect(old_db)) as conn:
+                conn.execute("CREATE TABLE legacy_fixture (value TEXT)")
+                conn.execute("INSERT INTO legacy_fixture VALUES (\'retained\')")
+                conn.commit()
             dry = migrate_state(repo)
             self.assertEqual(dry["status"], "DRY_RUN")
             applied = migrate_state(repo, apply=True)
@@ -105,6 +102,35 @@ class ContextCordMigrationCloseoutTests(unittest.TestCase):
             finally:
                 lock.unlink(missing_ok=True)
             self.assertEqual(locked["status"], "LOCKED")
+        finally:
+            tmp.cleanup()
+
+    def test_short_alias_preserves_canonical_state_and_legacy_receipt_bytes(self) -> None:
+        tmp, repo = self._repo(state_dir=".harness")
+        try:
+            alias = repo
+            if os.name == "nt":
+                import ctypes
+                from ctypes import wintypes
+                function = ctypes.WinDLL("kernel32", use_last_error=True).GetShortPathNameW
+                function.argtypes = [wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD]
+                function.restype = wintypes.DWORD
+                buffer = ctypes.create_unicode_buffer(32768)
+                self.assertGreater(function(str(repo), buffer, len(buffer)), 0)
+                alias = Path(buffer.value)
+            self.assertTrue(alias.samefile(repo))
+            with self.assertRaises(ConfigError):
+                discover(alias)
+            raw = repo / ".harness" / "receipts" / "alias-history.bin"
+            raw.parent.mkdir(parents=True, exist_ok=True)
+            raw.write_bytes(b"alias historical receipt\x00\xff")
+            self.assertEqual(migrate_state(alias)["status"], "DRY_RUN")
+            self.assertEqual(migrate_state(alias, apply=True)["status"], "RECORDED")
+            self.assertEqual(discover(alias).root, repo / ".contextcord")
+            self.assertEqual(raw.read_bytes(), b"alias historical receipt\x00\xff")
+            with StateStore(alias) as store:
+                self.assertEqual(store.path, repo / ".contextcord" / "state.db")
+                store.event("SHORT_ALIAS_MIGRATION_CONTROL", {"ok": True})
         finally:
             tmp.cleanup()
 

@@ -46,7 +46,7 @@ A new or changed adapter should include:
 
 ## Schemas and compatibility
 
-New active formats use ContextCord schema IDs. Historical Project Harness / Agent-Nexus formats may remain readable through explicit compatibility layers. Do not rewrite preserved historical evidence simply to make old names disappear.
+New active formats use ContextCord schema IDs. Retired command and schema aliases are removed. Use the explicit state importer for older on-disk state. Do not rewrite preserved historical evidence simply to make old names disappear.
 
 Schema changes need an explicit version and compatibility tests when backward reading is supported.
 

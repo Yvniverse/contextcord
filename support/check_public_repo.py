@@ -9,7 +9,7 @@ from pathlib import Path
 REQUIRED = [
     "README.md", "README_CN.md", "LICENSE", "THIRD_PARTY_NOTICES.md",
     "ACKNOWLEDGEMENTS.md", "SECURITY.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md",
-    "CITATION.cff", "pyproject.toml", "web/index.html", "web/docs/index.html",
+    "CITATION.cff", "pyproject.toml",
     "docs/QUICKSTART.md", "docs/QUICKSTART_CN.md", "docs/INTEGRATIONS.md",
     "docs/INTEGRATIONS_CN.md", "docs/ARCHITECTURE.md", "docs/ARCHITECTURE_CN.md",
     "docs/ROUTER.md", "docs/ROUTER_CN.md", "research/host_evidence_registry_v3.json",
@@ -40,7 +40,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     root = args.root.resolve()
     errors: list[str] = []
-    for rel in REQUIRED:
+    required = REQUIRED + (["web/index.html", "web/docs/index.html"] if (root / "web").exists() else [])
+    for rel in required:
         if not (root / rel).is_file():
             errors.append(f"required file missing: {rel}")
     staged_paths = {item.relative_to(root).as_posix() for item in root.rglob("*") if item.is_file()}

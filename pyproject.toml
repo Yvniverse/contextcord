@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=69"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,7 +9,8 @@ description = "Portable, source-aware engineering continuity for coding agents"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["jsonschema>=4.22,<5"]
-license = "MIT"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "docs/legal/CONTEXTCORD_PREVIOUS_MIT.txt", "docs/architecture/ARCHIFY_LICENSE.txt"]
 authors = [{name = "ContextCord contributors"}]
 keywords = ["coding-agent", "engineering-continuity", "agentops", "codex", "opencode", "qoder", "software-engineering"]
 classifiers = [
@@ -18,13 +19,11 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "PyYAML>=6,<7", "build>=1,<2", "setuptools>=69", "wheel>=0.43"]
+dev = ["pytest>=8,<10", "PyYAML>=6,<7", "build>=1,<2", "setuptools>=77", "wheel>=0.43"]
 jev = ["typesafe-sdk>=0.7,<1", "python-dotenv>=1,<2"]
 
 [project.scripts]
 contextcord = "contextcord.entrypoint:main"
-poh = "project_harness.cli:main"
-project-harness = "project_harness.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

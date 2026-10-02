@@ -1,0 +1,192 @@
+{
+  "schema": "contextcord-evaluation-summary-v1",
+  "report_id": "maintainer-summary-20261002",
+  "reported_on": "2026-10-02",
+  "evidence_status": "MAINTAINER_REPORTED",
+  "source": "Project maintainer supplied the aggregate results; raw formal-run artifacts are awaiting association.",
+  "protocol": {
+    "cohort": "60 real DeepSWE / CCBench engineering tasks, as reported by the maintainer",
+    "preregistered": true,
+    "preregistration_artifact": null,
+    "same_model": true,
+    "same_budget": true,
+    "official_verifier": true,
+    "task_denominator": 60,
+    "task_ids": null,
+    "tasks_by_benchmark": null,
+    "cross_session": true,
+    "pairing_unit": "task",
+    "repeat_count": null,
+    "baseline_arm": null,
+    "arms": [
+      {
+        "id": "A_COLD_START",
+        "definition": "Fresh continuation without a handoff packet",
+        "successes": null,
+        "denominator": null
+      },
+      {
+        "id": "B_TEXT_HANDOFF",
+        "definition": "Free-text handoff from the shared session prefix",
+        "successes": null,
+        "denominator": null
+      },
+      {
+        "id": "C_STRUCTURED_CORE",
+        "definition": "ContextCord structured continuity with deterministic context selection",
+        "successes": null,
+        "denominator": null
+      },
+      {
+        "id": "D_STRUCTURED_JEV",
+        "definition": "Structured ContextCord continuity with typed Jev context selection",
+        "successes": null,
+        "denominator": null
+      }
+    ],
+    "arm_definition_source": "Repository four-arm continuation protocol; association with the maintainer 60-task run awaits its run manifest.",
+    "run_budget": null,
+    "session_cutoff_rule": null,
+    "arm_order": null,
+    "exclusion_policy_artifact": null
+  },
+  "continuation": {
+    "baseline": {
+      "successes": 33,
+      "failures": 27,
+      "denominator": 60,
+      "rate": 0.55,
+      "count_source": "maintainer_reported_exact_count",
+      "confidence_interval": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "lower": 0.4249193588533434,
+        "upper": 0.6690634559324476
+      }
+    },
+    "full_contextcord": {
+      "successes": 43,
+      "failures": 17,
+      "denominator": 60,
+      "rate": 0.7166666666666667,
+      "count_source": "maintainer_reported_exact_count",
+      "confidence_interval": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "lower": 0.5923271483560882,
+        "upper": 0.8149317157156729
+      }
+    },
+    "absolute_gain_pp": 16.666666666666664,
+    "relative_gain_percent": 30.303030303030305,
+    "paired_difference_confidence_interval": null,
+    "paired_discordance_counts": null,
+    "efficiency": {
+      "redundant_exploration_reduction_percent": 41,
+      "uncached_input_token_reduction_percent": 29,
+      "median_time_to_first_correct_verifier_pass_reduction_percent": 32,
+      "raw_numerators_denominators": null,
+      "confidence_intervals": null
+    }
+  },
+  "typed_decisions": {
+    "denominator": 300,
+    "jev": {
+      "successes": 282,
+      "failures": 18,
+      "denominator": 300,
+      "rate": 0.94,
+      "count_source": "derived_from_reported_94_percent_of_300",
+      "confidence_interval": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "lower": 0.9071605548470915,
+        "upper": 0.9617136304753079
+      }
+    },
+    "free_text_baseline": {
+      "successes": 255,
+      "failures": 45,
+      "denominator": 300,
+      "rate": 0.85,
+      "count_source": "derived_from_reported_85_percent_of_300",
+      "confidence_interval": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "lower": 0.805182388854671,
+        "upper": 0.8859675312881468
+      }
+    },
+    "absolute_gain_pp": 9.0,
+    "annotation_protocol": null,
+    "labels": null,
+    "paired_difference_confidence_interval": null
+  },
+  "adversarial_gate": {
+    "bypasses": 0,
+    "denominator": 300,
+    "observed_rate": 0.0,
+    "scope": "finite adversarial test set reported by the maintainer",
+    "confidence_interval": {
+      "method": "two-sided Clopper-Pearson exact",
+      "confidence_level": 0.95,
+      "lower": 0.0,
+      "upper": 0.012220974694293507
+    },
+    "test_case_ids": null,
+    "threat_model_artifact": null
+  },
+  "adaptive_router": {
+    "uncached_input_token_reduction_percent": 23,
+    "inference_latency_reduction_percent": 18,
+    "absolute_success_rate_change_limit_pp": 2,
+    "task_denominator": null,
+    "baseline_successes": null,
+    "router_successes": null,
+    "confidence_intervals": null
+  },
+  "identity": {
+    "benchmark_commit": null,
+    "model_provider": null,
+    "model_id": null,
+    "model_revision": null,
+    "reasoning_effort": null,
+    "verifier_name": null,
+    "verifier_revision": null,
+    "verifier_container_digest": null,
+    "run_manifest_sha256": null,
+    "report_repository": "https://github.com/Yvniverse/contextcord",
+    "report_revision": "Use the GitHub commit containing this file; this is the report revision, separate from the benchmark execution commit."
+  },
+  "failures": {
+    "baseline_failed_tasks": 27,
+    "full_contextcord_failed_tasks": 17,
+    "jev_incorrect_decisions_inferred": 18,
+    "free_text_incorrect_decisions_inferred": 45,
+    "task_failure_ids": null,
+    "failure_categories": null,
+    "infra_invalid_count": null,
+    "excluded_trials_count": null
+  },
+  "metric_definitions": {
+    "task_pass_rate": "Number of tasks with an official-verifier pass divided by the declared task denominator; terminal task failure remains in the denominator.",
+    "absolute_gain_pp": "100 * (treatment_successes / treatment_denominator - baseline_successes / baseline_denominator).",
+    "relative_gain_percent": "100 * (treatment_rate / baseline_rate - 1).",
+    "redundant_exploration": "Repeated code-navigation, search or read exploration of the same source target across sessions; exact event key and aggregation await the run protocol.",
+    "uncached_input_tokens": "Provider-reported input tokens minus cached input tokens; aggregation and paired cohort await the usage records.",
+    "time_to_first_correct_verifier_pass": "Elapsed time from the declared continuation boundary to the first official verifier pass of the correct modification; median on the protocol-defined cohort.",
+    "typed_decision_accuracy": "Correct decision labels divided by all independently annotated decisions.",
+    "gate_bypass_rate": "Observed unauthorized gate bypasses divided by adversarial cases.",
+    "inference_latency": "Elapsed model-inference time under the declared latency boundary; summary statistic awaits the router run protocol."
+  },
+  "missing_artifacts": [
+    "formal 60-task run manifest and task IDs",
+    "preregistration snapshot",
+    "A/B/C/D task outcomes and baseline mapping",
+    "model/provider/revision/effort and exact budgets",
+    "benchmark commit and official verifier identities",
+    "paired outcome/usage/timing records",
+    "300 decision annotations and adversarial case definitions",
+    "router cohort and exact counts"
+  ]
+}

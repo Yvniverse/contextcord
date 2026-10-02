@@ -16,3 +16,7 @@ artifacts/
 .contextcord/
 .env
 .env.*
+
+# Versioned policy templates; repository-local ContextCord state stays ignored.
+!/policy-packs/*/.contextcord/
+!/policy-packs/*/.contextcord/**

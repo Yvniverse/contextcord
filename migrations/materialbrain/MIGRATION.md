@@ -12,9 +12,9 @@ Do not immediately remove:
 ## Bootstrap
 
 ```bash
-project-harness init --profile materialbrain
-project-harness doctor
-project-harness identity
+contextcord init --profile materialbrain
+contextcord doctor
+contextcord identity
 ```
 
 Set `MATERIALBRAIN_BASE_URL` when UAT/release Runtime probes are expected.
@@ -30,7 +30,7 @@ Installing `.harness` is itself Source Truth. Because MaterialBrain requires sou
 
 Recommended extra classes: database migration, Golden Eval/golden-set, documentation-only, warehouse-map/graph identity.
 
-For every case compare old/new SourceIdentity, Memory, exact runtime, Evidence, browser result, and Qualification. Record the adjudication with `project-harness dual-run record`.
+For every case compare old/new SourceIdentity, Memory, exact runtime, Evidence, browser result, and Qualification. Record the adjudication with `contextcord dual-run record`.
 
 ## Scope boundaries
 

@@ -13,7 +13,7 @@ from .jev_dotenv import ensure_jev_key
 
 DEFAULT_ENDPOINT = "https://api.typesafe.ai"
 DEFAULT_MODEL = "jev-latest"
-QUESTION_SCHEMA = "agent-nexus-jev-memory-relevance-v1"
+QUESTION_SCHEMA = "contextcord-jev-memory-relevance-v1"
 DECISION_BUNDLE_QUESTION_SCHEMA = "a12-decision-bundle-v1"
 
 

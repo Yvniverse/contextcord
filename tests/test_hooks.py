@@ -7,8 +7,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from project_harness.cli import main
-from project_harness.profiles import write_profile
+from contextcord.cli import main
+from contextcord.profiles import write_profile
 
 
 def git(repo: Path, *args: str) -> str:

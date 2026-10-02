@@ -17,10 +17,7 @@ contextcord adapter config --host qoder --repo-path D:\work\repo
 contextcord adapter config --host generic --repo-path D:\work\repo
 ```
 
-The real stdio entry point is `contextcord mcp`. The historical
-`project-harness` / `poh` commands remain compatibility aliases; use the
-canonical command rather than inventing a second executable. Use an absolute
-`--repo` when the host does not set repository cwd.
+The stdio entry point is `contextcord mcp`. Use an absolute `--repo` when the host does not set repository cwd.
 
 ## Support boundary
 

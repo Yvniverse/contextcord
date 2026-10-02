@@ -1,10 +1,4 @@
-"""Vendor-neutral ContextCord Host Evidence Registry v3.
-
-Product integration, continuation evidence and qualification evidence are
-independent dimensions.  The canonical registry is ContextCord-native v3;
-the historical Agent-Nexus v2 shape is read and normalized in memory without
-rewriting the preserved source document.
-"""
+"""Vendor-neutral ContextCord Host Evidence Registry v3."""
 from __future__ import annotations
 
 import json
@@ -13,12 +7,7 @@ from typing import Any, Mapping
 
 
 BUILTIN_HOST_IDS = ("codex", "qoder", "cursor", "opencode", "workbuddy")
-LEGACY_BUILTIN_HOST_IDS = ("qoder", "cursor", "opencode", "workbuddy")
 REGISTRY_SCHEMA = "contextcord-host-evidence-registry-v3"
-LEGACY_REGISTRY_SCHEMA = "agent-nexus-host-evidence-registry-v2"
-# Legacy v2 payloads are normalized in memory for compatibility.  Historical
-# copies live outside the active registry path; new reads and writes use the
-# ContextCord-native v3 artifact.
 REGISTRY_RELATIVE_PATH = Path("research") / "host_evidence_registry_v3.json"
 
 
@@ -129,76 +118,13 @@ def validate_registry(value: Mapping[str, Any]) -> dict[str, Any]:
     return dict(value)
 
 
-def _legacy_qualification(benchmark: Mapping[str, Any], host_id: str) -> dict[str, Any]:
-    status = benchmark.get("status")
-    if status == "PENDING":
-        status = "NOT_RUN"
-    if status not in {"PASS", "PARTIAL", "NOT_QUALIFIED", "NOT_RUN", "PROVIDER_UNAVAILABLE"}:
-        raise RegistryError(f"legacy_registry_qualification_invalid:{host_id}")
-    evidence = benchmark.get("evidence", [])
-    evidence_refs = _string_list(evidence, f"benchmark.evidence:{host_id}")
-    return {
-        "status": status,
-        "qualified": benchmark.get("qualified") is True,
-        "protocol_id": benchmark.get("generation"),
-        "trials_per_arm": benchmark.get("trials_per_arm"),
-        "latest_probe": benchmark.get("latest_probe"),
-        "evidence_refs": evidence_refs,
-        "legacy_status": benchmark.get("status"),
-    }
-
-
-def _normalize_v2(value: Mapping[str, Any]) -> dict[str, Any]:
-    hosts = _require(value, "built_in_hosts", list)
-    if len(hosts) != len(LEGACY_BUILTIN_HOST_IDS):
-        raise RegistryError("legacy_registry_must_contain_exactly_four_builtin_hosts")
-    legacy_ids = [row.get("host_id") for row in hosts if isinstance(row, Mapping)]
-    if len(set(legacy_ids)) != len(legacy_ids) or set(legacy_ids) != set(LEGACY_BUILTIN_HOST_IDS):
-        raise RegistryError("legacy_registry_must_contain_the_four_known_builtin_hosts")
-    normalized_hosts: list[dict[str, Any]] = []
-    for raw in hosts:
-        if not isinstance(raw, Mapping):
-            raise RegistryError("legacy_registry_host_row_must_be_object")
-        host_id = _require(raw, "host_id", str)
-        adapter = dict(_require(raw, "adapter_contract", Mapping))
-        config = dict(_require(raw, "config_contract", Mapping))
-        continuation = dict(_require(raw, "native_continuation", Mapping))
-        qualification = _legacy_qualification(_require(raw, "benchmark", Mapping), host_id)
-        normalized_hosts.append({
-            "host_id": host_id,
-            "display_name": _require(raw, "display_name", str),
-            **({"vendor": raw["vendor"]} if isinstance(raw.get("vendor"), str) else {}),
-            "product_tier": raw.get("product_tier"),
-            "integration": {"adapter": adapter, "config": config},
-            "continuation": continuation,
-            "qualification": qualification,
-            "limitations": list(_require(raw, "limitations", list)),
-            "legacy_schema": LEGACY_REGISTRY_SCHEMA,
-        })
-    normalized = {
-        "schema": REGISTRY_SCHEMA,
-        "registry_version": str(value.get("registry_version", "legacy-v2")),
-        "verified_at": value.get("verified_at"),
-        "built_in_hosts": normalized_hosts,
-        "byoh": dict(_require(value, "byoh", Mapping)),
-        "truth_boundary": _require(value, "truth_boundary", str),
-        "legacy_schema": LEGACY_REGISTRY_SCHEMA,
-    }
-    # The legacy shape has four hosts and therefore cannot be a canonical v3
-    # registry.  It is still normalized for callers that only need to inspect
-    # historical rows; the missing Codex row is intentionally not fabricated.
-    return normalized
-
-
 def normalize_registry(value: Mapping[str, Any]) -> dict[str, Any]:
-    """Read v3 directly or normalize a historical v2 document in memory."""
+    """Validate the canonical v3 document."""
     if not isinstance(value, Mapping):
         raise RegistryError("registry_must_be_object")
     schema = value.get("schema")
     if schema == REGISTRY_SCHEMA:
         return validate_registry(value)
-    if schema == LEGACY_REGISTRY_SCHEMA:
-        return _normalize_v2(value)
     raise RegistryError("registry_schema_invalid")
 
 
@@ -217,7 +143,7 @@ def load_registry(repo: str | Path) -> dict[str, Any]:
 
 
 def load_registry_file(path: str | Path) -> dict[str, Any]:
-    """Load either a canonical v3 or historical v2 registry file."""
+    """Load a canonical v3 registry file."""
     return _read_registry_file(Path(path).expanduser().resolve())
 
 
@@ -263,8 +189,6 @@ def summary(repo: str | Path) -> dict[str, Any]:
 
 __all__ = [
     "BUILTIN_HOST_IDS",
-    "LEGACY_BUILTIN_HOST_IDS",
-    "LEGACY_REGISTRY_SCHEMA",
     "REGISTRY_SCHEMA",
     "RegistryError",
     "benchmark_qualified",

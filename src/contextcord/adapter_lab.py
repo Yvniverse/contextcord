@@ -15,7 +15,6 @@ from .util import atomic_write_json, sha256_json, utc_now
 
 
 MANIFEST_SCHEMA = "contextcord-host-adapter-v1"
-LEGACY_MANIFEST_SCHEMAS = frozenset({"agent-nexus-host-adapter-v1"})
 CERTIFICATION_LADDER = (
     "TEMPLATE_ONLY",
     "CONFIG_RENDERED",
@@ -76,10 +75,9 @@ def validate_manifest(value: dict[str, Any]) -> dict[str, Any]:
     return {
         "status": "PASS" if not failures else "FAIL",
         "schema": value.get("schema"),
-        "legacy_schema": value.get("schema") in LEGACY_MANIFEST_SCHEMAS,
         "manifest_id": value.get("id"),
         "errors": failures,
-        "required_tools": list(value.get("required_contextcord_tools") or value.get("required_agent_nexus_tools") or []),
+        "required_tools": list(value.get("required_contextcord_tools") or []),
         "secret_fields_rejected": bool(_secret_paths(value)),
     }
 
@@ -211,7 +209,7 @@ def certify_manifest(value: dict[str, Any], *, repo: Path | None = None, execute
     connected = probe.get("status") in {"PASS", "PARTIAL"}
     stages[2]["status"] = "PASS" if connected else "FAIL"
     tools_text = json.dumps(probe, ensure_ascii=False).casefold()
-    required = [str(tool).casefold() for tool in (value.get("required_contextcord_tools") or value.get("required_agent_nexus_tools") or [])]
+    required = [str(tool).casefold() for tool in (value.get("required_contextcord_tools") or [])]
     discovered = connected and all(tool in tools_text for tool in required)
     stages[3]["status"] = "PASS" if discovered else "NOT_OBSERVED"
     stages[4]["status"] = "NOT_RUN" if fixture is None else ("PASS" if discovered else "NOT_OBSERVED")

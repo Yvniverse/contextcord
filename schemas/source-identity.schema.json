@@ -1,11 +1,11 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://project-harness.dev/schemas/source-identity.schema.json",
-  "title":"Unified Project Harness SourceIdentity",
+  "$id":"https://contextcord.pages.dev/schemas/source-identity.schema.json",
+  "title":"ContextCord SourceIdentity",
   "type":"object",
   "required":["schema","mode","git_commit","git_tree","truth_fingerprint","policy_fingerprint","memory_fingerprint","dirty_truth"],
   "properties":{
-    "schema":{"const":"project-harness-source-identity-v1"},
+    "schema":{"const":"contextcord-source-identity-v1"},
     "mode":{"enum":["content_equivalent","exact_commit"]},
     "git_commit":{"type":"string","minLength":1},
     "git_tree":{"type":"string","minLength":1},

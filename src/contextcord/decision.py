@@ -64,7 +64,7 @@ def _response(*, requested_provider: str, effective_provider: str, status: str, 
         row.update(rank=rank, decision_score=score, original_index=original_index)
         rows.append(row)
     return {
-        "schema": "agent-nexus-memory-ranking-v1",
+        "schema": "contextcord-memory-ranking-v1",
         "requested_provider": requested_provider,
         "effective_provider": effective_provider,
         "status": status,

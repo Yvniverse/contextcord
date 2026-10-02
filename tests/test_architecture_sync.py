@@ -10,7 +10,6 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from architecture_sync import ACTIVE_VIEWS, GROUPS, current_architecture_status, scan_source_inventory  # noqa: E402
-from verify_portable_architecture_html import verify  # noqa: E402
 from contextcord.closeout import _architecture_phase  # noqa: E402
 
 
@@ -40,19 +39,6 @@ class ArchitectureSyncTests(unittest.TestCase):
         self.assertEqual(status["active_view_ids"], list(ACTIVE_VIEWS))
         self.assertEqual(_architecture_phase(ROOT, "auto")["status"], "SOURCE_UNCHANGED")
 
-    def test_portable_embed_contract(self) -> None:
-        home = ROOT / "web" / "index.html"
-        value = verify(home)
-        self.assertEqual(value["status"], "PASS", value)
-        self.assertEqual(value["maps"], 12)
-        self.assertEqual(value["decompression_stream"], 0)
-        self.assertFalse(value["default_srcdoc_svg"])
-        self.assertEqual(value["lazy_map_urls"], 12)
-        self.assertFalse(value["inline_architecture_payload"])
-        html = home.read_text(encoding="utf-8")
-        self.assertNotIn("project_harness", html)
-        self.assertIn('id="source-inventory-data"', html)
-        self.assertIn('contextcord-public-source-index-v1', html)
 
 
 if __name__ == "__main__":

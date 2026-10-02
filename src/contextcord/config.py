@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from .contracts import ContractError, validate
-from .util import absolute_path, expand_string, ensure_repo_path
+from .util import expand_string, ensure_repo_path
 
 
 class ConfigError(RuntimeError):
@@ -24,10 +24,10 @@ LEGACY_STATE_DIR = ".harness"
 
 
 def state_root(repo: Path) -> Path:
-    """Return the canonical config root, with an explicit legacy fallback."""
-    repo = absolute_path(repo)
+    """Return the canonical config root, for new and migrated projects."""
+    repo = repo.resolve()
     requested = os.environ.get("CONTEXTCORD_STATE_DIR")
-    candidates = ([requested] if requested else []) + [PRIMARY_STATE_DIR, LEGACY_STATE_DIR]
+    candidates = ([requested] if requested else []) + [PRIMARY_STATE_DIR]
     seen: set[str] = set()
     for name in candidates:
         if not name or name in seen:
@@ -36,7 +36,7 @@ def state_root(repo: Path) -> Path:
         root = repo / name
         if (root / "project.toml").is_file():
             return root
-    raise ConfigError(f"missing {PRIMARY_STATE_DIR} or {LEGACY_STATE_DIR} directory in {repo}")
+    raise ConfigError(f"missing {PRIMARY_STATE_DIR} directory in {repo}; run contextcord migrate for legacy state")
 
 
 VALID_OPERATIONS = {
@@ -108,7 +108,7 @@ def _legacy_truth(project: dict[str, Any], *, state_name: str = LEGACY_STATE_DIR
 
 def _legacy_qualification(project: dict[str, Any], *, state_name: str = LEGACY_STATE_DIR) -> dict[str, Any]:
     q = project.get("qualification", {})
-    default_ref = "refs/notes/contextcord" if state_name == PRIMARY_STATE_DIR else "refs/notes/project-harness"
+    default_ref = "refs/notes/contextcord"
     return {
         "notes_ref": str(q.get("notes_ref") or default_ref),
         "default_profile": "current-records",
@@ -233,7 +233,7 @@ class HarnessConfig:
 
     @property
     def notes_ref(self) -> str:
-        fallback = "refs/notes/contextcord" if self.root.name == PRIMARY_STATE_DIR else "refs/notes/project-harness"
+        fallback = "refs/notes/contextcord"
         return str(self.qualification.get("notes_ref") or self.project.get("qualification", {}).get("notes_ref") or fallback)
 
     @property
@@ -266,7 +266,7 @@ class HarnessConfig:
 
 
 def discover(repo: Path) -> HarnessConfig:
-    repo = absolute_path(repo)
+    repo = repo.resolve()
     root = state_root(repo)
     state_name = root.name
     _trusted_repo_path(repo, Path(state_name) / "project.toml", label="trusted_config")

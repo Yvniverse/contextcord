@@ -1,7 +1,7 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://project-harness.dev/schemas/truth.schema.json",
-  "title":"Unified Project Harness artifact classification manifest",
+  "$id":"https://contextcord.pages.dev/schemas/truth.schema.json",
+  "title":"ContextCord artifact classification manifest",
   "type":"object",
   "properties":{
     "rules":{"type":"array","items":{"type":"object","required":["pattern","kind"],"properties":{"pattern":{"type":"string","minLength":1},"kind":{"enum":["source","runtime_input","durable_memory","evidence","generated","session_state","qualification","ignore"]}},"additionalProperties":false}},

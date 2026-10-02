@@ -1,9 +1,9 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://project-harness.dev/schemas/qualification-note.schema.json",
-  "title":"Unified Project Harness qualification note",
+  "$id":"https://contextcord.pages.dev/schemas/qualification-note.schema.json",
+  "title":"ContextCord qualification note",
   "type":"object",
   "required":["schema","commit","records"],
-  "properties":{"schema":{"const":"project-harness-qualification-v2"},"commit":{"type":"string","minLength":1},"records":{"type":"array","items":{"type":"object","required":["record_id","kind","status","recorded_at","evidence","previous_record_hash","record_hash"],"properties":{"record_id":{"type":"string"},"kind":{"type":"string"},"status":{"enum":["PASS","FAIL","BLOCKED","NOT_RUN","ROLLED_BACK"]},"recorded_at":{"type":"string"},"evidence":{"type":"array"},"runtime_revisions":{"type":"array","items":{"type":"string"}},"environment":{"type":["string","null"]},"supersedes":{"type":["string","null"]},"previous_record_hash":{"type":["string","null"]},"record_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"}},"additionalProperties":true}}},
+  "properties":{"schema":{"const":"contextcord-qualification-v2"},"commit":{"type":"string","minLength":1},"records":{"type":"array","items":{"type":"object","required":["record_id","kind","status","recorded_at","evidence","previous_record_hash","record_hash"],"properties":{"record_id":{"type":"string"},"kind":{"type":"string"},"status":{"enum":["PASS","FAIL","BLOCKED","NOT_RUN","ROLLED_BACK"]},"recorded_at":{"type":"string"},"evidence":{"type":"array"},"runtime_revisions":{"type":"array","items":{"type":"string"}},"environment":{"type":["string","null"]},"supersedes":{"type":["string","null"]},"previous_record_hash":{"type":["string","null"]},"record_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"}},"additionalProperties":true}}},
   "additionalProperties":true
 }

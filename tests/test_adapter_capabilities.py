@@ -1,6 +1,6 @@
 from __future__ import annotations
 import unittest
-from project_harness.adapters import capabilities, check_requirements
+from contextcord.adapters import capabilities, check_requirements
 class AdapterCapabilityTests(unittest.TestCase):
     def test_capabilities_make_stop_and_file_enforcement_differences_explicit(self):
         self.assertTrue(capabilities("codex")["stop_block"]); self.assertFalse(capabilities("codex")["pretool_file_mutation"])

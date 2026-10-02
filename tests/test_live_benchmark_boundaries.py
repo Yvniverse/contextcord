@@ -53,7 +53,7 @@ class _LiveProvider:
 class LiveBenchmarkBoundaryTests(unittest.TestCase):
     def test_host_packet_does_not_contain_full_pool_or_archive(self):
         candidates = benchmark_v3._load_candidates()
-        packet, metadata = benchmark_v3._select_context("AGENT_NEXUS_BM25", candidates)
+        packet, metadata = benchmark_v3._select_context("CONTEXTCORD_BM25", candidates)
         self.assertEqual("bm25_okapi", metadata["selector"])
         self.assertNotIn("mem-ui-note", packet)
         self.assertNotIn("0007", packet)
@@ -62,7 +62,7 @@ class LiveBenchmarkBoundaryTests(unittest.TestCase):
     def test_jev_unavailable_is_not_relabelled_as_fallback_success(self):
         candidates = benchmark_v3._load_candidates()
         with patch.object(benchmark_v3, "make_provider", return_value=_UnavailableProvider()):
-            packet, metadata = benchmark_v3._select_context("AGENT_NEXUS_JEV", candidates)
+            packet, metadata = benchmark_v3._select_context("CONTEXTCORD_JEV", candidates)
         self.assertEqual("PROVIDER_UNAVAILABLE", metadata["provider_status"])
         self.assertEqual([], metadata["selected_memory_ids"])
         self.assertIn("PROVIDER_UNAVAILABLE", packet)
@@ -72,7 +72,7 @@ class LiveBenchmarkBoundaryTests(unittest.TestCase):
         candidates = benchmark_v3._load_candidates()
         provider = _LiveProvider()
         with patch.object(benchmark_v3, "make_provider", return_value=provider):
-            packet, metadata = benchmark_v3._select_context("AGENT_NEXUS_JEV", candidates)
+            packet, metadata = benchmark_v3._select_context("CONTEXTCORD_JEV", candidates)
         self.assertTrue(provider.rank_called)
         self.assertEqual("JEV_LIVE_PASS", metadata["provider_status"])
         self.assertEqual(["mem-current-contract"], metadata["selected_memory_ids"])

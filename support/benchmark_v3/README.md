@@ -9,6 +9,6 @@ The hidden oracle is an external runner input. It is not stored here, copied
 into a candidate checkout, included in a prompt, or recorded by path in trial
 evidence.
 
-The four arms are `NO_MEMORY`, `TEXT_HANDOFF`, `AGENT_NEXUS_BM25`, and
-`AGENT_NEXUS_JEV`. BM25 selection and Jev Decision Fabric decisions happen
+The four arms are `NO_MEMORY`, `TEXT_HANDOFF`, `CONTEXTCORD_BM25`, and
+`CONTEXTCORD_JEV`. BM25 selection and Jev Decision Fabric decisions happen
 before the host turn; the host sees only the arm's final bounded packet.

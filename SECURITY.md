@@ -7,7 +7,7 @@ ContextCord manages local engineering state, evidence and integrations with codi
 | Version | Security support |
 | --- | --- |
 | Current `0.6.x` Public Alpha line | Active |
-| Legacy Project Harness / Agent-Nexus snapshots | Migration/read compatibility only |
+| Historical state snapshots | Explicit import with backup and equality verification |
 
 Until a stable release exists, security fixes target the current Public Alpha line rather than maintaining every historical development snapshot.
 

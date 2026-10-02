@@ -15,7 +15,7 @@ def source_identity(cfg: HarnessConfig, *, include_files: bool = False) -> dict[
     memory = memory_fingerprint(cfg, include_files=include_files)
     policy = policy_fingerprint(cfg.repo, cfg.policy_entrypoints)
     value: dict[str, Any] = {
-        "schema": "project-harness-source-identity-v1",
+        "schema": "contextcord-source-identity-v1",
         "mode": cfg.identity_mode,
         "git_commit": head(cfg.repo),
         "git_tree": tree(cfg.repo),

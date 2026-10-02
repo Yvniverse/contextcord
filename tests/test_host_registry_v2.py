@@ -6,9 +6,8 @@ from jsonschema import Draft202012Validator
 
 from contextcord.host_registry import (
     BUILTIN_HOST_IDS,
-    LEGACY_BUILTIN_HOST_IDS,
-    LEGACY_REGISTRY_SCHEMA,
     REGISTRY_SCHEMA,
+    RegistryError,
     load_registry,
     normalize_registry,
     summary,
@@ -23,40 +22,9 @@ class HostRegistryV3Tests(unittest.TestCase):
         self.assertEqual("BYOH", value["byoh"]["product_tier"])
         self.assertEqual([], summary(".")["qualified_current_hosts"])
 
-    def test_v2_registry_is_normalized_without_legacy_schema_leaking_to_new_shape(self):
-        legacy = {
-            "schema": LEGACY_REGISTRY_SCHEMA,
-            "registry_version": "A12.2",
-            "built_in_hosts": [
-                {
-                    "host_id": host_id,
-                    "display_name": host_id.title(),
-                    "product_tier": "BUILT_IN",
-                    "adapter_contract": {
-                        "status": "PASS",
-                        "manifest": f"support/adapters/{host_id}.adapter.json",
-                        "manifest_schema": "contextcord-host-adapter-v1",
-                    },
-                    "config_contract": {"status": "PASS", "format": "stdio"},
-                    "native_continuation": {"status": "NOT_RUN", "evidence_refs": []},
-                    "benchmark": {
-                        "generation": "A12.2-v3",
-                        "status": "NOT_RUN",
-                        "qualified": False,
-                        "evidence": [],
-                    },
-                    "limitations": [],
-                }
-                for host_id in LEGACY_BUILTIN_HOST_IDS
-            ],
-            "byoh": {"product_tier": "BYOH", "manifest_schema": "contextcord-host-adapter-v1"},
-            "truth_boundary": "legacy evidence remains historical",
-        }
-        value = normalize_registry(legacy)
-        self.assertEqual(REGISTRY_SCHEMA, value["schema"])
-        self.assertEqual(list(LEGACY_BUILTIN_HOST_IDS), [row["host_id"] for row in value["built_in_hosts"]])
-        self.assertIn("integration", value["built_in_hosts"][0])
-        self.assertNotIn("adapter_contract", value["built_in_hosts"][0])
+    def test_retired_registry_schema_is_rejected(self):
+        with self.assertRaisesRegex(RegistryError, "registry_schema_invalid"):
+            normalize_registry({"schema": "agent-nexus-host-evidence-registry-v2"})
 
     def test_qualified_v3_row_requires_protocol_and_evidence(self):
         value = load_registry(".")

@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — evaluation and interface cleanup
+
+- Add bilingual evaluation pages, exact reported counts, confidence intervals, metric definitions and aggregate JSON at the README entrypoint.
+- Remove retired CLI/import/MCP aliases and emit canonical ContextCord schema IDs; recover older state through the explicit importer.
+- Adopt Apache-2.0 with retained MIT and Archify attribution in source, packages and the website.
+- Default to light mode, replace diagram fullscreen with reset, and simplify public product copy.
+
 ## 0.6.2a1 — Adaptive Router Calibration
 
 ### Added

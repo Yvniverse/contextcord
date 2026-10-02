@@ -1,7 +1,7 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://project-harness.dev/schemas/qualification.schema.json",
-  "title":"Unified Project Harness qualification manifest",
+  "$id":"https://contextcord.pages.dev/schemas/qualification.schema.json",
+  "title":"ContextCord qualification manifest",
   "type":"object",
   "properties":{
     "notes_ref":{"type":"string","minLength":1},

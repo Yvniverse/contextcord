@@ -1,5 +1,5 @@
 {
-  "$id": "https://project-harness.dev/schemas/project.schema.json",
+  "$id": "https://contextcord.pages.dev/schemas/project.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": true,
   "properties": {
@@ -130,6 +130,6 @@
   "required": [
     "project"
   ],
-  "title": "Unified Project Harness project manifest",
+  "title": "ContextCord project manifest",
   "type": "object"
 }

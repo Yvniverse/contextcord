@@ -1,4 +1,4 @@
-name: Unified Project Harness Shadow
+name: ContextCord Shadow
 
 on:
   pull_request:
@@ -12,18 +12,18 @@ jobs:
       # Project-specific workflows may download a Portable Evidence Bundle to
       # this path before the verification step. Do not commit the bundle after
       # the exact candidate commit merely to make CI see it.
-      PROJECT_HARNESS_BUNDLE: .project-harness/portable-closeout.zip
+      CONTEXTCORD_BUNDLE: .contextcord/portable-closeout.zip
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install reviewed vendored Unified Project Harness wheel when present
+      - name: Install reviewed vendored ContextCord wheel when present
         id: install
         shell: bash
         run: |
           set -euo pipefail
-          wheel=$(find tools/project-harness -maxdepth 1 -name 'project_operations_harness-*.whl' -print -quit 2>/dev/null || true)
+          wheel=$(find tools/contextcord -maxdepth 1 -name 'contextcord-*.whl' -print -quit 2>/dev/null || true)
           if [ -z "$wheel" ]; then
             echo "installed=false" >> "$GITHUB_OUTPUT"
             echo "Harness wheel not vendored; shadow job remains informational."
@@ -37,12 +37,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          project-harness doctor
-          project-harness identity
-          project-harness release-identity || true
+          contextcord doctor
+          contextcord identity
+          contextcord release-identity || true
 
       # Insert the project's trusted artifact-download step before this point.
-      # It must materialize $PROJECT_HARNESS_BUNDLE from a post-commit transport
+      # It must materialize $CONTEXTCORD_BUNDLE from a post-commit transport
       # such as a protected CI artifact/object store. The generic template does
       # not guess which remote transport is authoritative for a repository.
 
@@ -51,13 +51,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -f "$PROJECT_HARNESS_BUNDLE" ]; then
+          if [ ! -f "$CONTEXTCORD_BUNDLE" ]; then
             echo "No Portable Evidence Bundle supplied."
             echo "Shadow result covers policy/config/current identity only; it does NOT certify closeout evidence."
             exit 0
           fi
-          mkdir -p "$(dirname "$PROJECT_HARNESS_BUNDLE")"
-          project-harness bundle verify --path "$PROJECT_HARNESS_BUNDLE"
-          project-harness bundle import --path "$PROJECT_HARNESS_BUNDLE"
-          git fetch origin refs/notes/project-harness:refs/notes/project-harness 2>/dev/null || true
-          project-harness verify --ci
+          mkdir -p "$(dirname "$CONTEXTCORD_BUNDLE")"
+          contextcord bundle verify --path "$CONTEXTCORD_BUNDLE"
+          contextcord bundle import --path "$CONTEXTCORD_BUNDLE"
+          git fetch origin refs/notes/contextcord:refs/notes/contextcord 2>/dev/null || true
+          contextcord verify --ci

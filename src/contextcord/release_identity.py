@@ -84,7 +84,7 @@ def collect(cfg: HarnessConfig, *, scope: str | None = None) -> dict[str, Any]:
     if runtime.get("required_by_scope") and runtime.get("status") != "PASS":
         blockers.append(f"required_runtime_not_pass:{runtime.get('status')}")
     value: dict[str, Any] = {
-        "schema": "project-harness-release-identity-v1",
+        "schema": "contextcord-release-identity-v1",
         "source_identity": source_identity(cfg),
         "groups": {**groups, "required": required_group},
         "runtime": runtime,

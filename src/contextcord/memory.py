@@ -26,7 +26,7 @@ from .truth import classify_path
 from .util import canonical_json, ensure_repo_path, sha256_bytes, sha256_file, sha256_json, utc_now
 
 
-SCHEMA = "agent-nexus-portable-memory-v1"
+SCHEMA = "contextcord-portable-memory-v1"
 MAX_MEMBERS = 20_000
 MAX_UNCOMPRESSED = 256 * 1024 * 1024
 SECRET_NAMES = {".env", ".env.local", ".env.production", "id_ed25519", "id_rsa"}

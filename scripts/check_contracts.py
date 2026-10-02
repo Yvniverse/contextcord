@@ -4,9 +4,9 @@ import tempfile
 from pathlib import Path
 import tomllib
 from jsonschema import Draft202012Validator
-from project_harness.adapters import capabilities, render
-from project_harness.contracts import validate
-from project_harness.profiles import PROFILES
+from contextcord.adapters import capabilities, render
+from contextcord.contracts import validate
+from contextcord.profiles import PROFILES
 
 root=Path(__file__).resolve().parents[1]
 for path in (root/'src/contextcord/schemas').glob('*.json'):

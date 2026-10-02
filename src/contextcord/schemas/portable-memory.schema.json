@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://project-harness.dev/schemas/portable-memory.schema.json",
-  "title": "Agent-Nexus portable live engineering memory bundle manifest",
+  "$id": "https://contextcord.pages.dev/schemas/portable-memory.schema.json",
+  "title": "ContextCord portable live engineering memory bundle manifest",
   "type": "object",
   "required": ["schema", "schema_version", "task_id", "task_ids", "source_identity", "exported_at", "current_qualification", "objects", "payloads", "bundle_sha256"],
   "properties": {
-    "schema": {"const": "agent-nexus-portable-memory-v1"},
+    "schema": {"const": "contextcord-portable-memory-v1"},
     "schema_version": {"const": 1},
     "task_id": {"type": "string", "minLength": 1},
     "task_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},

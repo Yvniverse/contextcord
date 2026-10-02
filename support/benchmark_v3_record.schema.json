@@ -4,7 +4,7 @@
   "type": "object",
   "required": ["arm","trial","host","model_identity","source_sha256","context_packet_sha256","oracle","host_result"],
   "properties": {
-    "arm": {"enum":["NO_MEMORY","TEXT_HANDOFF","AGENT_NEXUS_BM25","AGENT_NEXUS_JEV","CONTEXTCORD_BM25","CONTEXTCORD_JEV"]},
+    "arm": {"enum":["NO_MEMORY","TEXT_HANDOFF","CONTEXTCORD_BM25","CONTEXTCORD_JEV","CONTEXTCORD_BM25","CONTEXTCORD_JEV"]},
     "trial": {"type":"integer","minimum":1},
     "host": {"type":"string"},
     "model_identity": {"type":["string","null"]},

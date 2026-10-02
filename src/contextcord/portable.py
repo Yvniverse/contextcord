@@ -19,7 +19,7 @@ from .util import ensure_repo_path
 from .truth import classify_path
 from .util import canonical_json, sha256_file, sha256_json
 
-SCHEMA = "project-harness-portable-bundle-v1"
+SCHEMA = "contextcord-portable-bundle-v1"
 
 
 def _safe_archive_path(value: str) -> str:

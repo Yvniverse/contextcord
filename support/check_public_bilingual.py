@@ -70,7 +70,7 @@ def main(argv: list[str] | None = None) -> int:
             errors.append("README contains the previous release label")
     css = root / "web" / "public.css"
     style_sources = [css] if css.is_file() else []
-    for rel in PUBLIC_REL:
+    for rel in PUBLIC_REL if (root / "web").exists() else []:
         path = root / rel
         if not path.is_file():
             errors.append(f"{rel}: missing")

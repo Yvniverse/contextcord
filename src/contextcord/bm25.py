@@ -64,7 +64,7 @@ class BM25Selection:
 
     def as_dict(self) -> dict[str, Any]:
         return {
-            "schema": "agent-nexus-bm25-selection-v1",
+            "schema": "contextcord-bm25-selection-v1",
             "selector": "bm25",
             "query": self.query,
             "selected_memory_ids": list(self.selected_memory_ids),

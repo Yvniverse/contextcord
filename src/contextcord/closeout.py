@@ -15,7 +15,7 @@ from .config import HarnessConfig
 from .identity import source_identity
 from .memory import add_note
 from .store import StateStore
-from .util import absolute_path, atomic_write_json, canonical_json, utc_now
+from .util import atomic_write_json, canonical_json, utc_now
 
 
 SCHEMA = "contextcord-closeout-receipt-v1"
@@ -112,7 +112,7 @@ def closeout(
     update_docs: bool = False,
     architecture: str = "if-changed",
 ) -> dict[str, Any]:
-    repo = absolute_path(cfg.repo)
+    repo = cfg.repo.resolve()
     with StateStore(repo) as store:
         if task_id is None:
             active = store.active_tasks()

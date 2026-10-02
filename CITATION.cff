@@ -6,5 +6,5 @@ version: 0.6.2-alpha.1
 date-released: 2026-09-27
 authors:
   - family-names: "ContextCord contributors"
-license: MIT
+license: Apache-2.0
 abstract: "Local-first, vendor-neutral engineering continuity for coding agents."

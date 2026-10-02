@@ -13,7 +13,7 @@ from .identity import compare_identity, memory_commit_errors, source_identity
 from .store import StateStore
 from .util import atomic_write_json, ensure_repo_path, read_json, sha256_json, safe_id
 
-SCHEMA = "project-harness-session-receipt-v2"
+SCHEMA = "contextcord-session-receipt-v2"
 
 
 def receipt_dir(cfg: HarnessConfig) -> Path:

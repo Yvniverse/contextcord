@@ -73,7 +73,6 @@
         "qualified": false,
         "protocol_id": "A12.2-v3",
         "trials_per_arm": 2,
-        "latest_probe": "PROVIDER_UNAVAILABLE_AFTER_TWO_TRIALS",
         "evidence_refs": []
       },
       "limitations": [
@@ -115,7 +114,6 @@
         "qualified": false,
         "protocol_id": "A12.2-v3",
         "trials_per_arm": 0,
-        "latest_probe": "CAPABILITY_MISMATCH_DESKTOP_LAUNCHER",
         "evidence_refs": []
       },
       "limitations": [
@@ -157,7 +155,6 @@
         "qualified": false,
         "protocol_id": "A12.2-v3",
         "trials_per_arm": 0,
-        "latest_probe": "CLI_NOT_AVAILABLE_ON_CURRENT_PATH",
         "evidence_refs": []
       },
       "limitations": [
@@ -199,7 +196,6 @@
         "qualified": false,
         "protocol_id": "A12.2-v3",
         "trials_per_arm": 3,
-        "latest_probe": "4_ARMS_X3_COMPLETED_NOT_QUALIFIED",
         "evidence_refs": []
       },
       "limitations": [

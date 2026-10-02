@@ -30,6 +30,11 @@ def main()->int:
             txt=p.read_text(encoding='utf-8',errors='replace')
             if 'ROUTER_V2' in txt: errors.append(f'active_router_v2_link:{rel}')
             if re.search(r'\bA(?:9|10|11|12)(?:\b|[._ -])',txt): errors.append(f'phase_marker_in_readme:{rel}')
+    manifest_path=stage/'public_content_manifest.json'
+    if manifest_path.is_file():
+        manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+        if manifest.get('website_source_included') is False and (stage/'web').exists():
+            errors.append('private_website_source_in_public_export')
     web=stage/'web/index.html'
     if web.exists() and web.stat().st_size>1_500_000:
         errors.append(f'homepage_too_large:{web.stat().st_size}')

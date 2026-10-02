@@ -121,7 +121,7 @@ def run_check(
     except ValueError:
         cwd_value = str(working)
     receipt = {
-        "schema": "project-harness-runner-receipt-v1",
+        "schema": "contextcord-runner-receipt-v1",
         "name": name,
         "session_id": session_id,
         "task_id": task_id,

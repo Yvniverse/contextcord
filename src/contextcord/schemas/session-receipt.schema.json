@@ -1,5 +1,5 @@
 {
-  "$id": "https://project-harness.dev/schemas/session-receipt.schema.json",
+  "$id": "https://contextcord.pages.dev/schemas/session-receipt.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": true,
   "properties": {
@@ -51,8 +51,8 @@
     },
     "schema": {
       "enum": [
-        "project-harness-session-receipt-v2",
-        "project-harness-session-receipt-v3"
+        "contextcord-session-receipt-v2",
+        "contextcord-session-receipt-v3"
       ]
     },
     "scope": {
@@ -104,14 +104,14 @@
     "previous_receipt_hash",
     "receipt_hash"
   ],
-  "title": "Unified Project Harness sealed session receipt v2",
+  "title": "ContextCord sealed session receipt v2",
   "type": "object",
   "allOf": [
     {
       "if": {
         "properties": {
           "schema": {
-            "const": "project-harness-session-receipt-v3"
+            "const": "contextcord-session-receipt-v3"
           }
         }
       },

@@ -1,7 +1,7 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://project-harness.dev/schemas/runtime.schema.json",
-  "title":"Unified Project Harness runtime manifest",
+  "$id":"https://contextcord.pages.dev/schemas/runtime.schema.json",
+  "title":"ContextCord runtime manifest",
   "type":"object",
   "properties":{
     "required_scopes":{"type":"array","items":{"type":"string"}},

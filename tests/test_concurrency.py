@@ -6,10 +6,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from project_harness.config import discover
-from project_harness.hostbridge import HostAction, authorize_host_action
-from project_harness.profiles import write_profile
-from project_harness.store import StateStore
+from contextcord.config import discover
+from contextcord.hostbridge import HostAction, authorize_host_action
+from contextcord.profiles import write_profile
+from contextcord.store import StateStore
 
 
 def git(repo: Path, *args: str) -> str:

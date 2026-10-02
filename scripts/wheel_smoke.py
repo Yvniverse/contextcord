@@ -26,7 +26,8 @@ def run(wheelhouse=None):
     # This is a package-isolation smoke, not a dependency-resolution gate.
     # Keep it offline and let the dedicated test environment own dependency
     # coverage separately.
-    install=[str(python),'-m','pip','install','--no-deps']
+    install=[str(python),'-m','pip','install']
+    if not wheelhouse: install.append('--no-deps')
     if wheelhouse: install+=['--no-index','--find-links',str(Path(wheelhouse).resolve())]
     subprocess.run([*install,str(wheels[-1])],cwd=temp,env=env,check=True)
     repo=temp/'repo';repo.mkdir()

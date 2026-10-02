@@ -1,1 +1,1 @@
-"""Bundled JSON Schemas for Unified Project Harness records and manifests."""
+"""Bundled JSON Schemas for ContextCord records and manifests."""

@@ -1,5 +1,5 @@
 {
-  "$id": "https://project-harness.dev/schemas/workflow.schema.json",
+  "$id": "https://contextcord.pages.dev/schemas/workflow.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": true,
   "properties": {
@@ -104,6 +104,6 @@
   "required": [
     "phases"
   ],
-  "title": "Unified Project Harness workflow manifest",
+  "title": "ContextCord workflow manifest",
   "type": "object"
 }

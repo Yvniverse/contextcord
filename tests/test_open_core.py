@@ -11,16 +11,16 @@ from pathlib import Path
 from unittest.mock import patch
 
 import test_portable_bundle as fixture
-from project_harness.adapters import render, capabilities
-from project_harness.config import discover
-from project_harness.mcp import Server, serve
-from project_harness.portable import _safe_archive_path, inspect_bundle
-from project_harness.process import capture
-from project_harness.replay import replay
-from project_harness.service import HarnessService
-from project_harness.store import StateStore
-from project_harness.truth import content_fingerprint
-from project_harness.util import sha256_json
+from contextcord.adapters import render, capabilities
+from contextcord.config import discover
+from contextcord.mcp import Server, serve
+from contextcord.portable import _safe_archive_path, inspect_bundle
+from contextcord.process import capture
+from contextcord.replay import replay
+from contextcord.service import HarnessService
+from contextcord.store import StateStore
+from contextcord.truth import content_fingerprint
+from contextcord.util import sha256_json
 
 
 class OpenCoreTests(unittest.TestCase):
@@ -127,11 +127,11 @@ class OpenCoreTests(unittest.TestCase):
         self.assertIsNone(server.handle({'jsonrpc':'2.0','method':'notifications/initialized'}))
         listed=server.handle({'jsonrpc':'2.0','id':3,'method':'tools/list'})
         names={t['name'] for t in listed['result']['tools']}
-        self.assertNotIn('harness_start',names); self.assertIn('harness_authorize',names)
-        value=server.handle({'jsonrpc':'2.0','id':4,'method':'tools/call','params':{'name':'harness_identity'}})
+        self.assertNotIn('contextcord_start',names); self.assertIn('contextcord_authorize',names)
+        value=server.handle({'jsonrpc':'2.0','id':4,'method':'tools/call','params':{'name':'contextcord_identity'}})
         self.assertFalse(value['result']['isError'])
         bad=server.handle({'jsonrpc':'2.0','id':5,'method':'tools/call','params':{
-            'name':'harness_identity','arguments':{'repo':'../other'}}})
+            'name':'contextcord_identity','arguments':{'repo':'../other'}}})
         self.assertTrue(bad['result']['isError'])
 
     def test_mcp_framing_recovers_parse_error(self):
@@ -142,8 +142,8 @@ class OpenCoreTests(unittest.TestCase):
 
     def test_mcp_mutations_use_core_and_cannot_complete_without_evidence(self):
         service=HarnessService(self.repo,allow_mutations=True)
-        started=service.call('harness_start',{'task_id':'mcp','scope':'code'})
-        result=service.call('harness_finish',{'session_id':started['session_id'],'mode':'complete','summary':'done'})
+        started=service.call('contextcord_start',{'task_id':'mcp','scope':'code'})
+        result=service.call('contextcord_finish',{'session_id':started['session_id'],'mode':'complete','summary':'done'})
         self.assertEqual(result['status'],'BLOCKED')
 
     def test_adapters_are_staged_and_do_not_overwrite(self):
@@ -161,7 +161,7 @@ class OpenCoreTests(unittest.TestCase):
         self.assertNotEqual(before,content_fingerprint(cfg)['sha256'])
 
     def test_changed_paths_preserves_unicode_and_spaces(self):
-        from project_harness.gitops import changed_paths
+        from contextcord.gitops import changed_paths
         name='测试 space.txt'; (self.repo/name).write_text('x',encoding='utf-8')
         self.assertIn(name,changed_paths(self.repo))
 
@@ -178,9 +178,9 @@ class OpenCoreTests(unittest.TestCase):
 
     def test_parallel_qualification_appends_do_not_lose_records(self):
         from concurrent.futures import ThreadPoolExecutor
-        from project_harness.qualification import record, read_note, verify
+        from contextcord.qualification import record, read_note, verify
         cfg=discover(self.repo)
-        evidence=self.repo/'.harness/generated/ci.txt';evidence.parent.mkdir(parents=True,exist_ok=True);evidence.write_text('ci pass')
+        evidence=self.repo/'.contextcord/generated/ci.txt';evidence.parent.mkdir(parents=True,exist_ok=True);evidence.write_text('ci pass')
         def append(index):
             return record(cfg,commitish='HEAD',status='PASS',evidence=evidence,summary=str(index),kind='ci')
         with ThreadPoolExecutor(max_workers=6) as pool:
@@ -190,10 +190,10 @@ class OpenCoreTests(unittest.TestCase):
         self.assertEqual(verify(cfg,commitish='HEAD')['status'],'PASS')
 
     def test_profile_init_preflights_all_files(self):
-        from project_harness.profiles import write_profile
-        (self.repo/'.harness/project.toml').unlink()
+        from contextcord.profiles import write_profile
+        (self.repo/'.contextcord/project.toml').unlink()
         with self.assertRaises(FileExistsError): write_profile(self.repo,'generic')
-        self.assertFalse((self.repo/'.harness/project.toml').exists())
+        self.assertFalse((self.repo/'.contextcord/project.toml').exists())
 
 
 if __name__=='__main__': unittest.main()

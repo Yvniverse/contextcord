@@ -55,7 +55,7 @@ OpenCode 使用自己的配置形状：
 }
 ```
 
-`project-harness`、`poh` 与 `harness_*` 仅保留为弃用的兼容别名。其它宿主必须
+`contextcord`、`contextcord` 与 `contextcord_*` 仅保留为弃用的兼容别名。其它宿主必须
 声明版本化的 BYOH Adapter Manifest 合同与 `product_tier: BYOH`。
 
 Manifest 见 `support/adapters/`；[Host Evidence Registry v3](../research/host_evidence_registry_v3.json)
