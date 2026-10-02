@@ -88,9 +88,9 @@ A percentage reduction is 100 × (1 − treatment / baseline).
 
 The report commit identifies the publication; experiment execution identities have separate fields.
 
-## Source and recomputation
+## Aggregate JSON and recomputation
 
-Results were supplied by the project maintainer and **reconfirmed on 2026-10-02**. The aggregate's evidence status is **MAINTAINER_REPORTED**. It includes protocol, denominators, counts, intervals, failures, definitions and identity fields; null denotes an unspecified value.
+[aggregate.json](../research/evaluation/aggregate.json) records protocol, denominators, counts, intervals, failures, definitions and identity fields. Null denotes an unspecified value.
 
 Recompute the published count relationships, gains and confidence intervals:
 

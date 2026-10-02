@@ -237,14 +237,14 @@
       "sha256": "55a354804c943a439cc96fa3639e714d13983bbcfa94d5f303d3ec1a3629ae25"
     },
     {
-      "bytes": 6520,
+      "bytes": 6437,
       "path": "docs/EVALUATION.md",
-      "sha256": "da3ced4c4287de5a3e35e6d3c05e88908997a7a775ef64cf2bf5b53d7005dd25"
+      "sha256": "ea74eba445bb91fff8bd944e9032d124f5c4bab12fec8dc645620305ce84d057"
     },
     {
-      "bytes": 5877,
+      "bytes": 5810,
       "path": "docs/EVALUATION_CN.md",
-      "sha256": "3813438d6da3a1157bac041c75df191cfa40a9caea04f496b5a91af87e9afa67"
+      "sha256": "94c9b3eb54dc2b6b4fdd7582041b5ae57c1ad7ddc11f9a16a0283093bcd98d5b"
     },
     {
       "bytes": 767,
@@ -542,14 +542,14 @@
       "sha256": "6959cb9977fe0fb484510cbb1b974dd937a8815d9a338cafdf499704e412f403"
     },
     {
-      "bytes": 7868,
+      "bytes": 7807,
       "path": "README.md",
-      "sha256": "0b6bb593332f0ac64ccca99f0cbff9392a0dc5dacf820e7c2ccc95990ced0407"
+      "sha256": "d3502fde692fa618dae5e6c9d57308450ca8ae8cbf13245b39dc94b9179991bb"
     },
     {
-      "bytes": 7562,
+      "bytes": 7514,
       "path": "README_CN.md",
-      "sha256": "eab1fc94b4fc5f1089f56033ea3d8a481fa06abc908db16043ca8a8afd7b3d3a"
+      "sha256": "770306879ab5bb7d1c3bfb2982e88c705929848eb784d464f5c02287a0535752"
     },
     {
       "bytes": 7238,
