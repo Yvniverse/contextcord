@@ -1,0 +1,156 @@
+{
+  "schema": "contextcord-host-evidence-registry-v3",
+  "registry_version": "v3",
+  "built_in_hosts": [
+    {
+      "host_id": "codex",
+      "display_name": "OpenAI Codex",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "src/contextcord/adapter_manifests/codex.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1"
+        },
+        "config": {
+          "status": "PASS"
+        }
+      },
+      "continuation": {
+        "status": "NOT_RUN",
+        "protocol_id": null,
+        "model_observation": null,
+        "evidence_refs": []
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": null,
+        "trials_per_arm": null,
+        "evidence_refs": []
+      },
+      "limitations": []
+    },
+    {
+      "host_id": "qoder",
+      "display_name": "Qoder",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "src/contextcord/adapter_manifests/qoder.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1"
+        },
+        "config": {
+          "status": "PASS"
+        }
+      },
+      "continuation": {
+        "status": "NOT_RUN",
+        "protocol_id": null,
+        "model_observation": null,
+        "evidence_refs": []
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": null,
+        "trials_per_arm": null,
+        "evidence_refs": []
+      },
+      "limitations": []
+    },
+    {
+      "host_id": "cursor",
+      "display_name": "Cursor",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "src/contextcord/adapter_manifests/cursor.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1"
+        },
+        "config": {
+          "status": "PASS"
+        }
+      },
+      "continuation": {
+        "status": "NOT_RUN",
+        "protocol_id": null,
+        "model_observation": null,
+        "evidence_refs": []
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": null,
+        "trials_per_arm": null,
+        "evidence_refs": []
+      },
+      "limitations": []
+    },
+    {
+      "host_id": "opencode",
+      "display_name": "OpenCode",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "src/contextcord/adapter_manifests/opencode.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1"
+        },
+        "config": {
+          "status": "PASS"
+        }
+      },
+      "continuation": {
+        "status": "NOT_RUN",
+        "protocol_id": null,
+        "model_observation": null,
+        "evidence_refs": []
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": null,
+        "trials_per_arm": null,
+        "evidence_refs": []
+      },
+      "limitations": []
+    },
+    {
+      "host_id": "workbuddy",
+      "display_name": "WorkBuddy / CodeBuddy Code",
+      "product_tier": "BUILT_IN",
+      "integration": {
+        "adapter": {
+          "status": "PASS",
+          "manifest": "src/contextcord/adapter_manifests/workbuddy.adapter.json",
+          "manifest_schema": "contextcord-host-adapter-v1"
+        },
+        "config": {
+          "status": "PASS"
+        }
+      },
+      "continuation": {
+        "status": "NOT_RUN",
+        "protocol_id": null,
+        "model_observation": null,
+        "evidence_refs": []
+      },
+      "qualification": {
+        "status": "NOT_RUN",
+        "qualified": false,
+        "protocol_id": null,
+        "trials_per_arm": null,
+        "evidence_refs": []
+      },
+      "limitations": []
+    }
+  ],
+  "byoh": {
+    "product_tier": "BYOH",
+    "manifest_schema": "contextcord-host-adapter-v1"
+  },
+  "truth_boundary": "Shipped adapter/config contracts; execution and qualification are project-local records."
+}

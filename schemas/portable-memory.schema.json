@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.pages.dev/schemas/portable-memory.schema.json",
+  "title": "ContextCord portable live engineering memory bundle manifest",
+  "type": "object",
+  "required": ["schema", "schema_version", "task_id", "task_ids", "source_identity", "exported_at", "current_qualification", "objects", "payloads", "bundle_sha256"],
+  "properties": {
+    "schema": {"const": "contextcord-portable-memory-v1"},
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "task_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "source_repo_relative": {"type": "string", "const": "."},
+    "source_identity": {"type": "object"},
+    "exported_at": {"type": "string", "minLength": 1},
+    "current_qualification": {"const": "NOT_EVALUATED"},
+    "historical_evidence_classification": {"const": "HISTORICAL"},
+    "dependency_refs": {"type": "array", "items": {"type": "object", "required": ["path"], "properties": {"path": {"type": "string"}}, "additionalProperties": true}},
+    "objects": {"type": "array", "items": {"type": "object", "required": ["kind", "sha256", "bytes", "path", "task_id"], "properties": {"kind": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "bytes": {"type": "integer", "minimum": 0}, "path": {"type": "string"}, "task_id": {"type": "string"}}, "additionalProperties": true}},
+    "payloads": {"type": "array", "items": {"type": "object", "required": ["kind", "sha256", "bytes", "path", "source_path", "task_id"], "properties": {"kind": {"const": "evidence_payload"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "bytes": {"type": "integer", "minimum": 0}, "path": {"type": "string"}, "source_path": {"type": "string"}, "task_id": {"type": "string"}}, "additionalProperties": true}},
+    "object_count": {"type": "integer", "minimum": 1},
+    "redactions": {"type": "object"},
+    "bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}

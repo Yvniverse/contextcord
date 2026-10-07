@@ -1,0 +1,57 @@
+[[protected]]
+path = "${CARBON_DATA_ROOT}/serving/**"
+operations = ["write", "delete", "move"]
+reason = "protected Carbon data authority subtree"
+[[protected]]
+path = "${CARBON_DATA_ROOT}/immutable/**"
+operations = ["write", "delete", "move"]
+reason = "immutable Carbon data authority subtree"
+[[protected]]
+path = "${CARBON_DATA_ROOT}/scientific_artifacts/**"
+operations = ["write", "delete", "move"]
+reason = "scientific artifacts are protected"
+[[protected]]
+path = "${CARBON_DATA_ROOT}/artifacts/**"
+operations = ["write", "delete", "move"]
+reason = "approved artifacts are protected"
+[[protected]]
+path = "${CARBON_DATA_ROOT}/state/**"
+operations = ["write", "delete", "move"]
+reason = "approved state is protected"
+[[protected]]
+path = ".git/**"
+operations = ["write", "delete", "move"]
+reason = "direct Git metadata mutation is forbidden"
+
+[leases]
+enforce_conflicts = true
+require_for_mutation = false
+
+[scopes.code-only]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**"]
+allow_external = false
+
+[scopes.data-readonly]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**"]
+allow_external = true
+external_read_patterns = ["${CARBON_DATA_ROOT}/**"]
+
+[scopes.staging]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**"]
+allow_external = true
+external_read_patterns = ["${CARBON_DATA_ROOT}/**"]
+external_write_patterns = ["${CARBON_STAGING_ROOT}/**"]
+
+[scopes.release]
+allow_operations = ["read", "write", "delete", "move", "test", "git", "checkpoint", "push", "release", "deploy"]
+write_patterns = ["**"]
+forbidden_patterns = [".git/**"]
+allow_external = true
+external_read_patterns = ["${CARBON_DATA_ROOT}/**"]
+external_write_patterns = ["${CARBON_STAGING_ROOT}/**"]

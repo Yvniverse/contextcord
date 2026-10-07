@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/model-route-outcome-v1.json",
+  "title": "ContextCord Model Route Outcome v1",
+  "type": "object",
+  "required": ["schema", "outcome_id", "task_class", "role", "model_id", "reasoning_effort", "verifier_pass", "created_at"],
+  "properties": {
+    "schema": {"const": "contextcord-model-route-outcome-v1"},
+    "outcome_id": {"type": "string"},
+    "task_class": {"type": "string"},
+    "role": {"type": "string"},
+    "model_id": {"type": "string"},
+    "reasoning_effort": {"enum": ["none", "low", "medium", "high", "xhigh", "max"]},
+    "identity_evidence": {"enum": ["confirmed", "configured_explicit", "host_only"]},
+    "context_profile": {"type": ["string", "null"]},
+    "source_identity_sha256": {"type": ["string", "null"]},
+    "route_decision_receipt_sha256": {"type": ["string", "null"]},
+    "verifier_id": {"type": ["string", "null"]},
+    "verifier_pass": {"type": "boolean"},
+    "attempts": {"type": "integer", "minimum": 1},
+    "elapsed_ms": {"type": ["number", "null"], "minimum": 0},
+    "input_tokens": {"type": ["integer", "null"], "minimum": 0},
+    "output_tokens": {"type": ["integer", "null"], "minimum": 0},
+    "observed_subscription_quota_delta": {"type": ["number", "null"]},
+    "api_equivalent_usd": {"type": ["number", "null"], "minimum": 0},
+    "external_prior_source": {"type": ["string", "null"]},
+    "external_prior_age_seconds": {"type": ["number", "null"], "minimum": 0},
+    "created_at": {"type": "string"}
+  },
+  "additionalProperties": true
+}

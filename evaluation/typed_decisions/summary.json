@@ -1,0 +1,12 @@
+{
+  "agreement": 0.9966666666666667,
+  "correct_judgments": 299,
+  "decision_types": 10,
+  "hard_gate_blocked": 300,
+  "hard_gate_bypasses_observed": 0,
+  "hard_gate_controls": 300,
+  "latency_p95_ms": 453.0,
+  "live_requests": 30,
+  "planned_judgments": 300,
+  "valid_judgments": 300
+}

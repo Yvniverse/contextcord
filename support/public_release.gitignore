@@ -1,0 +1,15 @@
+.venv/
+.work/
+.contextcord/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.env
+.env.*
+
+# Versioned configuration templates.
+!/policy-packs/*/.contextcord/
+!/policy-packs/*/.contextcord/**

@@ -1,0 +1,62 @@
+{
+  "schema": "contextcord-runtime-surface-v1",
+  "product_modules": [
+    "Continuum",
+    "Context Engine",
+    "Veritas",
+    "Decision Plane",
+    "MCP / Host Gateway",
+    "Jev"
+  ],
+  "runtime_capabilities": [
+    "core",
+    "evidence",
+    "continuity",
+    "memory",
+    "decision",
+    "jev",
+    "router",
+    "model_intelligence",
+    "mcp",
+    "hosts",
+    "handoff",
+    "closeout"
+  ],
+  "mcp_tools": [
+    "contextcord_context",
+    "contextcord_memory",
+    "contextcord_memory_recheck",
+    "contextcord_handoff",
+    "contextcord_handoff_confirm",
+    "contextcord_decision_fabric",
+    "contextcord_identity",
+    "contextcord_verify",
+    "contextcord_authorize",
+    "contextcord_replay",
+    "contextcord_start",
+    "contextcord_checkpoint",
+    "contextcord_advance",
+    "contextcord_finish",
+    "contextcord_route_model",
+    "contextcord_model_intelligence_snapshot"
+  ],
+  "typed_decisions": [
+    "needs_semantic_rerank",
+    "stale_conflict_severity",
+    "need_archive_restore",
+    "handoff_mode",
+    "expand_retrieval",
+    "tool_profile",
+    "ask_user",
+    "route_recommendation",
+    "claim_support_check",
+    "merge_conflict_class"
+  ],
+  "host_contracts": [
+    "codex",
+    "qoder",
+    "cursor",
+    "opencode",
+    "workbuddy"
+  ]
+}

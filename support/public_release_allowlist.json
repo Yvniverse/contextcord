@@ -1,0 +1,939 @@
+{
+  "schema": "contextcord-public-allowlist-v1",
+  "files": [
+    {
+      "path": "README.md",
+      "category": "documentation"
+    },
+    {
+      "path": "README_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "category": "documentation"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "category": "documentation"
+    },
+    {
+      "path": "ROADMAP.md",
+      "category": "documentation"
+    },
+    {
+      "path": "SECURITY.md",
+      "category": "documentation"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "category": "documentation"
+    },
+    {
+      "path": "ACKNOWLEDGEMENTS.md",
+      "category": "documentation"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "category": "documentation"
+    },
+    {
+      "path": "LICENSE",
+      "category": "legal"
+    },
+    {
+      "path": "NOTICE",
+      "category": "legal"
+    },
+    {
+      "path": "CITATION.cff",
+      "category": "legal"
+    },
+    {
+      "path": "docs/legal/CONTEXTCORD_PREVIOUS_MIT.txt",
+      "category": "legal"
+    },
+    {
+      "path": "docs/architecture/ARCHIFY_LICENSE.txt",
+      "category": "legal"
+    },
+    {
+      "path": "pyproject.toml",
+      "category": "packaging"
+    },
+    {
+      "path": "MANIFEST.in",
+      "category": "packaging"
+    },
+    {
+      "path": ".gitattributes",
+      "category": "packaging",
+      "source": "support/public_release.gitattributes"
+    },
+    {
+      "path": "support/public_release.gitattributes",
+      "category": "packaging"
+    },
+    {
+      "path": ".gitignore",
+      "category": "packaging",
+      "source": "support/public_release.gitignore"
+    },
+    {
+      "path": "support/public_release.gitignore",
+      "category": "packaging"
+    },
+    {
+      "path": "src/contextcord/__init__.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/__main__.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_lab.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_manifests/codex.adapter.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_manifests/cursor.adapter.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_manifests/generic-mcp.adapter.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_manifests/opencode.adapter.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_manifests/qoder.adapter.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapter_manifests/workbuddy.adapter.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/adapters.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/bm25.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/build_identity.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/calibration.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/capabilities.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/cli.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/closeout.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/config.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/context.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/continuity.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/contracts.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/decision.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/decision_fabric.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/dualrun.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/entrypoint.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/evidence.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/execution_routes.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/extensions.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/fingerprint.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/gitops.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/handoff.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/host_configs.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/host_registry.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/host_registry_defaults.json",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/hostbridge.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/identity.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/jev_dotenv.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/jev_provider.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/mcp.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/memory.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/migration.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/model_intelligence.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/policy.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/portable.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/process.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/profiles.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/providers.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/qualification.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/receipt.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/release_identity.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/replay.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/router.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/runner.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/runtime.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/schemas/__init__.py",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/adaptive-router-calibration.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/authority.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/dual-run-ledger.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/event.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/evidence.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/execution-route-capability.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/host-adapter.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/host-evidence-registry.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/model-intelligence-snapshot.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/model-route-decision-v2.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/model-route-decision-v3.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/model-route-outcome.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/portable-bundle.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/portable-memory.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/project.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/qualification-note.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/qualification.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/release-identity.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/router-calibration-receipt.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/runner-receipt.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/runtime.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/session-receipt.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/source-identity.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/truth.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/schemas/workflow.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "src/contextcord/service.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/store.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/truth.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/util.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/version.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/workflow.py",
+      "category": "source"
+    },
+    {
+      "path": "src/contextcord/workflow_checks.py",
+      "category": "source"
+    },
+    {
+      "path": "schemas/adaptive-router-calibration.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/authority.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/dual-run-ledger.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/event.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/execution-route-capability.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/host-adapter.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/host-evidence-registry.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/model-intelligence-snapshot.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/model-route-decision-v2.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/model-route-decision-v3.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/model-route-outcome.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/portable-bundle.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/portable-memory.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/project.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/qualification-note.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/qualification.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/release-identity.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/router-calibration-receipt.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/runner-receipt.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/runtime.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/session-receipt.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/source-identity.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/truth.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/workflow.schema.json",
+      "category": "schema"
+    },
+    {
+      "path": "tests/test_adapter_capabilities.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_adapter_lab.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_adaptive_calibration.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_bm25_selector.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_compatibility_cleanup.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_concurrency.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_continuity.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_core.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_decision_fabric.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_delivery_surfaces.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_execution_routes.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_handoff_verify_profile.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_hooks.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_host_configs.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_host_registry_v2.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_jev_provider.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_model_intelligence.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_modular_capabilities.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_open_core.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_portable_bundle.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_portable_memory.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_profiles.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_release_identity.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_repository_path_alias.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_router_v2.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_router_v3.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_scope_workflow.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_trust_plane.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_v02.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_handoff_selection.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_public_release.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/test_public_evaluation.py",
+      "category": "test"
+    },
+    {
+      "path": "tests/fixtures/route_observations.json",
+      "category": "test"
+    },
+    {
+      "path": "docs/QUICKSTART.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/QUICKSTART_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/ARCHITECTURE_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/INTEGRATIONS.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/INTEGRATIONS_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/EVALUATION.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/EVALUATION_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/ADAPTERS.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/PORTABLE_MEMORY.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/JEV_DECISION_FABRIC.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/JEV_DECISION_FABRIC_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/ROUTER.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/ROUTER_CN.md",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/runtime_surface.json",
+      "category": "documentation"
+    },
+    {
+      "path": "evaluation/continuity/README.md",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/continuity/recompute.py",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/continuity/results.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/continuity/summary.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/gate_cases.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/README.md",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/recompute.py",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/requests.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/rubric.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/scored_rows.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "evaluation/typed_decisions/summary.json",
+      "category": "evaluation"
+    },
+    {
+      "path": "policy-packs/generic/README.md",
+      "category": "documentation"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/.gitignore",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/authority.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/evidence.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/project.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/qualification.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/runtime.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/truth.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/generic/.contextcord/workflow.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/README.md",
+      "category": "documentation"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/.gitignore",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/authority.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/evidence.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/project.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/qualification.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/runtime.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/truth.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/carbon-bot/.contextcord/workflow.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/README.md",
+      "category": "documentation"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/.gitignore",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/authority.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/evidence.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/project.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/qualification.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/runtime.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/truth.toml",
+      "category": "example"
+    },
+    {
+      "path": "policy-packs/materialbrain/.contextcord/workflow.toml",
+      "category": "example"
+    },
+    {
+      "path": "examples/codex/config.toml",
+      "category": "example"
+    },
+    {
+      "path": "examples/codex/README.md",
+      "category": "example"
+    },
+    {
+      "path": "scripts/stage_public_release.py",
+      "category": "tooling"
+    },
+    {
+      "path": "scripts/check_public_release.py",
+      "category": "tooling"
+    },
+    {
+      "path": "scripts/check_product_surface.py",
+      "category": "tooling"
+    },
+    {
+      "path": "scripts/check_contracts.py",
+      "category": "tooling"
+    },
+    {
+      "path": "scripts/check_readme_metrics.py",
+      "category": "tooling"
+    },
+    {
+      "path": "scripts/mcp_smoke.py",
+      "category": "tooling"
+    },
+    {
+      "path": "scripts/check_distribution.py",
+      "category": "tooling"
+    },
+    {
+      "path": "action.yml",
+      "category": "integration"
+    },
+    {
+      "path": "integrations/github/README.md",
+      "category": "integration"
+    },
+    {
+      "path": "integrations/github/contextcord-enforce-vendored.yml",
+      "category": "integration"
+    },
+    {
+      "path": "integrations/github/contextcord-shadow.yml",
+      "category": "integration"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "category": "ci"
+    },
+    {
+      "path": "support/public_release_allowlist.json",
+      "category": "tooling"
+    }
+  ]
+}

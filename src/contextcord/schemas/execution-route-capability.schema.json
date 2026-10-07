@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/execution-route-capability-v1.json",
+  "title": "ContextCord Execution Route Capability v1",
+  "type": "object",
+  "required": ["schema", "host_id", "requested_model", "requested_effort", "capability_state", "identity_evidence", "execution_eligible"],
+  "properties": {
+    "schema": {"const": "contextcord-execution-route-capability-v1"},
+    "host_id": {"type": "string"},
+    "requested_model": {"type": "string"},
+    "requested_effort": {"type": "string"},
+    "capability_state": {"enum": ["CONFIRMED", "CONFIGURED_EXPLICIT", "UNKNOWN", "UNAVAILABLE"]},
+    "identity_evidence": {"enum": ["resolved_telemetry", "configured_explicit", "none"]},
+    "execution_eligible": {"type": "boolean"},
+    "fallback_observed": {"type": ["boolean", "null"]},
+    "probe_verifier_pass": {"type": ["boolean", "null"]},
+    "latency_ms": {"type": ["number", "null"], "minimum": 0},
+    "usage": {"type": ["object", "null"]}
+  },
+  "additionalProperties": true
+}

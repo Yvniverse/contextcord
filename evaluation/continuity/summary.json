@@ -1,0 +1,12 @@
+{
+  "bounded_text_to_handoff_byte_reduction": 0.8492590277777778,
+  "bounded_text_utf8_bytes": 1440000,
+  "changed_dependency_notes_revalidated": 180,
+  "handoff_json_utf8_bytes": 217067,
+  "notes_lossless_tasks": 60,
+  "notes_recovered": 5040,
+  "replays": 60,
+  "stale_notes_selected_after_drift": 0,
+  "tampered_objects_rejected": 60,
+  "task_fields_lossless": 60
+}

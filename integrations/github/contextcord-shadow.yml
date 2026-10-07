@@ -1,0 +1,63 @@
+name: ContextCord Shadow
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  harness-shadow:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      # Project-specific workflows may download a Portable Evidence Bundle to
+      # this path before the verification step. Do not commit the bundle after
+      # the exact candidate commit merely to make CI see it.
+      CONTEXTCORD_BUNDLE: .contextcord/portable-closeout.zip
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install reviewed vendored ContextCord wheel when present
+        id: install
+        shell: bash
+        run: |
+          set -euo pipefail
+          wheel=$(find tools/contextcord -maxdepth 1 -name 'contextcord-*.whl' -print -quit 2>/dev/null || true)
+          if [ -z "$wheel" ]; then
+            echo "installed=false" >> "$GITHUB_OUTPUT"
+            echo "Harness wheel not vendored; shadow job remains informational."
+            exit 0
+          fi
+          python -m pip install --no-deps "$wheel"
+          echo "installed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Validate policy and compute current identities
+        if: steps.install.outputs.installed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          contextcord doctor
+          contextcord identity
+          contextcord release-identity || true
+
+      # Insert the project's trusted artifact-download step before this point.
+      # It must materialize $CONTEXTCORD_BUNDLE from a post-commit transport
+      # such as a protected CI artifact/object store. The generic template does
+      # not guess which remote transport is authoritative for a repository.
+
+      - name: Verify portable closeout when supplied
+        if: steps.install.outputs.installed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "$CONTEXTCORD_BUNDLE" ]; then
+            echo "No Portable Evidence Bundle supplied."
+            echo "Shadow result covers policy/config/current identity only; it does NOT certify closeout evidence."
+            exit 0
+          fi
+          mkdir -p "$(dirname "$CONTEXTCORD_BUNDLE")"
+          contextcord bundle verify --path "$CONTEXTCORD_BUNDLE"
+          contextcord bundle import --path "$CONTEXTCORD_BUNDLE"
+          git fetch origin refs/notes/contextcord:refs/notes/contextcord 2>/dev/null || true
+          contextcord verify --ci

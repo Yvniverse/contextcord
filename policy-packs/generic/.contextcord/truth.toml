@@ -1,0 +1,15 @@
+[defaults]
+kind = "source"
+
+[[rules]]
+pattern = ".contextcord/generated/**"
+kind = "generated"
+[[rules]]
+pattern = ".contextcord/receipts/**"
+kind = "evidence"
+[[rules]]
+pattern = ".contextcord/dual-run/**"
+kind = "evidence"
+[[rules]]
+pattern = ".contextcord/*.toml"
+kind = "source"

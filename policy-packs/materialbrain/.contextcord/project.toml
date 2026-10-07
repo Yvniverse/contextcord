@@ -1,0 +1,30 @@
+[project]
+name = "MaterialBrain"
+
+[identity]
+mode = "exact_commit"
+
+[knowledge]
+entrypoints = [
+  "AGENTS.md",
+  "backend/AGENTS.md",
+  "frontend/AGENTS.md",
+  "docs/PROJECT_MEMORY.md",
+  "docs/DOCUMENTATION_MAP.md"
+]
+
+[policy]
+entrypoints = [
+  "AGENTS.md",
+  "backend/AGENTS.md",
+  "frontend/AGENTS.md",
+  "docs/DOCUMENTATION_MAP.md"
+]
+
+[memory]
+require_same_commit_as_truth = true
+sealed_on_verify = true
+
+[dogfood]
+ledger_path = ".contextcord/dual-run/adjudications.json"
+required_task_classes = ["backend", "frontend", "browser", "release"]

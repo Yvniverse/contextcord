@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://contextcord.pages.dev/schemas/source-identity.schema.json",
+  "title":"ContextCord SourceIdentity",
+  "type":"object",
+  "required":["schema","mode","git_commit","git_tree","truth_fingerprint","policy_fingerprint","memory_fingerprint","dirty_truth"],
+  "properties":{
+    "schema":{"const":"contextcord-source-identity-v1"},
+    "mode":{"enum":["content_equivalent","exact_commit"]},
+    "git_commit":{"type":"string","minLength":1},
+    "git_tree":{"type":"string","minLength":1},
+    "truth_fingerprint":{"type":"object","required":["sha256","algorithm"]},
+    "policy_fingerprint":{"type":"object","required":["sha256"]},
+    "memory_fingerprint":{"type":"object","required":["sha256","algorithm"]},
+    "dirty_truth":{"type":"array","items":{"type":"string"}},
+    "identity_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"}
+  },
+  "additionalProperties":true
+}

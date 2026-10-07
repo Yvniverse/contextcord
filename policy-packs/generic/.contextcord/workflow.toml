@@ -1,0 +1,39 @@
+[[phases]]
+id = "authority"
+requires = []
+[[phases]]
+id = "implementation"
+requires = ["authority"]
+[[phases]]
+id = "tests"
+requires = ["implementation"]
+[[phases]]
+id = "qualification"
+requires = ["tests"]
+[[phases]]
+id = "delivery"
+requires = ["qualification"]
+
+[scope_profiles.code]
+required_phases = ["authority", "implementation", "tests"]
+[scope_profiles.release]
+required_phases = ["authority", "implementation", "tests", "qualification", "delivery"]
+
+[phase_contracts.authority]
+require_policy_stable = true
+[phase_contracts.tests]
+minimum_pass_evidence = 1
+[phase_contracts.qualification]
+require_qualification_profile = "candidate"
+[phase_contracts.delivery]
+require_qualification_profile = "release"
+
+[operation_gates.push]
+allowed_current_phases = ["delivery"]
+requires_completed = ["qualification"]
+[operation_gates.release]
+allowed_current_phases = ["delivery"]
+requires_completed = ["qualification"]
+[operation_gates.deploy]
+allowed_current_phases = ["delivery"]
+requires_completed = ["qualification"]

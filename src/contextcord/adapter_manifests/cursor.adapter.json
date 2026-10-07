@@ -1,0 +1,49 @@
+{
+  "schema": "contextcord-host-adapter-v1",
+  "id": "cursor",
+  "display_name": "Cursor",
+  "vendor": "Anysphere",
+  "official_docs": "https://docs.cursor.com/context/model-context-protocol",
+  "transports": [
+    "stdio",
+    "streamable_http",
+    "sse"
+  ],
+  "config_scopes": [
+    "project",
+    "user"
+  ],
+  "config_template": {
+    "project_file": ".cursor/mcp.json",
+    "mcpServers": {
+      "contextcord": {
+        "command": "contextcord",
+        "args": [
+          "mcp"
+        ]
+      }
+    }
+  },
+  "reload": {
+    "kind": "ui_or_cli",
+    "instruction": "Enable/reload MCP in Cursor Customize or CLI"
+  },
+  "list_tools": {
+    "kind": "cli",
+    "command": "agent mcp list-tools contextcord"
+  },
+  "lazy_loading": {
+    "supported": "host_managed"
+  },
+  "permissions": {
+    "user_confirmation_required": true
+  },
+  "telemetry": {
+    "model_id": "host_returned_or_unknown",
+    "token_usage": "host_returned_or_unknown"
+  },
+  "required_contextcord_tools": [
+    "contextcord_memory",
+    "contextcord_memory_recheck"
+  ]
+}

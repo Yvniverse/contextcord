@@ -1,0 +1,32 @@
+[defaults]
+kind = "source"
+[[rules]]
+pattern = ".contextcord/generated/**"
+kind = "generated"
+[[rules]]
+pattern = ".contextcord/receipts/**"
+kind = "evidence"
+[[rules]]
+pattern = ".contextcord/dual-run/**"
+kind = "evidence"
+[[rules]]
+pattern = "docs/agent/sessions/**"
+kind = "evidence"
+[[rules]]
+pattern = "docs/agent/PROJECT_MEMORY.md"
+kind = "durable_memory"
+[[rules]]
+pattern = "training/**"
+kind = "runtime_input"
+[[rules]]
+pattern = "knowledge_base/**"
+kind = "runtime_input"
+[[rules]]
+pattern = "benchmarks/**"
+kind = "runtime_input"
+[[rules]]
+pattern = "evaluation/**"
+kind = "runtime_input"
+[[rules]]
+pattern = ".contextcord/*.toml"
+kind = "source"

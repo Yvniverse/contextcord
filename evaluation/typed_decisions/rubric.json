@@ -1,0 +1,78 @@
+{
+  "boolean_threshold": 0.5,
+  "choice_rule": "declared enum membership",
+  "decision_types": [
+    {
+      "id": "needs_semantic_rerank",
+      "type": "noul"
+    },
+    {
+      "id": "stale_conflict_severity",
+      "levels": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "score"
+    },
+    {
+      "id": "need_archive_restore",
+      "type": "noul"
+    },
+    {
+      "id": "handoff_mode",
+      "options": [
+        "MINIMAL",
+        "STANDARD",
+        "FORENSIC"
+      ],
+      "type": "choice"
+    },
+    {
+      "id": "expand_retrieval",
+      "type": "noul"
+    },
+    {
+      "id": "tool_profile",
+      "options": [
+        "CONTINUITY_ONLY",
+        "FULL"
+      ],
+      "type": "choice"
+    },
+    {
+      "id": "ask_user",
+      "type": "noul"
+    },
+    {
+      "id": "route_recommendation",
+      "options": [
+        "CURRENT_HOST",
+        "QODER",
+        "CURSOR",
+        "OPENCODE",
+        "WORKBUDDY",
+        "USER_CHOICE"
+      ],
+      "type": "choice"
+    },
+    {
+      "id": "claim_support_check",
+      "type": "noul"
+    },
+    {
+      "id": "merge_conflict_class",
+      "options": [
+        "duplicate",
+        "compatible",
+        "semantic_conflict",
+        "human_review"
+      ],
+      "type": "choice"
+    }
+  ],
+  "frozen_before_calls": true,
+  "ordinal_rule": "nearest integer in 0..3",
+  "schema": "contextcord-typed-rubric-v1"
+}

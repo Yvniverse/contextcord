@@ -1,0 +1,17 @@
+required_scopes = ["uat", "release"]
+[[probes]]
+id = "backend"
+kind = "http_json"
+url = "${MATERIALBRAIN_BASE_URL}/api/v1/runtime-info"
+revision_field = "backend_build_sha"
+expected = "HEAD"
+required = false
+timeout = 2.0
+[[probes]]
+id = "frontend"
+kind = "http_json"
+url = "${MATERIALBRAIN_BASE_URL}/build-info.json"
+revision_field = "frontend_build_sha"
+expected = "HEAD"
+required = false
+timeout = 2.0

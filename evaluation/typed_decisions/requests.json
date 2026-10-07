@@ -1,0 +1,182 @@
+[
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 2140.0,
+    "request_id": "typed-batch-01"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 406.0,
+    "request_id": "typed-batch-02"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 406.0,
+    "request_id": "typed-batch-03"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 360.0,
+    "request_id": "typed-batch-04"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 406.0,
+    "request_id": "typed-batch-05"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 422.0,
+    "request_id": "typed-batch-06"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 406.0,
+    "request_id": "typed-batch-07"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-08"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-09"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 391.0,
+    "request_id": "typed-batch-10"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-11"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-12"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-13"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-14"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 391.0,
+    "request_id": "typed-batch-15"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 359.0,
+    "request_id": "typed-batch-16"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 359.0,
+    "request_id": "typed-batch-17"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-18"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 391.0,
+    "request_id": "typed-batch-19"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 391.0,
+    "request_id": "typed-batch-20"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-21"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 422.0,
+    "request_id": "typed-batch-22"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 453.0,
+    "request_id": "typed-batch-23"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 406.0,
+    "request_id": "typed-batch-24"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 391.0,
+    "request_id": "typed-batch-25"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 422.0,
+    "request_id": "typed-batch-26"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 391.0,
+    "request_id": "typed-batch-27"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 407.0,
+    "request_id": "typed-batch-28"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-29"
+  },
+  {
+    "completed": true,
+    "judgments": 10,
+    "latency_ms": 375.0,
+    "request_id": "typed-batch-30"
+  }
+]

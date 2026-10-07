@@ -1,0 +1,2102 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": "QODER",
+    "expected": "QODER",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-01",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": "CURSOR",
+    "expected": "CURSOR",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-02",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": "OPENCODE",
+    "expected": "OPENCODE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-03",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": "WORKBUDDY",
+    "expected": "WORKBUDDY",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-04",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": "USER_CHOICE",
+    "expected": "USER_CHOICE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-05",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": "CURRENT_HOST",
+    "expected": "CURRENT_HOST",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-06",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": "QODER",
+    "expected": "QODER",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-07",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": "CURSOR",
+    "expected": "CURSOR",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-08",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": "OPENCODE",
+    "expected": "OPENCODE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-09",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": "WORKBUDDY",
+    "expected": "WORKBUDDY",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-10",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": "USER_CHOICE",
+    "expected": "USER_CHOICE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-11",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": "CURRENT_HOST",
+    "expected": "CURRENT_HOST",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-12",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": "QODER",
+    "expected": "QODER",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-13",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": "CURSOR",
+    "expected": "CURSOR",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-14",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": "OPENCODE",
+    "expected": "OPENCODE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-15",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": "WORKBUDDY",
+    "expected": "WORKBUDDY",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-16",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": "USER_CHOICE",
+    "expected": "USER_CHOICE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-17",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": "CURRENT_HOST",
+    "expected": "CURRENT_HOST",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-18",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": "QODER",
+    "expected": "QODER",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-19",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": "CURSOR",
+    "expected": "CURSOR",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-20",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": "OPENCODE",
+    "expected": "OPENCODE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-21",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": "WORKBUDDY",
+    "expected": "WORKBUDDY",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-22",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": "USER_CHOICE",
+    "expected": "USER_CHOICE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-23",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": "CURRENT_HOST",
+    "expected": "CURRENT_HOST",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-24",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": "QODER",
+    "expected": "QODER",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": "human_review",
+    "expected": "human_review",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-25",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": "CURSOR",
+    "expected": "CURSOR",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-26",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": 3,
+    "expected": 3,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": "OPENCODE",
+    "expected": "OPENCODE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-27",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": "MINIMAL",
+    "expected": "MINIMAL",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": "WORKBUDDY",
+    "expected": "WORKBUDDY",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": "duplicate",
+    "expected": "duplicate",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-28",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": "STANDARD",
+    "expected": "STANDARD",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": "FULL",
+    "expected": "FULL",
+    "question": "tool_profile",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "ask_user",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": "USER_CHOICE",
+    "expected": "USER_CHOICE",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": "compatible",
+    "expected": "compatible",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-29",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "needs_semantic_rerank",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": 2,
+    "expected": 2,
+    "question": "stale_conflict_severity",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "need_archive_restore",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": "FORENSIC",
+    "expected": "FORENSIC",
+    "question": "handoff_mode",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "expand_retrieval",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": "CONTINUITY_ONLY",
+    "expected": "CONTINUITY_ONLY",
+    "question": "tool_profile",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "question": "ask_user",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": "CURRENT_HOST",
+    "expected": "CURRENT_HOST",
+    "question": "route_recommendation",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "question": "claim_support_check",
+    "request_id": "typed-batch-30",
+    "valid": true
+  },
+  {
+    "actual": "semantic_conflict",
+    "expected": "semantic_conflict",
+    "question": "merge_conflict_class",
+    "request_id": "typed-batch-30",
+    "valid": true
+  }
+]

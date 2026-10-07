@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextcord.dev/schemas/model-route-decision-v2.json",
+  "title": "ContextCord Model Route Decision v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "mode",
+    "task_profile",
+    "eligible_routes",
+    "jev_decision",
+    "policy",
+    "execution"
+  ],
+  "properties": {
+    "schema": {
+      "const": "contextcord-model-route-decision-v2"
+    },
+    "mode": {
+      "enum": [
+        "SHADOW",
+        "EXECUTE"
+      ]
+    },
+    "task_profile": {
+      "type": "object",
+      "required": [
+        "role",
+        "complexity",
+        "failure_cost",
+        "context_pressure"
+      ]
+    },
+    "eligible_routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "route_id",
+          "model_id",
+          "reasoning_effort",
+          "role"
+        ],
+        "properties": {
+          "route_id": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "reasoning_effort": {
+            "enum": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          "role": {
+            "enum": [
+              "explorer",
+              "implementer",
+              "reviewer"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "jev_decision": {
+      "type": "object",
+      "required": [
+        "kind",
+        "route_id"
+      ],
+      "properties": {
+        "kind": {
+          "const": "Choice"
+        },
+        "route_id": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "max_attempts",
+        "fallback_allowed"
+      ],
+      "properties": {
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2
+        },
+        "fallback_allowed": {
+          "const": false
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "executed"
+      ],
+      "properties": {
+        "executed": {
+          "type": "boolean"
+        },
+        "observed_model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_reasoning_effort": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verifier_pass": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "observed_subscription_quota_pct": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "api_equivalent_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

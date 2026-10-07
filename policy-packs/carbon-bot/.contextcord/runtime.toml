@@ -1,0 +1,2 @@
+required_scopes = []
+# Add Carbon provider/data/runtime collectors as command_json probes during real rollout.

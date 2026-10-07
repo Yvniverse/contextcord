@@ -1,0 +1,57 @@
+{
+  "$id": "https://contextcord.pages.dev/schemas/evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "rules": {
+      "additionalProperties": true,
+      "properties": {
+        "allow_external_paths": {
+          "type": "boolean"
+        },
+        "exact_revision_required": {
+          "type": "boolean"
+        },
+        "receipt_dir": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "require_any_test_for_complete": {
+          "type": "boolean"
+        },
+        "require_file_for_pass": {
+          "type": "boolean"
+        },
+        "require_policy_stable": {
+          "type": "boolean"
+        },
+        "require_workflow_complete": {
+          "type": "boolean"
+        },
+        "runner_allow_external_cwd": {
+          "type": "boolean"
+        },
+        "runner_dir": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "runner_max_output_bytes": {
+          "minimum": 1024,
+          "type": "integer"
+        },
+        "runner_redact_patterns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "runner_require_identity_stable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "ContextCord evidence manifest",
+  "type": "object"
+}

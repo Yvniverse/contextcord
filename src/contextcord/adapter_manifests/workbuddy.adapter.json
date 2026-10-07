@@ -1,0 +1,51 @@
+{
+  "schema": "contextcord-host-adapter-v1",
+  "id": "workbuddy",
+  "display_name": "WorkBuddy / CodeBuddy Code",
+  "vendor": "Tencent",
+  "official_docs": "https://www.codebuddy.ai/docs/cli/mcp",
+  "transports": [
+    "stdio",
+    "streamable_http",
+    "sse"
+  ],
+  "config_scopes": [
+    "project",
+    "user",
+    "local"
+  ],
+  "config_template": {
+    "project_file": ".mcp.json",
+    "server": {
+      "type": "stdio",
+      "command": "contextcord",
+      "args": [
+        "mcp"
+      ]
+    }
+  },
+  "reload": {
+    "kind": "slash_or_live_reload",
+    "instruction": "Use host MCP management/reload behavior"
+  },
+  "list_tools": {
+    "kind": "slash_or_cli",
+    "instruction": "Use /mcp or codebuddy MCP diagnostics"
+  },
+  "lazy_loading": {
+    "supported": true,
+    "setting": "CODEBUDDY_DEFER_TOOL_LOADING",
+    "environment": "Set to 1/true to enable deferred MCP tool loading when supported"
+  },
+  "permissions": {
+    "user_confirmation_required": true
+  },
+  "telemetry": {
+    "model_id": "host_returned_or_unknown",
+    "token_usage": "host_returned_or_unknown"
+  },
+  "required_contextcord_tools": [
+    "contextcord_memory",
+    "contextcord_memory_recheck"
+  ]
+}

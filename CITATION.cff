@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: ContextCord
+message: "If this project helps your work, please cite the repository release."
+type: software
+version: 0.6.2a1
+authors:
+  - family-names: "ContextCord contributors"
+license: Apache-2.0
+abstract: "Local-first, vendor-neutral engineering continuity for coding agents."
