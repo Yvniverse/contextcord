@@ -88,11 +88,16 @@ def content_manifest(root: Path, inventory: dict[str, str] | None = None) -> dic
 
 
 def stage(root: Path, destination: Path) -> Path:
-    root = root.resolve()
-    # Only a disposable staging subtree is a valid destination. Existing
-    # content is never removed by the exporter.
-    relative = destination.absolute().relative_to(root)
+    # Compute the staging-relative path before resolving the source root.
+    # Windows runners can expose the same temporary directory through a short
+    # path alias; resolving only one side makes lexical relative_to() reject
+    # paths that refer to the same staging subtree.
+    root_absolute = root.absolute()
+    relative = destination.absolute().relative_to(root_absolute)
     safe_relative(relative.as_posix())
+    root = root.resolve()
+    # checked_path() still walks every destination component from the resolved
+    # root and rejects symlinks/junctions/reparse points before any output.
     destination = checked_path(root, relative.as_posix())
     if not relative.parts or relative.parts[0] != ".work":
         raise ValueError("destination_must_be_in_staging_directory")
